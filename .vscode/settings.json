@@ -1,0 +1,32 @@
+{
+    // 控制相关文件嵌套展示
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "$(capture).test.ts, $(capture).test.tsx",
+        "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
+        ".env": "$(capture).env.*",
+        "package.json": ".npmrc,package-lock.json,pnpm-lock.yaml,yarn.lock",
+        "README.MD": "LICENSE,README*",
+        ".git*": "CHANGELOG*,CNAME,.git*",
+        "eslint.config.*": "eslint*,.eslint*,stylelint*,.stylelint*,.prettier*,prettier*,.lint*,.editorconfig,commitlint*",
+        "postcss.config.*": "postcss*,.postcss*,tailwind*,components.*",
+        "*vite.config.ts": "vitest.config.*,cypress.config.*,.babelrc,.postcssrc.*,alias.config.*,tsconfig*,,babel*,.browserslistrc,electron-builder.*,dev-app-update.*",
+        // ".commitlint*": ".commitlintrc*,commitlint*",
+        "Dockerfile*": "Dockerfile*,docker-compose*"
+    },
+
+    // "prettier.enable": true,
+    // "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    // "eslint.codeActionsOnSave.mode": "all",
+    // Auto fix
+    // "editor.codeActionsOnSave": {
+    //   "source.fixAll.eslint": "explicit",
+    //   "source.fixAll.stylelint": "explicit",
+    //   "source.organizeImports": "never"
+    // },
+
+    "cSpell.words": ["autoincrement", "coko", "esbuild", "loginway", "qrcode", "vueuse", "wangeditor"]
+    // "oxc.enable": true
+}

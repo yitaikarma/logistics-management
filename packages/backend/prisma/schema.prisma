@@ -1,0 +1,156 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider                         = "zod-prisma-types"
+  output                           = "./zod" // default is ./generated/zod
+  useMultipleFiles                 = false // default is false
+  writeBarrelFiles                 = false // default is true
+  createInputTypes                 = false // default is true
+  createModelTypes                 = true // default is true
+  addInputTypeValidation           = false // default is true
+  addIncludeType                   = false // default is true
+  addSelectType                    = false // default is true
+  validateWhereUniqueInput         = false // default is true
+  createOptionalDefaultValuesTypes = false // default is false
+  createRelationValuesTypes        = false // default is false
+  createPartialTypes               = false // default is false
+  useDefaultValidators             = true // default is true
+  coerceDate                       = false // default is true
+  writeNullishInModelTypes         = true // default is false
+  // prismaClientPath                 = "./path/to/prisma/client" // default is client output path
+}
+
+model Role {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  key       Int      @unique @db.UnsignedTinyInt
+  name      String   @unique @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+  @@index([name])
+}
+
+model User {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  email     String   @unique @db.VarChar(255)
+  username  String   @unique @db.VarChar(255)
+  phone     String?  @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  role      Int      @db.UnsignedTinyInt
+  gender    Int      @default(0) @db.TinyInt
+  nickname  String   @db.VarChar(255)
+  avatar    String?  @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([username])
+  @@index([phone])
+  @@index([role])
+}
+
+model Login_Log {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  email     String   @unique @db.VarChar(255)
+  browser   Int      @db.UnsignedTinyInt
+  ip        String   @db.VarChar(255)
+  status    Int      @default(0) @db.UnsignedTinyInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+model System_Log {
+  id            Int      @id @default(autoincrement()) @db.UnsignedInt
+  account       String   @unique @db.VarChar(255)
+  business_type String   @db.VarChar(255)
+  ip            String   @db.VarChar(255)
+  method        String   @db.VarChar(255)
+  module        String   @db.VarChar(255)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([account])
+  @@index([business_type])
+  @@index([ip])
+  @@index([module])
+}
+
+model Commodity {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  name        String   @unique @db.VarChar(255)
+  price       Float    @default(0) @db.Float
+  total       Int      @default(0) @db.UnsignedInt
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+}
+
+model Company {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  name        String   @unique @db.VarChar(255)
+  phone       String?  @unique @db.VarChar(255)
+  address     String?  @db.VarChar(255)
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+}
+
+model Employee {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  name        String   @unique @db.VarChar(255)
+  gender      Int      @default(0) @db.TinyInt
+  id_card     String   @unique @db.VarChar(255)
+  phone       String?  @unique @db.VarChar(255)
+  address     String?  @db.VarChar(255)
+  description String?  @db.Text
+  department  Int      @default(0) @db.TinyInt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+}
+
+model Warehouse {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  name        String   @unique @db.VarChar(255)
+  responsible String?  @db.VarChar(255)
+  address     String?  @db.VarChar(255)
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([responsible])
+}
+
+model Sale {
+  id             Int      @id @default(autoincrement()) @db.UnsignedInt
+  commodity      String   @db.VarChar(255)
+  company        String   @db.VarChar(255)
+  count          Int      @default(0) @db.UnsignedInt
+  price          Float    @default(0) @db.Float
+  total          Float    @default(0) @db.Float
+  account_number String   @db.VarChar(255)
+  phone          String?  @db.VarChar(255)
+  description    String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([commodity])
+  @@index([company])
+  @@index([phone])
+}

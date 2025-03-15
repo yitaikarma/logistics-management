@@ -1,0 +1,112 @@
+2025-03-14 23:37:55:3755 [31merror[39m: [31m 认证失败[39m
+2025-03-15 02:22:22:2222 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/article.service.ts[0m:[93m9[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'Article'.[39m
+
+[31m[7m9[0m import { Article, Prisma } from '@prisma/client'[39m
+[31m[7m [0m [91m         ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m15[0m:[93m40[0m - [91merror[0m[90m TS2724: [0m'"/Users/ambient/GitHub/logistics-management/node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index".Prisma' has no exported member named 'ArticleSelect'. Did you mean 'RoleSelect'?[39m
+
+[31m[7m15[0m const select = Prisma.validator<Prisma.ArticleSelect>()({[39m
+[31m[7m  [0m [91m                                       ~~~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m24[0m:[93m62[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m24[0m async function findTarget(model: typeof prismaService.prisma.article, condition: any) {[39m
+[31m[7m  [0m [91m                                                             ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m40[0m:[93m29[0m - [91merror[0m[90m TS2724: [0m'"/Users/ambient/GitHub/logistics-management/node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index".Prisma' has no exported member named 'ArticleWhereInput'. Did you mean 'RoleWhereInput'?[39m
+
+[31m[7m40[0m         const where: Prisma.ArticleWhereInput = {[39m
+[31m[7m  [0m [91m                            ~~~~~~~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m43[0m:[93m33[0m - [91merror[0m[90m TS2724: [0m'"/Users/ambient/GitHub/logistics-management/node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index".Prisma' has no exported member named 'ArticleFindManyArgs'. Did you mean 'RoleFindManyArgs'?[39m
+
+[31m[7m43[0m         const condition: Prisma.ArticleFindManyArgs = {[39m
+[31m[7m  [0m [91m                                ~~~~~~~~~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m51[0m:[93m64[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m51[0m         const [total, result] = await Promise.all([this.prisma.article.count(), this.prisma.article.findMany(condition)])[39m
+[31m[7m  [0m [91m                                                               ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m51[0m:[93m93[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m51[0m         const [total, result] = await Promise.all([this.prisma.article.count(), this.prisma.article.findMany(condition)])[39m
+[31m[7m  [0m [91m                                                                                            ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m58[0m:[93m53[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m58[0m         const result = await findTarget(this.prisma.article, {[39m
+[31m[7m  [0m [91m                                                    ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m68[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m68[0m         const result = await this.prisma.article.create({[39m
+[31m[7m  [0m [91m                                         ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m78[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m78[0m         await findTarget(this.prisma.article, { where: { id } })[39m
+[31m[7m  [0m [91m                                     ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m79[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m79[0m         const result = await this.prisma.article.update({[39m
+[31m[7m  [0m [91m                                         ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m90[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m90[0m         await findTarget(this.prisma.article, { where: { id } })[39m
+[31m[7m  [0m [91m                                     ~~~~~~~[0m[39m
+[31m[96msrc/services/article.service.ts[0m:[93m91[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'article' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.[39m
+
+[31m[7m91[0m         const result = await this.prisma.article.delete({[39m
+[31m[7m  [0m [91m                                         ~~~~~~~[0m[39m
+[31m[39m
+2025-03-15 02:27:01:271 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 02:28:57:2857 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 02:29:25:2925 [31merror[39m: [31m 登录验证失败[39m
+2025-03-15 02:29:39:2939 [31merror[39m: [31m 登录验证失败[39m
+2025-03-15 02:32:10:3210 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 02:32:18:3218 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 02:34:06:346 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m27[0m:[93m11[0m - [91merror[0m[90m TS2393: [0mDuplicate function implementation.[39m
+
+[31m[7m27[0m     async getAllUsers(@Query('currentPage') currentPage?: string, @Query('pageSize') pageSize?: string, @Query('email') email?: string, @Query('username') username?: string) {[39m
+[31m[7m  [0m [91m          ~~~~~~~~~~~[0m[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m34[0m:[93m11[0m - [91merror[0m[90m TS2393: [0mDuplicate function implementation.[39m
+
+[31m[7m34[0m     async getAllUsers(@Query('currentPage') currentPage?: string, @Query('pageSize') pageSize?: string, @Query('email') email?: string, @Query('username') username?: string) {[39m
+[31m[7m  [0m [91m          ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-15 02:36:26:3626 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m27[0m:[93m11[0m - [91merror[0m[90m TS2393: [0mDuplicate function implementation.[39m
+
+[31m[7m27[0m     async getAllUsers(@Query('currentPage') currentPage?: string, @Query('pageSize') pageSize?: string, @Query('email') email?: string, @Query('username') username?: string) {[39m
+[31m[7m  [0m [91m          ~~~~~~~~~~~[0m[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m30[0m:[93m76[0m - [91merror[0m[90m TS2554: [0mExpected 0-2 arguments, but got 4.[39m
+
+[31m[7m30[0m         return await this.userService.findAll(newCurrentPage, newPageSize, username, email)[39m
+[31m[7m  [0m [91m                                                                           ~~~~~~~~~~~~~~~[0m[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m34[0m:[93m11[0m - [91merror[0m[90m TS2393: [0mDuplicate function implementation.[39m
+
+[31m[7m34[0m     async getAllUsers(@Query('currentPage') currentPage?: string, @Query('pageSize') pageSize?: string, @Query('email') email?: string, @Query('username') username?: string) {[39m
+[31m[7m  [0m [91m          ~~~~~~~~~~~[0m[39m
+[31m[96msrc/controllers/user.controller.ts[0m:[93m37[0m:[93m76[0m - [91merror[0m[90m TS2554: [0mExpected 0-2 arguments, but got 4.[39m
+
+[31m[7m37[0m         return await this.userService.findAll(newCurrentPage, newPageSize, username, email)[39m
+[31m[7m  [0m [91m                                                                           ~~~~~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-15 02:40:24:4024 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 02:42:22:4222 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/auth.service.ts[0m:[93m39[0m:[93m52[0m - [91merror[0m[90m TS1127: [0mInvalid character.[39m
+
+[31m[7m39[0m                 throw new UnauthorizedError('验证失败',，'无效的登录方式')[39m
+[31m[7m  [0m [91m                                                   ~[0m[39m
+[31m[39m
+2025-03-15 04:17:00:170 [31merror[39m: [31m jwt malformed[39m
+2025-03-15 04:17:13:1713 [31merror[39m: [31m 登录验证失败[39m
+2025-03-15 04:20:36:2036 [31merror[39m: [31mFailed to start server: ControllerClass is not a constructor[39m
+2025-03-15 04:20:42:2042 [31merror[39m: [31mFailed to start server: ControllerClass is not a constructor[39m
+2025-03-15 04:25:07:257 [31merror[39m: [31m 查询参数验证失败[39m
+2025-03-15 04:25:28:2528 [31merror[39m: [31m 查询参数验证失败[39m
+2025-03-15 04:35:47:3547 [31merror[39m: [31m 查询参数验证失败[39m
+2025-03-15 04:36:13:3613 [31merror[39m: [31m 查询参数验证失败[39m
+2025-03-15 04:36:26:3626 [31merror[39m: [31m 查询参数验证失败[39m
+2025-03-15 04:51:14:5114 [31merror[39m: [31m 登录验证失败[39m
+2025-03-15 04:53:35:5335 [31merror[39m: [31m 登录验证失败[39m
+2025-03-15 04:54:05:545 [31merror[39m: [31m 验证失败[39m
+2025-03-15 04:58:13:5813 [31merror[39m: [31m 认证失败[39m
+2025-03-15 05:01:38:138 [31merror[39m: [31m 认证失败[39m
+2025-03-15 05:03:58:358 [31merror[39m: [31m 认证失败[39m
+2025-03-15 05:43:51:4351 [31merror[39m: [31m 查询参数验证失败[39m

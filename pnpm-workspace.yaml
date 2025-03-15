@@ -1,0 +1,20 @@
+packages:
+  - packages/**
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@prisma/client'
+  - '@prisma/engines'
+  - ant-design-vue
+  - core-js
+  - cwebp-bin
+  - ejs
+  - es5-ext
+  - esbuild
+  - fsevents
+  - gifsicle
+  - jpegtran-bin
+  - mozjpeg
+  - optipng-bin
+  - pngquant-bin
+  - prisma
+  - vue-demi
