@@ -3,9 +3,11 @@ import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/store/modules/user'
 import EmojiText from '../emojo'
 
+const baseURL = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_URL
+
 const axiosInstance = axios.create({
   timeout: 15000, // 请求超时时间(毫秒)
-  baseURL: import.meta.env.VITE_API_URL, // API地址
+  baseURL: baseURL, // API地址
   withCredentials: true, // 异步请求携带cookie
   transformRequest: [(data) => JSON.stringify(data)], // 请求数据转换为 JSON 字符串
   validateStatus: (status) => status >= 200 && status < 300, // 只接受 2xx 的状态码
