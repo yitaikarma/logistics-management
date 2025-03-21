@@ -13,7 +13,7 @@ export const SystemInfo = {
   // 登录默认帐号、密码
   login: {
     username: 'admin',
-    password: '123456'
+    password: '123123'
   }
 }
 

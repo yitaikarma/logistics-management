@@ -1,105 +1,151 @@
-import { z } from 'zod'
-import type { Prisma } from '@prisma/client'
+import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
 /////////////////////////////////////////
 // HELPER FUNCTIONS
 /////////////////////////////////////////
 
+
 /////////////////////////////////////////
 // ENUMS
 /////////////////////////////////////////
 
-export const TransactionIsolationLevelSchema = z.enum(['ReadUncommitted', 'ReadCommitted', 'RepeatableRead', 'Serializable'])
+export const TransactionIsolationLevelSchema = z.enum(['ReadUncommitted','ReadCommitted','RepeatableRead','Serializable']);
 
-export const RoleScalarFieldEnumSchema = z.enum(['id', 'key', 'name', 'createdAt', 'updatedAt'])
+export const UserScalarFieldEnumSchema = z.enum(['id','username','email','phone','password','role','gender','nickname','avatar','address','desc','status','createdAt','updatedAt']);
 
-export const UserScalarFieldEnumSchema = z.enum(['id', 'email', 'username', 'phone', 'password', 'role', 'gender', 'nickname', 'avatar', 'createdAt', 'updatedAt'])
+export const RoleScalarFieldEnumSchema = z.enum(['id','name','value','desc','status','createdAt','updatedAt']);
 
-export const Login_LogScalarFieldEnumSchema = z.enum(['id', 'email', 'browser', 'ip', 'status', 'createdAt', 'updatedAt'])
+export const Login_LogScalarFieldEnumSchema = z.enum(['id','email','browser','ip','status','createdAt','updatedAt']);
 
-export const System_LogScalarFieldEnumSchema = z.enum(['id', 'account', 'business_type', 'ip', 'method', 'module', 'createdAt', 'updatedAt'])
+export const System_LogScalarFieldEnumSchema = z.enum(['id','account','business_type','ip','method','module','createdAt','updatedAt']);
 
-export const CommodityScalarFieldEnumSchema = z.enum(['id', 'name', 'price', 'total', 'description', 'createdAt', 'updatedAt'])
+export const CommodityScalarFieldEnumSchema = z.enum(['id','name','price','total','desc','status','createdAt','updatedAt','categoryId']);
 
-export const CompanyScalarFieldEnumSchema = z.enum(['id', 'name', 'phone', 'address', 'description', 'createdAt', 'updatedAt'])
+export const CommodityCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const EmployeeScalarFieldEnumSchema = z.enum(['id', 'name', 'gender', 'id_card', 'phone', 'address', 'description', 'department', 'createdAt', 'updatedAt'])
+export const WarehouseScalarFieldEnumSchema = z.enum(['id','name','address','desc','status','createdAt','updatedAt','userId','username','categoryId']);
 
-export const WarehouseScalarFieldEnumSchema = z.enum(['id', 'name', 'responsible', 'address', 'description', 'createdAt', 'updatedAt'])
+export const WarehouseCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const SaleScalarFieldEnumSchema = z.enum(['id', 'commodity', 'company', 'count', 'price', 'total', 'account_number', 'phone', 'description', 'createdAt', 'updatedAt'])
+export const InventoryScalarFieldEnumSchema = z.enum(['id','total','desc','status','createdAt','updatedAt','warehouseId','commodityId']);
 
-export const SortOrderSchema = z.enum(['asc', 'desc'])
+export const InventoryRecordScalarFieldEnumSchema = z.enum(['id','type','total','desc','status','createdAt','updatedAt','warehouseId','commodityId']);
 
-export const RoleOrderByRelevanceFieldEnumSchema = z.enum(['name'])
+export const VehicleScalarFieldEnumSchema = z.enum(['id','name','license','desc','status','createdAt','updatedAt','userId','username','categoryId']);
 
-export const NullsOrderSchema = z.enum(['first', 'last'])
+export const VehicleCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const UserOrderByRelevanceFieldEnumSchema = z.enum(['email', 'username', 'phone', 'password', 'nickname', 'avatar'])
+export const EmployeeScalarFieldEnumSchema = z.enum(['id','name','gender','id_card','phone','address','desc','department','status','createdAt','updatedAt']);
 
-export const Login_LogOrderByRelevanceFieldEnumSchema = z.enum(['email', 'ip'])
+export const OrderScalarFieldEnumSchema = z.enum(['id','desc','status','createdAt','updatedAt','commodityId','userId','categoryId']);
 
-export const System_LogOrderByRelevanceFieldEnumSchema = z.enum(['account', 'business_type', 'ip', 'method', 'module'])
+export const OrderCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const CommodityOrderByRelevanceFieldEnumSchema = z.enum(['name', 'description'])
+export const TaskScalarFieldEnumSchema = z.enum(['id','name','desc','startTime','endTime','status','createdAt','updatedAt','userId','username','categoryId']);
 
-export const CompanyOrderByRelevanceFieldEnumSchema = z.enum(['name', 'phone', 'address', 'description'])
+export const TaskCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const EmployeeOrderByRelevanceFieldEnumSchema = z.enum(['name', 'id_card', 'phone', 'address', 'description'])
+export const DistributionScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt','categoryId']);
 
-export const WarehouseOrderByRelevanceFieldEnumSchema = z.enum(['name', 'responsible', 'address', 'description'])
+export const DistributionCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const SaleOrderByRelevanceFieldEnumSchema = z.enum(['commodity', 'company', 'account_number', 'phone', 'description'])
+export const SortOrderSchema = z.enum(['asc','desc']);
+
+export const NullsOrderSchema = z.enum(['first','last']);
+
+export const UserOrderByRelevanceFieldEnumSchema = z.enum(['username','email','phone','password','nickname','avatar','address','desc']);
+
+export const RoleOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const Login_LogOrderByRelevanceFieldEnumSchema = z.enum(['email','ip']);
+
+export const System_LogOrderByRelevanceFieldEnumSchema = z.enum(['account','business_type','ip','method','module']);
+
+export const CommodityOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const CommodityCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const WarehouseOrderByRelevanceFieldEnumSchema = z.enum(['name','address','desc','username']);
+
+export const WarehouseCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const InventoryOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
+
+export const InventoryRecordOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
+
+export const VehicleOrderByRelevanceFieldEnumSchema = z.enum(['name','license','desc','username']);
+
+export const VehicleCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const EmployeeOrderByRelevanceFieldEnumSchema = z.enum(['name','id_card','phone','address','desc']);
+
+export const OrderOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
+
+export const OrderCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const TaskOrderByRelevanceFieldEnumSchema = z.enum(['name','desc','username']);
+
+export const TaskCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const DistributionOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
+
+export const DistributionCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
 /////////////////////////////////////////
 // MODELS
 /////////////////////////////////////////
-
-/////////////////////////////////////////
-// ROLE SCHEMA
-/////////////////////////////////////////
-
-export const RoleSchema = z.object({
-    id: z.number().int(),
-    key: z.number().int(),
-    name: z.string(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
-})
-
-export type Role = z.infer<typeof RoleSchema>
 
 /////////////////////////////////////////
 // USER SCHEMA
 /////////////////////////////////////////
 
 export const UserSchema = z.object({
-    id: z.number().int(),
-    email: z.string(),
-    username: z.string(),
-    phone: z.string().nullish(),
-    password: z.string(),
-    role: z.number().int(),
-    gender: z.number().int(),
-    nickname: z.string(),
-    avatar: z.string().nullish(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+  id: z.number().int(),
+  username: z.string().nullish(),
+  email: z.string().nullish(),
+  phone: z.string().nullish(),
+  password: z.string().nullish(),
+  role: z.number().int().nullish(),
+  gender: z.number().int().nullish(),
+  nickname: z.string().nullish(),
+  avatar: z.string().nullish(),
+  address: z.string().nullish(),
+  desc: z.string().nullish(),
+  status: z.number().int().nullish(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
 export type User = z.infer<typeof UserSchema>
+
+/////////////////////////////////////////
+// ROLE SCHEMA
+/////////////////////////////////////////
+
+export const RoleSchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  value: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type Role = z.infer<typeof RoleSchema>
 
 /////////////////////////////////////////
 // LOGIN LOG SCHEMA
 /////////////////////////////////////////
 
 export const Login_LogSchema = z.object({
-    id: z.number().int(),
-    email: z.string(),
-    browser: z.number().int(),
-    ip: z.string(),
-    status: z.number().int(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+  id: z.number().int(),
+  email: z.string(),
+  browser: z.number().int(),
+  ip: z.string(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
 export type Login_Log = z.infer<typeof Login_LogSchema>
@@ -109,14 +155,14 @@ export type Login_Log = z.infer<typeof Login_LogSchema>
 /////////////////////////////////////////
 
 export const System_LogSchema = z.object({
-    id: z.number().int(),
-    account: z.string(),
-    business_type: z.string(),
-    ip: z.string(),
-    method: z.string(),
-    module: z.string(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+  id: z.number().int(),
+  account: z.string(),
+  business_type: z.string(),
+  ip: z.string(),
+  method: z.string(),
+  module: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
 export type System_Log = z.infer<typeof System_LogSchema>
@@ -126,84 +172,251 @@ export type System_Log = z.infer<typeof System_LogSchema>
 /////////////////////////////////////////
 
 export const CommoditySchema = z.object({
-    id: z.number().int(),
-    name: z.string(),
-    price: z.number(),
-    total: z.number().int(),
-    description: z.string().nullish(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+  id: z.number().int(),
+  name: z.string(),
+  price: z.number(),
+  total: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  categoryId: z.number().int().nullish(),
 })
 
 export type Commodity = z.infer<typeof CommoditySchema>
 
 /////////////////////////////////////////
-// COMPANY SCHEMA
+// COMMODITY CATEGORY SCHEMA
 /////////////////////////////////////////
 
-export const CompanySchema = z.object({
-    id: z.number().int(),
-    name: z.string(),
-    phone: z.string().nullish(),
-    address: z.string().nullish(),
-    description: z.string().nullish(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+export const CommodityCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
-export type Company = z.infer<typeof CompanySchema>
-
-/////////////////////////////////////////
-// EMPLOYEE SCHEMA
-/////////////////////////////////////////
-
-export const EmployeeSchema = z.object({
-    id: z.number().int(),
-    name: z.string(),
-    gender: z.number().int(),
-    id_card: z.string(),
-    phone: z.string().nullish(),
-    address: z.string().nullish(),
-    description: z.string().nullish(),
-    department: z.number().int(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
-})
-
-export type Employee = z.infer<typeof EmployeeSchema>
+export type CommodityCategory = z.infer<typeof CommodityCategorySchema>
 
 /////////////////////////////////////////
 // WAREHOUSE SCHEMA
 /////////////////////////////////////////
 
 export const WarehouseSchema = z.object({
-    id: z.number().int(),
-    name: z.string(),
-    responsible: z.string().nullish(),
-    address: z.string().nullish(),
-    description: z.string().nullish(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+  id: z.number().int(),
+  name: z.string(),
+  address: z.string().nullish(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  userId: z.number().int().nullish(),
+  username: z.string().nullish(),
+  categoryId: z.number().int().nullish(),
 })
 
 export type Warehouse = z.infer<typeof WarehouseSchema>
 
 /////////////////////////////////////////
-// SALE SCHEMA
+// WAREHOUSE CATEGORY SCHEMA
 /////////////////////////////////////////
 
-export const SaleSchema = z.object({
-    id: z.number().int(),
-    commodity: z.string(),
-    company: z.string(),
-    count: z.number().int(),
-    price: z.number(),
-    total: z.number(),
-    account_number: z.string(),
-    phone: z.string().nullish(),
-    description: z.string().nullish(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+export const WarehouseCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
-export type Sale = z.infer<typeof SaleSchema>
+export type WarehouseCategory = z.infer<typeof WarehouseCategorySchema>
+
+/////////////////////////////////////////
+// INVENTORY SCHEMA
+/////////////////////////////////////////
+
+export const InventorySchema = z.object({
+  id: z.number().int(),
+  total: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  warehouseId: z.number().int().nullish(),
+  commodityId: z.number().int().nullish(),
+})
+
+export type Inventory = z.infer<typeof InventorySchema>
+
+/////////////////////////////////////////
+// INVENTORY RECORD SCHEMA
+/////////////////////////////////////////
+
+export const InventoryRecordSchema = z.object({
+  id: z.number().int(),
+  type: z.number().int(),
+  total: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  warehouseId: z.number().int().nullish(),
+  commodityId: z.number().int().nullish(),
+})
+
+export type InventoryRecord = z.infer<typeof InventoryRecordSchema>
+
+/////////////////////////////////////////
+// VEHICLE SCHEMA
+/////////////////////////////////////////
+
+export const VehicleSchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  license: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  userId: z.number().int().nullish(),
+  username: z.string().nullish(),
+  categoryId: z.number().int().nullish(),
+})
+
+export type Vehicle = z.infer<typeof VehicleSchema>
+
+/////////////////////////////////////////
+// VEHICLE CATEGORY SCHEMA
+/////////////////////////////////////////
+
+export const VehicleCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type VehicleCategory = z.infer<typeof VehicleCategorySchema>
+
+/////////////////////////////////////////
+// EMPLOYEE SCHEMA
+/////////////////////////////////////////
+
+export const EmployeeSchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  gender: z.number().int(),
+  id_card: z.string(),
+  phone: z.string().nullish(),
+  address: z.string().nullish(),
+  desc: z.string().nullish(),
+  department: z.number().int(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type Employee = z.infer<typeof EmployeeSchema>
+
+/////////////////////////////////////////
+// ORDER SCHEMA
+/////////////////////////////////////////
+
+export const OrderSchema = z.object({
+  id: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  commodityId: z.number().int().nullish(),
+  userId: z.number().int().nullish(),
+  categoryId: z.number().int().nullish(),
+})
+
+export type Order = z.infer<typeof OrderSchema>
+
+/////////////////////////////////////////
+// ORDER CATEGORY SCHEMA
+/////////////////////////////////////////
+
+export const OrderCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type OrderCategory = z.infer<typeof OrderCategorySchema>
+
+/////////////////////////////////////////
+// TASK SCHEMA
+/////////////////////////////////////////
+
+export const TaskSchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  startTime: z.date().nullish(),
+  endTime: z.date().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  userId: z.number().int().nullish(),
+  username: z.string().nullish(),
+  categoryId: z.number().int().nullish(),
+})
+
+export type Task = z.infer<typeof TaskSchema>
+
+/////////////////////////////////////////
+// TASK CATEGORY SCHEMA
+/////////////////////////////////////////
+
+export const TaskCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type TaskCategory = z.infer<typeof TaskCategorySchema>
+
+/////////////////////////////////////////
+// DISTRIBUTION SCHEMA
+/////////////////////////////////////////
+
+export const DistributionSchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  categoryId: z.number().int().nullish(),
+})
+
+export type Distribution = z.infer<typeof DistributionSchema>
+
+/////////////////////////////////////////
+// DISTRIBUTION CATEGORY SCHEMA
+/////////////////////////////////////////
+
+export const DistributionCategorySchema = z.object({
+  id: z.number().int(),
+  name: z.string(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+})
+
+export type DistributionCategory = z.infer<typeof DistributionCategorySchema>

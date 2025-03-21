@@ -12,21 +12,19 @@ import morgan from 'morgan'
 import { controllerLoader } from './controller.loader'
 import { ResponseUtil } from '../utils/response'
 import { logger } from '../utils/logger'
-import { responseHandler } from '../middlewares/responseHandler'
 import { errorHandlerMiddleware } from '../middlewares/error.middleware'
 
 export function expressLoader(): Application {
     const app = express()
 
     // 中间件配置
-    app.use(cors())
-    app.use(helmet())
-    app.use(express.json())
-    app.use(express.urlencoded({ extended: true }))
-    app.use(morgan('dev'))
+    app.use(cors()) // 跨域中间件
+    app.use(helmet()) // 安全中间件
+    app.use(express.json()) // 解析 application/json
+    app.use(express.urlencoded({ extended: true })) // 解析 application/x-www-form-urlencoded
+    app.use(morgan('dev')) // 日志中间件
 
     // // 应用响应处理中间件（在路由之前）
-    // app.use(responseHandler)
 
     // 健康检查端点
     app.get('/health', (req, res) => {
@@ -41,6 +39,8 @@ export function expressLoader(): Application {
 
     // 404路由处理
     app.use((req: Request, res: Response) => {
+        console.log(req)
+
         ResponseUtil.error(res, 404, '未找到路由')
     })
 

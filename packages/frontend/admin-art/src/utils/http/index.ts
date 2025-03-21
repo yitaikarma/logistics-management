@@ -36,7 +36,7 @@ axiosInstance.interceptors.request.use(
     if (accessToken) {
       request.headers.set({
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        Authorization: `Bearer ${accessToken}`
       })
     }
 
@@ -56,11 +56,7 @@ axiosInstance.interceptors.response.use(
       console.log('repeated request: ' + error.message)
     } else {
       const errorMessage = error.response?.data.message
-      ElMessage.error(
-        errorMessage
-          ? `${errorMessage} ${EmojiText[500]}`
-          : `请求超时或服务器异常！${EmojiText[500]}`
-      )
+      ElMessage.error(errorMessage ? `${errorMessage} ${EmojiText[500]}` : `请求超时或服务器异常！${EmojiText[500]}`)
     }
     return Promise.reject(error)
   }

@@ -17,10 +17,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <div v-for="lang in languageOptions" :key="lang.value" class="lang-btn-item">
-                <el-dropdown-item
-                  :command="lang.value"
-                  :class="{ 'is-selected': locale === lang.value }"
-                >
+                <el-dropdown-item :command="lang.value" :class="{ 'is-selected': locale === lang.value }">
                   <span class="menu-txt">{{ lang.label }}</span>
                   <i v-if="locale === lang.value" class="iconfont-sys icon-check">&#xe621;</i>
                 </el-dropdown-item>
@@ -39,19 +36,9 @@
         <div class="form">
           <h3 class="title">{{ $t('login.title') }}</h3>
           <p class="sub-title">{{ $t('login.subTitle') }}</p>
-          <el-form
-            ref="formRef"
-            :model="formData"
-            :rules="rules"
-            @keyup.enter="handleSubmit"
-            style="margin-top: 25px"
-          >
+          <el-form ref="formRef" :model="formData" :rules="rules" @keyup.enter="handleSubmit" style="margin-top: 25px">
             <el-form-item prop="username">
-              <el-input
-                :placeholder="$t('login.placeholder[0]')"
-                size="large"
-                v-model.trim="formData.username"
-              />
+              <el-input :placeholder="$t('login.placeholder[0]')" size="large" v-model.trim="formData.username" />
             </el-form-item>
             <el-form-item prop="password">
               <el-input
@@ -85,9 +72,7 @@
             </div>
 
             <div class="forget-password">
-              <el-checkbox v-model="formData.rememberPassword">{{
-                $t('login.rememberPwd')
-              }}</el-checkbox>
+              <el-checkbox v-model="formData.rememberPassword">{{ $t('login.rememberPwd') }}</el-checkbox>
               <router-link to="/forget-password">{{ $t('login.forgetPwd') }}</router-link>
             </div>
 
@@ -118,29 +103,32 @@
 </template>
 
 <script setup lang="ts">
+  import { AuthService, UserService } from '@/api'
+  import { useI18n } from 'vue-i18n'
+  import { ElMessage, ElNotification } from 'element-plus'
   import LeftView from '@/components/Pages/Login/LeftView.vue'
   import { SystemInfo } from '@/config/setting'
-  import { ElMessage, ElNotification } from 'element-plus'
   import { useUserStore } from '@/store/modules/user'
   import { HOME_PAGE } from '@/router'
-  import { ApiStatus } from '@/utils/http/status'
   import { getCssVariable } from '@/utils/utils'
   import { LanguageEnum, SystemThemeEnum } from '@/enums/appEnum'
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
   import { useSettingStore } from '@/store/modules/setting'
   import type { FormInstance, FormRules } from 'element-plus'
 
+  const { t } = useI18n()
   const userStore = useUserStore()
   const router = useRouter()
+
   const isPassing = ref(false)
   const isClickPass = ref(false)
 
   const systemName = SystemInfo.name
   const formRef = ref<FormInstance>()
   const formData = reactive({
-    username: SystemInfo.login.username,
-    password: SystemInfo.login.password,
+    // username: SystemInfo.login.username,
+    // password: SystemInfo.login.password,
+    username: '',
+    password: '',
     rememberPassword: true
   })
 
@@ -154,6 +142,17 @@
 
   const store = useSettingStore()
   const isDark = computed(() => store.isDark)
+
+  onMounted(() => {
+    const login = userStore.getLogin
+
+    if (login.username) {
+      formData.username = login.username
+    }
+    if (login.password) {
+      formData.password = login.password
+    }
+  })
 
   const onPass = () => {}
 
@@ -173,20 +172,19 @@
         const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
         try {
-          const res = await UserService.login({
-            body: JSON.stringify({
-              username: formData.username,
-              password: formData.password
-            })
-          })
+          const data = {
+            username: formData.username,
+            password: formData.password
+          }
+          const res = await AuthService.signin(data)
 
-          if (res.code === ApiStatus.success && res.data) {
+          if (res.success && res.data) {
             // 设置 token
-            userStore.setToken(res.data.accessToken)
+            userStore.setToken(res.data.token)
 
             // 获取用户信息
-            const userRes = await UserService.getUserInfo()
-            if (userRes.code === ApiStatus.success) {
+            const userRes = await UserService.get(res.data.user.id)
+            if (userRes.success) {
               userStore.setUserInfo(userRes.data)
             }
 
@@ -234,7 +232,6 @@
 
   // 切换主题
   import { useTheme } from '@/composables/useTheme'
-  import { UserService } from '@/api/usersApi'
 
   const toggleTheme = () => {
     let { LIGHT, DARK } = SystemThemeEnum

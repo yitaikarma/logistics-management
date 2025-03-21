@@ -17,6 +17,44 @@
     "confirm": "确定",
     "logOutTips": "您是否要退出登录?"
   },
+  "curd": {
+    "add": "新增",
+    "edit": "编辑",
+    "delete": "删除",
+    "deleteTips": "您是否要删除当前数据?",
+    "deleteSuccess": "删除成功",
+    "deleteError": "删除失败",
+    "addSuccess": "新增成功",
+    "addError": "新增失败",
+    "editSuccess": "编辑成功",
+    "editError": "编辑失败",
+    "search": "搜索",
+    "reset": "重置",
+    "refresh": "刷新",
+    "operation": "操作",
+    "operationSuccess": "操作成功",
+    "operationError": "操作失败",
+    "confirmDelete": "确认删除",
+    "confirmDeleteTips": "您是否要删除当前数据?",
+    "confirmDeleteSuccess": "删除成功",
+    "confirmDeleteError": "删除失败",
+    "confirmDeleteBatch": "批量删除",
+    "confirmDeleteBatchTips": "您是否要删除选中数据?",
+    "confirmDeleteBatchSuccess": "批量删除成功",
+    "confirmDeleteBatchError": "批量删除失败",
+    "confirmDeleteAll": "全部删除",
+    "confirmDeleteAllTips": "您是否要删除全部数据?",
+    "confirmDeleteAllSuccess": "全部删除成功",
+    "confirmDeleteAllError": "全部删除失败",
+    "confirmReset": "确认重置",
+    "confirmResetTips": "您是否要重置当前数据?",
+    "confirmResetSuccess": "重置成功",
+    "confirmResetError": "重置失败",
+    "confirmRefresh": "确认刷新",
+    "confirmRefreshTips": "您是否要刷新当前数据?",
+    "confirmRefreshSuccess": "刷新成功",
+    "confirmRefreshError": "刷新失败"
+  },
   "search": {
     "placeholder": "搜索页面",
     "historyTitle": "搜索历史",
@@ -116,24 +154,27 @@
   "forgetPassword": {
     "title": "忘记密码？",
     "subTitle": "输入您的电子邮件来重置您的密码",
-    "placeholder": "请输入您的电子邮件",
-    "submitBtnText": "提交",
+    "applyPlaceholder": "请输入您的电子邮件",
+    "resetPlaceholder": "请输入新密码",
+    "submitApplyBtnText": "提交申请",
+    "submitResetBtnText": "重置密码",
+    "success": "重置密码成功",
     "backBtnText": "返回"
   },
   "register": {
     "title": "创建账号",
     "subTitle": "欢迎加入我们，请填写以下信息完成注册",
+    "username": ["请输入账号", "长度在 3 到 20 个字符", "用户名已存在"],
+    "email": ["请输入邮箱", "邮箱格式不正确"],
+    "password": ["请输入密码", "密码长度不能小于6位"],
+    "confirmPassword": ["请再次输入密码", "两次输入密码不一致!"],
+    "agreement": ["请同意隐私协议"],
     "placeholder": ["请输入账号", "请输入密码", "请再次输入密码"],
-    "rule": [
-      "请再次输入密码",
-      "两次输入密码不一致!",
-      "长度在 3 到 20 个字符",
-      "密码长度不能小于6位",
-      "请同意隐私协议"
-    ],
+    "rule": ["请再次输入密码", "两次输入密码不一致!", "长度在 3 到 20 个字符", "密码长度不能小于6位", "请同意隐私协议"],
     "agreeText": "我同意",
     "privacyPolicy": "《隐私政策》",
     "submitBtnText": "注册",
+    "success": "注册成功",
     "hasAccount": "已有账号？",
     "toLogin": "去登录"
   },
@@ -276,6 +317,62 @@
       "analysis": "分析页",
       "ecommerce": "电子商务"
     },
+    "user": {
+      "title": "用户管理",
+      "account": "账号管理",
+      "department": "部门管理",
+      "role": "角色权限",
+      "userCenter": "个人中心"
+    },
+    "system": {
+      "title": "系统管理",
+      "setting": "系统设置",
+      "api": "API管理",
+      "log": "系统日志"
+    },
+    "commodity": {
+      "title": "商品管理",
+      "list": "商品列表",
+      "category": "商品分类"
+    },
+    "warehouse": {
+      "title": "仓库管理",
+      "list": "仓库列表",
+      "category": "仓库分类"
+    },
+    "inventory": {
+      "title": "库存管理",
+      "list": "库存列表",
+      "entryRecord": "入库记录",
+      "outRecord": "出库记录"
+    },
+    "vehicle": {
+      "title": "车辆管理",
+      "list": "车辆列表",
+      "category": "车辆分类"
+    },
+    "order": {
+      "title": "订单管理",
+      "application": "订单申请",
+      "list": "订单列表",
+      "records": "订单记录",
+      "category": "订单分类"
+    },
+    "task": {
+      "title": "任务管理",
+      "release": "任务发布",
+      "list": "任务列表",
+      "records": "任务记录",
+      "category": "任务分类"
+    },
+    "distribution": {
+      "title": "配送管理",
+      "list": "配送列表",
+      "records": "配送记录",
+      "signedList": "签收列表",
+      "exceptionRecords": "异常记录",
+      "category": "配送分类"
+    },
     "widgets": {
       "title": "组件中心",
       "iconList": "Icon 图标",
@@ -310,13 +407,7 @@
       "comment": "留言管理",
       "articlePublish": "文章发布"
     },
-    "user": {
-      "title": "用户管理",
-      "account": "账号管理",
-      "department": "部门管理",
-      "role": "角色权限",
-      "userCenter": "个人中心"
-    },
+
     "menu": {
       "title": "菜单管理",
       "menu": "菜单权限",
@@ -340,12 +431,6 @@
       "notFound": "404",
       "notFoundEn": "404",
       "serverError": "500"
-    },
-    "system": {
-      "title": "系统管理",
-      "setting": "系统设置",
-      "api": "API管理",
-      "log": "系统日志"
     },
     "safeguard": {
       "title": "运维管理",

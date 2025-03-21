@@ -25,7 +25,7 @@
         <el-table-column label="性别" prop="avatar">
           <template #default="scope">
             <div style="display: flex; align-items: center">
-              <span style="margin-left: 10px">{{ scope.row.sex === 1 ? '男' : '女' }}</span>
+              <span style="margin-left: 10px">{{ scope.row.gender === 1 ? '男' : '女' }}</span>
             </div>
           </template>
         </el-table-column>
@@ -54,7 +54,7 @@
     {
       username: '中小鱼',
       province: '北京',
-      sex: 0,
+      gender: 0,
       age: 22,
       percentage: 60,
       pro: 0,
@@ -64,7 +64,7 @@
     {
       username: '何小荷',
       province: '深圳',
-      sex: 1,
+      gender: 1,
       age: 21,
       percentage: 20,
       pro: 0,
@@ -74,7 +74,7 @@
     {
       username: '誶誶淰',
       province: '上海',
-      sex: 1,
+      gender: 1,
       age: 23,
       percentage: 60,
       pro: 0,
@@ -84,7 +84,7 @@
     {
       username: '发呆草',
       province: '长沙',
-      sex: 0,
+      gender: 0,
       age: 28,
       percentage: 50,
       pro: 0,
@@ -94,7 +94,7 @@
     {
       username: '甜筒',
       province: '浙江',
-      sex: 1,
+      gender: 1,
       age: 26,
       percentage: 70,
       pro: 0,
@@ -104,7 +104,7 @@
     {
       username: '冷月呆呆',
       province: '湖北',
-      sex: 1,
+      gender: 1,
       age: 25,
       percentage: 90,
       pro: 0,

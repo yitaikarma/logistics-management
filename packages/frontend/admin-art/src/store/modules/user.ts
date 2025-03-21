@@ -1,21 +1,22 @@
 import { defineStore } from 'pinia'
 import { LanguageEnum } from '@/enums/appEnum'
 import { router, setPageTitle } from '@/router'
-import { UserInfo } from '@/types/store'
 import { useSettingStore } from './setting'
 import { useWorktabStore } from './worktab'
 import { getSysStorage } from '@/utils/storage'
 import { MenuListType } from '@/types/menu'
+import { UserData } from '@/api'
 
 interface UserState {
   language: LanguageEnum // 语言
   isLogin: boolean // 是否登录
   isLock: boolean // 是否锁屏
   lockPassword: string // 锁屏密码
-  info: Partial<UserInfo> // 用户信息
+  info: Partial<UserData> // 用户信息
   searchHistory: MenuListType[] // 搜索历史
   accessToken: string // 添加访问令牌
   refreshToken: string // 添加刷新令牌
+  login: { username: string; password: string }
 }
 
 export const useUserStore = defineStore({
@@ -28,12 +29,17 @@ export const useUserStore = defineStore({
     info: {},
     searchHistory: [],
     accessToken: '',
-    refreshToken: ''
+    refreshToken: '',
+    login: {
+      username: '',
+      password: ''
+    }
   }),
   getters: {
-    getUserInfo(): Partial<UserInfo> {
+    getUserInfo(): Partial<UserData> {
       return this.info
     },
+    getLogin: (state) => state.login,
     getSettingState() {
       return useSettingStore().$state
     },
@@ -47,8 +53,7 @@ export const useUserStore = defineStore({
 
       if (sys) {
         sys = JSON.parse(sys)
-        const { info, isLogin, language, searchHistory, isLock, lockPassword, refreshToken } =
-          sys.user
+        const { info, isLogin, language, searchHistory, isLock, lockPassword, refreshToken } = sys.user
 
         this.info = info || {}
         this.isLogin = isLogin || false
@@ -76,8 +81,11 @@ export const useUserStore = defineStore({
         }
       })
     },
-    setUserInfo(info: UserInfo) {
+    setUserInfo(info: UserData) {
       this.info = info
+    },
+    setLogin(login: { username: string; password: string }) {
+      this.login = login
     },
     setLoginStatus(isLogin: boolean) {
       this.isLogin = isLogin

@@ -14,18 +14,12 @@
       @selection-change="handleSelectionChange"
       @row-click="handleRowClick"
     >
+      <slot name="extend"></slot>
       <!-- 选择列 -->
       <el-table-column v-if="selection" type="selection" width="55" align="center" fixed="left" />
 
       <!-- 序号列 -->
-      <el-table-column
-        v-if="index"
-        type="index"
-        width="60"
-        label="序号"
-        align="center"
-        fixed="left"
-      />
+      <el-table-column v-if="index" type="index" width="60" label="序号" align="center" fixed="left" />
 
       <!-- 动态列 -->
       <slot></slot>
@@ -57,7 +51,7 @@
 <script setup lang="ts">
   interface TableProps {
     /** 表格数据源 */
-    data?: any[]
+    records?: any[]
     /** 是否显示加载状态 */
     loading?: boolean
     /** 行数据的 Key，用于标识每一行数据 */
@@ -103,7 +97,7 @@
   }
 
   const props = withDefaults(defineProps<TableProps>(), {
-    data: () => [],
+    records: () => [],
     loading: false,
     rowKey: 'id',
     border: false,
@@ -135,7 +129,7 @@
   ])
 
   // 表格数据
-  const tableData = computed(() => props.data)
+  const tableData = computed(() => props.records)
 
   // 当前页
   const currentPage = computed({

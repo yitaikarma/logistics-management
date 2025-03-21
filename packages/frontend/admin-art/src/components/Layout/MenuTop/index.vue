@@ -10,13 +10,7 @@
       :style="{ width: width + 'px' }"
       background-color="transparent"
     >
-      <MenuTopSubmenu
-        v-for="item in list"
-        :key="item.id"
-        :item="item"
-        :isMobile="false"
-        :level="0"
-      />
+      <MenuTopSubmenu v-for="item in list" :key="item.id" :item="item" :isMobile="false" :level="0" />
     </el-menu>
   </div>
 </template>

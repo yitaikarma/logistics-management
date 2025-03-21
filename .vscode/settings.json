@@ -27,6 +27,6 @@
     //   "source.organizeImports": "never"
     // },
 
-    "cSpell.words": ["autoincrement", "coko", "esbuild", "loginway", "qrcode", "vueuse", "wangeditor"]
+    "cSpell.words": ["autoincrement", "axios", "coko", "emojo", "esbuild", "iconfont", "loginway", "qrcode", "signupway", "vueuse", "wangeditor"]
     // "oxc.enable": true
 }

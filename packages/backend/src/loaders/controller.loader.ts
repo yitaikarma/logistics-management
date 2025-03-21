@@ -60,7 +60,6 @@ export function controllerLoader(app: Application): void {
 // 提取所有参数
 function extractParameters(req: Request, res: Response, next: NextFunction, params: ParamDefinition[]): any[] {
     const args: any[] = []
-    console.log(req.body)
 
     // 对参数进行排序
     const sortedParams = [...params].sort((a, b) => a.index - b.index)
@@ -98,14 +97,37 @@ function extractParameters(req: Request, res: Response, next: NextFunction, para
 function getControllers(): any[] {
     // 这里需要手动导入所有控制器，或者使用其他方法自动获取所有控制器
     // 此处示例使用硬编码的方式，实际项目中可能需要更灵活的方案
-    const { RoleController } = require('../controllers/role.controller')
     const { AuthController } = require('../controllers/auth.controller')
     const { UserController } = require('../controllers/user.controller')
+    const { RoleController } = require('../controllers/role.controller')
     const { CommodityController } = require('../controllers/commodity.controller')
-    const { CompanyController } = require('../controllers/company.controller')
-    const { EmployeeController } = require('../controllers/employee.controller')
+    const { CommodityCategoryController } = require('../controllers/commodityCategory.controller')
+    const { VehicleController } = require('../controllers/vehicle.controller')
+    const { VehicleCategoryController } = require('../controllers/vehicleCategory.controller')
     const { WarehouseController } = require('../controllers/warehouse.controller')
-    const { SaleController } = require('../controllers/sale.controller')
+    const { WarehouseCategoryController } = require('../controllers/warehouseCategory.controller')
+    const { InventoryController } = require('../controllers/inventory.controller')
+    const { InventoryRecordController } = require('../controllers/inventoryRecord.controller')
+    const { OrderController } = require('../controllers/order.controller')
+    const { OrderCategoryController } = require('../controllers/orderCategory.controller')
+    const { DistributionController } = require('../controllers/distribution.controller')
+    const { DistributionCategoryController } = require('../controllers/distributionCategory.controller')
 
-    return [AuthController, UserController, RoleController, CommodityController, CompanyController, EmployeeController, WarehouseController, SaleController]
+    return [
+        AuthController,
+        UserController,
+        RoleController,
+        CommodityController,
+        CommodityCategoryController,
+        VehicleController,
+        VehicleCategoryController,
+        WarehouseController,
+        WarehouseCategoryController,
+        InventoryController,
+        InventoryRecordController,
+        OrderController,
+        OrderCategoryController,
+        DistributionController,
+        DistributionCategoryController,
+    ]
 }

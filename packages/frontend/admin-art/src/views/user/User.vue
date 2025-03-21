@@ -6,20 +6,20 @@
           <img class="bg" src="@imgs/user/bg.png" />
           <img class="avatar" :src="userInfo.avatar" />
           <h2 class="name">{{ userInfo.username }}</h2>
-          <p class="des">Art Design Pro 是一款漂亮的后台管理系统模版.</p>
+          <p class="desc">{{ form.desc }}</p>
 
           <div class="outer-info">
             <div>
               <i class="iconfont-sys">&#xe72e;</i>
-              <span>jdkjjfnndf@mall.com</span>
+              <span>{{ form.email }}</span>
             </div>
             <div>
               <i class="iconfont-sys">&#xe608;</i>
-              <span>交互专家</span>
+              <span>{{ form.role }}</span>
             </div>
             <div>
               <i class="iconfont-sys">&#xe736;</i>
-              <span>广东省深圳市</span>
+              <span>{{ form.address }}</span>
             </div>
             <div>
               <i class="iconfont-sys">&#xe811;</i>
@@ -27,10 +27,10 @@
             </div>
           </div>
 
-          <div class="lables">
+          <div class="labels">
             <h3>标签</h3>
             <div>
-              <div v-for="item in lableList" :key="item">
+              <div v-for="item in labelList" :key="item">
                 {{ item }}
               </div>
             </div>
@@ -59,11 +59,11 @@
             label-position="top"
           >
             <el-row>
-              <el-form-item label="姓名" prop="realName">
-                <el-input v-model="form.realName" :disabled="!isEdit" />
+              <el-form-item label="姓名" prop="username">
+                <el-input v-model="form.username" :disabled="!isEdit" />
               </el-form-item>
-              <el-form-item label="性别" prop="sex" class="right-input">
-                <el-select v-model="form.sex" placeholder="Select" :disabled="!isEdit">
+              <el-form-item label="性别" prop="gender" class="right-input">
+                <el-select v-model="form.gender" placeholder="Select" :disabled="!isEdit">
                   <el-option
                     v-for="item in options"
                     :key="item.value"
@@ -75,8 +75,8 @@
             </el-row>
 
             <el-row>
-              <el-form-item label="昵称" prop="nikeName">
-                <el-input v-model="form.nikeName" :disabled="!isEdit" />
+              <el-form-item label="昵称" prop="nickname">
+                <el-input v-model="form.nickname" :disabled="!isEdit" />
               </el-form-item>
               <el-form-item label="邮箱" prop="email" class="right-input">
                 <el-input v-model="form.email" :disabled="!isEdit" />
@@ -84,19 +84,28 @@
             </el-row>
 
             <el-row>
-              <el-form-item label="手机" prop="mobile">
-                <el-input v-model="form.mobile" :disabled="!isEdit" />
+              <el-form-item label="手机" prop="phone">
+                <el-input v-model="form.phone" :disabled="!isEdit" />
               </el-form-item>
               <el-form-item label="地址" prop="address" class="right-input">
                 <el-input v-model="form.address" :disabled="!isEdit" />
               </el-form-item>
             </el-row>
 
-            <el-form-item label="个人介绍" prop="des" :style="{ height: '130px' }">
-              <el-input type="textarea" :rows="4" v-model="form.des" :disabled="!isEdit" />
+            <el-form-item label="个人介绍" prop="desc" :style="{ height: '130px' }">
+              <el-input type="textarea" :rows="4" v-model="form.desc" :disabled="!isEdit" />
             </el-form-item>
 
             <div class="el-form-item-right">
+              <el-button
+                v-show="isEdit"
+                type="default"
+                style="width: 90px"
+                v-ripple
+                @click="cancelEdit()"
+              >
+                取消
+              </el-button>
               <el-button type="primary" style="width: 90px" v-ripple @click="edit">
                 {{ isEdit ? '保存' : '编辑' }}
               </el-button>
@@ -121,6 +130,15 @@
             </el-form-item>
 
             <div class="el-form-item-right">
+              <el-button
+                v-show="isEditPwd"
+                type="default"
+                style="width: 90px"
+                v-ripple
+                @click="cancelEdit(true)"
+              >
+                取消
+              </el-button>
               <el-button type="primary" style="width: 90px" v-ripple @click="editPwd">
                 {{ isEditPwd ? '保存' : '编辑' }}
               </el-button>
@@ -133,62 +151,64 @@
 </template>
 
 <script setup lang="ts">
+  import { UserService } from '@/api'
   import { useUserStore } from '@/store/modules/user'
   import { FormInstance, FormRules } from 'element-plus'
+  import { useI18n } from 'vue-i18n'
 
+  const { t } = useI18n()
   const userStore = useUserStore()
   const userInfo = computed(() => userStore.getUserInfo)
+
+  const loading = ref(false)
 
   const isEdit = ref(false)
   const isEditPwd = ref(false)
   const date = ref('')
-  const form = reactive({
-    realName: 'John Snow',
-    nikeName: '皮卡丘',
+  const form = ref<typeof userInfo.value>({
+    username: 'John Snow',
+    nickname: '皮卡丘',
     email: '59301283@mall.com',
-    mobile: '18888888888',
+    phone: '18888888888',
     address: '广东省深圳市宝安区西乡街道101栋201',
-    sex: '2',
-    des: 'Art Design Pro 是一款漂亮的后台管理系统模版.'
+    gender: 2,
+    role: 100,
+    desc: 'Art Design Pro 是一款漂亮的后台管理系统模版.'
   })
 
-  const pwdForm = reactive({
-    password: '123456',
-    newPassword: '123456',
-    confirmPassword: '123456'
+  const pwdForm = ref({
+    password: '',
+    newPassword: '',
+    confirmPassword: ''
   })
 
   const ruleFormRef = ref<FormInstance>()
 
   const rules = reactive<FormRules>({
-    realName: [
+    username: [
       { required: true, message: '请输入昵称', trigger: 'blur' },
       { min: 2, max: 50, message: '长度在 2 到 30 个字符', trigger: 'blur' }
     ],
-    nikeName: [
+    nickname: [
       { required: true, message: '请输入昵称', trigger: 'blur' },
       { min: 2, max: 50, message: '长度在 2 到 30 个字符', trigger: 'blur' }
     ],
     email: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
-    mobile: [{ required: true, message: '请输入手机号码', trigger: 'blur' }],
+    phone: [{ required: true, message: '请输入手机号码', trigger: 'blur' }],
     address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
-    sex: [{ type: 'array', required: true, message: '请选择性别', trigger: 'blur' }]
+    gender: [{ required: true, message: '请选择性别', trigger: 'blur' }]
   })
 
   const options = [
-    {
-      value: '1',
-      label: '男'
-    },
-    {
-      value: '2',
-      label: '女'
-    }
+    { value: 0, label: '保密' },
+    { value: 1, label: '男' },
+    { value: 2, label: '女' }
   ]
 
-  const lableList: Array<string> = ['专注设计', '很有想法', '辣~', '大长腿', '川妹子', '海纳百川']
+  const labelList: Array<string> = ['专注设计', '很有想法', '辣~', '大长腿', '川妹子', '海纳百川']
 
   onMounted(() => {
+    form.value = userInfo.value
     getDate()
   })
 
@@ -214,12 +234,69 @@
     date.value = text
   }
 
+  function initFormData(isPwd?: true) {
+    if (isPwd) {
+      pwdForm.value.password = ''
+      pwdForm.value.newPassword = ''
+      pwdForm.value.confirmPassword = ''
+    } else {
+      form.value = userInfo.value
+    }
+  }
+
+  function cancelEdit(isPwd?: true) {
+    if (isPwd) {
+      isEditPwd.value = false
+    } else {
+      isEdit.value = false
+    }
+    initFormData(isPwd)
+  }
+
   const edit = () => {
-    isEdit.value = !isEdit.value
+    if (!isEdit.value) {
+      isEdit.value = true
+      return
+    }
+    handleSubmitEdit()
   }
 
   const editPwd = () => {
-    isEditPwd.value = !isEditPwd.value
+    if (!isEditPwd.value) {
+      isEditPwd.value = true
+      return
+    }
+  }
+
+  const handleSubmitEdit = async () => {
+    if (!ruleFormRef.value) return
+
+    await ruleFormRef.value.validate(async (valid) => {
+      if (valid) {
+        loading.value = true
+
+        // 延时辅助函数
+        const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+        try {
+          if (!userInfo.value.id) return
+          const res = await UserService.update(userInfo.value.id, form.value)
+
+          if (res.success && res.data) {
+            userStore.setUserInfo(res.data)
+            // 延时辅助函数
+            await delay(1000)
+            ElMessage.success(t('curd.editSuccess'))
+          } else {
+            ElMessage.error(res.message)
+          }
+        } finally {
+          await delay(1000)
+          loading.value = false
+          isEdit.value = false
+        }
+      }
+    })
   }
 </script>
 
@@ -295,7 +372,7 @@
             font-weight: 400;
           }
 
-          .des {
+          .desc {
             margin-top: 20px;
             font-size: 14px;
           }
@@ -316,7 +393,7 @@
             }
           }
 
-          .lables {
+          .labels {
             margin-top: 40px;
 
             h3 {

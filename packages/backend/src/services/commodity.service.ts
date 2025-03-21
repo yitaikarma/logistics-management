@@ -11,6 +11,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'
+import { CommodityQuerySchema } from 'src/validate/commodity.validate'
 
 /** 过滤 */
 const select = Prisma.validator<Prisma.CommoditySelect>()({
@@ -18,10 +19,24 @@ const select = Prisma.validator<Prisma.CommoditySelect>()({
     name: true,
     price: true,
     total: true,
-    description: true,
+    desc: true,
+    status: true,
     createdAt: true,
     updatedAt: true,
+    categoryId: true,
+    category: { select: { id: true, name: true } },
 })
+
+/** 查询参数 */
+function findParams(params?: CommodityQuerySchema) {
+    return {
+        name: { contains: params?.name || undefined },
+        price: { equals: params?.price },
+        total: { equals: params?.total },
+        status: { equals: params?.status },
+        categoryId: { equals: params?.categoryId },
+    } as Prisma.CommodityWhereInput
+}
 
 /** 查询 */
 async function findTarget(model: typeof prismaService.prisma.commodity, condition: any) {
@@ -38,34 +53,31 @@ export class CommodityService {
     private prisma = prismaService.prisma
 
     // 获取商品分页列表
-    async findPageAll(currentPage: number = 1, pageSize: number = 10, name?: string ) {
+    async findPageAll(params?: CommodityQuerySchema) {
+        let { currentPage, pageSize } = params ?? {}
+        currentPage ??= 1
+        pageSize ??= 10
         const skip = (currentPage - 1) * pageSize
 
-        const where: Prisma.CommodityWhereInput = {
-            name: { contains: name ?? '' },
-        }
         const condition: Prisma.CommodityFindManyArgs = {
             skip,
             take: pageSize,
             select,
-            where,
+            where: findParams(params),
             orderBy: { createdAt: 'desc' },
         }
 
-        const [total, result] = await Promise.all([this.prisma.commodity.count({ where }), this.prisma.commodity.findMany(condition)])
+        const [total, result] = await Promise.all([this.prisma.commodity.count({ where: findParams(params) }), this.prisma.commodity.findMany(condition)])
 
         return ResponseUtil.page(result, total, currentPage, pageSize, '获取商品列表成功')
     }
 
     // 获取商品列表
-    async findAll(name?: string) {
-        const where: Prisma.CommodityWhereInput = {
-            name: { contains: name ?? '' },
-        }
-      
+    async findAll(params?: CommodityQuerySchema) {
+        console.log('params', findParams(params))
         const condition: Prisma.CommodityFindManyArgs = {
             select,
-            where,
+            where: findParams(params),
             orderBy: { id: 'asc' },
         }
 
@@ -78,16 +90,6 @@ export class CommodityService {
     async findById(id: number) {
         const result = await findTarget(this.prisma.commodity, {
             where: { id },
-            select,
-        })
-
-        return ResponseUtil.success(result, '获取商品详情成功')
-    }
-
-    // 通过电子邮件查找商品
-    async findByEmail(email: string) {
-        const result = await findTarget(this.prisma.commodity, {
-            where: { email },
             select,
         })
 

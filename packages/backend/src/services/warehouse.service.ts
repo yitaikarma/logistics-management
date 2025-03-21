@@ -11,24 +11,42 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'
+import { WarehouseQuerySchema } from 'src/validate/warehouse.validate'
 
 /** 过滤 */
 const select = Prisma.validator<Prisma.WarehouseSelect>()({
     id: true,
     name: true,
-    responsible: true,
     address: true,
-    description: true,
+    desc: true,
+    status: true,
     createdAt: true,
     updatedAt: true,
+    categoryId: true,
+    category: { select: { id: true, name: true } },
+    userId: true,
+    user: { select: { id: true, username: true } },
+    username: true,
 })
 
+/** 查询参数 */
+function findParams(params?: WarehouseQuerySchema) {
+    return {
+        name: { contains: params?.name || undefined },
+        desc: { contains: params?.desc || undefined },
+        address: { contains: params?.address || undefined },
+        status: { equals: params?.status },
+        userId: { equals: params?.userId },
+        categoryId: { equals: params?.categoryId },
+    } as Prisma.WarehouseWhereInput
+}
+
 /** 查询 */
-async function findTarget(model: typeof prismaService.prisma.warehouse, condition: any) {
+async function findTarget(model: typeof prismaService.prisma.warehouse, condition: any, msg = `仓库不存在`) {
     const result = await model.findUnique(condition)
 
     if (!result) {
-        throw new NotFoundError(`公司不存在`)
+        throw new NotFoundError(msg)
     }
 
     return result
@@ -37,80 +55,80 @@ async function findTarget(model: typeof prismaService.prisma.warehouse, conditio
 export class WarehouseService {
     private prisma = prismaService.prisma
 
-    // 获取公司分页列表
-    async findPageAll(currentPage: number = 1, pageSize: number = 10, name?: string) {
+    // 获取仓库分页列表
+    async findPageAll(params?: WarehouseQuerySchema) {
+        let { currentPage, pageSize } = params ?? {}
+        currentPage ??= 1
+        pageSize ??= 10
         const skip = (currentPage - 1) * pageSize
 
-        const where: Prisma.WarehouseWhereInput = {
-            name: { contains: name ?? '' },
-        }
         const condition: Prisma.WarehouseFindManyArgs = {
             skip,
             take: pageSize,
             select,
-            where,
+            where: findParams(params),
             orderBy: { createdAt: 'desc' },
         }
 
-        const [total, result] = await Promise.all([this.prisma.warehouse.count({ where }), this.prisma.warehouse.findMany(condition)])
+        const [total, result] = await Promise.all([this.prisma.warehouse.count({ where: findParams(params) }), this.prisma.warehouse.findMany(condition)])
 
-        return ResponseUtil.page(result, total, currentPage, pageSize, '获取公司列表成功')
+        return ResponseUtil.page(result, total, currentPage, pageSize, '获取仓库列表成功')
     }
 
-    // 获取公司列表
-    async findAll(name?: string) {
-        const where: Prisma.WarehouseWhereInput = {
-            name: { contains: name ?? '' },
-        }
-
+    // 获取仓库列表
+    async findAll(params?: WarehouseQuerySchema) {
         const condition: Prisma.WarehouseFindManyArgs = {
             select,
-            where,
+            where: findParams(params),
             orderBy: { id: 'asc' },
         }
 
         const result = await this.prisma.warehouse.findMany(condition)
 
-        return ResponseUtil.success(result, '获取公司列表成功')
+        return ResponseUtil.success(result, '获取仓库列表成功')
     }
 
-    // 通过ID查找公司
+    // 通过ID查找仓库
     async findById(id: number) {
         const result = await findTarget(this.prisma.warehouse, {
             where: { id },
             select,
         })
 
-        return ResponseUtil.success(result, '获取公司详情成功')
+        return ResponseUtil.success(result, '获取仓库详情成功')
     }
 
-    // 通过电子邮件查找公司
-    async findByEmail(email: string) {
-        const result = await findTarget(this.prisma.warehouse, {
-            where: { email },
-            select,
-        })
-
-        return ResponseUtil.success(result, '获取公司详情成功')
-    }
-
-    // 创建公司
+    // 创建仓库
     async create(data: Omit<Warehouse, 'id' | 'createdAt' | 'updatedAt'>) {
+        // 查询负责人
+        const user = await this.prisma.user.findFirst({ where: { id: data.userId ?? undefined } })
+        if (!user) {
+            throw new NotFoundError(`用户ID ${data.userId} 不存在`)
+        }
+        data.username = user.username
+
         try {
             const result = await this.prisma.warehouse.create({ select, data })
-            return ResponseUtil.success(result, '创建公司成功', 201)
+            return ResponseUtil.success(result, '创建仓库成功', 201)
         } catch (error) {
             // 特定错误处理，如邮箱唯一性冲突
             if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
-                throw new AppError('该公司已存在', ErrorCode.BAD_REQUEST)
+                throw new AppError('该仓库已存在', ErrorCode.BAD_REQUEST)
             }
             throw error
         }
     }
 
-    // 更新公司
+    // 更新仓库
     async update(id: number, data: Partial<Warehouse>) {
         await findTarget(this.prisma.warehouse, { where: { id } })
+
+        // 查询负责人
+        const user = await this.prisma.user.findFirst({ where: { id: data.userId ?? undefined } })
+        if (!user) {
+            throw new NotFoundError(`用户ID ${data.userId} 不存在`)
+        }
+        data.username = user.username
 
         try {
             const result = await this.prisma.warehouse.update({
@@ -119,24 +137,24 @@ export class WarehouseService {
                 data,
             })
 
-            return ResponseUtil.success(result, '更新公司成功')
+            return ResponseUtil.success(result, '更新仓库成功')
         } catch (error) {
             if (error instanceof PrismaClientKnownRequestError) {
                 if (error.code === 'P2025') {
-                    throw new NotFoundError(`公司ID ${id} 不存在`)
+                    throw new NotFoundError(`仓库ID ${id} 不存在`)
                 }
                 if (error.code === 'P2002') {
-                    throw new AppError('该公司已存在', ErrorCode.BAD_REQUEST)
+                    throw new AppError('该仓库已存在', ErrorCode.BAD_REQUEST)
                 }
             }
             throw error
         }
     }
 
-    // 删除公司
+    // 删除仓库
     async delete(id: number) {
         await findTarget(this.prisma.warehouse, { where: { id } })
         const result = await this.prisma.warehouse.delete({ where: { id }, select })
-        return ResponseUtil.success(result, '删除公司成功')
+        return ResponseUtil.success(result, '删除仓库成功')
     }
 }

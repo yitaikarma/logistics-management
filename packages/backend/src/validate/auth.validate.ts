@@ -7,37 +7,50 @@
  */
 
 import { z } from '../utils/zod'
-import { AppError, ErrorCode } from '../utils/errors'
 
 // 登录方式 0: 邮箱 1: 用户名 2: 手机号
 
-export const CreateSchema = z.object({
-    loginway: z.coerce
-        .number()
-        .int()
-        .refine(value => [0, 1, 2].includes(value), { message: '无效的登录方式，有效值为：[ 邮箱: 0, 用户名: 1 ,手机号: 2 ]' }),
-    account: z
-        .string()
-        .email({ message: '请输入正确的邮箱地址' })
-        .or(z.string().min(2, { message: '用户名长度不能小于2位' }).max(20, { message: '用户名长度不能大于20位' })),
-    password: z.string().min(6, { message: '密码长度不能小于6位' }).max(20, { message: '密码长度不能大于20位' }),
+export const AuthSchema = z.object({
+    email: z.string().min(1, { message: '邮箱不能为空' }).email(),
+    username: z.string().min(2, { message: '用户名长度不能小于2位' }).max(20, { message: '用户名长度不能大于20位' }),
+    phone: z.string().length(11, { message: '手机号长度必须为11位' }).nullish(),
+    password: z.string().min(4, { message: '密码长度不能小于4位' }).max(20, { message: '密码长度不能大于20位' }),
 })
 
-export type CreateInput = z.infer<typeof CreateSchema>
+export const CreateAuthSchema = AuthSchema
+export const UpdateAuthSchema = AuthSchema.partial()
 
-export function validateCreate(data: unknown) {
-    try {
-        return CreateSchema.parse(data)
-    } catch (error) {
-        if (error instanceof z.ZodError) {
-            console.log('error.errors', error)
+export type AuthSchema = z.infer<typeof AuthSchema>
 
-            throw new AppError(
-                '登录验证失败',
-                ErrorCode.BAD_REQUEST,
-                error.errors.map(e => `${e.path.join('.')}: ${e.message}`)
-            )
-        }
-        throw error
-    }
-}
+export const AuthQuerySchema = z.object({
+    username: z.string().nullish(),
+    email: z.string().or(z.string().email()).nullish(),
+    phone: z.string().nullish(),
+})
+
+export type AuthQuerySchema = z.infer<typeof AuthQuerySchema>
+
+export const AuthBodySchema = z.object({
+    username: z.string(),
+    email: z.string().or(z.string().email()).nullish(),
+    phone: z.string().nullish(),
+    password: z.string(),
+})
+
+export type AuthBodySchema = z.infer<typeof AuthBodySchema>
+
+// 申请重置密码
+export const AuthApplyEmailSchema = z.object({
+    email: z.string().or(z.string().email()),
+})
+
+export type AuthApplyEmailSchema = z.infer<typeof AuthApplyEmailSchema>
+
+// 重置密码
+export const AuthResetPasswordSchema = z.object({
+    token: z.string(),
+    username: z.string(),
+    password: z.string(),
+})
+
+export type AuthResetPasswordSchema = z.infer<typeof AuthResetPasswordSchema>

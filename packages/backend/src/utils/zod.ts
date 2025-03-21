@@ -20,5 +20,10 @@ i18next.init({
 })
 z.setErrorMap(zodI18nMap)
 
+// (val === '' ? undefined : val)
+
+const emptyStringToNullish = (zz: () => z.ZodTypeAny) => z.preprocess(val => (val === '' ? undefined : val), zz())
+const numberFromEmptyString = () => z.preprocess(val => (val === '' ? undefined : val), z.coerce.number().int().nullish())
+
 // 暴露zod实例
-export { z }
+export { z, emptyStringToNullish, numberFromEmptyString }

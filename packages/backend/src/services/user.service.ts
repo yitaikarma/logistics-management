@@ -12,6 +12,7 @@ import bcrypt from 'bcryptjs'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'
+import { UserQuerySchema } from 'src/validate/user.validate'
 
 /** 过滤 */
 const select = Prisma.validator<Prisma.UserSelect>()({
@@ -24,9 +25,25 @@ const select = Prisma.validator<Prisma.UserSelect>()({
     role: true,
     gender: true,
     avatar: true,
+    address: true,
+    desc: true,
+    status: true,
     createdAt: true,
     updatedAt: true,
 })
+
+/** 查询参数 */
+function findParams(params?: UserQuerySchema) {
+    return {
+        nickname: { contains: params?.nickname || undefined },
+        username: { contains: params?.username || undefined },
+        email: { contains: params?.email || undefined },
+        phone: { contains: params?.phone || undefined },
+        gender: { equals: params?.gender },
+        role: { equals: params?.role },
+        status: { equals: params?.status },
+    } as Prisma.UserWhereInput
+}
 
 /** 查询 */
 async function findTarget(model: typeof prismaService.prisma.user, condition: any) {
@@ -43,36 +60,32 @@ export class UserService {
     private prisma = prismaService.prisma
 
     // 获取用户分页列表
-    async findPageAll(currentPage: number = 1, pageSize: number = 10, username?: string, email?: string) {
+    async findPageAll(params?: UserQuerySchema) {
+        let { currentPage, pageSize } = params ?? {}
+        currentPage ??= 1
+        pageSize ??= 10
         const skip = (currentPage - 1) * pageSize
 
-        const where: Prisma.UserWhereInput = {
-            username: { contains: username ?? '' },
-            email: { contains: email ?? '' },
-        }
+        console.log('params', params, findParams(params))
+
         const condition: Prisma.UserFindManyArgs = {
             skip,
             take: pageSize,
             select,
-            where,
+            where: findParams(params),
             orderBy: { createdAt: 'desc' },
         }
 
-        const [total, result] = await Promise.all([this.prisma.user.count({ where }), this.prisma.user.findMany(condition)])
+        const [total, result] = await Promise.all([this.prisma.user.count({ where: findParams(params) }), this.prisma.user.findMany(condition)])
 
         return ResponseUtil.page(result, total, currentPage, pageSize, '获取用户列表成功')
     }
 
     // 获取用户列表
-    async findAll(username?: string, email?: string) {
-        const where: Prisma.UserWhereInput = {
-            username: { contains: username ?? '' },
-            email: { contains: email ?? '' },
-        }
-      
+    async findAll(params?: UserQuerySchema) {
         const condition: Prisma.UserFindManyArgs = {
             select,
-            where,
+            where: findParams(params),
             orderBy: { id: 'asc' },
         }
 
@@ -104,7 +117,7 @@ export class UserService {
     // 创建用户
     async create(data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>) {
         //  对密码进行哈希处理
-        data.password = bcrypt.hashSync(data.password, 10)
+        data.password = bcrypt.hashSync(data.password!, 10)
 
         try {
             const result = await this.prisma.user.create({ select, data })
@@ -112,7 +125,8 @@ export class UserService {
         } catch (error) {
             // 特定错误处理，如邮箱唯一性冲突
             if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
-                throw new AppError('该邮箱已被注册', ErrorCode.BAD_REQUEST)
+                // @ts-expect-error metadataKey
+                throw new AppError('字段内容重复', ErrorCode.BAD_REQUEST, [error.meta ?? error])
             }
             throw error
         }

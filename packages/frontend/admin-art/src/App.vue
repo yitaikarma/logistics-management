@@ -5,12 +5,12 @@
 </template>
 
 <script setup lang="ts">
+  import { UserService } from '@/api'
   import { useUserStore } from './store/modules/user'
   import zh from 'element-plus/es/locale/lang/zh-cn'
   import en from 'element-plus/es/locale/lang/en'
   import { systemUpgrade } from './utils/upgrade'
   import { initState, saveUserData } from './utils/storage'
-  import { UserService } from './api/usersApi'
   import { ApiStatus } from './utils/http/status'
 
   const userStore = useUserStore()
@@ -36,8 +36,8 @@
 
   // 获取用户信息
   const getUserInfo = async () => {
-    if (userStore.isLogin) {
-      const userRes = await UserService.getUserInfo()
+    if (userStore.isLogin && userStore.getUserInfo.id) {
+      const userRes = await UserService.get(userStore.getUserInfo.id)
       if (userRes.code === ApiStatus.success) {
         userStore.setUserInfo(userRes.data)
       }

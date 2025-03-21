@@ -13,6 +13,7 @@ import { MenuListType } from '@/types/menu'
  * 可以是 i18n 的 key，也可以是字符串，比如：'用户列表'
  */
 export const asyncRoutes: MenuListType[] = [
+  // 工作台
   {
     id: 1,
     name: 'Dashboard',
@@ -57,6 +58,425 @@ export const asyncRoutes: MenuListType[] = [
       }
     ]
   },
+  // 系统管理
+  {
+    id: 9,
+    path: '/system',
+    name: 'System',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.system.title',
+      icon: '&#xe7b9;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 901,
+        path: 'setting',
+        name: 'Setting',
+        component: RoutesAlias.Setting,
+        meta: {
+          title: 'menus.system.setting',
+          keepAlive: true
+        }
+      },
+      {
+        id: 902,
+        path: 'api',
+        name: 'Api',
+        component: RoutesAlias.Api,
+        meta: {
+          title: 'menus.system.api',
+          keepAlive: true
+        }
+      },
+      {
+        id: 903,
+        path: 'log',
+        name: 'Log',
+        component: RoutesAlias.Log,
+        meta: {
+          title: 'menus.system.log',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 用户管理
+  {
+    id: 2,
+    name: 'User',
+    path: '/user',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.user.title',
+      icon: '&#xe86e;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 301,
+        path: 'account',
+        name: 'Account',
+        component: RoutesAlias.Account,
+        meta: {
+          title: 'menus.user.account',
+          keepAlive: true
+        }
+      },
+      // {
+      //   id: 302,
+      //   path: 'department',
+      //   name: 'Department',
+      //   component: RoutesAlias.Department,
+      //   meta: {
+      //     title: 'menus.user.department',
+      //     keepAlive: false
+      //   }
+      // },
+      {
+        id: 303,
+        path: 'role',
+        name: 'Role',
+        component: RoutesAlias.Role,
+        meta: {
+          title: 'menus.user.role',
+          keepAlive: true
+        }
+      },
+      {
+        id: 304,
+        path: 'user',
+        name: 'UserCenter',
+        component: RoutesAlias.UserCenter,
+        meta: {
+          title: 'menus.user.userCenter',
+          isHide: true,
+          keepAlive: true,
+          isHideTab: true
+        }
+      }
+    ]
+  },
+  // 商品管理
+  {
+    id: 100,
+    path: '/commodity',
+    name: 'Commodity',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.commodity.title',
+      icon: '&#xe77f;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10001,
+        path: 'list',
+        name: 'CommodityList',
+        component: RoutesAlias.CommodityList,
+        meta: {
+          title: 'menus.commodity.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10002,
+        path: 'category',
+        name: 'CommodityCategory',
+        component: RoutesAlias.CommodityCategory,
+        meta: {
+          title: 'menus.commodity.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 仓库管理
+  {
+    id: 101,
+    path: '/warehouse',
+    name: 'Warehouse',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.warehouse.title',
+      icon: '&#xe762;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10101,
+        path: 'list',
+        name: 'WarehouseList',
+        component: RoutesAlias.WarehouseList,
+        meta: {
+          title: 'menus.warehouse.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10102,
+        path: 'category',
+        name: 'WarehouseCategory',
+        component: RoutesAlias.WarehouseCategory,
+        meta: {
+          title: 'menus.warehouse.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 库存管理
+  {
+    id: 102,
+    path: '/inventory',
+    name: 'Inventory',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.inventory.title',
+      icon: '&#xe762;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10201,
+        path: 'list',
+        name: 'InventoryList',
+        component: RoutesAlias.InventoryList,
+        meta: {
+          title: 'menus.inventory.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10202,
+        path: 'entryRecord',
+        name: 'InventoryEntryRecord',
+        component: RoutesAlias.InventoryEntryRecord,
+        meta: {
+          title: 'menus.inventory.entryRecord',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10203,
+        path: 'outRecord',
+        name: 'InventoryOutRecord',
+        component: RoutesAlias.InventoryOutRecord,
+        meta: {
+          title: 'menus.inventory.outRecord',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 车辆管理
+  {
+    id: 102,
+    path: '/vehicle',
+    name: 'Vehicle',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.vehicle.title',
+      icon: '&#xe7fa;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10201,
+        path: 'list',
+        name: 'VehicleList',
+        component: RoutesAlias.VehicleList,
+        meta: {
+          title: 'menus.vehicle.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10202,
+        path: 'category',
+        name: 'VehicleCategory',
+        component: RoutesAlias.VehicleCategory,
+        meta: {
+          title: 'menus.vehicle.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 订单管理
+  {
+    id: 104,
+    path: '/order',
+    name: 'Order',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.order.title',
+      icon: '&#xe84d;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10401,
+        path: 'application',
+        name: 'OrderApplication',
+        component: RoutesAlias.OrderApplication,
+        meta: {
+          title: 'menus.order.application',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10402,
+        path: 'list',
+        name: 'OrderList',
+        component: RoutesAlias.OrderList,
+        meta: {
+          title: 'menus.order.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10403,
+        path: 'records',
+        name: 'OrderRecords',
+        component: RoutesAlias.OrderRecords,
+        meta: {
+          title: 'menus.order.records',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10404,
+        path: 'category',
+        name: 'OrderCategory',
+        component: RoutesAlias.OrderCategory,
+        meta: {
+          title: 'menus.order.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 任务管理
+  {
+    id: 105,
+    path: '/task',
+    name: 'task',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.task.title',
+      icon: '&#xe662;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10501,
+        path: 'list',
+        name: 'TaskList',
+        component: RoutesAlias.TaskList,
+        meta: {
+          title: 'menus.task.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10502,
+        path: 'release',
+        name: 'TaskRelease',
+        component: RoutesAlias.TaskRelease,
+        meta: {
+          title: 'menus.task.release',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10503,
+        path: 'records',
+        name: 'TaskRecords',
+        component: RoutesAlias.TaskRecords,
+        meta: {
+          title: 'menus.task.records',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10504,
+        path: 'category',
+        name: 'TaskCategory',
+        component: RoutesAlias.TaskCategory,
+        meta: {
+          title: 'menus.task.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 配送管理
+  {
+    id: 106,
+    path: '/distribution',
+    name: 'distribution',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.distribution.title',
+      icon: '&#xe802;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10601,
+        path: 'list',
+        name: 'DistributionList',
+        component: RoutesAlias.DistributionList,
+        meta: {
+          title: 'menus.distribution.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10602,
+        path: 'records',
+        name: 'DistributionRecords',
+        component: RoutesAlias.DistributionRecords,
+        meta: {
+          title: 'menus.distribution.records',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10603,
+        path: 'signedList',
+        name: 'DistributionSignedList',
+        component: RoutesAlias.DistributionSignedList,
+        meta: {
+          title: 'menus.distribution.signedList',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10604,
+        path: 'exceptionRecords',
+        name: 'DistributionExceptionRecords',
+        component: RoutesAlias.DistributionExceptionRecords,
+        meta: {
+          title: 'menus.distribution.exceptionRecords',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10605,
+        path: 'category',
+        name: 'DistributionCategory',
+        component: RoutesAlias.DistributionCategory,
+        meta: {
+          title: 'menus.distribution.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+
   {
     id: 5,
     path: '/widgets',
@@ -374,61 +794,6 @@ export const asyncRoutes: MenuListType[] = [
     ]
   },
   {
-    id: 2,
-    name: 'User',
-    path: '/user',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.user.title',
-      icon: '&#xe86e;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 301,
-        path: 'account',
-        name: 'Account',
-        component: RoutesAlias.Account,
-        meta: {
-          title: 'menus.user.account',
-          keepAlive: true
-        }
-      },
-      {
-        id: 302,
-        path: 'department',
-        name: 'Department',
-        component: RoutesAlias.Department,
-        meta: {
-          title: 'menus.user.department',
-          keepAlive: false
-        }
-      },
-      {
-        id: 303,
-        path: 'role',
-        name: 'Role',
-        component: RoutesAlias.Role,
-        meta: {
-          title: 'menus.user.role',
-          keepAlive: true
-        }
-      },
-      {
-        id: 304,
-        path: 'user',
-        name: 'UserCenter',
-        component: RoutesAlias.UserCenter,
-        meta: {
-          title: 'menus.user.userCenter',
-          isHide: true,
-          keepAlive: true,
-          isHideTab: true
-        }
-      }
-    ]
-  },
-  {
     id: 3,
     path: '/menu',
     name: 'Menu',
@@ -670,49 +1035,7 @@ export const asyncRoutes: MenuListType[] = [
       }
     ]
   },
-  {
-    id: 9,
-    path: '/system',
-    name: 'System',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.system.title',
-      icon: '&#xe7b9;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 901,
-        path: 'setting',
-        name: 'Setting',
-        component: RoutesAlias.Setting,
-        meta: {
-          title: 'menus.system.setting',
-          keepAlive: true
-        }
-      },
-      {
-        id: 902,
-        path: 'api',
-        name: 'Api',
-        component: RoutesAlias.Api,
-        meta: {
-          title: 'menus.system.api',
-          keepAlive: true
-        }
-      },
-      {
-        id: 903,
-        path: 'log',
-        name: 'Log',
-        component: RoutesAlias.Log,
-        meta: {
-          title: 'menus.system.log',
-          keepAlive: true
-        }
-      }
-    ]
-  },
+
   {
     id: 10,
     path: '/safeguard',

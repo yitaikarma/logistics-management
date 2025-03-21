@@ -7,22 +7,11 @@
         <span class="menu-name">{{ formatMenuTitle(item.meta.title) }}</span>
         <div v-if="item.meta.showBadge" class="badge" style="right: 35px" />
       </template>
-      <submenu
-        :list="item.children"
-        :is-mobile="isMobile"
-        :level="level + 1"
-        :theme="theme"
-        @close="closeMenu"
-      />
+      <submenu :list="item.children" :is-mobile="isMobile" :level="level + 1" :theme="theme" @close="closeMenu" />
     </el-sub-menu>
 
     <!-- 普通菜单项 -->
-    <el-menu-item
-      v-else
-      :index="item.path || item.meta.title"
-      :level-item="level + 1"
-      @click="goPage(item)"
-    >
+    <el-menu-item v-else :index="item.path || item.meta.title" :level-item="level + 1" @click="goPage(item)">
       <MenuItemIcon :icon="item.meta.icon" :color="theme?.iconColor" />
       <template #title>
         <span class="menu-name">{{ formatMenuTitle(item.meta.title) }}</span>

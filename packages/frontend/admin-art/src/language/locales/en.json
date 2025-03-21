@@ -17,6 +17,44 @@
     "confirm": "Confirm",
     "logOutTips": "Do you want to log out?"
   },
+  "curd": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteTips": "Do you want to delete the current data?",
+    "deleteSuccess": "Delete successful",
+    "deleteError": "Delete failed",
+    "addSuccess": "Add successful",
+    "addError": "Add failed",
+    "editSuccess": "Edit successful",
+    "editError": "Edit failed",
+    "search": "Search",
+    "reset": "Reset",
+    "refresh": "Refresh",
+    "operation": "Operation",
+    "operationSuccess": "Operation successful",
+    "operationError": "Operation failed",
+    "confirmDelete": "Confirm delete",
+    "confirmDeleteTips": "Do you want to delete the current data?",
+    "confirmDeleteSuccess": "Delete successful",
+    "confirmDeleteError": "Delete failed",
+    "confirmDeleteBatch": "Batch delete",
+    "confirmDeleteBatchTips": "Do you want to delete the selected data?",
+    "confirmDeleteBatchSuccess": "Batch delete successful",
+    "confirmDeleteBatchError": "Batch delete failed",
+    "confirmDeleteAll": "Delete all",
+    "confirmDeleteAllTips": "Do you want to delete all data?",
+    "confirmDeleteAllSuccess": "Delete all successful",
+    "confirmDeleteAllError": "Delete all failed",
+    "confirmReset": "Confirm reset",
+    "confirmResetTips": "Do you want to reset the current data?",
+    "confirmResetSuccess": "Reset successful",
+    "confirmResetError": "Reset failed",
+    "confirmRefresh": "Confirm refresh",
+    "confirmRefreshTips": "Do you want to refresh the current data?",
+    "confirmRefreshSuccess": "Refresh successful",
+    "confirmRefreshError": "Refresh failed"
+  },
   "search": {
     "placeholder": "Search page",
     "historyTitle": "Search history",
@@ -107,11 +145,7 @@
     },
     "title": "Welcome back",
     "subTitle": "Please enter your account and password to login",
-    "placeholder": [
-      "Please enter your account",
-      "Please enter your password",
-      "Please slide to verify"
-    ],
+    "placeholder": ["Please enter your account", "Please enter your password", "Please slide to verify"],
     "sliderText": "Please slide to verify",
     "sliderSuccessText": "Verification successful",
     "rememberPwd": "Remember password",
@@ -127,18 +161,22 @@
   "forgetPassword": {
     "title": "Forgot password?",
     "subTitle": "Enter your email to reset your password",
-    "placeholder": "Please enter your email",
-    "submitBtnText": "Submit",
+    "applyPlaceholder": "Please enter your email",
+    "resetPlaceholder": "Please enter a new password",
+    "submitApplyBtnText": "Submit application",
+    "submitResetBtnText": "Reset password",
+    "success": "Reset password successful",
     "backBtnText": "Back"
   },
   "register": {
     "title": "Create account",
     "subTitle": "Welcome to join us, please fill in the following information to complete the registration",
-    "placeholder": [
-      "Please enter your account",
-      "Please enter your password",
-      "Please enter your password again"
-    ],
+    "username": ["Please enter your account", "Length is 3 to 20 characters", "Username already exists"],
+    "email": ["Please enter your email", "Incorrect email format"],
+    "password": ["Please enter your password", "Password length cannot be less than 6 digits"],
+    "confirmPassword": ["Please enter your password again", "The two passwords are inconsistent!"],
+    "agreement": ["Please agree to the privacy policy"],
+    "placeholder": ["Please enter your account", "Please enter your password", "Please enter your password again"],
     "rule": [
       "Please enter your password again",
       "The two passwords are inconsistent!",
@@ -149,6 +187,7 @@
     "agreeText": "I agree",
     "privacyPolicy": "Privacy policy",
     "submitBtnText": "Register",
+    "success": "Registration successful",
     "hasAccount": "Already have an account?",
     "toLogin": "To login"
   },
@@ -291,6 +330,66 @@
       "analysis": "Analysis",
       "ecommerce": "Ecommerce"
     },
+    "user": {
+      "title": "User Management",
+      "account": "Account",
+      "department": "Department",
+      "role": "Role",
+      "userCenter": "User Center"
+    },
+    "system": {
+      "title": "System Settings",
+      "setting": "Setting",
+      "api": "API",
+      "log": "Log"
+    },
+    "commodity": {
+      "title": "Commodity Management",
+      "list": "Commodity List",
+      "category": "Commodity Category"
+    },
+    "warehouse": {
+      "title": "Warehouse Management",
+      "list": "Warehouse List",
+      "category": "Warehouse Category",
+      "inventoryList": "Inventory List",
+      "inventoryEntry": "Inventory Entry",
+      "inventoryOut": "Inventory Out"
+    },
+    "inventory": {
+      "title": "Inventory Management",
+      "list": "Inventory List",
+      "entryRecord": "Entry Record",
+      "outRecord": "Out Record"
+    },
+    "vehicle": {
+      "title": "Vehicle Management",
+      "list": "Vehicle List",
+      "category": "Vehicle Category"
+    },
+    "order": {
+      "title": "Order Management",
+      "application": "Order Application",
+      "list": "Order List",
+      "records": "Order Records",
+      "category": "Order Category"
+    },
+    "task": {
+      "title": "Task Management",
+      "release": "Task Release",
+      "list": "Task List",
+      "records": "Task Records",
+      "category": "Task Category"
+    },
+    "distribution": {
+      "title": "Distribution Management",
+      "list": "Distribution List",
+      "records": "Distribution Records",
+      "signedList": "Signed List",
+      "exceptionRecords": "Exception Records",
+      "category": "Distribution Category"
+    },
+
     "widgets": {
       "title": "Components",
       "iconList": "Icon List",
@@ -325,13 +424,6 @@
       "comment": "Comment",
       "articlePublish": "Article Publish"
     },
-    "user": {
-      "title": "User Management",
-      "account": "Account",
-      "department": "Department",
-      "role": "Role",
-      "userCenter": "User Center"
-    },
     "menu": {
       "title": "Menu Management",
       "menu": "Menu",
@@ -355,12 +447,6 @@
       "notFound": "404",
       "notFoundEn": "404",
       "serverError": "500"
-    },
-    "system": {
-      "title": "System Settings",
-      "setting": "Setting",
-      "api": "API",
-      "log": "Log"
     },
     "safeguard": {
       "title": "Safeguard",

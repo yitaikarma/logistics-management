@@ -11,8 +11,8 @@ import { Body, Param, Query } from '../decorators/param.decorator'
 import { UseMiddleware } from '../decorators/middleware.decorator'
 import { UserService } from '../services/user.service'
 import { authMiddleware } from '../middlewares/auth.middleware'
-import { validateBody } from '../middlewares/validate.middleware'
-import { CreateUserSchema, UpdateUserSchema } from '../validate/user.validate'
+import { validateBody, validateQuery } from '../middlewares/validate.middleware'
+import { CreateUserSchema, UpdateUserSchema, UserQuerySchema } from '../validate/user.validate'
 
 @Controller({ path: '/api/users' })
 @UseMiddleware(authMiddleware)
@@ -24,39 +24,39 @@ export class UserController {
     }
 
     @Get('/page')
-    async getPageAllUsers(@Query('currentPage') currentPage?: string, @Query('pageSize') pageSize?: string, @Query('email') email?: string, @Query('username') username?: string) {
-        const newCurrentPage = currentPage ? parseInt(currentPage, 10) : 1
-        const newPageSize = pageSize ? parseInt(pageSize, 10) : 10
-        return await this.userService.findPageAll(newCurrentPage, newPageSize, username, email)
+    @UseMiddleware(validateQuery(UserQuerySchema))
+    async getPageAllUsers(@Query() query?: UserQuerySchema) {
+        return await this.userService.findPageAll(query)
     }
 
     @Get()
-    async getAllUsers(@Query('email') email?: string, @Query('username') username?: string) {
-        return await this.userService.findAll(username, email)
+    @UseMiddleware(validateQuery(UserQuerySchema))
+    async getAllUsers(@Query() query?: UserQuerySchema) {
+        return await this.userService.findAll(query)
     }
 
     @Get('/:id')
     async getUserById(@Param('id') id: string) {
-        const userId = parseInt(id, 10)
-        return await this.userService.findById(userId)
+        const intId = parseInt(id, 10)
+        return await this.userService.findById(intId)
     }
 
     @Post()
     @UseMiddleware(validateBody(CreateUserSchema))
-    async createUser(@Body() userData: any) {
-        return await this.userService.create(userData)
+    async createUser(@Body() body: any) {
+        return await this.userService.create(body)
     }
 
     @Put('/:id')
     @UseMiddleware(validateBody(UpdateUserSchema))
-    async updateUser(@Param('id') id: string, @Body() userData: any) {
-        const userId = parseInt(id, 10)
-        return await this.userService.update(userId, userData)
+    async updateUser(@Param('id') id: string, @Body() body: any) {
+        const intId = parseInt(id, 10)
+        return await this.userService.update(intId, body)
     }
 
     @Delete('/:id')
     async deleteUser(@Param('id') id: string) {
-        const userId = parseInt(id, 10)
-        return await this.userService.delete(userId)
+        const intId = parseInt(id, 10)
+        return await this.userService.delete(intId)
     }
 }

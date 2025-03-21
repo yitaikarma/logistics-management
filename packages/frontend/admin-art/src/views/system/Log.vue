@@ -25,7 +25,7 @@
   const logList = reactive([
     {
       username: '中小鱼',
-      sex: 0,
+      gender: 0,
       ip: '143.133.312.563',
       browser: 'chrome',
       status: 1,
@@ -33,7 +33,7 @@
     },
     {
       username: '何小荷',
-      sex: 1,
+      gender: 1,
       ip: '131.133.313.424',
       browser: 'chrome',
       status: 1,
@@ -41,7 +41,7 @@
     },
     {
       username: '誶誶淰',
-      sex: 0,
+      gender: 0,
       ip: '127.133.313.132',
       browser: 'chrome',
       status: 0,
@@ -49,7 +49,7 @@
     },
     {
       username: '发呆草',
-      sex: 0,
+      gender: 0,
       ip: '143.133.313.456',
       browser: 'chrome',
       status: 1,
@@ -57,7 +57,7 @@
     },
     {
       username: '甜筒',
-      sex: 1,
+      gender: 1,
       ip: '127.133.567.675',
       browser: 'chrome',
       status: 0,
@@ -65,7 +65,7 @@
     },
     {
       username: '冷月呆呆',
-      sex: 1,
+      gender: 1,
       ip: '127.133.145.545',
       browser: 'chrome',
       status: 1,
@@ -73,7 +73,7 @@
     },
     {
       username: '唐不苦',
-      sex: 1,
+      gender: 1,
       ip: '156.133.313.756',
       browser: 'chrome',
       status: 1,
@@ -81,7 +81,7 @@
     },
     {
       username: '笑很甜',
-      sex: 0,
+      gender: 0,
       ip: '131.133.234.424',
       browser: 'chrome',
       status: 1,
@@ -89,7 +89,7 @@
     },
     {
       username: '青隐篱',
-      sex: 0,
+      gender: 0,
       ip: '167.133.355.534',
       browser: 'chrome',
       status: 1,
@@ -97,7 +97,7 @@
     },
     {
       username: '有你一生',
-      sex: 0,
+      gender: 0,
       ip: '234.133.545.533',
       browser: 'chrome',
       status: 1,
@@ -105,7 +105,7 @@
     },
     {
       username: '中小鱼',
-      sex: 0,
+      gender: 0,
       ip: '245.567.313.890',
       browser: 'chrome',
       status: 1,
@@ -113,7 +113,7 @@
     },
     {
       username: '何小荷',
-      sex: 1,
+      gender: 1,
       ip: '235.789.313.345',
       browser: 'chrome',
       status: 1,
@@ -121,7 +121,7 @@
     },
     {
       username: '誶誶淰',
-      sex: 0,
+      gender: 0,
       ip: '214.133.313.543',
       browser: 'chrome',
       status: 0,
@@ -129,7 +129,7 @@
     },
     {
       username: '发呆草',
-      sex: 0,
+      gender: 0,
       ip: '567.756.313.123',
       browser: 'chrome',
       status: 1,
@@ -137,7 +137,7 @@
     },
     {
       username: '甜筒',
-      sex: 1,
+      gender: 1,
       ip: '564.133.313.645',
       browser: 'chrome',
       status: 0,
@@ -145,7 +145,7 @@
     },
     {
       username: '冷月呆呆',
-      sex: 1,
+      gender: 1,
       ip: '587.133.313.422',
       browser: 'chrome',
       status: 1,
@@ -153,7 +153,7 @@
     },
     {
       username: '唐不苦',
-      sex: 1,
+      gender: 1,
       ip: '571.133.313.423',
       browser: 'chrome',
       status: 1,
@@ -161,7 +161,7 @@
     },
     {
       username: '甜筒',
-      sex: 1,
+      gender: 1,
       ip: '587.133.313.422',
       browser: 'chrome',
       status: 1,
@@ -169,7 +169,7 @@
     },
     {
       username: '青隐篱',
-      sex: 1,
+      gender: 1,
       ip: '571.133.313.423',
       browser: 'chrome',
       status: 1,

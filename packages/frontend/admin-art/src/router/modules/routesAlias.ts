@@ -7,6 +7,36 @@ export enum RoutesAlias {
   Exception403 = '/exception/403', // 403
   Exception404 = '/exception/404', // 404
   Exception500 = '/exception/500', // 500
+  // 确定的路由
+  CommodityList = '/commodity/List', // 商品列表
+  CommodityCategory = '/commodity/Category', // 商品分类
+
+  WarehouseList = '/warehouse/List', // 仓库列表
+  WarehouseCategory = '/warehouse/Category', // 仓库分类
+
+  InventoryList = '/inventory/List', // 库存
+  InventoryEntryRecord = '/inventory/EntryRecord', // 入库
+  InventoryOutRecord = '/inventory/OutRecord', // 出库
+
+  VehicleList = '/vehicle/List', // 车辆列表
+  VehicleCategory = '/vehicle/Category', // 车辆分类
+
+  OrderApplication = '/order/Application', // 订单申请
+  OrderList = '/order/List', // 订单列表
+  OrderCategory = '/order/Category', //
+  OrderRecords = '/order/Records', // 订单记录
+
+  TaskRelease = '/task/Release', // 任务发布
+  TaskList = '/task/List', // 任务列表
+  TaskCategory = '/task/Category', // 任务分类
+  TaskRecords = '/task/Records', // 任务记录
+
+  DistributionList = '/distribution/List', // 配送列表
+  DistributionCategory = '/distribution/Category', // 仪表盘分类
+  DistributionSignedList = '/distribution/SignedList', // 配送签收列表
+  DistributionRecords = '/distribution/Records', // 配送记录
+  DistributionExceptionRecords = '/distribution/ExceptionRecords', // 配送异常记录
+
   Success = '/result/Success', // 成功
   Fail = '/result/Fail', // 失败
   Dashboard = '/dashboard/console', // 工作台

@@ -5,6 +5,7 @@
  * @LastEditors  : Karma
  * @Description  :
  */
+
 import { Response } from 'express'
 export interface ApiResponse<T> {
     code: number
@@ -53,11 +54,11 @@ export class ResponseUtil {
      * 分页数据响应
      * @param records 数据列表
      * @param total 总数
-     * @param page 当前页
+     * @param currentPage 当前页
      * @param pageSize 每页数量
      * @param message 响应消息
      */
-    static page<T>(records: T[], total: number, page: number, pageSize: number, message = '查询成功') {
-        return this.success({ records, total, page, pageSize }, message)
+    static page<T>(records: T[], total: number, currentPage: number, pageSize: number, message = '查询成功') {
+        return this.success({ records, total, currentPage, pageSize }, message)
     }
 }

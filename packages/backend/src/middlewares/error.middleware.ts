@@ -12,7 +12,8 @@ import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@pri
 import { logger } from '../utils/logger'
 
 export function errorHandlerMiddleware(error: Error, req: Request, res: Response, _next: NextFunction) {
-    logger.error('', error)
+    logger.error('-----------------------', error)
+    logger.error('+++++++++++++++++++++++', req, res)
 
     // 处理 JSON Web Token 错误
     if (error.name === 'JsonWebTokenError') {
@@ -58,6 +59,11 @@ export function errorHandlerMiddleware(error: Error, req: Request, res: Response
     if (error instanceof NotFoundError) {
         ResponseUtil.error(res, 404, '资源不存在', [error.message])
         return void 0
+    }
+
+    if (error instanceof SyntaxError) {
+        console.error('====== JSON 解析失败 ======')
+        ResponseUtil.error(res, 400, 'JSON 解析失败', ['请求数据格式错误'])
     }
 
     // 其他未知错误

@@ -13,7 +13,12 @@ import { AppError, ErrorCode } from '../utils/errors'
 export function validateBody(schema: z.ZodType<any, any>) {
     return (req: Request, res: Response, next: NextFunction) => {
         try {
-            req.body = schema.parse(req.body)
+            req.body = schema
+                .refine(data => {
+                    console.log('body', data)
+                    return data
+                })
+                .parse(req.body)
             next()
         } catch (error) {
             if (error instanceof z.ZodError) {
@@ -31,7 +36,12 @@ export function validateBody(schema: z.ZodType<any, any>) {
 export function validateQuery(schema: z.ZodType<any, any>) {
     return (req: Request, res: Response, next: NextFunction) => {
         try {
-            req.query = schema.parse(req.query)
+            req.query = schema
+                .refine(data => {
+                    console.log('query', data)
+                    return data
+                })
+                .parse(req.query)
             next()
         } catch (error) {
             if (error instanceof z.ZodError) {

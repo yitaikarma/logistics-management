@@ -2,27 +2,22 @@
   <div class="table-bar">
     <div class="top-wrap" v-show="showSearchWrap">
       <slot name="top"> </slot>
-      <div class="buttons">
+      <!-- <div class="buttons">
         <el-button type="primary" @click="search" v-ripple>搜索</el-button>
         <el-button @click="reset" v-ripple>重置</el-button>
-      </div>
+      </div> -->
     </div>
     <div class="bottom-wrap" v-if="showBottom">
       <div class="left-wrap">
         <slot name="bottom"></slot>
-      </div>
-      <div class="right-wrap">
         <el-button-group>
           <el-button
+            :type="showSearchWrap ? 'primary' : 'default'"
             :icon="Search"
             @click="isShowSearchWrap()"
             v-if="layout.indexOf('search') !== -1"
           />
-          <el-button
-            :icon="RefreshRight"
-            @click="refresh()"
-            v-if="layout.indexOf('refresh') !== -1"
-          />
+          <el-button :icon="RefreshRight" @click="refresh()" v-if="layout.indexOf('refresh') !== -1" />
 
           <el-popover
             placement="bottom-end"
@@ -34,8 +29,44 @@
             <el-checkbox-group v-model="colOptions" :min="1">
               <el-checkbox
                 v-for="(item, index) in colSelect"
-                :label="item"
-                :key="item"
+                :label="item.name"
+                :value="item.show"
+                :key="index"
+                @change="changeColumn($event, index)"
+              />
+            </el-checkbox-group>
+            <template #reference>
+              <el-button :icon="Operation"></el-button>
+            </template>
+          </el-popover>
+        </el-button-group>
+
+        <div v-show="showSearchWrap" class="buttons">
+          <el-button type="primary" @click="search" v-ripple>搜索</el-button>
+          <el-button @click="reset" v-ripple>重置</el-button>
+        </div>
+        <div v-show="showDeleteBottom" class="buttons">
+          <el-button type="danger" @click="deleteSelect" v-ripple>删除选中</el-button>
+        </div>
+      </div>
+      <div v-if="0" class="right-wrap">
+        <el-button-group>
+          <el-button :icon="Search" @click="isShowSearchWrap()" v-if="layout.indexOf('search') !== -1" />
+          <el-button :icon="RefreshRight" @click="refresh()" v-if="layout.indexOf('refresh') !== -1" />
+
+          <el-popover
+            placement="bottom-end"
+            width="100"
+            trigger="hover"
+            @show="showPopover"
+            v-if="layout.indexOf('column') !== -1"
+          >
+            <el-checkbox-group v-model="colOptions" :min="1">
+              <el-checkbox
+                v-for="(item, index) in colSelect"
+                :label="item.name"
+                :value="item.show"
+                :key="index"
                 @change="changeColumn($event, index)"
               />
             </el-checkbox-group>
@@ -53,7 +84,7 @@
   import { useSettingStore } from '@/store/modules/setting'
   import { Search, RefreshRight, Operation } from '@element-plus/icons-vue'
 
-  const emit = defineEmits(['search', 'reset', 'changeColumn'])
+  const emit = defineEmits(['search', 'reset', 'delete', 'changeColumn'])
 
   const props = defineProps({
     showTop: {
@@ -63,6 +94,10 @@
     showBottom: {
       type: Boolean,
       default: true
+    },
+    showDeleteBottom: {
+      type: Boolean,
+      default: false
     },
     columns: {
       type: Array,
@@ -77,8 +112,8 @@
   const settingStore = useSettingStore()
   const showSearchWrap = ref(true)
   const colOptions = ref([])
-  const colSelect = ref([])
-  const columnChage = ref(false)
+  const colSelect = ref<{ name: string; show: number | boolean }[]>([])
+  const columnChange = ref(false)
 
   onMounted(() => {
     showSearchWrap.value = props.showTop
@@ -96,14 +131,16 @@
 
   // 列显示隐藏
   const showPopover = () => {
-    if (!columnChage.value) {
+    if (!columnChange.value) {
       let ops: any = []
+      let options: any = []
       props.columns.map((item: any) => {
-        ops.push(item.name)
+        ops.push({ name: item.name, value: item.show })
+        options.push(item.name)
       })
-      colOptions.value = ops
+      colOptions.value = options
       colSelect.value = ops
-      columnChage.value = true
+      columnChange.value = true
     }
   }
 
@@ -117,8 +154,6 @@
       }
     })
 
-    console.log(columns)
-
     emit('changeColumn', columns)
   }
 
@@ -128,6 +163,10 @@
 
   const reset = () => {
     emit('reset')
+  }
+
+  const deleteSelect = () => {
+    emit('delete')
   }
 </script>
 
@@ -149,6 +188,12 @@
     .bottom-wrap {
       display: flex;
       justify-content: space-between;
+
+      > * {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
     }
   }
 

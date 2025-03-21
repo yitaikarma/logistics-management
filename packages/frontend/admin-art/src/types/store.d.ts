@@ -1,14 +1,5 @@
 import { MenuThemeEnum, SystemThemeEnum } from '@/enums/appEnum'
 
-// 用户信息
-export interface UserInfo {
-  id: number
-  name: string
-  username: string
-  avatar: string
-  email: string
-}
-
 // 系统主题样式（light | dark）
 export interface SystemThemeType {
   className: string // className

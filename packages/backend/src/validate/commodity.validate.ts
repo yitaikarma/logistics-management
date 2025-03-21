@@ -1,18 +1,39 @@
-import { z } from '../utils/zod'
+import { numberFromEmptyString, z } from '../utils/zod'
 
-export const CreateCommoditySchema = z
+export const CommoditySchema = z
     .object({
         id: z.number().int(),
-        name: z.string().min(2, { message: '商品名称长度不能小于2位' }).max(20, { message: '商品名称长度不能大于20位' }),
+        name: z.string().min(2, { message: '名称长度不能小于2位' }).max(20, { message: '名称长度不能大于20位' }),
         price: z.coerce.number(),
         total: z.coerce.number().int(),
-        description: z.string().nullish(),
+        desc: z.string().nullish(),
+        status: z.coerce.number().int(),
         createdAt: z.date(),
         updatedAt: z.date(),
+        categoryId: z.coerce.number().int(),
     })
     .omit({ id: true, createdAt: true, updatedAt: true })
 
-export const UpdateCommoditySchema = CreateCommoditySchema.partial()
+export const CreateCommoditySchema = CommoditySchema
+export const UpdateCommoditySchema = CommoditySchema.partial()
 
-export type CreateCommodity = z.infer<typeof CreateCommoditySchema>
-export type UpdateCommodity = z.infer<typeof UpdateCommoditySchema>
+export type CommoditySchema = z.infer<typeof CommoditySchema>
+
+export const CommodityQuerySchema = z
+    .object({
+        id: z.number().int(),
+        name: z.string().nullish(),
+        price: numberFromEmptyString(),
+        total: numberFromEmptyString(),
+        desc: z.string().nullish(),
+        status: numberFromEmptyString(),
+        createdAt: z.date(),
+        updatedAt: z.date(),
+        categoryId: numberFromEmptyString(),
+
+        currentPage: numberFromEmptyString(),
+        pageSize: numberFromEmptyString(),
+    })
+    .omit({ id: true, createdAt: true, updatedAt: true })
+
+export type CommodityQuerySchema = z.infer<typeof CommodityQuerySchema>

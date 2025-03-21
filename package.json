@@ -4,17 +4,18 @@
     "description": "",
     "private": true,
     "dependencies": {
+        "dayjs": "^1.11.13",
         "pnpm": "^6.7.0"
     },
     "scripts": {
-        "dev backend": "pnpm -F backend dev",
-        "build backend": "pnpm -F backend build",
-        "preview backend": "pnpm -F backend preview",
-        "dev frontend-admin": "pnpm -F frontend-admin dev",
-        "build frontend-admin": "pnpm -F frontend-admin build",
-        "dev frontend-admin-art": "pnpm -F frontend-admin-art dev",
-        "build frontend-admin-art": "pnpm -F frontend-admin-art build",
-        "preview frontend-admin-art": "pnpm -F frontend-admin-art preview"
+        "dev:backend": "pnpm -F backend dev",
+        "build:backend": "pnpm -F backend build",
+        "preview:backend": "pnpm -F backend preview",
+        "dev:frontend-admin": "pnpm -F frontend-admin dev",
+        "build:frontend-admin": "pnpm -F frontend-admin build",
+        "dev:frontend-admin-art": "pnpm -F frontend-admin-art dev",
+        "build:frontend-admin-art": "pnpm -F frontend-admin-art build",
+        "preview:frontend-admin-art": "pnpm -F frontend-admin-art preview"
     },
     "keywords": [],
     "author": "",

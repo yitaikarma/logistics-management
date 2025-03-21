@@ -8,6 +8,20 @@
 import { PrismaClient } from '@prisma/client'
 import { pagination } from 'prisma-extension-pagination'
 import { logger } from '../utils/logger'
+import dayjs from 'dayjs'
+
+// 处理查询结果中的日期
+const formatResult = (data: any) => {
+    if (!data) return data
+
+    Object.keys(data).forEach(key => {
+        if (data[key] instanceof Date) {
+            data[key] = dayjs(data[key]).format('YYYY-MM-DD HH:mm:ss')
+        }
+    })
+
+    return data
+}
 
 class PrismaService {
     private static instance: PrismaService
@@ -16,6 +30,19 @@ class PrismaService {
     private constructor() {
         this.prisma = new PrismaClient()
         this.prisma.$extends(pagination())
+
+        // 全局中间件处理时间格式
+        this.prisma.$use(async (params, next) => {
+            const result = await next(params)
+
+            // 处理数组结果
+            if (Array.isArray(result)) {
+                return result.map(item => formatResult(item))
+            }
+
+            // 处理单个对象
+            return formatResult(result)
+        })
     }
 
     public static getInstance(): PrismaService {

@@ -27,34 +27,43 @@ generator zod {
   // prismaClientPath                 = "./path/to/prisma/client" // default is client output path
 }
 
-model Role {
-  id        Int      @id @default(autoincrement()) @db.UnsignedInt
-  key       Int      @unique @db.UnsignedTinyInt
-  name      String   @unique @db.VarChar(255)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([key])
-  @@index([name])
-}
-
 model User {
-  id        Int      @id @default(autoincrement()) @db.UnsignedInt
-  email     String   @unique @db.VarChar(255)
-  username  String   @unique @db.VarChar(255)
-  phone     String?  @unique @db.VarChar(255)
-  password  String   @db.VarChar(255)
-  role      Int      @db.UnsignedTinyInt
-  gender    Int      @default(0) @db.TinyInt
-  nickname  String   @db.VarChar(255)
-  avatar    String?  @db.VarChar(255)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int         @id @default(autoincrement()) @db.UnsignedInt
+  username   String?     @unique @db.VarChar(255)
+  email      String?     @db.VarChar(255)
+  phone      String?     @db.VarChar(255)
+  password   String?     @db.VarChar(255)
+  role       Int?        @default(0) @db.UnsignedTinyInt
+  gender     Int?        @default(0) @db.TinyInt
+  nickname   String?     @db.VarChar(255)
+  avatar     String?     @db.VarChar(255)
+  address    String?     @db.VarChar(255)
+  desc       String?     @db.Text
+  status     Int?        @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  warehouses Warehouse[]
+  vehicles   Vehicle[]
+  orders     Order[]
+  tasks      Task[]
 
   @@index([email])
   @@index([username])
   @@index([phone])
   @@index([role])
+}
+
+model Role {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  name      String   @unique @db.VarChar(255)
+  value     Int      @db.UnsignedTinyInt
+  desc      String?  @db.Text
+  status    Int      @default(0) @db.UnsignedTinyInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@index([value])
 }
 
 model Login_Log {
@@ -86,71 +95,228 @@ model System_Log {
 }
 
 model Commodity {
-  id          Int      @id @default(autoincrement()) @db.UnsignedInt
-  name        String   @unique @db.VarChar(255)
-  price       Float    @default(0) @db.Float
-  total       Int      @default(0) @db.UnsignedInt
-  description String?  @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              Int                @id @default(autoincrement()) @db.UnsignedInt
+  name            String             @unique @db.VarChar(255)
+  price           Float              @default(0) @db.Float
+  total           Int                @default(0) @db.UnsignedInt
+  desc            String?            @db.Text
+  status          Int                @default(0) @db.UnsignedTinyInt
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  categoryId      Int?               @db.UnsignedInt
+  category        CommodityCategory? @relation(fields: [categoryId], references: [id])
+  orders          Order[]
+  inventories     Inventory[]
+  InventoryRecord InventoryRecord[]
 
   @@index([name])
 }
 
-model Company {
-  id          Int      @id @default(autoincrement()) @db.UnsignedInt
-  name        String   @unique @db.VarChar(255)
-  phone       String?  @unique @db.VarChar(255)
-  address     String?  @db.VarChar(255)
-  description String?  @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([name])
-}
-
-model Employee {
-  id          Int      @id @default(autoincrement()) @db.UnsignedInt
-  name        String   @unique @db.VarChar(255)
-  gender      Int      @default(0) @db.TinyInt
-  id_card     String   @unique @db.VarChar(255)
-  phone       String?  @unique @db.VarChar(255)
-  address     String?  @db.VarChar(255)
-  description String?  @db.Text
-  department  Int      @default(0) @db.TinyInt
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model CommodityCategory {
+  id          Int         @id @default(autoincrement()) @db.UnsignedInt
+  name        String      @unique @db.VarChar(255)
+  desc        String?     @db.Text
+  status      Int         @default(0) @db.UnsignedTinyInt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  commodities Commodity[]
 
   @@index([name])
 }
 
 model Warehouse {
-  id          Int      @id @default(autoincrement()) @db.UnsignedInt
-  name        String   @unique @db.VarChar(255)
-  responsible String?  @db.VarChar(255)
-  address     String?  @db.VarChar(255)
-  description String?  @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              Int                @id @default(autoincrement()) @db.UnsignedInt
+  name            String             @unique @db.VarChar(255)
+  address         String?            @db.VarChar(255)
+  desc            String?            @db.Text
+  status          Int                @default(0) @db.UnsignedTinyInt
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  userId          Int?               @db.UnsignedInt
+  username        String?            @db.VarChar(255)
+  user            User?              @relation(fields: [userId], references: [id])
+  categoryId      Int?               @db.UnsignedInt
+  category        WarehouseCategory? @relation(fields: [categoryId], references: [id])
+  inventories     Inventory[]
+  InventoryRecord InventoryRecord[]
 
   @@index([name])
-  @@index([responsible])
+  @@index([userId])
 }
 
-model Sale {
-  id             Int      @id @default(autoincrement()) @db.UnsignedInt
-  commodity      String   @db.VarChar(255)
-  company        String   @db.VarChar(255)
-  count          Int      @default(0) @db.UnsignedInt
-  price          Float    @default(0) @db.Float
-  total          Float    @default(0) @db.Float
-  account_number String   @db.VarChar(255)
-  phone          String?  @db.VarChar(255)
-  description    String?  @db.Text
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+model WarehouseCategory {
+  id         Int         @id @default(autoincrement()) @db.UnsignedInt
+  name       String      @unique @db.VarChar(255)
+  desc       String?     @db.Text
+  status     Int         @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  warehouses Warehouse[]
 
-  @@index([commodity])
-  @@index([company])
-  @@index([phone])
+  @@index([name])
+}
+
+model Inventory {
+  id          Int        @id @default(autoincrement()) @db.UnsignedInt
+  total       Int        @default(0) @db.UnsignedInt
+  desc        String?    @db.Text
+  status      Int        @default(0) @db.UnsignedTinyInt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  warehouseId Int?       @db.UnsignedInt
+  warehouse   Warehouse? @relation(fields: [warehouseId], references: [id])
+  commodityId Int?       @db.UnsignedInt
+  commodity   Commodity? @relation(fields: [commodityId], references: [id])
+
+  @@index([warehouseId])
+  @@index([commodityId])
+}
+
+model InventoryRecord {
+  id          Int        @id @default(autoincrement()) @db.UnsignedInt
+  type        Int        @default(0) @db.TinyInt
+  total       Int        @default(0) @db.UnsignedInt
+  desc        String?    @db.Text
+  status      Int        @default(0) @db.UnsignedTinyInt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  warehouseId Int?       @db.UnsignedInt
+  warehouse   Warehouse? @relation(fields: [warehouseId], references: [id])
+  commodityId Int?       @db.UnsignedInt
+  commodity   Commodity? @relation(fields: [commodityId], references: [id])
+
+  @@index([type])
+  @@index([warehouseId])
+  @@index([commodityId])
+}
+
+model Vehicle {
+  id         Int              @id @default(autoincrement()) @db.UnsignedInt
+  name       String           @unique @db.VarChar(255)
+  license    String           @unique @db.VarChar(255)
+  desc       String?          @db.Text
+  status     Int              @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  userId     Int?             @db.UnsignedInt
+  username   String?          @db.VarChar(255)
+  user       User?            @relation(fields: [userId], references: [id])
+  categoryId Int?             @db.UnsignedInt
+  category   VehicleCategory? @relation(fields: [categoryId], references: [id])
+
+  @@index([name])
+  @@index([userId])
+}
+
+model VehicleCategory {
+  id        Int       @id @default(autoincrement()) @db.UnsignedInt
+  name      String    @unique @db.VarChar(255)
+  desc      String?   @db.Text
+  status    Int       @default(0) @db.UnsignedTinyInt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  vehicles  Vehicle[]
+
+  @@index([name])
+}
+
+model Employee {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  name       String   @db.VarChar(255)
+  gender     Int      @default(0) @db.TinyInt
+  id_card    String   @unique @db.VarChar(255)
+  phone      String?  @unique @db.VarChar(255)
+  address    String?  @db.VarChar(255)
+  desc       String?  @db.Text
+  department Int      @default(0) @db.TinyInt
+  status     Int      @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([id, name])
+  @@index([name])
+}
+
+model Order {
+  id          Int            @id @default(autoincrement()) @db.UnsignedInt
+  desc        String?        @db.Text
+  status      Int            @default(0) @db.UnsignedTinyInt
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  commodityId Int?           @db.UnsignedInt
+  commodity   Commodity?     @relation(fields: [commodityId], references: [id])
+  userId      Int?           @db.UnsignedInt
+  user        User?          @relation(fields: [userId], references: [id])
+  categoryId  Int?           @db.UnsignedInt
+  category    OrderCategory? @relation(fields: [categoryId], references: [id])
+
+  @@index([userId])
+}
+
+model OrderCategory {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  name      String   @unique @db.VarChar(255)
+  desc      String?  @db.Text
+  status    Int      @default(0) @db.UnsignedTinyInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+
+  @@index([name])
+}
+
+model Task {
+  id         Int           @id @default(autoincrement()) @db.UnsignedInt
+  name       String        @unique @db.VarChar(255)
+  desc       String?       @db.Text
+  startTime  DateTime?
+  endTime    DateTime?
+  status     Int           @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+  userId     Int?          @db.UnsignedInt
+  username   String?       @db.VarChar(255)
+  user       User?         @relation(fields: [userId], references: [id])
+  categoryId Int?          @db.UnsignedInt
+  category   TaskCategory? @relation(fields: [categoryId], references: [id])
+
+  @@index([name])
+  @@index([userId])
+}
+
+model TaskCategory {
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  name      String   @unique @db.VarChar(255)
+  desc      String?  @db.Text
+  status    Int      @default(0) @db.UnsignedTinyInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tasks     Task[]
+
+  @@index([name])
+}
+
+model Distribution {
+  id         Int                   @id @default(autoincrement()) @db.UnsignedInt
+  name       String                @unique @db.VarChar(255)
+  desc       String?               @db.Text
+  status     Int                   @default(0) @db.UnsignedTinyInt
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+  categoryId Int?                  @db.UnsignedInt
+  category   DistributionCategory? @relation(fields: [categoryId], references: [id])
+
+  @@index([name])
+}
+
+model DistributionCategory {
+  id            Int            @id @default(autoincrement()) @db.UnsignedInt
+  name          String         @unique @db.VarChar(255)
+  desc          String?        @db.Text
+  status        Int            @default(0) @db.UnsignedTinyInt
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  distributions Distribution[]
+
+  @@index([name])
 }

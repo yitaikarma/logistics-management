@@ -9,7 +9,7 @@
       </el-col>
     </el-row>
 
-    <art-table :data="apiList">
+    <art-table :records="apiList">
       <el-table-column label="ID" prop="id" width="100" />
       <el-table-column label="路径" prop="endpoint" />
       <el-table-column label="分组" prop="group" />
