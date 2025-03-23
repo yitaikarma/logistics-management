@@ -8,6 +8,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { fileURLToPath } from 'url'
 // import viteImagemin from 'vite-plugin-imagemin'
 // import { visualizer } from 'rollup-plugin-visualizer'
+import VueDevtools from 'vite-plugin-vue-devtools'
 
 export default ({ mode }) => {
   const root = process.cwd()
@@ -72,6 +73,7 @@ export default ({ mode }) => {
       }
     },
     plugins: [
+      VueDevtools(),
       vue(),
       // 自动导入 components 下面的组件，无需 import 引入
       Components({
