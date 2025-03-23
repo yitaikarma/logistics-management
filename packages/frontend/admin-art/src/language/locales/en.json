@@ -371,8 +371,12 @@
       "title": "Order Management",
       "application": "Order Application",
       "list": "Order List",
-      "records": "Order Records",
       "category": "Order Category"
+    },
+    "review": {
+      "title": "Review Management",
+      "orderList": "Order Review List",
+      "category": "Review Category"
     },
     "task": {
       "title": "Task Management",

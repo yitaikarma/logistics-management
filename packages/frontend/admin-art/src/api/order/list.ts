@@ -3,20 +3,34 @@ import { BaseResult, PaginationResult } from '@/types/axios'
 import { CommodityData } from '../commodity/list'
 import { UserData } from '../user'
 import { OrderCategoryData } from './category'
+import { InventoryData } from '../inventory/list'
 
 /** 订单响应数据类型 */
 export interface OrderData {
   id: number
+  fromProvince: string
+  fromCity: string
+  fromDistrict: string
+  toProvince: string
+  toCity: string
+  toDistrict: string
+  fromAddress: string
+  toAddress: string
+  receiver: string
+  phone: string
+  total: number
   desc: string
   status: number
   createAt: string
   updateAt: string
-  commodityId: number
-  commodity: Pick<CommodityData, 'id' | 'name'>
   categoryId: number
   category: Pick<OrderCategoryData, 'id' | 'name'>
   userId: number
   user: Pick<UserData, 'id' | 'username'>
+  commodityId: number
+  commodity: Pick<CommodityData, 'id' | 'name'>
+  inventoryId: number
+  inventory: InventoryData
 }
 
 type OrderPageParams = OrderParams & Partial<{ currentPage: number; pageSize: number }>

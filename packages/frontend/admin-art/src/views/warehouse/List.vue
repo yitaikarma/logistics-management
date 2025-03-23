@@ -16,6 +16,7 @@
             <form-input label="仓库名" prop="name" v-model="searchForm.name" />
             <form-select label="分类" prop="categoryId" v-model="searchForm.categoryId" :options="categoryOptions" />
             <form-select label="负责人" prop="categoryId" v-model="searchForm.categoryId" :options="userOptions" />
+            <form-select label="省份" prop="province" v-model="searchForm.province" :options="provinceOptions" />
             <form-select label="状态" prop="status" v-model="searchForm.status" :options="statusOptions" />
           </el-row>
         </el-form>
@@ -48,7 +49,9 @@
         <el-table-column label="负责人" prop="username" min-width="120" #default="scope" v-if="columns[2].show">
           <el-tag type="info"> {{ scope.row.user.username }} </el-tag>
         </el-table-column>
-        <el-table-column label="地址" prop="address" min-width="120" v-if="columns[3].show" />
+        <el-table-column label="地址" prop="address" min-width="200" #default="scope" v-if="columns[3].show">
+          {{ scope.row.province }}{{ scope.row.city }}{{ scope.row.district }}{{ scope.row.address }}
+        </el-table-column>
         <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[4].show" />
         <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[5].show">
           <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
@@ -77,7 +80,22 @@
             <el-option v-for="item in userOptions" :key="item.value" :label="item.name" :value="item.value" />
           </el-select>
         </el-form-item>
-        <el-form-item label="地址" prop="address">
+        <el-form-item label="省份" prop="province">
+          <el-select v-model="formData.province">
+            <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="城市" prop="city">
+          <el-select v-model="formData.city">
+            <el-option v-for="item in cityOptions" :key="item.value" :label="item.name" :value="item.name" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="城市" prop="district">
+          <el-select v-model="formData.district">
+            <el-option v-for="item in districtOptions" :key="item.value" :label="item.name" :value="item.name" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="详细地址" prop="address">
           <el-input v-model="formData.address" />
         </el-form-item>
         <el-form-item label="描述" prop="desc">
@@ -98,6 +116,7 @@
 </template>
 
 <script setup lang="ts">
+  import { getPCA, type CascadeDataWithNull } from 'lcn'
   import type { FormRules } from 'element-plus'
   import type { WarehouseData, UserData, WarehouseCategoryData } from '@/api'
   import { WarehouseService, UserService, WarehouseCategoryService } from '@/api'
@@ -139,11 +158,16 @@
     getListData()
     getUserListData()
     getCategoryListData()
+    getPCAData()
   })
 
   // 切换列
   function changeColumn(list: any) {
     columns.values = list
+  }
+
+  function getPCAData() {
+    addressOptions.value = getPCA({ fieldNames: { code: 'value', name: 'name' } })
   }
 
   // 负责人数据请求
@@ -246,7 +270,7 @@
     name: '',
     categoryId: undefined,
     userId: undefined,
-    address: '',
+    province: '',
     desc: '',
     status: undefined
   }
@@ -254,6 +278,9 @@
     name: '',
     categoryId: undefined,
     userId: undefined,
+    province: '',
+    city: '',
+    district: '',
     address: '',
     desc: '',
     status: 1
@@ -268,9 +295,23 @@
     ],
     categoryId: [{ required: true, message: '请选择分类', trigger: 'change' }],
     userId: [{ required: true, message: '请选择负责人', trigger: 'change' }],
+    province: [{ required: true, message: '请选择省份', trigger: 'change' }],
+    city: [{ required: true, message: '请选择城市', trigger: 'change' }],
+    district: [{ required: true, message: '请选择区域', trigger: 'change' }],
     address: [{ required: true, message: '请输入地址', trigger: 'change' }],
     desc: [{ required: true, message: '请输入仓库描述', trigger: 'change' }],
     status: [{ required: true, message: '请选择状态', trigger: 'change' }]
+  })
+
+  const addressOptions = ref<CascadeDataWithNull[]>([])
+  const provinceOptions = computed(() => {
+    return addressOptions.value.map((i) => ({ name: i.name, value: i.name }))
+  })
+  const cityOptions = computed(() => {
+    return addressOptions.value.find((i) => i.name === formData.value.province)?.children || []
+  })
+  const districtOptions = computed(() => {
+    return cityOptions.value.find((i) => i.name === formData.value.city)?.children || []
   })
 
   // 显示表单
@@ -283,6 +324,9 @@
       formData.value.name = row.name
       formData.value.categoryId = row.categoryId
       formData.value.userId = row.userId
+      formData.value.province = row.province
+      formData.value.city = row.city
+      formData.value.district = row.district
       formData.value.address = row.address
       formData.value.desc = row.desc
       formData.value.status = row.status

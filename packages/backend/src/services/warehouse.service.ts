@@ -17,6 +17,9 @@ import { WarehouseQuerySchema } from 'src/validate/warehouse.validate'
 const select = Prisma.validator<Prisma.WarehouseSelect>()({
     id: true,
     name: true,
+    province: true,
+    city: true,
+    district: true,
     address: true,
     desc: true,
     status: true,
@@ -33,8 +36,11 @@ const select = Prisma.validator<Prisma.WarehouseSelect>()({
 function findParams(params?: WarehouseQuerySchema) {
     return {
         name: { contains: params?.name || undefined },
-        desc: { contains: params?.desc || undefined },
+        province: { contains: params?.province || undefined },
+        city: { contains: params?.city || undefined },
+        district: { contains: params?.district || undefined },
         address: { contains: params?.address || undefined },
+        desc: { contains: params?.desc || undefined },
         status: { equals: params?.status },
         userId: { equals: params?.userId },
         categoryId: { equals: params?.categoryId },

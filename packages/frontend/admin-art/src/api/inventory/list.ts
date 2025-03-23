@@ -12,6 +12,20 @@ export interface InventoryData {
   commodity: Pick<CommodityData, 'id' | 'name' | 'price'>
   warehouseId: number
   warehouse: Pick<WarehouseData, 'id' | 'name'>
+  inventoryExtensions: InventoryExtensionData[]
+  desc: string
+  status: number
+  createAt: string
+  updateAt: string
+}
+
+type InventoryExtensionData = {
+  id: number
+  inventoryId: number
+  inventory: Pick<InventoryData, 'id' | 'type' | 'total' | 'commodityId' | 'warehouseId'>
+  warehouseId: number
+  warehouse: WarehouseData
+  total: number
   desc: string
   status: number
   createAt: string

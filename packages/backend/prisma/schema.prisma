@@ -95,19 +95,17 @@ model System_Log {
 }
 
 model Commodity {
-  id              Int                @id @default(autoincrement()) @db.UnsignedInt
-  name            String             @unique @db.VarChar(255)
-  price           Float              @default(0) @db.Float
-  total           Int                @default(0) @db.UnsignedInt
-  desc            String?            @db.Text
-  status          Int                @default(0) @db.UnsignedTinyInt
-  createdAt       DateTime           @default(now())
-  updatedAt       DateTime           @updatedAt
-  categoryId      Int?               @db.UnsignedInt
-  category        CommodityCategory? @relation(fields: [categoryId], references: [id])
-  orders          Order[]
-  inventories     Inventory[]
-  InventoryRecord InventoryRecord[]
+  id               Int                @id @default(autoincrement()) @db.UnsignedInt
+  name             String             @unique @db.VarChar(255)
+  price            Float              @default(0) @db.Float
+  desc             String?            @db.Text
+  status           Int                @default(0) @db.UnsignedTinyInt
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  categoryId       Int?               @db.UnsignedInt
+  category         CommodityCategory? @relation(fields: [categoryId], references: [id])
+  inventoryRecords InventoryRecord[]
+  inventories      Inventory[]
 
   @@index([name])
 }
@@ -125,20 +123,24 @@ model CommodityCategory {
 }
 
 model Warehouse {
-  id              Int                @id @default(autoincrement()) @db.UnsignedInt
-  name            String             @unique @db.VarChar(255)
-  address         String?            @db.VarChar(255)
-  desc            String?            @db.Text
-  status          Int                @default(0) @db.UnsignedTinyInt
-  createdAt       DateTime           @default(now())
-  updatedAt       DateTime           @updatedAt
-  userId          Int?               @db.UnsignedInt
-  username        String?            @db.VarChar(255)
-  user            User?              @relation(fields: [userId], references: [id])
-  categoryId      Int?               @db.UnsignedInt
-  category        WarehouseCategory? @relation(fields: [categoryId], references: [id])
-  inventories     Inventory[]
-  InventoryRecord InventoryRecord[]
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  name               String               @unique @db.VarChar(255)
+  province           String               @db.VarChar(255)
+  city               String               @db.VarChar(255)
+  district           String               @db.VarChar(255)
+  address            String?              @db.VarChar(255)
+  desc               String?              @db.Text
+  status             Int                  @default(0) @db.UnsignedTinyInt
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  userId             Int?                 @db.UnsignedInt
+  username           String?              @db.VarChar(255)
+  user               User?                @relation(fields: [userId], references: [id])
+  categoryId         Int?                 @db.UnsignedInt
+  category           WarehouseCategory?   @relation(fields: [categoryId], references: [id])
+  inventoryRecords   InventoryRecord[]
+  InventoryExtension InventoryExtension[]
+  Order              Order[]
 
   @@index([name])
   @@index([userId])
@@ -157,6 +159,19 @@ model WarehouseCategory {
 }
 
 model Inventory {
+  id                  Int                  @id @default(autoincrement()) @db.UnsignedInt
+  total               Int                  @default(0) @db.UnsignedInt
+  desc                String?              @db.Text
+  status              Int                  @default(0) @db.UnsignedTinyInt
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  commodityId         Int?                 @db.UnsignedInt
+  commodity           Commodity?           @relation(fields: [commodityId], references: [id])
+  inventoryExtensions InventoryExtension[]
+  Order               Order[]
+}
+
+model InventoryExtension {
   id          Int        @id @default(autoincrement()) @db.UnsignedInt
   total       Int        @default(0) @db.UnsignedInt
   desc        String?    @db.Text
@@ -165,11 +180,11 @@ model Inventory {
   updatedAt   DateTime   @updatedAt
   warehouseId Int?       @db.UnsignedInt
   warehouse   Warehouse? @relation(fields: [warehouseId], references: [id])
-  commodityId Int?       @db.UnsignedInt
-  commodity   Commodity? @relation(fields: [commodityId], references: [id])
+  inventoryId Int?       @db.UnsignedInt
+  Inventory   Inventory? @relation(fields: [inventoryId], references: [id])
 
   @@index([warehouseId])
-  @@index([commodityId])
+  @@index([inventoryId])
 }
 
 model InventoryRecord {
@@ -238,17 +253,30 @@ model Employee {
 }
 
 model Order {
-  id          Int            @id @default(autoincrement()) @db.UnsignedInt
-  desc        String?        @db.Text
-  status      Int            @default(0) @db.UnsignedTinyInt
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-  commodityId Int?           @db.UnsignedInt
-  commodity   Commodity?     @relation(fields: [commodityId], references: [id])
-  userId      Int?           @db.UnsignedInt
-  user        User?          @relation(fields: [userId], references: [id])
-  categoryId  Int?           @db.UnsignedInt
-  category    OrderCategory? @relation(fields: [categoryId], references: [id])
+  id           Int            @id @default(autoincrement()) @db.UnsignedInt
+  fromProvince String?        @db.VarChar(255)
+  fromCity     String?        @db.VarChar(255)
+  fromDistrict String?        @db.VarChar(255)
+  fromAddress  String?        @db.VarChar(255)
+  toProvince   String         @db.VarChar(255)
+  toCity       String         @db.VarChar(255)
+  toDistrict   String         @db.VarChar(255)
+  toAddress    String?        @db.VarChar(255)
+  receiver     String         @db.VarChar(255)
+  phone        String         @db.VarChar(255)
+  total        Int            @default(0) @db.UnsignedInt
+  desc         String?        @db.Text
+  status       Int            @default(0) @db.UnsignedTinyInt
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  inventoryId  Int?           @db.UnsignedInt
+  inventory    Inventory?     @relation(fields: [inventoryId], references: [id])
+  warehouseId  Int?           @db.UnsignedInt
+  warehouse    Warehouse?     @relation(fields: [warehouseId], references: [id])
+  userId       Int?           @db.UnsignedInt
+  user         User?          @relation(fields: [userId], references: [id])
+  categoryId   Int?           @db.UnsignedInt
+  category     OrderCategory? @relation(fields: [categoryId], references: [id])
 
   @@index([userId])
 }

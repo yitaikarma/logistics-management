@@ -9,7 +9,6 @@ export interface CommodityData {
   categoryId: number
   category: Pick<CommodityCategoryData, 'id' | 'name'>
   price: number
-  total: number
   desc: string
   status: number
   createAt: string

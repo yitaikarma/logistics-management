@@ -338,16 +338,6 @@ export const asyncRoutes: MenuListType[] = [
       },
       {
         id: 10403,
-        path: 'records',
-        name: 'OrderRecords',
-        component: RoutesAlias.OrderRecords,
-        meta: {
-          title: 'menus.order.records',
-          keepAlive: true
-        }
-      },
-      {
-        id: 10404,
         path: 'category',
         name: 'OrderCategory',
         component: RoutesAlias.OrderCategory,
@@ -358,9 +348,43 @@ export const asyncRoutes: MenuListType[] = [
       }
     ]
   },
-  // 任务管理
+  // 订单管理
   {
     id: 105,
+    path: '/review',
+    name: 'Review',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.review.title',
+      icon: '&#xe708;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 10501,
+        path: 'orderList',
+        name: 'ReviewOrderList',
+        component: RoutesAlias.ReviewOrderList,
+        meta: {
+          title: 'menus.review.orderList',
+          keepAlive: true
+        }
+      },
+      {
+        id: 10504,
+        path: 'category',
+        name: 'ReviewCategory',
+        component: RoutesAlias.ReviewCategory,
+        meta: {
+          title: 'menus.review.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
+  // 任务管理
+  {
+    id: 106,
     path: '/task',
     name: 'task',
     component: RoutesAlias.Home,
@@ -371,7 +395,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10501,
+        id: 10601,
         path: 'list',
         name: 'TaskList',
         component: RoutesAlias.TaskList,
@@ -381,7 +405,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10502,
+        id: 10602,
         path: 'release',
         name: 'TaskRelease',
         component: RoutesAlias.TaskRelease,
@@ -391,7 +415,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10503,
+        id: 10603,
         path: 'records',
         name: 'TaskRecords',
         component: RoutesAlias.TaskRecords,
@@ -401,7 +425,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10504,
+        id: 10604,
         path: 'category',
         name: 'TaskCategory',
         component: RoutesAlias.TaskCategory,
@@ -414,7 +438,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 配送管理
   {
-    id: 106,
+    id: 107,
     path: '/distribution',
     name: 'distribution',
     component: RoutesAlias.Home,
@@ -425,7 +449,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10601,
+        id: 10701,
         path: 'list',
         name: 'DistributionList',
         component: RoutesAlias.DistributionList,
@@ -435,7 +459,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10602,
+        id: 10702,
         path: 'records',
         name: 'DistributionRecords',
         component: RoutesAlias.DistributionRecords,
@@ -445,7 +469,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10603,
+        id: 10703,
         path: 'signedList',
         name: 'DistributionSignedList',
         component: RoutesAlias.DistributionSignedList,
@@ -455,7 +479,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10604,
+        id: 10704,
         path: 'exceptionRecords',
         name: 'DistributionExceptionRecords',
         component: RoutesAlias.DistributionExceptionRecords,
@@ -465,7 +489,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10605,
+        id: 10705,
         path: 'category',
         name: 'DistributionCategory',
         component: RoutesAlias.DistributionCategory,

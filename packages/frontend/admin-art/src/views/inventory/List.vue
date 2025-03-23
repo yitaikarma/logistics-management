@@ -11,18 +11,8 @@
       <template #top>
         <el-form :model="searchForm" ref="searchFormRef" label-width="82px">
           <el-row :gutter="20">
-            <form-select
-              label="仓库名"
-              prop="warehouseId"
-              v-model="searchForm.warehouseId"
-              :options="warehouseOptions"
-            />
-            <form-select
-              label="商品名"
-              prop="commodityId"
-              v-model="searchForm.commodityId"
-              :options="commodityOptions"
-            />
+            <form-select label="仓库" prop="warehouseId" v-model="searchForm.warehouseId" :options="warehouseOptions" />
+            <form-select label="商品" prop="commodityId" v-model="searchForm.commodityId" :options="commodityOptions" />
           </el-row>
         </el-form>
       </template>
@@ -36,21 +26,28 @@
 
     <!-- 表格 -->
     <art-table v-bind="tableData" @current-change="changePage" @size-change="changePageSizes">
+      <template #extend-column>
+        <el-table-column type="expand" style="padding: 0">
+          <template #default="scope">
+            <el-table
+              :data="scope.row.inventoryExtensions"
+              size="small"
+              stripe
+              style="width: calc(100% - 50px); margin: 0 0 0 50px"
+            >
+              <el-table-column label="仓库" prop="name" min-width="120" #default="scope">
+                <el-tag type="info"> {{ scope.row.warehouse.name }} </el-tag>
+              </el-table-column>
+              <el-table-column label="库存数量" prop="total" min-width="120" />
+            </el-table>
+          </template>
+        </el-table-column>
+      </template>
       <template #default>
         <el-table-column label="商品名" prop="commodityId" min-width="120" #default="scope" v-if="columns[0].show">
           <el-tag type="info"> {{ scope.row.commodity.name }} </el-tag>
         </el-table-column>
         <el-table-column label="库存数量" prop="total" min-width="120" v-if="columns[1].show" />
-        <el-table-column
-          label="仓库"
-          prop="warehouseId"
-          sortable
-          #default="scope"
-          min-width="120"
-          v-if="columns[2].show"
-        >
-          <el-tag type="info"> {{ scope.row.warehouse.name }} </el-tag>
-        </el-table-column>
         <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[3].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[4].show" />
       </template>
@@ -60,17 +57,32 @@
     <el-dialog v-model="dialogVisible" :title="dialogType === 'add' ? '入库商品' : '出库商品'" width="500px">
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px">
         <el-form-item label="商品名" prop="commodityId">
-          <el-select v-model="formData.commodityId">
-            <el-option v-for="item in commodityOptions" :key="item.value" :label="item.name" :value="item.value" />
+          <el-select v-model="formData.commodityId" @change="resetSelect">
+            <el-option
+              v-for="item in formData.type === 1 ? commodityOptions : commodityInventoryOptions"
+              :key="item.value"
+              :label="item.name"
+              :value="item.value"
+            />
           </el-select>
         </el-form-item>
         <el-form-item label="仓库名" prop="warehouseId">
           <el-select v-model="formData.warehouseId">
-            <el-option v-for="item in warehouseOptions" :key="item.value" :label="item.name" :value="item.value" />
+            <el-option
+              v-for="item in formData.type === 1 ? warehouseOptions : warehouseInventoryOptions"
+              :key="item.value"
+              :label="item.name"
+              :value="item.value"
+            />
           </el-select>
         </el-form-item>
         <el-form-item label="库存数量" prop="total">
-          <el-input v-model="formData.total" />
+          <el-input-number
+            v-model="formData.total"
+            :placeholder="totalPlaceholder"
+            :min="0"
+            :max="formData.type === 1 ? 9999999999 : +totalPlaceholder"
+          />
         </el-form-item>
       </el-form>
       <template #footer>
@@ -85,8 +97,8 @@
 
 <script setup lang="ts">
   import type { FormRules } from 'element-plus'
-  import type { WarehouseData, CommodityData, InventoryData } from '@/api'
-  import { WarehouseService, CommodityService, InventoryService } from '@/api'
+  import type { CommodityData, InventoryData, WarehouseData } from '@/api'
+  import { CommodityService, InventoryService, WarehouseService } from '@/api'
   import { PaginationData } from '@/types/axios'
   import { FormInstance } from 'element-plus'
   import { ElMessage } from 'element-plus'
@@ -151,6 +163,7 @@
   function initOptionData() {
     getWarehousesData()
     getCommoditiesData()
+    getInventoryCommoditiesAndWarehousesData()
   }
 
   // 列表数据请求
@@ -176,6 +189,36 @@
   function changePage(page: number) {
     tableData.value.currentPage = page
     getListData()
+  }
+
+  //-------- 出库可选数据逻辑（只能选择有库存的数据） --------//
+  const inventoryData = ref<InventoryData[]>([])
+  const commodityInventoryOptions = ref<{ name: string; value: number }[]>([])
+  const warehouseInventoryOptions = computed(() => {
+    return (
+      inventoryData.value
+        .find((item) => {
+          return item.id === formData.value.commodityId
+        })
+        ?.inventoryExtensions.map((item) => {
+          return { name: item.warehouse.name, value: item.warehouse.id }
+        }) || []
+    )
+  })
+
+  // 库存商品和仓库数据请求
+  async function getInventoryCommoditiesAndWarehousesData() {
+    try {
+      const res = await InventoryService.getList()
+      if (res.success) {
+        inventoryData.value = res.data
+        commodityInventoryOptions.value = res.data.map((item: InventoryData) => {
+          return { name: item.commodity.name, value: item.id }
+        })
+      }
+    } catch {
+      // 错误已在axios拦截器处理
+    }
   }
 
   //-------- 搜索和表单逻辑 --------//
@@ -206,6 +249,22 @@
   const searchForm = ref({ ...searchDefaultData })
   const formData = ref({ ...formDefaultData })
 
+  const totalPlaceholder = ref('0')
+
+  watch([() => formData.value.commodityId, () => formData.value.warehouseId], () => {
+    if (formData.value.type === 2) {
+      console.log(formData.value.commodityId)
+      if (formData.value.commodityId && formData.value.warehouseId === undefined) {
+        totalPlaceholder.value = inventoryData.value.find((item) => item.id === formData.value.commodityId)?.total + ''
+      } else if (formData.value.commodityId && formData.value.warehouseId) {
+        totalPlaceholder.value =
+          inventoryData.value
+            .find((item) => item.id === formData.value.commodityId)
+            ?.inventoryExtensions.find((item) => item.warehouse.id === formData.value.warehouseId)?.total + ''
+      }
+    }
+  })
+
   const rules = reactive<FormRules>({
     total: [{ required: true, message: '请输入库存数量', trigger: 'change' }],
     warehouseId: [{ required: true, message: '请选择仓库', trigger: 'change' }],
@@ -216,7 +275,7 @@
   })
 
   // 显示表单
-  function showDialog(type: string, row?: any) {
+  function showDialog(type: string) {
     dialogVisible.value = true
     dialogType.value = type
 
@@ -227,18 +286,16 @@
     } else {
       formData.value.type = 2
     }
-
-    if (type === 'edit' && row) {
-      formData.value.warehouseId = row.warehouseId
-      formData.value.commodityId = row.commodityId
-      formData.value.total = row.total
-      formData.value.desc = row.desc
-    }
   }
 
   // 搜索
   function search() {
     getListData()
+  }
+
+  // 重置连选select
+  function resetSelect() {
+    formData.value.warehouseId = undefined
   }
 
   // 重置表单

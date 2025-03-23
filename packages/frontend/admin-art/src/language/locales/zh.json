@@ -355,8 +355,12 @@
       "title": "订单管理",
       "application": "订单申请",
       "list": "订单列表",
-      "records": "订单记录",
       "category": "订单分类"
+    },
+    "review": {
+      "title": "审核管理",
+      "orderList": "订单审核列表",
+      "category": "审核分类"
     },
     "task": {
       "title": "任务管理",

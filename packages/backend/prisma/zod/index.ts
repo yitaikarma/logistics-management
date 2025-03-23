@@ -20,15 +20,17 @@ export const Login_LogScalarFieldEnumSchema = z.enum(['id','email','browser','ip
 
 export const System_LogScalarFieldEnumSchema = z.enum(['id','account','business_type','ip','method','module','createdAt','updatedAt']);
 
-export const CommodityScalarFieldEnumSchema = z.enum(['id','name','price','total','desc','status','createdAt','updatedAt','categoryId']);
+export const CommodityScalarFieldEnumSchema = z.enum(['id','name','price','desc','status','createdAt','updatedAt','categoryId']);
 
 export const CommodityCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const WarehouseScalarFieldEnumSchema = z.enum(['id','name','address','desc','status','createdAt','updatedAt','userId','username','categoryId']);
+export const WarehouseScalarFieldEnumSchema = z.enum(['id','name','province','city','district','address','desc','status','createdAt','updatedAt','userId','username','categoryId']);
 
 export const WarehouseCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
-export const InventoryScalarFieldEnumSchema = z.enum(['id','total','desc','status','createdAt','updatedAt','warehouseId','commodityId']);
+export const InventoryScalarFieldEnumSchema = z.enum(['id','total','desc','status','createdAt','updatedAt','commodityId']);
+
+export const InventoryExtensionScalarFieldEnumSchema = z.enum(['id','total','desc','status','createdAt','updatedAt','warehouseId','inventoryId']);
 
 export const InventoryRecordScalarFieldEnumSchema = z.enum(['id','type','total','desc','status','createdAt','updatedAt','warehouseId','commodityId']);
 
@@ -38,7 +40,7 @@ export const VehicleCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','
 
 export const EmployeeScalarFieldEnumSchema = z.enum(['id','name','gender','id_card','phone','address','desc','department','status','createdAt','updatedAt']);
 
-export const OrderScalarFieldEnumSchema = z.enum(['id','desc','status','createdAt','updatedAt','commodityId','userId','categoryId']);
+export const OrderScalarFieldEnumSchema = z.enum(['id','fromProvince','fromCity','fromDistrict','fromAddress','toProvince','toCity','toDistrict','toAddress','receiver','phone','total','desc','status','createdAt','updatedAt','inventoryId','warehouseId','userId','categoryId']);
 
 export const OrderCategoryScalarFieldEnumSchema = z.enum(['id','name','desc','status','createdAt','updatedAt']);
 
@@ -66,11 +68,13 @@ export const CommodityOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
 
 export const CommodityCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
 
-export const WarehouseOrderByRelevanceFieldEnumSchema = z.enum(['name','address','desc','username']);
+export const WarehouseOrderByRelevanceFieldEnumSchema = z.enum(['name','province','city','district','address','desc','username']);
 
 export const WarehouseCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
 
 export const InventoryOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
+
+export const InventoryExtensionOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
 
 export const InventoryRecordOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
 
@@ -80,7 +84,7 @@ export const VehicleCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','de
 
 export const EmployeeOrderByRelevanceFieldEnumSchema = z.enum(['name','id_card','phone','address','desc']);
 
-export const OrderOrderByRelevanceFieldEnumSchema = z.enum(['desc']);
+export const OrderOrderByRelevanceFieldEnumSchema = z.enum(['fromProvince','fromCity','fromDistrict','fromAddress','toProvince','toCity','toDistrict','toAddress','receiver','phone','desc']);
 
 export const OrderCategoryOrderByRelevanceFieldEnumSchema = z.enum(['name','desc']);
 
@@ -175,7 +179,6 @@ export const CommoditySchema = z.object({
   id: z.number().int(),
   name: z.string(),
   price: z.number(),
-  total: z.number().int(),
   desc: z.string().nullish(),
   status: z.number().int(),
   createdAt: z.date(),
@@ -207,6 +210,9 @@ export type CommodityCategory = z.infer<typeof CommodityCategorySchema>
 export const WarehouseSchema = z.object({
   id: z.number().int(),
   name: z.string(),
+  province: z.string(),
+  city: z.string(),
+  district: z.string(),
   address: z.string().nullish(),
   desc: z.string().nullish(),
   status: z.number().int(),
@@ -245,11 +251,27 @@ export const InventorySchema = z.object({
   status: z.number().int(),
   createdAt: z.date(),
   updatedAt: z.date(),
-  warehouseId: z.number().int().nullish(),
   commodityId: z.number().int().nullish(),
 })
 
 export type Inventory = z.infer<typeof InventorySchema>
+
+/////////////////////////////////////////
+// INVENTORY EXTENSION SCHEMA
+/////////////////////////////////////////
+
+export const InventoryExtensionSchema = z.object({
+  id: z.number().int(),
+  total: z.number().int(),
+  desc: z.string().nullish(),
+  status: z.number().int(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  warehouseId: z.number().int().nullish(),
+  inventoryId: z.number().int().nullish(),
+})
+
+export type InventoryExtension = z.infer<typeof InventoryExtensionSchema>
 
 /////////////////////////////////////////
 // INVENTORY RECORD SCHEMA
@@ -329,11 +351,23 @@ export type Employee = z.infer<typeof EmployeeSchema>
 
 export const OrderSchema = z.object({
   id: z.number().int(),
+  fromProvince: z.string().nullish(),
+  fromCity: z.string().nullish(),
+  fromDistrict: z.string().nullish(),
+  fromAddress: z.string().nullish(),
+  toProvince: z.string(),
+  toCity: z.string(),
+  toDistrict: z.string(),
+  toAddress: z.string().nullish(),
+  receiver: z.string(),
+  phone: z.string(),
+  total: z.number().int(),
   desc: z.string().nullish(),
   status: z.number().int(),
   createdAt: z.date(),
   updatedAt: z.date(),
-  commodityId: z.number().int().nullish(),
+  inventoryId: z.number().int().nullish(),
+  warehouseId: z.number().int().nullish(),
   userId: z.number().int().nullish(),
   categoryId: z.number().int().nullish(),
 })

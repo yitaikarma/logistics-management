@@ -24,9 +24,7 @@
               :key="index"
             >
               <div style="margin: 0; text-align: right">
-                <el-button size="small" type="primary" @click="showModel('button', item)"
-                  >编辑</el-button
-                >
+                <el-button size="small" type="primary" @click="showModel('button', item)">编辑</el-button>
                 <el-button size="small" type="danger" @click="deleteAuth()">删除</el-button>
               </div>
               <template #reference>
@@ -97,10 +95,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="外部链接" prop="link">
-                <el-input
-                  v-model="form.link"
-                  placeholder="外部链接/内嵌地址(https://www.baidu.com)"
-                ></el-input>
+                <el-input v-model="form.link" placeholder="外部链接/内嵌地址(https://www.baidu.com)"></el-input>
               </el-form-item>
             </el-col>
           </el-row>

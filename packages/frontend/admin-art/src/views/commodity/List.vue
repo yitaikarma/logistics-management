@@ -45,12 +45,11 @@
           <el-tag type="info"> {{ scope.row.category.name }} </el-tag>
         </el-table-column>
         <el-table-column label="价格(元)" prop="price" sortable min-width="120" v-if="columns[2].show" />
-        <el-table-column label="数量" prop="total" sortable min-width="120" v-if="columns[3].show" />
-        <el-table-column label="描述" prop="desc" min-width="180" v-if="columns[4].show" />
-        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[5].show">
+        <el-table-column label="描述" prop="desc" min-width="180" v-if="columns[3].show" />
+        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[4].show">
           <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
         </el-table-column>
-        <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
+        <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[5].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
           <button-table type="edit" @click="showDialog('edit', scope.row)" />
           <button-table type="delete" @click="del" />
@@ -71,9 +70,6 @@
         </el-form-item>
         <el-form-item label="价格(元)" prop="price">
           <el-input-number v-model="formData.price" :min="0" :step="1" :max="999999999999" />
-        </el-form-item>
-        <el-form-item label="数量" prop="total">
-          <el-input-number v-model="formData.total" :min="0" :step="1" :max="999999999999" />
         </el-form-item>
         <el-form-item label="描述" prop="desc">
           <el-input v-model="formData.desc" type="textarea" />
@@ -224,7 +220,6 @@
     name: '',
     categoryId: undefined,
     price: undefined,
-    total: undefined,
     desc: '',
     status: undefined
   }
@@ -232,7 +227,6 @@
     name: '',
     categoryId: undefined,
     price: undefined,
-    total: undefined,
     desc: '',
     status: 1
   }
@@ -249,10 +243,6 @@
       { required: true, message: '请输入商品价格', trigger: 'change' },
       { type: 'number', message: '请输入数字', trigger: 'change' }
     ],
-    total: [
-      { required: true, message: '请输入商品数量', trigger: 'change' },
-      { type: 'number', message: '请输入数字', trigger: 'change' }
-    ],
     desc: [{ required: true, message: '请输入商品描述', trigger: 'change' }],
     status: [{ required: true, message: '请选择状态', trigger: 'change' }]
   })
@@ -267,7 +257,6 @@
       formData.value.name = row.name
       formData.value.categoryId = row.categoryId
       formData.value.price = row.price
-      formData.value.total = row.total
       formData.value.desc = row.desc
       formData.value.status = row.status
     }

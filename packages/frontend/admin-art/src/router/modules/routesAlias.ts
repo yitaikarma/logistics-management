@@ -24,7 +24,9 @@ export enum RoutesAlias {
   OrderApplication = '/order/Application', // 订单申请
   OrderList = '/order/List', // 订单列表
   OrderCategory = '/order/Category', //
-  OrderRecords = '/order/Records', // 订单记录
+
+  ReviewOrderList = '/review/OrderList', // 审核订单列表
+  ReviewCategory = '/review/Category', // 审核分类
 
   TaskRelease = '/task/Release', // 任务发布
   TaskList = '/task/List', // 任务列表

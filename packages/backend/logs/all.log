@@ -6721,3 +6721,735 @@
 2025-03-21 20:51:44:5144 [32minfo[39m: [32m环境: development[39m
 2025-03-21 20:51:44:5144 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
 2025-03-21 20:51:44:5144 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-21 22:03:35:335 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:03:39:339 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:11:50:1150 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:12:05:125 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:15:32:1532 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:15:48:1548 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:15:54:1554 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:35:59:3559 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:03:363 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:07:367 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:19:3619 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:42:3642 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:48:3648 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:36:52:3652 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:38:49:3849 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:39:09:399 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:39:17:3917 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:42:31:4231 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:42:34:4234 [32minfo[39m: [32m环境: development[39m
+2025-03-21 22:42:34:4234 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-21 22:42:34:4234 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-21 22:42:46:4246 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:42:49:4249 [32minfo[39m: [32m环境: development[39m
+2025-03-21 22:42:49:4249 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-21 22:42:49:4249 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-21 22:43:00:430 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-21 22:43:03:433 [32minfo[39m: [32m环境: development[39m
+2025-03-21 22:43:03:433 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-21 22:43:03:433 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-21 22:43:05:435 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:05:435 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:10:4310 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:10:4310 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 11:55:54:5554 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-22 11:55:54:5554 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 12:47:46:4746 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 12:47:50:4750 [32minfo[39m: [32m环境: development[39m
+2025-03-22 12:47:50:4750 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 12:47:50:4750 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 13:03:32:332 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:03:36:336 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:07:09:79 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:07:32:732 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:09:24:924 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:09:31:931 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:10:11:1011 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 13:10:14:1014 [32minfo[39m: [32m环境: development[39m
+2025-03-22 13:10:14:1014 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 13:10:14:1014 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:18:59:1859 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:18:59:1859 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:04:204 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:04:204 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:08:208 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:08:208 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 16:06:08:68 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:06:11:611 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:06:11:611 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:06:11:611 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:06:17:617 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:06:20:620 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:06:20:620 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:06:20:620 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:06:22:622 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:06:26:626 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:06:26:626 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:06:26:626 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:07:35:735 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:07:38:738 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:07:38:738 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:07:38:738 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:08:41:841 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:08:44:844 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:08:47:847 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:08:47:847 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:08:47:847 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:08:52:852 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:08:55:855 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:08:55:855 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:08:55:855 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:08:57:857 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:09:00:90 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:09:00:90 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:09:00:90 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:09:07:97 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:09:11:911 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:09:11:911 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:09:11:911 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:09:16:916 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:09:20:920 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:09:23:923 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:09:26:926 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:09:26:926 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:09:26:926 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:11:37:1137 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:11:40:1140 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:11:40:1140 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:11:40:1140 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:12:28:1228 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:12:31:1231 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:12:31:1231 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:12:31:1231 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:15:37:1537 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:15:40:1540 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:15:40:1540 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:15:40:1540 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:15:45:1545 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:15:48:1548 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:15:48:1548 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:15:48:1548 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:15:50:1550 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:15:52:1552 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:15:52:1552 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:15:52:1552 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:24:1624 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:16:27:1627 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:16:27:1627 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:16:27:1627 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:29:1629 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:16:32:1632 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:16:32:1632 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:16:32:1632 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:34:1634 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:16:37:1637 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:16:37:1637 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:16:37:1637 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:44:1644 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:16:47:1647 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:16:47:1647 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:16:47:1647 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:52:1652 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:16:55:1655 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:16:55:1655 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:16:55:1655 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:16:58:1658 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:17:01:171 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:17:01:171 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:17:01:171 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:17:05:175 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:17:08:178 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:17:11:1711 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:17:11:1711 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:17:11:1711 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:17:19:1719 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:17:22:1722 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:17:22:1722 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:17:22:1722 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:19:17:1917 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:19:21:1921 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:19:24:1924 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:19:24:1924 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:19:24:1924 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:20:28:2028 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:20:31:2031 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:20:31:2031 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:20:31:2031 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:21:49:2149 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:21:52:2152 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:21:52:2152 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:21:52:2152 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:22:34:2234 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:22:37:2237 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:22:37:2237 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:22:37:2237 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:48:56:4856 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:48:59:4859 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:48:59:4859 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:48:59:4859 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:49:26:4926 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:49:29:4929 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:49:29:4929 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:49:29:4929 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:49:33:4933 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:49:36:4936 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:49:36:4936 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:49:36:4936 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:51:17:5117 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:51:21:5121 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:51:24:5124 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:51:24:5124 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:51:24:5124 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:51:44:5144 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:51:47:5147 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:51:47:5147 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:51:47:5147 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:52:28:5228 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:52:30:5230 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:52:33:5233 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:52:33:5233 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:52:33:5233 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:52:51:5251 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:52:53:5253 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:52:53:5253 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:52:53:5253 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:52:58:5258 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:53:02:532 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:53:05:535 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:53:05:535 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:53:05:535 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:53:20:5320 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:53:23:5323 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:53:23:5323 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:53:23:5323 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:53:48:5348 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:53:51:5351 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:53:51:5351 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:53:51:5351 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:54:05:545 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:54:08:548 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:54:11:5411 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:54:11:5411 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:54:11:5411 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:54:17:5417 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:54:21:5421 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:54:21:5421 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:54:21:5421 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 16:54:26:5426 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:54:30:5430 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 16:54:33:5433 [32minfo[39m: [32m环境: development[39m
+2025-03-22 16:54:33:5433 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 16:54:33:5433 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 17:00:41:041 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 17:00:44:044 [32minfo[39m: [32m环境: development[39m
+2025-03-22 17:00:44:044 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 17:00:44:044 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 17:01:03:13 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 17:01:06:16 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 17:01:09:19 [32minfo[39m: [32m环境: development[39m
+2025-03-22 17:01:09:19 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 17:01:09:19 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 17:01:13:113 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 17:01:17:117 [32minfo[39m: [32m环境: development[39m
+2025-03-22 17:01:17:117 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 17:01:17:117 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 17:01:36:136 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 17:01:39:139 [32minfo[39m: [32m环境: development[39m
+2025-03-22 17:01:39:139 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 17:01:39:139 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 18:58:41:5841 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 18:58:45:5845 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:00:24:024 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:01:37:137 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:01:53:153 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:01:56:156 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:04:09:49 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:05:06:56 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:05:42:542 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:05:57:557 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:08:12:812 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:09:02:92 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:09:08:98 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:09:18:918 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:09:21:921 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:10:09:109 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:10:22:1022 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:25:51:2551 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:25:54:2554 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:27:42:2742 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:27:51:2751 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:28:09:289 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:30:23:3023 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:07:327 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:17:3217 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:35:3235 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:38:3238 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:43:3243 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:32:58:3258 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:33:10:3310 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:33:38:3338 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:33:42:3342 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:35:57:3557 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:36:14:3614 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:36:19:3619 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:38:13:3813 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:38:15:3815 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:38:17:3817 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:38:20:3820 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:38:23:3823 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:38:23:3823 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:38:23:3823 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:42:04:424 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:42:07:427 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:42:07:427 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:42:07:427 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:42:56:4256 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `Promise.all([this.prisma.inventory.count()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:68:74[39m
+
+[31m  65     orderBy: { createdAt: 'desc' },[39m
+[31m  66 }[39m
+[31m  67 [39m
+[31m→ 68 const [total, result] = await Promise.all([this.prisma.inventory.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         total: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         status: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         commodityId: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         warehouseId: {[39m
+[31m         ~~~~~~~~~~~[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m     ?   AND?: InventoryWhereInput | InventoryWhereInput[],[39m
+[31m     ?   OR?: InventoryWhereInput[],[39m
+[31m     ?   NOT?: InventoryWhereInput | InventoryWhereInput[],[39m
+[31m     ?   id?: IntFilter | Int,[39m
+[31m     ?   desc?: StringNullableFilter | String | Null,[39m
+[31m     ?   createdAt?: DateTimeFilter | DateTime,[39m
+[31m     ?   updatedAt?: DateTimeFilter | DateTime,[39m
+[31m     ?   commodity?: CommodityNullableScalarRelationFilter | CommodityWhereInput | Null,[39m
+[31m     ?   inventoryExtensions?: InventoryExtensionListRelationFilter[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mUnknown argument `warehouseId`. Available options are marked with ?.[39m
+2025-03-22 19:42:56:4256 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 19:43:46:4346 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:43:50:4350 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:43:50:4350 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:43:50:4350 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:43:54:4354 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:43:59:4359 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:43:59:4359 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:43:59:4359 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:46:57:4657 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:01:471 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:04:474 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:47:04:474 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:47:04:474 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:47:06:476 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:09:479 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:47:09:479 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:47:09:479 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:47:35:4735 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:38:4738 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:47:38:4738 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:47:38:4738 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 19:47:43:4743 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:46:4746 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 19:47:52:4752 [32minfo[39m: [32m环境: development[39m
+2025-03-22 19:47:52:4752 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 19:47:52:4752 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:17:53:1753 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `this.prisma.inventoryExtension.create()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:133:67[39m
+
+[31m  130 } else {[39m
+[31m  131     const warehouseSearchResult = await this.prisma.inventoryExtension.findFirst({ where: { warehouseId: data.warehouseId } })[39m
+[31m  132     if (!warehouseSearchResult) {[39m
+[31m→ 133         result = await this.prisma.inventoryExtension.create({[39m
+[31m                select: {[39m
+[31m                  id: true,[39m
+[31m                  total: true,[39m
+[31m                  desc: true,[39m
+[31m                  status: true,[39m
+[31m                  createdAt: true,[39m
+[31m                  updatedAt: true,[39m
+[31m                  commodityId: true,[39m
+[31m                  ~~~~~~~~~~~[39m
+[31m                  commodity: {[39m
+[31m                    select: {[39m
+[31m                      id: true,[39m
+[31m                      name: true,[39m
+[31m                      price: true[39m
+[31m                    }[39m
+[31m                  },[39m
+[31m                  inventoryExtensions: {[39m
+[31m                    select: {[39m
+[31m                      id: true,[39m
+[31m                      total: true,[39m
+[31m                      desc: true,[39m
+[31m                      status: true,[39m
+[31m                      warehouseId: false,[39m
+[31m                      warehouse: {[39m
+[31m                        select: {[39m
+[31m                          id: true,[39m
+[31m                          name: true,[39m
+[31m                          address: true[39m
+[31m                        }[39m
+[31m                      }[39m
+[31m                    }[39m
+[31m                  },[39m
+[31m              ?   warehouseId?: true,[39m
+[31m              ?   inventoryId?: true,[39m
+[31m              ?   warehouse?: true,[39m
+[31m              ?   Inventory?: true[39m
+[31m                },[39m
+[31m                data: {[39m
+[31m                  total: 9,[39m
+[31m                  desc: "",[39m
+[31m                  status: 0,[39m
+[31m                  warehouseId: 2[39m
+[31m                }[39m
+[31m              })[39m
+
+[31mUnknown field `commodityId` for select statement on model `InventoryExtension`. Available options are marked with ?.[39m
+2025-03-22 20:17:53:1753 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 20:23:38:2338 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:23:41:2341 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:23:41:2341 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:23:41:2341 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:23:48:2348 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:24:26:2426 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:24:29:2429 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:24:29:2429 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:24:29:2429 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:24:55:2455 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:25:06:256 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:25:58:2558 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:26:01:261 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:27:04:274 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:27:08:278 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:27:10:2710 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:27:13:2713 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:27:13:2713 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:27:13:2713 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:27:31:2731 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:27:34:2734 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:27:34:2734 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:27:34:2734 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:28:02:282 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:28:05:285 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:28:09:289 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:28:11:2811 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:28:14:2814 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:28:14:2814 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:28:14:2814 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:29:57:2957 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:30:01:301 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:30:01:301 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:30:01:301 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:51:49:5149 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:52:01:521 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:52:04:524 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:52:04:524 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:52:04:524 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 20:52:24:5224 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 20:52:27:5227 [32minfo[39m: [32m环境: development[39m
+2025-03-22 20:52:27:5227 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 20:52:27:5227 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 21:04:27:427 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 21:04:29:429 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 21:04:32:432 [32minfo[39m: [32m环境: development[39m
+2025-03-22 21:04:32:432 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 21:04:32:432 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-22 21:08:37:837 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `this.prisma.inventory.update()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:164:54[39m
+
+[31m  161     })[39m
+[31m  162 }[39m
+[31m  163 [39m
+[31m→ 164 result = await this.prisma.inventory.update([39m
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to update not found.[39m
+2025-03-22 21:08:37:837 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 21:09:29:929 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-22 21:09:32:932 [32minfo[39m: [32m环境: development[39m
+2025-03-22 21:09:32:932 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-22 21:09:32:932 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:03:21:321 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:03:24:324 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:03:27:327 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:03:27:327 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:03:27:327 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:03:32:332 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:03:36:336 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:03:39:339 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:03:39:339 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:03:39:339 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:04:45:445 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:04:48:448 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:04:48:448 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:04:48:448 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:06:46:646 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:06:49:649 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:06:49:649 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:06:49:649 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:07:14:714 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:07:17:717 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:07:17:717 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:07:17:717 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 11:08:12:812 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 11:08:15:815 [32minfo[39m: [32m环境: development[39m
+2025-03-23 11:08:15:815 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 11:08:15:815 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 12:52:15:5215 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-23 12:52:15:5215 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 13:08:42:842 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:08:46:846 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:08:49:849 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:08:49:849 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:08:49:849 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:11:27:1127 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:11:30:1130 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:11:30:1130 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:11:30:1130 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:11:33:1133 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:11:38:1138 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:11:38:1138 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:11:38:1138 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:25:46:2546 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:25:49:2549 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:25:49:2549 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:25:49:2549 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:25:54:2554 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:25:57:2557 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:25:57:2557 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:25:57:2557 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:27:15:2715 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:27:18:2718 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:27:18:2718 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:27:18:2718 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:27:58:2758 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:28:01:281 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:28:01:281 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:28:01:281 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:28:02:282 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:28:05:285 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:28:05:285 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:28:05:285 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:28:36:2836 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:28:39:2839 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:28:39:2839 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:28:39:2839 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:34:52:3452 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:34:55:3455 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:34:58:3458 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:34:58:3458 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:34:58:3458 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 13:35:11:3511 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 13:35:15:3515 [32minfo[39m: [32m环境: development[39m
+2025-03-23 13:35:15:3515 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 13:35:15:3515 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:22:27:2227 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:22:31:2231 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:22:31:2231 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:22:31:2231 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:30:47:3047 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:32:03:323 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:32:41:3241 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:32:46:3246 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:32:48:3248 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:32:48:3248 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:32:48:3248 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:35:58:3558 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:36:02:362 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:36:05:365 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:36:05:365 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:36:05:365 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:38:30:3830 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:38:33:3833 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:38:33:3833 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:38:33:3833 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:39:17:3917 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:39:20:3920 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:39:20:3920 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:39:20:3920 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:45:24:4524 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:45:27:4527 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:45:27:4527 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:45:27:4527 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 16:46:09:469 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 16:46:13:4613 [32minfo[39m: [32m环境: development[39m
+2025-03-23 16:46:13:4613 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 16:46:13:4613 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 17:28:02:282 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 17:28:28:2828 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 17:28:33:2833 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 17:29:04:294 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 17:29:07:297 [32minfo[39m: [32m环境: development[39m
+2025-03-23 17:29:07:297 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 17:29:07:297 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 17:29:23:2923 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 17:29:26:2926 [32minfo[39m: [32m环境: development[39m
+2025-03-23 17:29:26:2926 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 17:29:26:2926 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:51:4451 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:51:4451 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 18:09:14:914 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-23 18:09:14:914 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 18:09:58:958 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:10:24:1024 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:10:26:1026 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:10:29:1029 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:10:32:1032 [32minfo[39m: [32m环境: development[39m
+2025-03-23 18:10:32:1032 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 18:10:32:1032 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 18:11:11:1111 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:11:16:1116 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:11:19:1119 [32minfo[39m: [32m环境: development[39m
+2025-03-23 18:11:19:1119 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 18:11:19:1119 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 18:17:30:1730 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:17:32:1732 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:17:39:1739 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:17:42:1742 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:17:44:1744 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:18:02:182 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:18:06:186 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:18:46:1846 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:19:18:1918 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:19:21:1921 [32minfo[39m: [32m环境: development[39m
+2025-03-23 18:19:21:1921 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 18:19:21:1921 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 18:19:24:1924 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:19:27:1927 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:19:30:1930 [32minfo[39m: [32m环境: development[39m
+2025-03-23 18:19:30:1930 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 18:19:30:1930 [32minfo[39m: [32mServer is running on http://localhost:3000[39m
+2025-03-23 18:19:41:1941 [32minfo[39m: [32mDatabase connection established[39m
+2025-03-23 18:19:47:1947 [32minfo[39m: [32m环境: development[39m
+2025-03-23 18:19:47:1947 [32minfo[39m: [32m服务已启动，监听端口: 3000[39m
+2025-03-23 18:19:47:1947 [32minfo[39m: [32mServer is running on http://localhost:3000[39m

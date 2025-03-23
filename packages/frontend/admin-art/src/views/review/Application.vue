@@ -1,96 +1,110 @@
 <template>
   <div class="page-content application">
-    <div v-if="stepActive === 0" class="form-wrapper">
-      <h2 style="margin-top: 20px">订单申请</h2>
-      <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px" style="width: 600px">
-        <el-form-item label="分类" prop="categoryId">
-          <el-radio-group v-model="formData.categoryId">
-            <el-radio-button v-for="item in categoryOptions" :key="item.value" :label="item.name" :value="item.value" />
-          </el-radio-group>
-        </el-form-item>
+    <el-steps
+      style="min-width: 500px; max-width: 600px"
+      align-center
+      :active="stepActive"
+      process-status="finish"
+      finish-status="success"
+    >
+      <el-step title="下单" />
+      <el-step title="结果" />
+    </el-steps>
 
-        <el-row :gutter="20">
-          <el-col :span="13">
-            <el-form-item label="商品" prop="inventoryId">
-              <el-select v-model="formData.inventoryId">
-                <template #label="{ label, value }">
-                  <span style="margin-right: 6px">{{ label }}</span>
-                  <span style="color: var(--el-text-color-secondary); font-size: 11px">
-                    {{ inventoryData.find((i) => i.id === value)?.total }} 件
-                  </span>
-                </template>
-                <el-option
-                  v-for="item in commodityInventoryOptions"
-                  :key="item.value"
-                  :label="item.name"
-                  :value="item.value"
-                >
-                  <span style="margin-right: 6px">{{ item.name }}</span>
-                  <span style="color: var(--el-text-color-secondary); font-size: 11px"> {{ item.total }} 件 </span>
-                </el-option>
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="11">
-            <el-form-item label="数量" prop="total">
-              <el-input-number
-                v-model="formData.total"
-                :min="0"
-                :max="+totalPlaceholder"
-                :placeholder="totalPlaceholder"
+    <el-form
+      v-if="stepActive === 0"
+      ref="formRef"
+      :model="formData"
+      :rules="rules"
+      label-width="80px"
+      style="width: 600px"
+    >
+      <el-form-item label="分类" prop="categoryId">
+        <el-radio-group v-model="formData.categoryId">
+          <el-radio-button v-for="item in categoryOptions" :key="item.value" :label="item.name" :value="item.value" />
+        </el-radio-group>
+      </el-form-item>
+
+      <el-row :gutter="20">
+        <el-col :span="13">
+          <el-form-item label="商品" prop="commodityId">
+            <el-select v-model="formData.commodityId">
+              <el-option
+                v-for="item in commodityInventoryOptions"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value"
               />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-divider content-position="left">收货人</el-divider>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="receiver">
-              <el-input v-model="formData.receiver" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="手机号" prop="phone">
-              <el-input v-model="formData.phone" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="10">
-            <el-form-item label="地址" prop="toProvince">
-              <el-select v-model="formData.toProvince" @change="resetSelect(true)">
-                <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label-width="0" prop="toCity">
-              <el-select v-model="formData.toCity" @change="resetSelect()">
-                <el-option v-for="item in toCityOptions" :key="item.value" :label="item.name" :value="item.name" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label-width="0" prop="toDistrict">
-              <el-select v-model="formData.toDistrict">
-                <el-option v-for="item in toDistrictOptions" :key="item.value" :label="item.name" :value="item.name" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="11">
+          <el-form-item label="数量" prop="total">
+            <el-input-number
+              v-model="formData.total"
+              :min="0"
+              :max="+totalPlaceholder"
+              :placeholder="totalPlaceholder"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-divider content-position="left">收货人</el-divider>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="姓名" prop="receiver">
+            <el-input v-model="formData.receiver" />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="手机号" prop="phone">
+            <el-input v-model="formData.phone" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="10">
+          <el-form-item label="地址" prop="toProvince">
+            <el-select v-model="formData.toProvince" @change="resetSelect(true)">
+              <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="7">
+          <el-form-item label-width="0" prop="toCity">
+            <el-select v-model="formData.toCity" @change="resetSelect()">
+              <el-option v-for="item in toCityOptions" :key="item.value" :label="item.name" :value="item.name" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="7">
+          <el-form-item label-width="0" prop="toDistrict">
+            <el-select v-model="formData.toDistrict">
+              <el-option v-for="item in toDistrictOptions" :key="item.value" :label="item.name" :value="item.name" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
 
-        <el-form-item label="详细地址" prop="toAddress">
-          <el-input v-model="formData.toAddress" />
-        </el-form-item>
-        <el-form-item label="描述" prop="desc">
-          <el-input v-model="formData.desc" type="textarea" />
-        </el-form-item>
-      </el-form>
-    </div>
+      <el-form-item label="详细地址" prop="toAddress">
+        <el-input v-model="formData.toAddress" />
+      </el-form-item>
+      <el-form-item label="描述" prop="desc">
+        <el-input v-model="formData.desc" type="textarea" />
+      </el-form-item>
+    </el-form>
 
     <div v-if="stepActive === 1" class="success">
-      <i class="iconfont-sys icon">&#xe617;</i>
+      <i class="iconfont-sys icon">&#xe6f7;</i>
       <h1 class="title">提交成功</h1>
+      <div class="res">
+        <p>已提交申请，等待部门审核。</p>
+      </div>
+    </div>
+
+    <div v-if="stepActive === 2" class="success">
+      <i class="iconfont-sys icon">&#xe617;</i>
+      <h1 class="title">订单已受理</h1>
       <p class="msg"
         >提交结果页用于反馈一系列操作任务的处理结果，如果仅是简单操作，使用 Message
         全局提示反馈即可。灰色区域可以显示一些补充的信息。</p
@@ -102,10 +116,8 @@
 
     <div class="btn-group">
       <el-button v-show="stepActive === 0" v-ripple @click="resetForm">重置</el-button>
-      <el-button v-show="stepActive === 0" :loading="formLoading" type="primary" v-ripple @click="handleSubmit">
-        提交订单
-      </el-button>
-      <el-button v-show="stepActive === 1" v-ripple @click="toListPage">去列表查看</el-button>
+      <el-button v-show="stepActive !== 0" v-ripple @click="nextStep">取消订单</el-button>
+      <el-button type="primary" v-ripple @click="nextStep">下一步</el-button>
     </div>
   </div>
 </template>
@@ -118,7 +130,6 @@
   import { useUserStore } from '@/store/modules/user'
 
   const userStore = useUserStore()
-  const router = useRouter()
 
   const commodityOptions = ref<{ name: string; value: number }[]>([])
   const userOptions = ref<{ name: string; value: number }[]>([])
@@ -197,7 +208,7 @@
 
   //-------- 出库可选数据逻辑（只能选择有库存的数据） --------//
   const inventoryData = ref<InventoryData[]>([])
-  const commodityInventoryOptions = ref<({ name: string; value: number } & InventoryData)[]>([])
+  const commodityInventoryOptions = ref<{ name: string; value: number }[]>([])
 
   // 库存商品和仓库数据请求
   async function getInventoryCommoditiesAndWarehousesData() {
@@ -206,7 +217,7 @@
       if (res.success) {
         inventoryData.value = res.data
         commodityInventoryOptions.value = res.data.map((item: InventoryData) => {
-          return { ...item, name: item.commodity.name, value: item.id }
+          return { name: item.commodity.name, value: item.id }
         })
       }
     } catch {
@@ -218,9 +229,12 @@
   const formRef = ref<FormInstance | null>(null)
   const formLoading = ref(false)
   const dialogVisible = ref(false)
-  const stepActive = ref(0)
 
   const formDefaultData = {
+    name: '',
+    commodityId: undefined,
+    categoryId: undefined,
+    userId: undefined as number | undefined,
     total: undefined as number | undefined,
     receiver: '',
     phone: '',
@@ -229,15 +243,12 @@
     toDistrict: '',
     toAddress: '',
     desc: '',
-    status: 1,
-    categoryId: undefined,
-    userId: undefined as number | undefined,
-    inventoryId: undefined as number | undefined
+    status: 1
   }
   const formData = ref({ ...formDefaultData })
 
   const rules = reactive<FormRules>({
-    inventoryId: [{ required: true, message: '请选择商品', trigger: 'change' }],
+    commodityId: [{ required: true, message: '请选择商品', trigger: 'change' }],
     categoryId: [{ required: true, message: '请选择分类', trigger: 'change' }],
     total: [{ required: true, message: '请输入数量', trigger: 'change' }],
     receiver: [{ required: true, message: '请输入客户名', trigger: 'change' }],
@@ -252,9 +263,9 @@
   // 实时商品总数
   const totalPlaceholder = ref('0')
   watch(
-    () => formData.value.inventoryId,
+    () => formData.value.commodityId,
     () => {
-      const commodityInventory = inventoryData.value.find((item) => item.id === formData.value.inventoryId)
+      const commodityInventory = inventoryData.value.find((item) => item.id === formData.value.commodityId)
       if (commodityInventory) {
         totalPlaceholder.value = commodityInventory.inventoryExtensions
           .reduce((prev, cur) => {
@@ -264,12 +275,6 @@
       }
     }
   )
-
-  // 跳转到列表页
-  function toListPage() {
-    router.push('/order/list')
-    stepActive.value = 0
-  }
 
   // 重置连选select
   function resetSelect(isProvince = false) {
@@ -308,28 +313,26 @@
     if (!formRef.value) return
 
     const valid = await formRef.value.validate()
-    console.log('valid', valid)
-
     if (valid) {
       await submitRequest()
+    }
+  }
+
+  // 步骤
+  const stepActive = ref(0)
+  async function nextStep() {
+    try {
+      await handleSubmit()
       stepActive.value++
+      stepActive.value %= 3
+    } catch {
+      return
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .application {
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px;
-    box-sizing: border-box;
-    padding: 15px 100px !important;
-    text-align: center;
-  }
-
-  .form-wrapper {
     padding-top: 60px;
     display: flex;
     flex-direction: column;

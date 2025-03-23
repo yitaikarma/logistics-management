@@ -16,26 +16,59 @@ import { OrderQuerySchema } from 'src/validate/order.validate'
 /** 过滤 */
 const select = Prisma.validator<Prisma.OrderSelect>()({
     id: true,
+    fromProvince: true,
+    fromCity: true,
+    fromDistrict: true,
+    fromAddress: true,
+    toProvince: true,
+    toCity: true,
+    toDistrict: true,
+    toAddress: true,
+    receiver: true,
+    phone: true,
+    total: true,
     desc: true,
     status: true,
     createdAt: true,
     updatedAt: true,
-    commodityId: true,
-    commodity: { select: { id: true, name: true } },
     categoryId: true,
     category: { select: { id: true, name: true } },
     userId: true,
-    user: { select: { id: true, username: true } },
+    user: true,
+    inventoryId: true,
+    inventory: {
+        select: {
+            id: true,
+            total: true,
+            commodity: true,
+            inventoryExtensions: {
+                select: { id: true, warehouse: true, total: true, desc: true, status: true },
+            },
+        },
+    },
+    warehouseId: true,
 })
 
 /** 查询参数 */
 function findParams(params?: OrderQuerySchema) {
     return {
+        fromProvince: { contains: params?.fromProvince || undefined },
+        fromCity: { contains: params?.fromCity || undefined },
+        fromDistrict: { contains: params?.fromDistrict || undefined },
+        toProvince: { contains: params?.toProvince || undefined },
+        toCity: { contains: params?.toCity || undefined },
+        toDistrict: { contains: params?.toDistrict || undefined },
+        fromAddress: { contains: params?.fromAddress || undefined },
+        toAddress: { contains: params?.toAddress || undefined },
+        receiver: { contains: params?.receiver || undefined },
+        phone: { contains: params?.phone || undefined },
+        total: { equals: params?.total },
         desc: { contains: params?.desc || undefined },
         status: { equals: params?.status },
-        commodityId: { equals: params?.commodityId },
         userId: { equals: params?.userId },
         categoryId: { equals: params?.categoryId },
+        inventoryId: { equals: params?.inventoryId },
+        warehouseId: { equals: params?.warehouseId },
     } as Prisma.OrderWhereInput
 }
 

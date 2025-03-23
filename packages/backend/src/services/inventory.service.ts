@@ -6,7 +6,7 @@
  * @Description  : 库存服务
  */
 
-import { Inventory, Prisma } from '@prisma/client'
+import { Inventory, InventoryExtension, Prisma } from '@prisma/client'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
@@ -23,8 +23,27 @@ const select = Prisma.validator<Prisma.InventorySelect>()({
     updatedAt: true,
     commodityId: true,
     commodity: { select: { id: true, name: true, price: true } },
+    inventoryExtensions: {
+        select: {
+            id: true,
+            total: true,
+            desc: true,
+            status: true,
+            warehouseId: false,
+            warehouse: true,
+        },
+    },
+})
+const inventoryExtensionSelect = Prisma.validator<Prisma.InventoryExtensionSelect>()({
+    id: true,
+    total: true,
+    desc: true,
+    status: true,
+    createdAt: true,
+    updatedAt: true,
+    inventoryId: true,
     warehouseId: true,
-    warehouse: { select: { id: true, name: true } },
+    warehouse: true,
 })
 
 /** 查询参数 */
@@ -33,7 +52,7 @@ function findParams(params?: InventoryQuerySchema) {
         total: { equals: params?.total },
         status: { equals: params?.status },
         commodityId: { equals: params?.commodityId },
-        warehouseId: { equals: params?.warehouseId },
+        // warehouseId: { equals: params?.warehouseId },
     } as Prisma.InventoryWhereInput
 }
 
@@ -96,12 +115,15 @@ export class InventoryService {
     }
 
     // 创建库存
-    async create(data: Omit<Inventory, 'id' | 'createdAt' | 'updatedAt'> & { type: number }) {
+    async create(data: Omit<Inventory, 'id' | 'createdAt' | 'updatedAt'> & { warehouseId: number; type: number }) {
         try {
-            const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })
+            let result: Inventory | InventoryExtension | null = null
+            const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId } })
 
-            let result: Inventory | null = null
             if (!searchResult) {
+                if (data.type !== 1) {
+                    throw new AppError('库存不存在，无法减少库存', ErrorCode.BAD_REQUEST)
+                }
                 result = await this.prisma.inventory.create({
                     select,
                     data: {
@@ -109,10 +131,43 @@ export class InventoryService {
                         desc: data.desc,
                         status: data.status,
                         commodityId: data.commodityId,
-                        warehouseId: data.warehouseId,
+                        inventoryExtensions: {
+                            create: {
+                                total: data.total,
+                                desc: data.desc,
+                                status: data.status,
+                                warehouseId: data.warehouseId,
+                            },
+                        },
                     },
                 })
             } else {
+                const warehouseSearchResult = await this.prisma.inventoryExtension.findFirst({ where: { warehouseId: data.warehouseId } })
+
+                if (!warehouseSearchResult) {
+                    if (data.type !== 1) {
+                        throw new AppError('库存不存在，无法减少库存', ErrorCode.BAD_REQUEST)
+                    }
+                    result = await this.prisma.inventoryExtension.create({
+                        select: inventoryExtensionSelect,
+                        data: {
+                            total: data.total,
+                            desc: data.desc,
+                            status: data.status,
+                            warehouseId: data.warehouseId,
+                            inventoryId: searchResult.id,
+                        },
+                    })
+                } else {
+                    result = await this.prisma.inventoryExtension.update({
+                        where: { id: warehouseSearchResult.id },
+                        select: inventoryExtensionSelect,
+                        data: {
+                            total: data.type === 1 ? { increment: data.total } : data.type === 2 ? { decrement: data.total } : data.total,
+                        },
+                    })
+                }
+
                 result = await this.prisma.inventory.update({
                     where: { id: searchResult.id },
                     select,
@@ -135,7 +190,6 @@ export class InventoryService {
 
             return ResponseUtil.success(result, '创建库存成功', 201)
         } catch (error) {
-            // 特定错误处理，如邮箱唯一性冲突
             if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
                 throw new AppError('该库存已存在', ErrorCode.BAD_REQUEST)
             }

@@ -18,7 +18,6 @@ const select = Prisma.validator<Prisma.CommoditySelect>()({
     id: true,
     name: true,
     price: true,
-    total: true,
     desc: true,
     status: true,
     createdAt: true,
@@ -32,7 +31,6 @@ function findParams(params?: CommodityQuerySchema) {
     return {
         name: { contains: params?.name || undefined },
         price: { equals: params?.price },
-        total: { equals: params?.total },
         status: { equals: params?.status },
         categoryId: { equals: params?.categoryId },
     } as Prisma.CommodityWhereInput

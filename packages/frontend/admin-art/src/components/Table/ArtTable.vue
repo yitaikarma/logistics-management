@@ -14,7 +14,7 @@
       @selection-change="handleSelectionChange"
       @row-click="handleRowClick"
     >
-      <slot name="extend"></slot>
+      <slot name="extend-column"></slot>
       <!-- 选择列 -->
       <el-table-column v-if="selection" type="selection" width="55" align="center" fixed="left" />
 

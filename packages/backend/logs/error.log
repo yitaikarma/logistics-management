@@ -9236,3 +9236,1077 @@
 [31m    [7m     [0m [96m    ~~~~~[0m[39m
 [31m    The expected type comes from property 'where' which is declared here on type '{ select?: InventorySelect<DefaultArgs> | null | undefined; omit?: InventoryOmit<DefaultArgs> | null | undefined; include?: InventoryInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryUncheckedUpdateInput) | (Without<...> & InventoryUpdateInput); where: InventoryWhereUniqueInput; }'[39m
 [31m[39m
+2025-03-21 22:03:36:336 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:03:40:340 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:11:51:1151 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:12:06:126 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:15:33:1533 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:15:49:1549 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:15:55:1555 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:00:360 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:04:364 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:08:368 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:20:3620 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:43:3643 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:49:3649 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:36:53:3653 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:38:50:3850 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:39:10:3910 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:39:18:3918 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/commodity.service.ts[0m:[93m21[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'total' does not exist in type 'CommoditySelect<DefaultArgs>'.[39m
+
+[31m[7m21[0m     total: true,[39m
+[31m[7m  [0m [91m    ~~~~~[0m[39m
+[31m[39m
+2025-03-21 22:43:05:435 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:05:435 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:06:436 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-21 22:43:10:4310 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-21 22:43:10:4310 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 11:55:54:5554 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-22 11:55:54:5554 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:03:39:339 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS2561: [0mObject literal may only specify known properties, but 'province' does not exist in type 'OrderSelect<DefaultArgs>'. Did you mean to write 'toProvince'?[39m
+
+[31m[7m19[0m     province: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 13:07:12:712 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS2561: [0mObject literal may only specify known properties, but 'province' does not exist in type 'OrderSelect<DefaultArgs>'. Did you mean to write 'toProvince'?[39m
+
+[31m[7m19[0m     province: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 13:07:35:735 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS2561: [0mObject literal may only specify known properties, but 'province' does not exist in type 'OrderSelect<DefaultArgs>'. Did you mean to write 'toProvince'?[39m
+
+[31m[7m19[0m     province: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m41[0m:[93m39[0m - [91merror[0m[90m TS2551: [0mProperty 'province' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toProvince'?[39m
+
+[31m[7m41[0m         province: { contains: params?.province || undefined },[39m
+[31m[7m  [0m [91m                                      ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m42[0m:[93m35[0m - [91merror[0m[90m TS2339: [0mProperty 'city' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'.[39m
+
+[31m[7m42[0m         city: { contains: params?.city || undefined },[39m
+[31m[7m  [0m [91m                                  ~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m43[0m:[93m39[0m - [91merror[0m[90m TS2551: [0mProperty 'district' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toDistrict'?[39m
+
+[31m[7m43[0m         district: { contains: params?.district || undefined },[39m
+[31m[7m  [0m [91m                                      ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m44[0m:[93m38[0m - [91merror[0m[90m TS2551: [0mProperty 'address' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toAddress'?[39m
+
+[31m[7m44[0m         address: { contains: params?.address || undefined },[39m
+[31m[7m  [0m [91m                                     ~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 13:09:34:934 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS2561: [0mObject literal may only specify known properties, but 'formProvince' does not exist in type 'OrderSelect<DefaultArgs>'. Did you mean to write 'fromProvince'?[39m
+
+[31m[7m19[0m     formProvince: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m45[0m:[93m39[0m - [91merror[0m[90m TS2551: [0mProperty 'province' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toProvince'?[39m
+
+[31m[7m45[0m         province: { contains: params?.province || undefined },[39m
+[31m[7m  [0m [91m                                      ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m46[0m:[93m35[0m - [91merror[0m[90m TS2339: [0mProperty 'city' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'.[39m
+
+[31m[7m46[0m         city: { contains: params?.city || undefined },[39m
+[31m[7m  [0m [91m                                  ~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m47[0m:[93m39[0m - [91merror[0m[90m TS2551: [0mProperty 'district' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toDistrict'?[39m
+
+[31m[7m47[0m         district: { contains: params?.district || undefined },[39m
+[31m[7m  [0m [91m                                      ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m48[0m:[93m38[0m - [91merror[0m[90m TS2551: [0mProperty 'address' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 12 more ...; pageSize?: number | ... 1 more ... | undefined; }'. Did you mean 'toAddress'?[39m
+
+[31m[7m48[0m         address: { contains: params?.address || undefined },[39m
+[31m[7m  [0m [91m                                     ~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:14:44:1444 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:09:179 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:17:30:1730 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:18:59:1859 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:18:59:1859 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:00:190 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:19:58:1958 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:04:204 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:04:204 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:06:206 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:08:208 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:08:208 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-22 13:20:09:209 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 18:58:47:5847 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m134[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                                     ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m112[0m:[93m25[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'Without<InventoryCreateInput, InventoryUncheckedCreateInput> & InventoryUncheckedCreateInput'.[39m
+
+[31m[7m112[0m                         warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                        ~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11973[0m:[93m5[0m[39m
+[31m    [7m11973[0m     data: XOR<InventoryCreateInput, InventoryUncheckedCreateInput>[39m
+[31m    [7m     [0m [96m    ~~~~[0m[39m
+[31m    The expected type comes from property 'data' which is declared here on type '{ select?: InventorySelect<DefaultArgs> | null | undefined; omit?: InventoryOmit<DefaultArgs> | null | undefined; include?: InventoryInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryUncheckedCreateInput) | (Without<...> & InventoryCreateInput); }'[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m112[0m:[93m43[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m112[0m                         warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                          ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m132[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m132[0m                     warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                      ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:00:26:026 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m96[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                               ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m128[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                               ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m103[0m:[93m24[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m103[0m                 total: data.total,[39m
+[31m[7m   [0m [91m                       ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m104[0m:[93m23[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m104[0m                 desc: data.desc,[39m
+[31m[7m   [0m [91m                      ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m105[0m:[93m25[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m105[0m                 status: data.status,[39m
+[31m[7m   [0m [91m                        ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m106[0m:[93m30[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m106[0m                 commodityId: data.commodityId,[39m
+[31m[7m   [0m [91m                             ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m107[0m:[93m30[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m107[0m                 warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                             ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[39m
+2025-03-22 19:01:39:139 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m96[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                               ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m128[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                               ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m103[0m:[93m24[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m103[0m                 total: data.total,[39m
+[31m[7m   [0m [91m                       ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m104[0m:[93m23[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m104[0m                 desc: data.desc,[39m
+[31m[7m   [0m [91m                      ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m105[0m:[93m25[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m105[0m                 status: data.status,[39m
+[31m[7m   [0m [91m                        ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m106[0m:[93m30[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m106[0m                 commodityId: data.commodityId,[39m
+[31m[7m   [0m [91m                             ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m107[0m:[93m30[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'data' used before its declaration.[39m
+
+[31m[7m107[0m                 warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                             ~~~~[0m[39m
+
+[31m  [96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m19[0m[39m
+[31m    [7m102[0m             const data = {[39m
+[31m    [7m   [0m [96m                  ~~~~[0m[39m
+[31m    'data' is declared here.[39m
+[31m[39m
+2025-03-22 19:01:58:158 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m134[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                                     ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m107[0m:[93m35[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m107[0m                 warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m129[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m129[0m                     warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                      ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:04:11:411 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m134[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                                     ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m133[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m133[0m                     warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                      ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:05:08:58 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m134[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                                     ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m114[0m:[93m17[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m114[0m                 result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m120[0m:[93m25[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'commodityId' does not exist in type '(Without<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput> & InventoryExtensionUncheckedCreateInput) | (Without<...> & InventoryExtensionCreateInput)'.[39m
+
+[31m[7m120[0m                         commodityId: data.commodityId,[39m
+[31m[7m   [0m [91m                        ~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m13032[0m:[93m5[0m[39m
+[31m    [7m13032[0m     data: XOR<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput>[39m
+[31m    [7m     [0m [96m    ~~~~[0m[39m
+[31m    The expected type comes from property 'data' which is declared here on type '{ select?: InventoryExtensionSelect<DefaultArgs> | null | undefined; omit?: InventoryExtensionOmit<DefaultArgs> | null | undefined; include?: InventoryExtensionInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryExtensionUncheckedCreateInput) | (Without<...> & InventoryExtensionCreateInput); }'[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m144[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m144[0m                     warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                      ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:05:44:544 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m115[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventory.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m114[0m:[93m17[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m114[0m                 result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m122[0m:[93m25[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'inventoryExtension' does not exist in type 'Without<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput> & InventoryExtensionUncheckedCreateInput'.[39m
+
+[31m[7m122[0m                         inventoryExtension: {[39m
+[31m[7m   [0m [91m                        ~~~~~~~~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m13032[0m:[93m5[0m[39m
+[31m    [7m13032[0m     data: XOR<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput>[39m
+[31m    [7m     [0m [96m    ~~~~[0m[39m
+[31m    The expected type comes from property 'data' which is declared here on type '{ select?: InventoryExtensionSelect<DefaultArgs> | null | undefined; omit?: InventoryExtensionOmit<DefaultArgs> | null | undefined; include?: InventoryExtensionInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryExtensionUncheckedCreateInput) | (Without<...> & InventoryExtensionCreateInput); }'[39m
+[31m[39m
+2025-03-22 19:05:59:559 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m101[0m:[93m92[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'commodityId' does not exist in type 'InventoryExtensionWhereInput'.[39m
+
+[31m[7m101[0m             const searchResult = await this.prisma.inventoryExtension.findFirst({ where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                           ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m114[0m:[93m17[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m114[0m                 result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m122[0m:[93m25[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'inventoryExtension' does not exist in type 'Without<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput> & InventoryExtensionUncheckedCreateInput'.[39m
+
+[31m[7m122[0m                         inventoryExtension: {[39m
+[31m[7m   [0m [91m                        ~~~~~~~~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m13032[0m:[93m5[0m[39m
+[31m    [7m13032[0m     data: XOR<InventoryExtensionCreateInput, InventoryExtensionUncheckedCreateInput>[39m
+[31m    [7m     [0m [96m    ~~~~[0m[39m
+[31m    The expected type comes from property 'data' which is declared here on type '{ select?: InventoryExtensionSelect<DefaultArgs> | null | undefined; omit?: InventoryExtensionOmit<DefaultArgs> | null | undefined; include?: InventoryExtensionInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryExtensionUncheckedCreateInput) | (Without<...> & InventoryExtensionCreateInput); }'[39m
+[31m[39m
+2025-03-22 19:08:14:814 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m122[0m:[93m25[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type '(Without<InventoryCreateInput, InventoryUncheckedCreateInput> & InventoryUncheckedCreateInput) | (Without<...> & InventoryCreateInput)'.[39m
+
+[31m[7m122[0m                         warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                        ~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11973[0m:[93m5[0m[39m
+[31m    [7m11973[0m     data: XOR<InventoryCreateInput, InventoryUncheckedCreateInput>[39m
+[31m    [7m     [0m [96m    ~~~~[0m[39m
+[31m    The expected type comes from property 'data' which is declared here on type '{ select?: InventorySelect<DefaultArgs> | null | undefined; omit?: InventoryOmit<DefaultArgs> | null | undefined; include?: InventoryInclude<...> | ... 1 more ... | undefined; data: (Without<...> & InventoryUncheckedCreateInput) | (Without<...> & InventoryCreateInput); }'[39m
+[31m[39m
+2025-03-22 19:09:04:94 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:09:10:910 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:09:23:923 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:10:11:1011 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m119[0m:[93m25[0m - [91merror[0m[90m TS2322: [0mType '{ increment: number; }' is not assignable to type 'number'.[39m
+
+[31m[7m119[0m                         total: { increment: data.total },[39m
+[31m[7m   [0m [91m                        ~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m26460[0m:[93m5[0m[39m
+[31m    [7m26460[0m     total?: number[39m
+[31m    [7m     [0m [96m    ~~~~~[0m[39m
+[31m    The expected type comes from property 'total' which is declared here on type '(Without<InventoryCreateInput, InventoryUncheckedCreateInput> & InventoryUncheckedCreateInput) | (Without<...> & InventoryCreateInput)'[39m
+[31m[39m
+2025-03-22 19:10:24:1024 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m102[0m:[93m58[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventoryWhereInput'.[39m
+
+[31m[7m102[0m                 where: { commodityId: data?.commodityId, warehouseId: data?.warehouseId },[39m
+[31m[7m   [0m [91m                                                         ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:25:56:2556 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:27:44:2744 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:27:53:2753 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:28:11:2811 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:30:25:3025 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:32:09:329 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:32:20:3220 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:32:40:3240 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:32:45:3245 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:33:00:330 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:33:13:3313 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:33:40:3340 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:33:44:3344 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:35:59:3559 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:36:16:3616 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m117[0m:[93m51[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m117[0m                                 warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                                  ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m123[0m:[93m123[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m123[0m                 const warehouseSearchResult = await this.prisma.inventoryExtension.findFirst({ where: { warehouseId: data.warehouseId } })[39m
+[31m[7m   [0m [91m                                                                                                                          ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m131[0m:[93m47[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m131[0m                             warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                              ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m152[0m:[93m39[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type 'Omit<{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }, "id" | "createdAt" | "updatedAt"> & { ...; }'.[39m
+
+[31m[7m152[0m                     warehouseId: data.warehouseId,[39m
+[31m[7m   [0m [91m                                      ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:36:21:3621 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m26[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m26[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-22 19:42:56:4256 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `Promise.all([this.prisma.inventory.count()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:68:74[39m
+
+[31m  65     orderBy: { createdAt: 'desc' },[39m
+[31m  66 }[39m
+[31m  67 [39m
+[31m→ 68 const [total, result] = await Promise.all([this.prisma.inventory.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         total: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         status: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         commodityId: {[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m         warehouseId: {[39m
+[31m         ~~~~~~~~~~~[39m
+[31m           equals: undefined[39m
+[31m         },[39m
+[31m     ?   AND?: InventoryWhereInput | InventoryWhereInput[],[39m
+[31m     ?   OR?: InventoryWhereInput[],[39m
+[31m     ?   NOT?: InventoryWhereInput | InventoryWhereInput[],[39m
+[31m     ?   id?: IntFilter | Int,[39m
+[31m     ?   desc?: StringNullableFilter | String | Null,[39m
+[31m     ?   createdAt?: DateTimeFilter | DateTime,[39m
+[31m     ?   updatedAt?: DateTimeFilter | DateTime,[39m
+[31m     ?   commodity?: CommodityNullableScalarRelationFilter | CommodityWhereInput | Null,[39m
+[31m     ?   inventoryExtensions?: InventoryExtensionListRelationFilter[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mUnknown argument `warehouseId`. Available options are marked with ?.[39m
+2025-03-22 19:42:56:4256 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 20:17:53:1753 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `this.prisma.inventoryExtension.create()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:133:67[39m
+
+[31m  130 } else {[39m
+[31m  131     const warehouseSearchResult = await this.prisma.inventoryExtension.findFirst({ where: { warehouseId: data.warehouseId } })[39m
+[31m  132     if (!warehouseSearchResult) {[39m
+[31m→ 133         result = await this.prisma.inventoryExtension.create({[39m
+[31m                select: {[39m
+[31m                  id: true,[39m
+[31m                  total: true,[39m
+[31m                  desc: true,[39m
+[31m                  status: true,[39m
+[31m                  createdAt: true,[39m
+[31m                  updatedAt: true,[39m
+[31m                  commodityId: true,[39m
+[31m                  ~~~~~~~~~~~[39m
+[31m                  commodity: {[39m
+[31m                    select: {[39m
+[31m                      id: true,[39m
+[31m                      name: true,[39m
+[31m                      price: true[39m
+[31m                    }[39m
+[31m                  },[39m
+[31m                  inventoryExtensions: {[39m
+[31m                    select: {[39m
+[31m                      id: true,[39m
+[31m                      total: true,[39m
+[31m                      desc: true,[39m
+[31m                      status: true,[39m
+[31m                      warehouseId: false,[39m
+[31m                      warehouse: {[39m
+[31m                        select: {[39m
+[31m                          id: true,[39m
+[31m                          name: true,[39m
+[31m                          address: true[39m
+[31m                        }[39m
+[31m                      }[39m
+[31m                    }[39m
+[31m                  },[39m
+[31m              ?   warehouseId?: true,[39m
+[31m              ?   inventoryId?: true,[39m
+[31m              ?   warehouse?: true,[39m
+[31m              ?   Inventory?: true[39m
+[31m                },[39m
+[31m                data: {[39m
+[31m                  total: 9,[39m
+[31m                  desc: "",[39m
+[31m                  status: 0,[39m
+[31m                  warehouseId: 2[39m
+[31m                }[39m
+[31m              })[39m
+
+[31mUnknown field `commodityId` for select statement on model `InventoryExtension`. Available options are marked with ?.[39m
+2025-03-22 20:17:53:1753 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-22 20:23:50:2350 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m143[0m:[93m21[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m143[0m                     result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                    ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[39m
+2025-03-22 20:24:57:2457 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m143[0m:[93m21[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; warehouse: { id: number; name: string; address: string | null; } | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m143[0m                     result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                    ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[39m
+2025-03-22 20:25:08:258 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m143[0m:[93m21[0m - [91merror[0m[90m TS2741: [0mProperty 'commodityId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; warehouse: { id: number; name: string; address: string | null; } | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; }'.[39m
+
+[31m[7m143[0m                     result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                    ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m11376[0m:[93m7[0m[39m
+[31m    [7m11376[0m       commodityId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'commodityId' is declared here.[39m
+[31m[39m
+2025-03-22 20:26:03:263 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m143[0m:[93m21[0m - [91merror[0m[90m TS2322: [0mType '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; warehouse: { id: number; name: string; address: string | null; } | null; }' is not assignable to type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; commodityId: number | null; } | { id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; } | null'.[39m
+[31m  Property 'inventoryId' is missing in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; warehouse: { id: number; name: string; address: string | null; } | null; }' but required in type '{ id: number; status: number; total: number; desc: string | null; createdAt: Date; updatedAt: Date; warehouseId: number | null; inventoryId: number | null; }'.[39m
+
+[31m[7m143[0m                     result = await this.prisma.inventoryExtension.create({[39m
+[31m[7m   [0m [91m                    ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m12434[0m:[93m7[0m[39m
+[31m    [7m12434[0m       inventoryId: number | null[39m
+[31m    [7m     [0m [96m      ~~~~~~~~~~~[0m[39m
+[31m    'inventoryId' is declared here.[39m
+[31m[39m
+2025-03-22 20:51:51:5151 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/inventory.service.ts[0m:[93m164[0m:[93m30[0m - [91merror[0m[90m TS2322: [0mType 'number | null' is not assignable to type 'number | undefined'.[39m
+[31m  Type 'null' is not assignable to type 'number | undefined'.[39m
+
+[31m[7m164[0m                     where: { id: data.commodityId },[39m
+[31m[7m   [0m [91m                             ~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m24864[0m:[93m5[0m[39m
+[31m    [7m24864[0m     id?: number[39m
+[31m    [7m     [0m [96m    ~~[0m[39m
+[31m    The expected type comes from property 'id' which is declared here on type 'InventoryWhereUniqueInput'[39m
+[31m[39m
+2025-03-22 21:08:37:837 [31merror[39m: [31m----------------------- [39m
+[31mInvalid `this.prisma.inventory.update()` invocation in[39m
+[31m/Users/ambient/GitHub/logistics-management/packages/backend/src/services/inventory.service.ts:164:54[39m
+
+[31m  161     })[39m
+[31m  162 }[39m
+[31m  163 [39m
+[31m→ 164 result = await this.prisma.inventory.update([39m
+[31mAn operation failed because it depends on one or more records that were required but not found. Record to update not found.[39m
+2025-03-22 21:08:37:837 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 12:52:15:5215 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-23 12:52:15:5215 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 16:30:49:3049 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m40[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'OrderSelect<DefaultArgs>'.[39m
+
+[31m[7m40[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 16:32:06:326 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m40[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'inventoryId' does not exist in type 'OrderSelect<DefaultArgs>'.[39m
+
+[31m[7m40[0m     inventoryId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 17:28:04:284 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m42[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouseId' does not exist in type 'OrderSelect<DefaultArgs>'.[39m
+
+[31m[7m42[0m     warehouseId: true,[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m65[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 13 more ...; pageSize?: number | ... 1 more ... | undefined; }'.[39m
+
+[31m[7m65[0m         warehouseId: { equals: params?.warehouseId },[39m
+[31m[7m  [0m [91m                                       ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 17:28:36:2836 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m65[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'warehouseId' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 13 more ...; pageSize?: number | ... 1 more ... | undefined; }'.[39m
+
+[31m[7m65[0m         warehouseId: { equals: params?.warehouseId },[39m
+[31m[7m  [0m [91m                                       ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:36:2936 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:29:38:2938 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:11:3011 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:24:3024 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:30:59:3059 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:51:4451 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:51:4451 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m----------------------- 认证失败[39m
+2025-03-23 17:44:52:4452 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 18:09:14:914 [31merror[39m: [31m----------------------- 查询参数验证失败[39m
+2025-03-23 18:09:14:914 [31merror[39m: [31m+++++++++++++++++++++++[39m
+2025-03-23 18:10:01:101 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m61[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'commodityId' does not exist on type '{ fromProvince?: string | null | undefined; fromCity?: string | null | undefined; fromDistrict?: string | null | undefined; toProvince?: string | null | undefined; toCity?: string | null | undefined; ... 13 more ...; pageSize?: number | ... 1 more ... | undefined; }'.[39m
+
+[31m[7m61[0m         commodityId: { equals: params?.commodityId },[39m
+[31m[7m  [0m [91m                                       ~~~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 18:17:35:1735 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m38[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ select: { id: true; type: true; total: true; commodityId: true; warehouseId: true; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m38[0m     inventoryId: {[39m
+[31m[7m  [0m [91m    ~~~~~~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/@prisma/client/runtime/library.d.ts[0m:[93m1810[0m:[93m169[0m[39m
+[31m    [7m1810[0m export declare type GetSelect<Base extends Record<any, any>, R extends InternalArgs['result'][string], KR extends keyof R = string extends keyof R ? never : keyof R> = {[39m
+[31m    [7m    [0m [96m                                                                                                                                                                        ~[0m[39m
+[31m    [7m1811[0m     [K in KR | keyof Base]?: K extends KR ? boolean : Base[K];[39m
+[31m    [7m    [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m
+[31m    [7m1812[0m };[39m
+[31m    [7m    [0m [96m~[0m[39m
+[31m    The expected type comes from property 'inventoryId' which is declared here on type 'OrderSelect<DefaultArgs>'[39m
+[31m[96msrc/services/order.service.ts[0m:[93m92[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ id: true; fromProvince: true; fromCity: true; fromDistrict: true; fromAddress: true; toProvince: true; toCity: true; toDistrict: true; toAddress: true; receiver: true; phone: true; total: true; desc: true; ... 9 more ...; warehouseId: true; }' is not assignable to type 'OrderSelect<DefaultArgs>'.[39m
+[31m  Types of property 'inventoryId' are incompatible.[39m
+[31m    Type '{ select: { id: boolean; type: boolean; total: boolean; commodityId: boolean; warehouseId: boolean; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m92[0m             select,[39m
+[31m[7m  [0m [91m            ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m18351[0m:[93m5[0m[39m
+[31m    [7m18351[0m     select?: OrderSelect<ExtArgs> | null[39m
+[31m    [7m     [0m [96m    ~~~~~~[0m[39m
+[31m    The expected type comes from property 'select' which is declared here on type 'OrderFindManyArgs<DefaultArgs>'[39m
+[31m[96msrc/services/order.service.ts[0m:[93m105[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ id: true; fromProvince: true; fromCity: true; fromDistrict: true; fromAddress: true; toProvince: true; toCity: true; toDistrict: true; toAddress: true; receiver: true; phone: true; total: true; desc: true; ... 9 more ...; warehouseId: true; }' is not assignable to type 'OrderSelect<DefaultArgs>'.[39m
+[31m  Types of property 'inventoryId' are incompatible.[39m
+[31m    Type '{ select: { id: boolean; type: boolean; total: boolean; commodityId: boolean; warehouseId: boolean; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m105[0m             select,[39m
+[31m[7m   [0m [91m            ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m18351[0m:[93m5[0m[39m
+[31m    [7m18351[0m     select?: OrderSelect<ExtArgs> | null[39m
+[31m    [7m     [0m [96m    ~~~~~~[0m[39m
+[31m    The expected type comes from property 'select' which is declared here on type 'OrderFindManyArgs<DefaultArgs>'[39m
+[31m[96msrc/services/order.service.ts[0m:[93m128[0m:[93m61[0m - [91merror[0m[90m TS2322: [0mType '{ id: true; fromProvince: true; fromCity: true; fromDistrict: true; fromAddress: true; toProvince: true; toCity: true; toDistrict: true; toAddress: true; receiver: true; phone: true; total: true; desc: true; ... 9 more ...; warehouseId: true; }' is not assignable to type 'OrderSelect<DefaultArgs>'.[39m
+[31m  Types of property 'inventoryId' are incompatible.[39m
+[31m    Type '{ select: { id: boolean; type: boolean; total: boolean; commodityId: boolean; warehouseId: boolean; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m128[0m             const result = await this.prisma.order.create({ select, data })[39m
+[31m[7m   [0m [91m                                                            ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m18398[0m:[93m5[0m[39m
+[31m    [7m18398[0m     select?: OrderSelect<ExtArgs> | null[39m
+[31m    [7m     [0m [96m    ~~~~~~[0m[39m
+[31m    The expected type comes from property 'select' which is declared here on type '{ select?: OrderSelect<DefaultArgs> | null | undefined; omit?: OrderOmit<DefaultArgs> | null | undefined; include?: OrderInclude<DefaultArgs> | null | undefined; data: (Without<...> & OrderUncheckedCreateInput) | (Without<...> & OrderCreateInput); }'[39m
+[31m[96msrc/services/order.service.ts[0m:[93m146[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ id: true; fromProvince: true; fromCity: true; fromDistrict: true; fromAddress: true; toProvince: true; toCity: true; toDistrict: true; toAddress: true; receiver: true; phone: true; total: true; desc: true; ... 9 more ...; warehouseId: true; }' is not assignable to type 'OrderSelect<DefaultArgs>'.[39m
+[31m  Types of property 'inventoryId' are incompatible.[39m
+[31m    Type '{ select: { id: boolean; type: boolean; total: boolean; commodityId: boolean; warehouseId: boolean; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m146[0m                 select,[39m
+[31m[7m   [0m [91m                ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m18431[0m:[93m5[0m[39m
+[31m    [7m18431[0m     select?: OrderSelect<ExtArgs> | null[39m
+[31m    [7m     [0m [96m    ~~~~~~[0m[39m
+[31m    The expected type comes from property 'select' which is declared here on type '{ select?: OrderSelect<DefaultArgs> | null | undefined; omit?: OrderOmit<DefaultArgs> | null | undefined; include?: OrderInclude<DefaultArgs> | null | undefined; data: (Without<...> & OrderUncheckedUpdateInput) | (Without<...> & OrderUpdateInput); where: OrderWhereUniqueInput; }'[39m
+[31m[96msrc/services/order.service.ts[0m:[93m167[0m:[93m72[0m - [91merror[0m[90m TS2322: [0mType '{ id: true; fromProvince: true; fromCity: true; fromDistrict: true; fromAddress: true; toProvince: true; toCity: true; toDistrict: true; toAddress: true; receiver: true; phone: true; total: true; desc: true; ... 9 more ...; warehouseId: true; }' is not assignable to type 'OrderSelect<DefaultArgs>'.[39m
+[31m  Types of property 'inventoryId' are incompatible.[39m
+[31m    Type '{ select: { id: boolean; type: boolean; total: boolean; commodityId: boolean; warehouseId: boolean; }; }' is not assignable to type 'boolean | undefined'.[39m
+
+[31m[7m167[0m         const result = await this.prisma.order.delete({ where: { id }, select })[39m
+[31m[7m   [0m [91m                                                                       ~~~~~~[0m[39m
+
+[31m  [96m../../node_modules/.pnpm/@prisma+client@6.5.0_prisma@6.5.0_typescript@5.8.2__typescript@5.8.2/node_modules/.prisma/client/index.d.ts[0m:[93m18505[0m:[93m5[0m[39m
+[31m    [7m18505[0m     select?: OrderSelect<ExtArgs> | null[39m
+[31m    [7m     [0m [96m    ~~~~~~[0m[39m
+[31m    The expected type comes from property 'select' which is declared here on type '{ select?: OrderSelect<DefaultArgs> | null | undefined; omit?: OrderOmit<DefaultArgs> | null | undefined; include?: OrderInclude<DefaultArgs> | null | undefined; where: OrderWhereUniqueInput; }'[39m
+[31m[39m
+2025-03-23 18:17:47:1747 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m40[0m:[93m29[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'type' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m40[0m         select: { id: true, type: true, total: true, commodityId: true, warehouseId: true },[39m
+[31m[7m  [0m [91m                            ~~~~[0m[39m
+[31m[39m
+2025-03-23 18:18:08:188 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m40[0m:[93m59[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'warehouse' does not exist in type 'InventorySelect<DefaultArgs>'.[39m
+
+[31m[7m40[0m         select: { id: true, total: true, commodity: true, warehouse: true },[39m
+[31m[7m  [0m [91m                                                          ~~~~~~~~~[0m[39m
+[31m[39m
+2025-03-23 18:18:49:1849 [31merror[39m: [31mFailed to start server: ⨯ Unable to compile TypeScript:[39m
+[31m[96msrc/services/order.service.ts[0m:[93m41[0m:[93m121[0m - [91merror[0m[90m TS2561: [0mObject literal may only specify known properties, but 'createAt' does not exist in type 'InventoryExtensionSelect<DefaultArgs>'. Did you mean to write 'createdAt'?[39m
+
+[31m[7m41[0m             select: { id: true, warehouse: { select: { id: true, name: true } }, total: true, desc: true, status: true, createAt: true, updateAt: true[39m
+[31m[7m  [0m [91m                                                                                                                        ~~~~~~~~[0m[39m
+[31m[96msrc/services/order.service.ts[0m:[93m45[0m:[93m2[0m - [91merror[0m[90m TS1005: [0m',' expected.[39m
+
+[31m[7m45[0m })[39m
+[31m[7m  [0m [91m ~[0m[39m
+[31m[39m

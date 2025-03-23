@@ -7,6 +7,10 @@ import { WarehouseCategoryData } from './category'
 export interface WarehouseData {
   id: number
   name: string
+  province: string
+  city: string
+  district: string
+  address: string
   categoryId: number
   category: Pick<WarehouseCategoryData, 'id' | 'name'>
   userId: number

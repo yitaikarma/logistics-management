@@ -16,7 +16,7 @@
     label: String,
     prop: String,
     options: {
-      type: Array as PropType<{ name: string; value: string | number | boolean }[]>,
+      type: Array as PropType<{ name: string; value: string | number | boolean; [key: string]: any }[]>,
       default: () => []
     }
   })

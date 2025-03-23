@@ -28,7 +28,7 @@
         <el-table-column label="商品名" prop="commodityId" min-width="120" #default="scope" v-if="columns[0].show">
           <el-tag type="info"> {{ scope.row.commodity.name }} </el-tag>
         </el-table-column>
-        <el-table-column label="库存数量" prop="total" min-width="120" v-if="columns[1].show" />
+        <el-table-column label="出库数量" prop="total" min-width="120" v-if="columns[1].show" />
         <el-table-column
           label="仓库名"
           prop="warehouseId"
@@ -53,7 +53,7 @@
 
   //-------- 表格逻辑 --------//
   const columns = reactive([
-    { name: '库存数量', show: true },
+    { name: '出库数量', show: true },
     { name: '仓库名', show: true },
     { name: '商品名', show: true },
     { name: '创建日期', show: true }

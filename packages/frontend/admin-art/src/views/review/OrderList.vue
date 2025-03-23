@@ -20,9 +20,6 @@
           </el-row>
         </el-form>
       </template>
-      <!-- <template #bottom>
-        <el-button @click="showDialog('add')" v-ripple>添加订单</el-button>
-      </template> -->
     </table-bar>
 
     <!-- 表格 -->
@@ -49,6 +46,10 @@
               </el-descriptions-item>
               <el-descriptions-item label="手机号" width="150" label-width="50">
                 {{ scope.row.user.phone }}
+              </el-descriptions-item>
+              <el-descriptions-item label="地址" width="150" label-width="50">
+                {{ scope.row.fromProvince }}{{ scope.row.fromCity }}{{ scope.row.fromDistrict }}
+                {{ scope.row.fromAddress }}
               </el-descriptions-item>
             </el-descriptions>
             <el-descriptions
@@ -80,7 +81,10 @@
 
       <template #default>
         <el-table-column label="订单ID" prop="id" min-width="120" v-if="columns[0].show" />
-        <el-table-column label="商品名" prop="name" min-width="120" #default="scope" v-if="columns[1].show">
+        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[1].show">
+          <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
+        </el-table-column>
+        <el-table-column label="商品名" prop="name" min-width="120" #default="scope" v-if="columns[2].show">
           {{ scope.row.inventory.commodity.name }}
         </el-table-column>
         <el-table-column
@@ -89,19 +93,15 @@
           sortable
           #default="scope"
           min-width="120"
-          v-if="columns[2].show"
+          v-if="columns[3].show"
         >
           <el-tag type="info"> {{ scope.row.category.name }} </el-tag>
         </el-table-column>
-        <el-table-column label="数量" prop="total" min-width="120" v-if="columns[3].show" />
-        <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[4].show" />
-        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[5].show">
-          <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
-        </el-table-column>
+        <el-table-column label="数量" prop="total" min-width="120" v-if="columns[4].show" />
+        <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[5].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
-          <button-table type="edit" @click="showDialog('edit', scope.row)" />
-          <button-table type="delete" @click="del" />
+          <button-table type="edit" icon="&#xe836;" @click="showDialog('edit', scope.row)" />
         </el-table-column>
       </template>
     </art-table>
@@ -109,20 +109,20 @@
     <!-- 表单 -->
     <el-dialog
       v-model="dialogVisible"
-      :title="dialogType === 'add' ? '添加订单' : '编辑订单'"
+      :title="dialogType === 'add' ? '添加订单' : '审核订单'"
       width="700px"
       @close="cancelForm"
     >
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px">
         <el-form-item label="分类" prop="categoryId">
-          <el-radio-group v-model="formData.categoryId">
+          <el-radio-group v-model="formData.categoryId" disabled>
             <el-radio-button v-for="item in categoryOptions" :key="item.value" :label="item.name" :value="item.value" />
           </el-radio-group>
         </el-form-item>
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="商品" prop="inventoryId">
-              <el-select v-model="formData.inventoryId">
+              <el-select v-model="formData.inventoryId" disabled>
                 <template #label="{ label, value }">
                   <span style="margin-right: 6px">{{ label }}</span>
                   <span style="color: var(--el-text-color-secondary); font-size: 11px">
@@ -142,61 +142,118 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="数量" prop="total">
-              <el-input-number v-model="formData.total" :min="0" :max="99999999" :placeholder="totalPlaceholder" />
+            <el-form-item label="仓库" prop="warehouseId">
+              <el-select v-model="formData.warehouseId">
+                <template #label="{ label, value }">
+                  <span style="margin-right: 6px">{{ label }}</span>
+                  <span style="margin-right: 6px; color: var(--el-text-color-secondary); font-size: 11px">
+                    {{ warehouseInventoryOptions.find((i) => i.value === value)?.warehouse.city }}
+                  </span>
+                  <span style="color: var(--el-text-color-secondary); font-size: 11px">
+                    {{ warehouseInventoryOptions.find((i) => i.value === value)?.total }} 件
+                  </span>
+                </template>
+                <el-option
+                  v-for="item in warehouseInventoryOptions"
+                  :key="item.value"
+                  :label="item.name"
+                  :value="item.value"
+                  :disabled="item.total < (formData.total ?? 1)"
+                >
+                  <span style="margin-right: 6px">{{ item.name }}</span>
+                  <span style="color: var(--el-text-color-secondary); font-size: 11px">
+                    {{ item.warehouse.city }} {{ item.total }} 件
+                  </span>
+                </el-option>
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
-
+        <el-form-item label="数量" prop="total">
+          <el-input-number v-model="formData.total" disabled :min="0" :max="99999999" :placeholder="totalPlaceholder" />
+        </el-form-item>
+        <el-divider content-position="left">发货人</el-divider>
+        <el-row :gutter="10">
+          <el-col :span="10">
+            <el-form-item label="地址" prop="fromProvince">
+              <el-select v-model="formData.fromProvince">
+                <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label-width="0" prop="fromCity">
+              <el-select v-model="formData.fromCity">
+                <el-option v-for="item in fromCityOptions" :key="item.value" :label="item.name" :value="item.name" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label-width="0" prop="fromDistrict">
+              <el-select v-model="formData.fromDistrict">
+                <el-option
+                  v-for="item in fromDistrictOptions"
+                  :key="item.value"
+                  :label="item.name"
+                  :value="item.name"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-form-item label="详细地址" prop="fromAddress">
+          <el-input v-model="formData.fromAddress" />
+        </el-form-item>
         <el-divider content-position="left">收货人</el-divider>
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="姓名" prop="receiver">
-              <el-input v-model="formData.receiver" />
+              <el-input v-model="formData.receiver" disabled />
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="手机号" prop="phone">
-              <el-input v-model="formData.phone" />
+              <el-input v-model="formData.phone" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row :gutter="10">
           <el-col :span="10">
             <el-form-item label="地址" prop="toProvince">
-              <el-select v-model="formData.toProvince">
+              <el-select v-model="formData.toProvince" disabled>
                 <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label-width="0" prop="toCity">
-              <el-select v-model="formData.toCity">
+              <el-select v-model="formData.toCity" disabled>
                 <el-option v-for="item in toCityOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label-width="0" prop="toDistrict">
-              <el-select v-model="formData.toDistrict">
+              <el-select v-model="formData.toDistrict" disabled>
                 <el-option v-for="item in toDistrictOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
         </el-row>
         <el-form-item label="详细地址" prop="toAddress">
-          <el-input v-model="formData.toAddress" />
+          <el-input v-model="formData.toAddress" disabled />
         </el-form-item>
         <el-form-item label="描述" prop="desc">
-          <el-input v-model="formData.desc" type="textarea" />
+          <el-input v-model="formData.desc" type="textarea" disabled />
         </el-form-item>
-        <!-- <el-form-item label="状态">
-          <el-switch v-model="formData.status" :active-value="1" :inactive-value="0" />
-        </el-form-item> -->
+        <el-form-item label="状态">
+          <el-switch v-model="formData.status" :active-value="1" :inactive-value="0" disabled />
+        </el-form-item>
       </el-form>
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="cancelForm">取消</el-button>
+          <el-button type="danger" @click="del">不通过</el-button>
           <el-button type="primary" :loading="formLoading" @click="handleSubmit">提交</el-button>
         </div>
       </template>
@@ -230,7 +287,6 @@
   const categoryOptions = ref<{ name: string; value: number }[]>([])
 
   const statusMap: Record<number, { name: string; value: number; type: 'success' | 'info' }> = {
-    0: { name: '已取消', value: 0, type: 'info' },
     1: { name: '待审核', value: 1, type: 'info' },
     2: { name: '通过', value: 2, type: 'success' },
     3: { name: '未通过', value: 3, type: 'success' }
@@ -239,11 +295,11 @@
 
   const columns = reactive([
     { name: '订单ID', show: true },
+    { name: '状态', show: true },
     { name: '商品名', show: true },
     { name: '分类', show: true },
     { name: '数量', show: true },
     { name: '描述', show: true },
-    { name: '状态', show: true },
     { name: '创建日期', show: true }
   ])
 
@@ -325,38 +381,9 @@
     }
   }
 
-  // 删除数据请求
-  function deleteRequest() {
-    if (!rowId.value) {
-      ElMessage.error(`${EmojiText[400]} 执行错误，订单ID获取错误`)
-    } else {
-      OrderService.delete(rowId.value).then((res) => {
-        if (res.success) {
-          getListData()
-          ElMessage.success(`${EmojiText[200]} 移除成功`)
-        }
-      })
-    }
-  }
-
   // 选择数据
   function changeSelect(_selection: OrderData[]) {
     selection.value = _selection
-  }
-
-  // 删除数据
-  async function del() {
-    try {
-      await ElMessageBox.confirm('确定要移除该订单吗？', '移除订单', {
-        type: 'error',
-        confirmButtonText: '确定',
-        cancelButtonText: '取消'
-      })
-
-      deleteRequest()
-    } catch {
-      ElMessage.info(`已取消`)
-    }
   }
 
   // 切换每页显示数量
@@ -374,6 +401,17 @@
   //-------- 出库可选数据逻辑（只能选择有库存的数据） --------//
   const inventoryData = ref<InventoryData[]>([])
   const commodityInventoryOptions = ref<({ name: string; value: number } & InventoryData)[]>([])
+  const warehouseInventoryOptions = computed(() => {
+    return (
+      inventoryData.value
+        .find((item) => {
+          return item.id === formData.value.inventoryId
+        })
+        ?.inventoryExtensions.map((item) => {
+          return { ...item, name: item.warehouse.name, value: item.warehouse.id }
+        }) || []
+    )
+  })
 
   // 库存商品和仓库数据请求
   async function getInventoryCommoditiesAndWarehousesData() {
@@ -401,9 +439,8 @@
 
   const searchDefaultData = {
     id: undefined,
-    inventoryId: undefined as number | undefined,
+    inventoryId: undefined,
     categoryId: undefined,
-    desc: '',
     status: undefined
   }
   const formDefaultData = {
@@ -420,10 +457,10 @@
     toAddress: '',
     desc: '',
     status: 1,
+    inventoryId: undefined,
+    warehouseId: undefined,
     categoryId: undefined,
-    userId: undefined as number | undefined,
-    inventoryId: undefined as number | undefined,
-    warehouseId: undefined
+    userId: undefined as number | undefined
   }
   const searchForm = ref({ ...searchDefaultData })
   const formData = ref({ ...formDefaultData })
@@ -434,7 +471,15 @@
       { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'change' }
     ],
     inventoryId: [{ required: true, message: '请选择商品', trigger: 'change' }],
+    warehouseId: [
+      { required: true, message: '请选择仓库', trigger: 'change' },
+      {
+        validator: (rule, value, callback) => (value < 0 ? callback(new Error('请选择有库存的仓库')) : callback()),
+        trigger: 'change'
+      }
+    ],
     categoryId: [{ required: true, message: '请选择分类', trigger: 'change' }],
+    userId: [{ required: true, message: '请选择客户', trigger: 'change' }],
     total: [{ required: true, message: '请输入数量', trigger: 'change' }],
     receiver: [{ required: true, message: '请输入客户名', trigger: 'change' }],
     phone: [{ required: true, message: '请输入手机号', trigger: 'change' }],
@@ -454,6 +499,12 @@
   const provinceOptions = computed(() => {
     return addressOptions.value.map((i) => ({ name: i.name, value: i.name }))
   })
+  const fromCityOptions = computed(() => {
+    return addressOptions.value.find((i) => i.name === formData.value.fromProvince)?.children || []
+  })
+  const fromDistrictOptions = computed(() => {
+    return fromCityOptions.value.find((i) => i.name === formData.value.fromCity)?.children || []
+  })
   const toCityOptions = computed(() => {
     return addressOptions.value.find((i) => i.name === formData.value.toProvince)?.children || []
   })
@@ -471,6 +522,17 @@
           commodityInventory.inventoryExtensions
             .find((item) => item.warehouse.id === formData.value.warehouseId)
             ?.toString() ?? '0'
+
+        // 同步设置发货地址
+        const warehouse = commodityInventory.inventoryExtensions.find(
+          (item) => item.warehouse.id === formData.value.warehouseId
+        )
+        if (warehouse) {
+          formData.value.fromProvince = warehouse.warehouse.province
+          formData.value.fromCity = warehouse.warehouse.city
+          formData.value.fromDistrict = warehouse.warehouse.district
+          formData.value.fromAddress = warehouse.warehouse.address
+        }
       }
     }
   )
@@ -485,8 +547,6 @@
 
     if (type === 'edit' && row) {
       rowId.value = row.id
-      formData.value.inventoryId = row.inventoryId
-      formData.value.categoryId = row.categoryId
       formData.value.total = row.total
       formData.value.receiver = row.receiver
       formData.value.phone = row.phone
@@ -500,6 +560,10 @@
       formData.value.toAddress = row.toAddress
       formData.value.desc = row.desc
       formData.value.status = row.status
+      formData.value.categoryId = row.categoryId
+      formData.value.userId = row.userId
+      formData.value.inventoryId = row.inventoryId
+      formData.value.warehouseId = row.warehouseId
     }
   }
 
@@ -527,13 +591,14 @@
   }
 
   // 提交请求
-  async function submitRequest() {
+  async function submitRequest(status = 2) {
     if (!formRef.value) return
 
     formLoading.value = true
     try {
       let res
       formData.value.userId = userStore.getUserInfo.id
+      formData.value.status = status
       if (dialogType.value === 'add') {
         res = await OrderService.add(formData.value)
       } else {
@@ -564,6 +629,21 @@
     await formRef.value.validate(async (valid) => {
       if (valid) submitRequest()
     })
+  }
+
+  // 审核不通过数据
+  async function del() {
+    try {
+      await ElMessageBox.confirm('确定要移除该订单吗？', '移除订单', {
+        type: 'error',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      })
+
+      await submitRequest(3)
+    } catch {
+      ElMessage.info(`已取消`)
+    }
   }
 </script>
 
