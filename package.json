@@ -5,6 +5,7 @@
     "private": true,
     "dependencies": {
         "dayjs": "^1.11.13",
+        "lcn": "^6.1.1",
         "pnpm": "^6.7.0"
     },
     "scripts": {
