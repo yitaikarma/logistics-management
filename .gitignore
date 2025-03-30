@@ -6,6 +6,5 @@ dist-ssr
 .cursorrules
 data
 pnpm-lock.yaml
-*/migrations
-packages/backend/logs
-packages/backend/prisma/migrations
+migrations
+logs
