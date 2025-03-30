@@ -63,7 +63,12 @@
     </art-table>
 
     <!-- 表单 -->
-    <el-dialog v-model="dialogVisible" :title="dialogType === 'add' ? '添加车辆' : '编辑车辆'" width="500px">
+    <el-dialog
+      v-model="dialogVisible"
+      :title="dialogType === 'add' ? '添加车辆' : '编辑车辆'"
+      width="500px"
+      @close="cancelForm"
+    >
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px">
         <el-form-item label="车辆名" prop="name">
           <el-input v-model="formData.name" />

@@ -29,7 +29,12 @@
     </art-table>
 
     <!-- 表单 -->
-    <el-dialog v-model="dialogVisible" :title="dialogType === 'add' ? '新增商品分类' : '编辑商品分类'" width="500">
+    <el-dialog
+      v-model="dialogVisible"
+      :title="dialogType === 'add' ? '新增商品分类' : '编辑商品分类'"
+      width="500"
+      @close="cancelForm"
+    >
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="120px">
         <el-form-item label="商品分类名" prop="name">
           <el-input v-model="formData.name" />

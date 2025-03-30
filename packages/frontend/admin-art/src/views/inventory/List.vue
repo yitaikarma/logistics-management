@@ -54,7 +54,12 @@
     </art-table>
 
     <!-- 表单 -->
-    <el-dialog v-model="dialogVisible" :title="dialogType === 'add' ? '入库商品' : '出库商品'" width="500px">
+    <el-dialog
+      v-model="dialogVisible"
+      :title="dialogType === 'add' ? '入库商品' : '出库商品'"
+      width="500px"
+      @close="cancelForm"
+    >
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px">
         <el-form-item label="商品名" prop="commodityId">
           <el-select v-model="formData.commodityId" @change="resetSelect">

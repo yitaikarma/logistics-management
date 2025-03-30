@@ -66,7 +66,12 @@
     </art-table>
 
     <!-- 表单 -->
-    <el-dialog v-model="dialogVisible" :title="dialogType === 'add' ? '添加用户' : '编辑用户'" width="500px">
+    <el-dialog
+      v-model="dialogVisible"
+      :title="dialogType === 'add' ? '添加用户' : '编辑用户'"
+      width="500px"
+      @close="cancelForm"
+    >
       <el-form ref="formRef" :model="formData" :rules="rules" label-width="80px">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="formData.username" />
