@@ -17,8 +17,8 @@
         </el-form>
       </template>
       <template #bottom>
-        <el-button @click="showDialog('add')" v-ripple>入库</el-button>
-        <el-button style="margin: 0" :disabled="tableData.total === 0" @click="showDialog('sub')" v-ripple
+        <el-button @click="showDialog('entry')" v-ripple>入库</el-button>
+        <el-button style="margin: 0" :disabled="tableData.total === 0" @click="showDialog('out')" v-ripple
           >出库</el-button
         >
       </template>
@@ -56,7 +56,7 @@
     <!-- 表单 -->
     <el-dialog
       v-model="dialogVisible"
-      :title="dialogType === 'add' ? '入库商品' : '出库商品'"
+      :title="dialogType === 'entry' ? '入库商品' : '出库商品'"
       width="500px"
       @close="cancelForm"
     >
@@ -107,6 +107,7 @@
   import { PaginationData } from '@/types/axios'
   import { FormInstance } from 'element-plus'
   import { ElMessage } from 'element-plus'
+  import mittBus from '@/utils/mittBus'
 
   //-------- 表格逻辑 --------//
   const columns = reactive([
@@ -202,9 +203,7 @@
   const warehouseInventoryOptions = computed(() => {
     return (
       inventoryData.value
-        .find((item) => {
-          return item.id === formData.value.commodityId
-        })
+        .find((item) => item.commodityId === formData.value.commodityId)
         ?.inventoryExtensions.map((item) => {
           return { name: item.warehouse.name, value: item.warehouse.id }
         }) || []
@@ -218,7 +217,7 @@
       if (res.success) {
         inventoryData.value = res.data
         commodityInventoryOptions.value = res.data.map((item: InventoryData) => {
-          return { name: item.commodity.name, value: item.id }
+          return { name: item.commodity.name, value: item.commodityId }
         })
       }
     } catch {
@@ -229,7 +228,7 @@
   //-------- 搜索和表单逻辑 --------//
   const searchFormRef = ref<FormInstance>()
   const formRef = ref<FormInstance>()
-  const dialogType = ref('add')
+  const dialogType = ref('entry')
   const dialogVisible = ref(false)
   const formLoading = ref(false)
 
@@ -259,13 +258,18 @@
   watch([() => formData.value.commodityId, () => formData.value.warehouseId], () => {
     if (formData.value.type === 2) {
       console.log(formData.value.commodityId)
-      if (formData.value.commodityId && formData.value.warehouseId === undefined) {
-        totalPlaceholder.value = inventoryData.value.find((item) => item.id === formData.value.commodityId)?.total + ''
-      } else if (formData.value.commodityId && formData.value.warehouseId) {
-        totalPlaceholder.value =
-          inventoryData.value
-            .find((item) => item.id === formData.value.commodityId)
-            ?.inventoryExtensions.find((item) => item.warehouse.id === formData.value.warehouseId)?.total + ''
+
+      if (formData.value.commodityId) {
+        const inventoryItem = inventoryData.value.find((item) => item.commodityId === formData.value.commodityId)
+
+        if (formData.value.warehouseId === undefined) {
+          totalPlaceholder.value = inventoryItem?.total + ''
+        } else if (formData.value.warehouseId) {
+          const warehouseItem = inventoryItem?.inventoryExtensions.find(
+            (item) => item.warehouse.id === formData.value.warehouseId
+          )
+          totalPlaceholder.value = warehouseItem?.total + ''
+        }
       }
     }
   })
@@ -286,7 +290,7 @@
 
     initOptionData()
 
-    if (type === 'add') {
+    if (type === 'entry') {
       formData.value.type = 1
     } else {
       formData.value.type = 2
@@ -329,10 +333,19 @@
     try {
       let res = await InventoryService.add(formData.value)
       if (res.success) {
-        ElMessage.success(dialogType.value === 'add' ? '添加成功' : '更新成功')
+        ElMessage.success(dialogType.value === 'entry' ? '入库成功' : '出库成功')
         dialogVisible.value = false
         resetForm()
         getListData()
+        // 更新记录页数据
+        if (dialogType.value === 'entry') {
+          console.log('入库')
+
+          mittBus.emit('initData:EntryRecord', true)
+        } else {
+          console.log('出库')
+          mittBus.emit('initData:OutRecord', true)
+        }
       }
     } catch {
       // 错误已在axios拦截器处理

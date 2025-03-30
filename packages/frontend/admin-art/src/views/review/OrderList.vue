@@ -82,7 +82,7 @@
       <template #default>
         <el-table-column label="订单ID" prop="id" min-width="120" v-if="columns[0].show" />
         <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[1].show">
-          <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
+          <el-tag :type="statusMap[scope.row.status]?.type"> {{ statusMap[scope.row.status]?.name }} </el-tag>
         </el-table-column>
         <el-table-column label="商品名" prop="name" min-width="120" #default="scope" v-if="columns[2].show">
           {{ scope.row.inventory.commodity.name }}
@@ -271,6 +271,7 @@
   import { ElMessageBox, ElMessage } from 'element-plus'
   import EmojiText from '@/utils/emojo'
   import { useUserStore } from '@/store/modules/user'
+  import mittBus from '@/utils/mittBus'
 
   const userStore = useUserStore()
 
@@ -289,7 +290,7 @@
   const statusMap: Record<number, { name: string; value: number; type: 'success' | 'info' }> = {
     1: { name: '待审核', value: 1, type: 'info' },
     2: { name: '通过', value: 2, type: 'success' },
-    3: { name: '未通过', value: 3, type: 'success' }
+    3: { name: '未通过', value: 3, type: 'info' }
   }
   const statusOptions = Object.values(statusMap)
 
@@ -306,10 +307,15 @@
   const selection = ref<OrderData[]>([])
 
   onMounted(() => {
+    init()
+    getPCAData()
+    mittBus.on('initData:ReviewKList', init)
+  })
+
+  function init() {
     getListData()
     initOptionData()
-    getPCAData()
-  })
+  }
 
   // 切换列
   function changeColumn(list: any) {

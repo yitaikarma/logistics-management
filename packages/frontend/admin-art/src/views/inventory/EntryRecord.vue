@@ -50,6 +50,7 @@
   import { WarehouseService, CommodityService, InventoryRecordService } from '@/api'
   import { PaginationData } from '@/types/axios'
   import { FormInstance } from 'element-plus'
+  import mittBus from '@/utils/mittBus'
 
   //-------- 表格逻辑 --------//
   const columns = reactive([
@@ -73,11 +74,20 @@
     getListData()
     getWarehousesData()
     getCommoditiesData()
+    mittBus.on('initData:EntryRecord', init)
   })
 
   // 切换列
   function changeColumn(list: any) {
     columns.values = list
+  }
+
+  function init() {
+    console.log('init')
+
+    getListData()
+    getWarehousesData()
+    getCommoditiesData()
   }
 
   // 仓库数据请求

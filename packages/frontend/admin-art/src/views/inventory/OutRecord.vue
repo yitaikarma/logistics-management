@@ -49,6 +49,7 @@
   import type { WarehouseData, CommodityData, InventoryRecordData } from '@/api'
   import { WarehouseService, CommodityService, InventoryRecordService } from '@/api'
   import { PaginationData } from '@/types/axios'
+  import mittBus from '@/utils/mittBus'
   import { FormInstance } from 'element-plus'
 
   //-------- 表格逻辑 --------//
@@ -73,11 +74,18 @@
     getListData()
     getWarehousesData()
     getCommoditiesData()
+    mittBus.on('initData:OutRecord', init)
   })
 
   // 切换列
   function changeColumn(list: any) {
     columns.values = list
+  }
+
+  function init() {
+    getListData()
+    getWarehousesData()
+    getCommoditiesData()
   }
 
   // 仓库数据请求

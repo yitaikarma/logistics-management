@@ -116,6 +116,7 @@
   import type { CommodityData, InventoryData, OrderCategoryData, UserData } from '@/api'
   import { CommodityService, InventoryService, OrderCategoryService, OrderService, UserService } from '@/api'
   import { useUserStore } from '@/store/modules/user'
+  import mittBus from '@/utils/mittBus'
 
   const userStore = useUserStore()
   const router = useRouter()
@@ -295,6 +296,8 @@
         ElMessage.success('申请成功')
         dialogVisible.value = false
         resetForm()
+        mittBus.emit('initData:OrderList')
+        mittBus.emit('initData:ReviewList')
       }
     } catch {
       // 错误已在axios拦截器处理

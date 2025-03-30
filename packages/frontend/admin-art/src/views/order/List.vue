@@ -214,6 +214,7 @@
   import { ElMessageBox, ElMessage } from 'element-plus'
   import EmojiText from '@/utils/emojo'
   import { useUserStore } from '@/store/modules/user'
+  import mittBus from '@/utils/mittBus'
 
   const userStore = useUserStore()
 
@@ -231,9 +232,12 @@
 
   const statusMap: Record<number, { name: string; value: number; type: 'success' | 'info' }> = {
     0: { name: '已取消', value: 0, type: 'info' },
-    1: { name: '待审核', value: 1, type: 'info' },
-    2: { name: '通过', value: 2, type: 'success' },
-    3: { name: '未通过', value: 3, type: 'success' }
+    1: { name: '审核中', value: 1, type: 'success' },
+    2: { name: '分配中', value: 2, type: 'success' },
+    3: { name: '未通过', value: 3, type: 'info' },
+    4: { name: '待配送', value: 4, type: 'info' },
+    5: { name: '配送中', value: 5, type: 'info' },
+    6: { name: '已送达', value: 6, type: 'success' }
   }
   const statusOptions = Object.values(statusMap)
 
@@ -250,10 +254,15 @@
   const selection = ref<OrderData[]>([])
 
   onMounted(() => {
+    init()
+    getPCAData()
+    mittBus.on('initData:OrderList', init)
+  })
+
+  function init() {
     getListData()
     initOptionData()
-    getPCAData()
-  })
+  }
 
   // 切换列
   function changeColumn(list: any) {
