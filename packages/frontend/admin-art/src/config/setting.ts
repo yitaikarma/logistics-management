@@ -9,7 +9,8 @@ export const ElementPlusTheme = {
 // 系统信息
 export const SystemInfo = {
   // 系统名称
-  name: 'Art Design Pro',
+  // name: 'Art Design Pro',
+  name: '物流管理系统',
   // 登录默认帐号、密码
   login: {
     username: 'admin',
@@ -113,15 +114,7 @@ export const DarkMenuStyles: MenuThemeType[] = [
 ]
 
 // 系统主色
-export const SystemMainColor = [
-  '#5D87FF',
-  '#B48DF3',
-  '#1D84FF',
-  '#60C041',
-  '#38C0FC',
-  '#F9901F',
-  '#FF80C8'
-]
+export const SystemMainColor = ['#5D87FF', '#B48DF3', '#1D84FF', '#60C041', '#38C0FC', '#F9901F', '#FF80C8']
 
 // 系统设置中心配置
 export const SystemSetting = {
