@@ -1,10 +1,5 @@
 import type { App } from 'vue'
-import {
-  createRouter,
-  createWebHashHistory,
-  RouteLocationNormalized,
-  RouteRecordRaw
-} from 'vue-router'
+import { createRouter, createWebHashHistory, RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 import { ref } from 'vue'
 import Home from '@views/index/index.vue'
 import { SystemInfo } from '@/config/setting'
@@ -127,7 +122,7 @@ const staticRoutes: AppRouteRecordRaw[] = [
   {
     path: RoutesAlias.Pricing,
     name: 'Pricing',
-    component: () => import('@views/template/pricing.vue'),
+    component: () => import('@views/template/Pricing.vue'),
     meta: { title: 'menus.template.pricing', isHideTab: true }
   }
 ]
