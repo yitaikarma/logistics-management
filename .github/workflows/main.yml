@@ -40,7 +40,7 @@ jobs:
             - name: 设置缓存
               uses: actions/cache@v3
               with:
-                  path: ~/.pnpm-store
+                  path: ~/.local/share/pnpm/store
                   key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
                   restore-keys: |
                       ${{ runner.os }}-pnpm-store-
