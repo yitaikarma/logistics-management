@@ -11,6 +11,23 @@ jobs:
     buildDeployment:
         runs-on: ubuntu-latest
         steps:
+            - name: 打印环境信息
+              run: |
+                  echo "当前操作系统是：$(uname -a)"
+                  echo "Node.js 版本：$(node -v)"
+                  echo "pnpm 版本：$(pnpm -v)"
+            - name: 检查机密是否存在
+              run: |
+                  if [ -z "${{ secrets.SERVER_HOST }}" ]; then
+                    echo "SERVER_HOST 未设置！"
+                  else
+                    echo "SERVER_HOST 已设置。"
+                  fi
+
+            - name: 调试机密
+              run: |
+                  echo "SERVER_HOST 的前四位是：$(echo "${{ secrets.SERVER_HOST }}" | cut -c1-4)"
+
             - name: 迁出代码
               uses: actions/checkout@main
 
