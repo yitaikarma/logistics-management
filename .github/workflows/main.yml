@@ -29,7 +29,7 @@ jobs:
               run: tar -czf pnpm-deps.tar.gz node_modules
 
             - name: 上传依赖
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: pnpm-deps
                   path: pnpm-deps.tar.gz
