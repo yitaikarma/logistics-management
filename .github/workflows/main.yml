@@ -19,6 +19,14 @@ jobs:
               with:
                   node-version: lts/*
 
+            - name: 设置缓存
+              uses: actions/cache@v3
+              with:
+                  path: ~/.pnpm-store
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
             - name: 安装pnpm
               uses: pnpm/action-setup@v4
 
