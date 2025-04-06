@@ -5,6 +5,5 @@ dist-ssr
 *.local
 .cursorrules
 data
-pnpm-lock.yaml
 migrations
 logs
