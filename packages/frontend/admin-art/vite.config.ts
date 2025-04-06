@@ -61,9 +61,28 @@ export default ({ mode }) => {
       },
       rollupOptions: {
         output: {
+          // 入口文件名
+          entryFileNames: `assets/js/[name]-[hash].js`,
+          // 块文件名
+          chunkFileNames: `assets/js/[name]-[hash].js`,
+          // 资源文件名 css 图片等等
+          assetFileNames: `assets/[ext]/[name]-[hash].[ext]`,
+          // 依赖包
           manualChunks: {
             vendor: ['vue', 'vue-router', 'pinia', 'element-plus']
           }
+          // // 大文件拆分
+          // manualChunks(id) {
+          //   if (id.includes('node_modules')) {
+          //     // 把vue vue-router  @vueuse 等核心模块打包成一个文件
+          //     if (id.includes('vue')) {
+          //       return 'vue'
+          //     } else {
+          //       // 最小化拆分包
+          //       return id.toString().split('node_modules/')[1].split('/')[0].toString()
+          //     }
+          //   }
+          // }
         }
       },
       dynamicImportVarsOptions: {
