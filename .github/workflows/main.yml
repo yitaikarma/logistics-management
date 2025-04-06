@@ -10,6 +10,7 @@ on:
 jobs:
     buildDeployment:
         runs-on: ubuntu-latest
+        environment: Development
         steps:
             - name: 打印环境信息
               run: |
