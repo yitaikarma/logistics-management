@@ -1,6 +1,7 @@
 name: 部署前端
 
 on:
+    workflow_dispatch: # 添加手动触发事件
     push:
         branches:
             - main

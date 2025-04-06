@@ -1,11 +1,12 @@
 name: 部署后端
 
 on:
+    workflow_dispatch: # 添加手动触发事件
     push:
         branches:
             - main
         paths:
-            - '/packages/backend/**'
+            - 'packages/backend/**'
 
 jobs:
     buildDeployment:
@@ -22,5 +23,5 @@ jobs:
                   username: root
                   key: ${{ secrets.SERVER_PRIVATE_KEY }}
                   port: 22
-                  source: '/packages/backend/**'
+                  source: 'packages/backend/**'
                   target: '/www/wwwroot/logistics_management/backend'
