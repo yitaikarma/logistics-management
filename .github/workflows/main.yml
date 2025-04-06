@@ -8,7 +8,7 @@ on:
             - main
 
 jobs:
-    setup:
+    buildDeployment:
         runs-on: ubuntu-latest
         steps:
             - name: 迁出代码
