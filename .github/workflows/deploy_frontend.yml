@@ -1,38 +1,21 @@
-name: 更新到服务器
+name: 部署前端
 
 on:
     push:
-        # push 代码的时候 哪个分支会受到影响 这里是 v1.0.0 分支
         branches:
-            # - v1.0.0 # 也可以设置为 main 分支
             - main
+        paths:
+            - 'packages/frontend/admin-art/**'
 
 jobs:
     buildDeployment:
         runs-on: ubuntu-latest
         environment: Development
         steps:
-            - name: 打印环境信息
-              run: |
-                  echo "当前操作系统是：$(uname -a)"
-                  echo "Node.js 版本：$(node -v)"
-                  echo "pnpm 版本：$(pnpm -v)"
-            - name: 检查机密是否存在
-              run: |
-                  if [ -z "${{ secrets.SERVER_HOST }}" ]; then
-                    echo "SERVER_HOST 未设置！"
-                  else
-                    echo "SERVER_HOST 已设置。"
-                  fi
-
-            - name: 调试机密
-              run: |
-                  echo "SERVER_HOST 的前四位是：$(echo "${{ secrets.SERVER_HOST }}" | cut -c1-4)"
-
             - name: 迁出代码
               uses: actions/checkout@main
 
-            - name: 安装node.js
+            - name: 安装Node环境
               uses: actions/setup-node@main
               with:
                   node-version: lts/*
@@ -51,7 +34,7 @@ jobs:
             - name: 安装依赖
               run: pnpm install
 
-            - name: 打包
+            - name: 打包项目
               run: pnpm run build:frontend-admin-art
 
             - name: 上传到服务器
@@ -61,5 +44,5 @@ jobs:
                   username: root
                   key: ${{ secrets.SERVER_PRIVATE_KEY }}
                   port: 22
-                  source: 'packages/frontend/admin-art/dist'
-                  target: '/www/wwwroot/frontend'
+                  source: 'packages/frontend/admin-art/dist/**'
+                  target: '/www/wwwroot/logistics_management/frontend'
