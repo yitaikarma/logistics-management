@@ -61,5 +61,5 @@ jobs:
                   username: root
                   key: ${{ secrets.SERVER_PRIVATE_KEY }}
                   port: 22
-                  source: 'packages/frontend/admin-art/dist/'
+                  source: 'packages/frontend/admin-art/dist'
                   target: '/www/wwwroot/frontend'
