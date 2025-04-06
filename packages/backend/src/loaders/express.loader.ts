@@ -14,11 +14,17 @@ import { ResponseUtil } from '../utils/response'
 import { logger } from '../utils/logger'
 import { errorHandlerMiddleware } from '../middlewares/error.middleware'
 
+const corsOptions = {
+    origin: 'http://8.222.203.222:9095', // Replace with your frontend origin
+    credentials: true, // Allow credentials
+    allowedHeaders: ['Content-Type', 'Authorization'], // Include necessary headers
+}
+
 export function expressLoader(): Application {
     const app = express()
 
     // 中间件配置
-    app.use(cors()) // 跨域中间件
+    app.use(cors(corsOptions)) // 跨域中间件
     app.use(helmet()) // 安全中间件
     app.use(express.json()) // 解析 application/json
     app.use(express.urlencoded({ extended: true })) // 解析 application/x-www-form-urlencoded
