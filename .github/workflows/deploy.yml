@@ -62,8 +62,9 @@ jobs:
                   username: root
                   key: ${{ secrets.SERVER_PRIVATE_KEY }}
                   port: 22
-                  source: 'packages/backend/**'
+                  source: 'packages/backend'
                   target: '/www/wwwroot/logistics_management/backend/'
+                  strip_components: 2
 
             # - name: 安装依赖并启动服务
             #   run: |
