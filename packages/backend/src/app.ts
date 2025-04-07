@@ -19,15 +19,16 @@ async function startServer() {
 
     // 初始化数据库连接
     await prismaService.connect()
+    logger.info('数据库连接成功')
 
     // 创建Express应用
     const app = expressLoader()
+    logger.info('Express应用加载成功')
 
     // 启动服务器
     app.listen(PORT, () => {
         logger.info(`环境: ${process.env.NODE_ENV}`)
         logger.info(`服务已启动，监听端口: ${PORT}`)
-        logger.info(`Server is running on http://localhost:${PORT}`)
     })
 
     // 优雅关闭
