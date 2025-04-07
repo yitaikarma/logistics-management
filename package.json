@@ -11,7 +11,7 @@
     "scripts": {
         "dev:backend": "pnpm -F backend dev",
         "build:backend": "pnpm -F backend build",
-        "preview:backend": "pnpm -F backend preview",
+        "start:backend": "pnpm -F backend start",
         "dev:frontend-admin": "pnpm -F frontend-admin dev",
         "build:frontend-admin": "pnpm -F frontend-admin build",
         "dev:frontend-admin-art": "pnpm -F frontend-admin-art dev",
