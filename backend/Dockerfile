@@ -11,7 +11,7 @@ COPY . .
 RUN npm install -g pnpm && pnpm install && pnpm prisma:generate && pnpm build
 
 # 暴露端口
-EXPOSE 80
+EXPOSE 3000
 
 # 启动后端项目
 CMD ["pnpm", "start"]
