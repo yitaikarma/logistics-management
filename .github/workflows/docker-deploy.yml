@@ -44,4 +44,4 @@ jobs:
                       docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management:latest
                       docker stop logistics-management || true
                       docker rm logistics-management || true
-                      docker run -d --name logistics-management -p 80:80 ${{ secrets.DOCKER_USERNAME }}/logistics-management:latest
+                      docker run -d --name logistics-management -p ${{ secrets.SERVER_SITE_PORT }}:80 ${{ secrets.DOCKER_USERNAME }}/logistics-management:latest
