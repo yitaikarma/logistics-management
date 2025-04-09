@@ -48,11 +48,13 @@
     "@wangeditor/editor-for-vue": "next",
     "axios": "^1.7.5",
     "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.13",
     "default-passive-events": "^2.0.0",
     "echarts": "^5.4.0",
     "element-plus": "^2.8.0",
     "file-saver": "^2.0.5",
     "highlight.js": "^11.10.0",
+    "lcn": "^6.1.1",
     "md-editor-v3": "^4.17.0",
     "mitt": "^3.0.1",
     "nprogress": "^0.2.0",
@@ -105,5 +107,20 @@
     "vue-demi": "^0.14.9",
     "vue-img-cutter": "^3.0.5",
     "vue-tsc": "~2.1.6"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "core-js",
+      "cwebp-bin",
+      "es5-ext",
+      "esbuild",
+      "gifsicle",
+      "jpegtran-bin",
+      "mozjpeg",
+      "optipng-bin",
+      "pngquant-bin",
+      "vue-demi"
+    ]
   }
 }
