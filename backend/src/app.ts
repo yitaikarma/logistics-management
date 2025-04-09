@@ -17,6 +17,8 @@ import { logger } from './utils/logger'
 const envFile = process.env.NODE_ENV === 'production' ? '.env.prod' : process.env.NODE_ENV === 'development' ? '.env.dev' : '.env'
 dotenv.config({ path: path.resolve(__dirname, `../${envFile}`), override: true })
 
+console.log(`当前环境变量文件: ${process.env.DATABASE_URL}`)
+
 async function startServer() {
     const PORT = process.env.PORT || 3000
 
