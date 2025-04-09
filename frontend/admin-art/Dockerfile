@@ -5,7 +5,7 @@ FROM node:23-slim@sha256:dfb18d8011c0b3a112214a32e772d9c6752131ffee512e974e59367
 WORKDIR /app
 
 # 将项目复制到容器内
-COPY ./frontend/admin-art .
+COPY . .
 
 # 安装依赖&构建前端项目
 RUN npm install -g pnpm && pnpm install && pnpm build

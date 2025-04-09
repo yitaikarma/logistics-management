@@ -5,7 +5,7 @@ FROM node:23-slim@sha256:dfb18d8011c0b3a112214a32e772d9c6752131ffee512e974e59367
 WORKDIR /app
 
 # 将你项目内的所有文件复制到容器内 .表示所有
-COPY ./backend .
+COPY . .
 
 # 安装依赖&构建
 RUN npm install -g pnpm && pnpm install && pnpm prisma:generate && pnpm build
