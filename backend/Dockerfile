@@ -7,6 +7,8 @@ WORKDIR /app
 # 将你项目内的所有文件复制到容器内 .表示所有
 COPY . .
 
+RUN apt-get update -y && apt-get install -y openssl
+
 # 安装依赖&构建
 RUN npm install -g pnpm && pnpm install && pnpm prisma:generate && pnpm build
 
