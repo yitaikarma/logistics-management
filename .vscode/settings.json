@@ -6,14 +6,14 @@
         "*.ts": "$(capture).test.ts, $(capture).test.tsx",
         "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
         ".env": "$(capture).env.*",
-        "package.json": ".npmrc,package-lock.json,pnpm-lock.yaml,yarn.lock",
+        "Dockerfile*": "Dockerfile*,docker-compose*,.dockerignore",
+        "package.json": ".npmrc,package-lock.json,pnpm-lock.yaml,yarn.lock,pnpm*",
         "README.MD": "LICENSE,README*",
         ".git*": "CHANGELOG*,CNAME,.git*",
         "eslint.config.*": "eslint*,.eslint*,stylelint*,.stylelint*,.prettier*,prettier*,.lint*,.editorconfig,commitlint*",
         "postcss.config.*": "postcss*,.postcss*,tailwind*,components.*",
-        "*vite.config.ts": "vitest.config.*,cypress.config.*,.babelrc,.postcssrc.*,alias.config.*,tsconfig*,,babel*,.browserslistrc,electron-builder.*,dev-app-update.*",
+        "*vite.config.ts": "vitest.config.*,cypress.config.*,.babelrc,.postcssrc.*,alias.config.*,tsconfig*,,babel*,.browserslistrc,electron-builder.*,dev-app-update.*"
         // ".commitlint*": ".commitlintrc*,commitlint*",
-        "Dockerfile*": "Dockerfile*,docker-compose*"
     },
 
     // "prettier.enable": true,
@@ -27,6 +27,22 @@
     //   "source.organizeImports": "never"
     // },
 
-    "cSpell.words": ["appleboy", "autoincrement", "axios", "coko", "emojo", "esbuild", "iconfont", "loginway", "qrcode", "signupway", "vueuse", "wangeditor", "wwwroot"]
+    "cSpell.words": [
+        "appleboy",
+        "autoincrement",
+        "axios",
+        "coko",
+        "emojo",
+        "esbuild",
+        "iconfont",
+        "localtime",
+        "loginway",
+        "qrcode",
+        "signupway",
+        "vueuse",
+        "wangeditor",
+        "wwwroot",
+        "zoneinfo"
+    ]
     // "oxc.enable": true
 }
