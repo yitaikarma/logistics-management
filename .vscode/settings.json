@@ -6,7 +6,7 @@
         "*.ts": "$(capture).test.ts, $(capture).test.tsx",
         "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
         ".env": "$(capture).env.*",
-        "Dockerfile*": "Dockerfile*,docker-compose*,.dockerignore",
+        "Dockerfile*": "Dockerfile,docker-compose*,.dockerignore",
         "package.json": ".npmrc,package-lock.json,pnpm-lock.yaml,yarn.lock,pnpm*",
         "README.MD": "LICENSE,README*",
         ".git*": "CHANGELOG*,CNAME,.git*",
