@@ -7,6 +7,8 @@ on:
             - main
         # paths:
         #     - 'backend/**'
+env:
+    IMAGE_TAG: $(date +%Y%m%d%H%M%S)
 
 jobs:
     PublishDockerImage:
@@ -26,13 +28,13 @@ jobs:
               run: |
                   IMAGE_TAG=$(date +%Y%m%d%H%M%S)
                   docker build --platform linux/amd64 \
-                  -t ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG \
+                  -t ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:v1 \
                   -f ./backend/Dockerfile ./backend
                   echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
             - name: Push Docker Image
               run: |
-                  docker push ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG
+                  docker push ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:v1
 
             - name: Deploy Backend To Server
               uses: appleboy/ssh-action@master
@@ -42,12 +44,12 @@ jobs:
                   username: ${{secrets.SERVER_USERNAME}}
                   key: ${{ secrets.SSH_PRIVATE_KEY }}
                   script: |
-                      docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG
+                      docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:v1
                       docker stop logistics-management-backend || true
                       docker rm logistics-management-backend || true
                       docker run -dp ${{ secrets.SERVER_BACKEND_HOST }}:3000 \
                       --name logistics-management-backend \
-                      ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG
+                      ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:v1
 
     # DeployBackend:
     #     name: Deploy Backend
