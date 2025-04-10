@@ -5,7 +5,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
-  output   = "generator/prisma/client" // default is ./node_modules/@prisma/client
+  output   = "./client" // default is ./node_modules/@prisma/client
 }
 
 generator zod {

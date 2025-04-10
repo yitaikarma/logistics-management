@@ -6,7 +6,7 @@ dist-ssr
 .cursorrules
 data
 migrations
-*/prisma/generator
+*/prisma/client
 */prisma/zod
 logs
 sftp.json
