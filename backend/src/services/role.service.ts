@@ -6,8 +6,8 @@
  * @Description  : 权限服务
  */
 
-import { Prisma, Role } from '@prisma/client'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { Prisma, Role } from '@prisma.client'
+import { PrismaClientKnownRequestError } from '@prisma.client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'

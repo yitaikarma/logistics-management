@@ -7,7 +7,7 @@
  */
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
-import { User } from '@prisma/client'
+import { User } from '@prisma.client'
 import { prismaService } from '../services/prisma.service'
 import { UnauthorizedError } from '../utils/errors'
 

@@ -5,7 +5,7 @@
  * @LastEditors  : Karma
  * @Description  :
  */
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma.client'
 import { pagination } from 'prisma-extension-pagination'
 import { logger } from '../utils/logger'
 import dayjs from 'dayjs'

@@ -6,8 +6,8 @@
  * @Description  : 车辆分类服务
  */
 
-import { VehicleCategory, Prisma } from '@prisma/client'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { VehicleCategory, Prisma } from '@prisma.client'
+import { PrismaClientKnownRequestError } from '@prisma.client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'

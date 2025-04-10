@@ -6,8 +6,8 @@
  * @Description  : 库存记录服务
  */
 
-import { InventoryRecord, Prisma } from '@prisma/client'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { InventoryRecord, Prisma } from '@prisma.client'
+import { PrismaClientKnownRequestError } from '@prisma.client/runtime/library'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'

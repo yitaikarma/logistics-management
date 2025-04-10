@@ -6,8 +6,8 @@
  * @Description  : 用户服务
  */
 
-import { User, Prisma } from '@prisma/client'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { User, Prisma } from '@prisma.client'
+import { PrismaClientKnownRequestError } from '@prisma.client/runtime/library'
 import bcrypt from 'bcryptjs'
 import { prismaService } from './prisma.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'

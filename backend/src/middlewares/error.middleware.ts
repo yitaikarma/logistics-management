@@ -8,7 +8,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { AppError, BadRequestError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'
-import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma/client/runtime/library'
+import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma.client/runtime/library'
 import { logger } from '../utils/logger'
 
 export function errorHandlerMiddleware(error: Error, req: Request, res: Response, _next: NextFunction) {

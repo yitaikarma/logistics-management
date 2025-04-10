@@ -8,7 +8,8 @@
         "baseUrl": "./",
         "paths": {
             // "@/*": ["src/*"]
-            "@prisma/client": ["prisma/client"]
+            "@prisma.client": ["prisma/client"],
+            "@prisma.client/*": ["prisma/client/*"]
         },
         "sourceMap": true,
         "removeComments": true,
