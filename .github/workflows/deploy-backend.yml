@@ -34,11 +34,6 @@ jobs:
               run: |
                   docker push ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG
 
-    DeployBackend:
-        name: Deploy Backend
-        runs-on: ubuntu-latest
-        needs: PublishDockerImage
-        steps:
             - name: Deploy Backend To Server
               uses: appleboy/ssh-action@master
               with:
@@ -53,3 +48,23 @@ jobs:
                       docker run -dp ${{ secrets.SERVER_BACKEND_HOST }}:3000 \
                       --name logistics-management-backend \
                       ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:$IMAGE_TAG
+
+    # DeployBackend:
+    #     name: Deploy Backend
+    #     runs-on: ubuntu-latest
+    #     needs: PublishDockerImage
+    #     steps:
+    #         - name: Deploy Backend To Server
+    #           uses: appleboy/ssh-action@master
+    #           with:
+    #               host: ${{ secrets.SERVER_HOST }}
+    #               port: ${{ secrets.SERVER_PORT }}
+    #               username: ${{secrets.SERVER_USERNAME}}
+    #               key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #               script: |
+    #                   docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:${{ env.IMAGE_TAG }}
+    #                   docker stop logistics-management-backend || true
+    #                   docker rm logistics-management-backend || true
+    #                   docker run -dp ${{ secrets.SERVER_BACKEND_HOST }}:3000 \
+    #                   --name logistics-management-backend \
+    #                   ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:${{ env.IMAGE_TAG }}
