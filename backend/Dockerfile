@@ -12,6 +12,7 @@ RUN apt-get update -y && apt-get install -y openssl
 
 # 设置环境变量
 # ENV NODE_ENV=production
+
 # 安装依赖
 RUN npm install -g pnpm && pnpm install
 # 生成 Prisma 客户端并迁移数据库
