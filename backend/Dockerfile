@@ -12,18 +12,20 @@ COPY package.json pnpm-lock.yaml ./
 # 安装依赖
 RUN npm install -g pnpm && pnpm install
 
+COPY prisma ./prisma
+
 # 将项目复制到容器内
 COPY . .
 
 # 安装环境依赖
 RUN apt-get update -y && apt-get install -y openssl
 
-# 构建项目
-RUN pnpm build
-
 # 生成 Prisma 客户端并迁移数据库
 # RUN pnpm prisma:generate--prod && pnpm prisma:migrate:redo--prod && prisma:migrate:deploy--prod
 RUN pnpm prisma:generate && pnpm prisma:deploy
+
+# 构建项目
+RUN pnpm build
 
 # 暴露端口
 EXPOSE 9094
