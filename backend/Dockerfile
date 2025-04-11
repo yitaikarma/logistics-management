@@ -22,7 +22,7 @@ RUN apt-get update -y && apt-get install -y openssl
 
 # 生成 Prisma 客户端并迁移数据库
 # RUN pnpm prisma:generate--prod && pnpm prisma:migrate:redo--prod && prisma:migrate:deploy--prod
-RUN pnpm prisma:generate && pnpm prisma:deploy
+RUN pnpm prisma:generate && pnpm prisma:migrate:deploy
 
 # 构建项目
 RUN pnpm build
