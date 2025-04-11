@@ -4,11 +4,16 @@ FROM node:23-slim@sha256:dfb18d8011c0b3a112214a32e772d9c6752131ffee512e974e59367
 # 指定容器内的工作空间
 WORKDIR /app
 
+# 提前安装依赖，方便docker使用缓存
+COPY package.json pnpm-lock.yaml ./
+# 安装依赖
+RUN npm install -g pnpm && pnpm install
+
 # 将项目复制到容器内
 COPY . .
 
-# 安装依赖&构建前端项目
-RUN npm install -g pnpm && pnpm install && pnpm build
+# 构建项目
+RUN pnpm build
 
 # 指定 nginx 镜像作为基础镜像（固定到特定 digest）
 FROM nginx:alpine-slim@sha256:b05aceb5ec1844435cae920267ff9949887df5b88f70e11d8b2871651a596612

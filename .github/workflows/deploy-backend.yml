@@ -8,13 +8,19 @@ on:
         # paths:
         #     - 'backend/**'
 env:
-    IMAGE_TAG: $(date +%Y%m%d%H%M%S)
+    IMAGE_NAME: logistics-management-backend
+    IMAGE_TAG: latest
+    IMAGE_FULL_TAG: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME:$IMAGE_TAG
 
 jobs:
     PublishDockerImage:
         name: Publish Docker Image
         runs-on: ubuntu-latest
         steps:
+            - run: |
+                  echo "环境变量：${{ env.IMAGE_NAME }} ${{ env.IMAGE_TAG }} ${{ env.IMAGE_FULL_TAG }}"
+                    echo "环境变量：$IMAGE_FULL_TAG"
+
             - name: Checkout Code
               uses: actions/checkout@v4
 
@@ -24,10 +30,15 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_TOKEN }}
 
+            - name: Pull existing image for cache
+              run: |
+                  docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:latest || true
+
             - name: Build Docker Image
               run: |
                   IMAGE_TAG=$(date +%Y%m%d%H%M%S)
                   docker build --platform linux/amd64 \
+                  --cache-from=${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:latest \
                   -t ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:latest \
                   -f ./backend/Dockerfile ./backend
                   echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
@@ -47,7 +58,7 @@ jobs:
                       docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:latest
                       docker stop logistics-management-backend || true
                       docker rm logistics-management-backend || true
-                      docker run -dp ${{ secrets.SERVER_BACKEND_HOST }}:3000 \
+                      docker run -dp ${{ secrets.SERVER_BACKEND_HOST }}:9094 \
                       --name logistics-management-backend \
                       ${{ secrets.DOCKER_USERNAME }}/logistics-management-backend:latest
 
