@@ -5,8 +5,8 @@ on:
     push:
         branches:
             - main
-        # paths:
-        #     - 'backend/**'
+        paths:
+            - 'backend/**'
 env:
     IMAGE_NAME: logistics-management-backend
     IMAGE_TAG: latest
