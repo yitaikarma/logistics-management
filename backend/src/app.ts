@@ -5,17 +5,18 @@
  * @LastEditors  : Karma
  * @Description  :
  */
-import path from 'node:path'
+// import path from 'node:path'
 import 'reflect-metadata'
-import dotenv from 'dotenv'
+import dotenvx from '@dotenvx/dotenvx'
 import { expressLoader } from './loaders/express.loader'
 import { prismaService } from './services/prisma.service'
 import { logger } from './utils/logger'
 
 // 加载环境变量
 // 根据 NODE_ENV 加载不同的 .env 文件
-const envFile = process.env.NODE_ENV === 'production' ? '.env.prod' : process.env.NODE_ENV === 'development' ? '.env.dev' : '.env'
-dotenv.config({ path: path.resolve(__dirname, `../${envFile}`), override: true })
+// const envFile = process.env.NODE_ENV === 'production' ? '.env.prod' : process.env.NODE_ENV === 'development' ? '.env.dev' : '.env'
+// dotenvx.config({ path: path.resolve(__dirname, `../${envFile}`), override: true })
+dotenvx.config()
 
 console.log(`当前环境变量文件: ${process.env.DATABASE_URL}`)
 
