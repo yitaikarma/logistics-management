@@ -22,7 +22,7 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_TOKEN }}
 
-            - name: Pull existing image for cache
+            - name: Pull Existing Image For Cache
               run: |
                   docker pull ${{ secrets.DOCKER_USERNAME }}/logistics-management-frontend:latest || true
 

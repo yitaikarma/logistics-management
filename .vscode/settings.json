@@ -44,6 +44,9 @@
         "wangeditor",
         "wwwroot",
         "zoneinfo"
-    ]
+    ],
+    "cSpell.enabledFileTypes": {
+        "nginx": false
+    }
     // "oxc.enable": true
 }
