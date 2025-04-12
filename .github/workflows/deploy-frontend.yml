@@ -37,7 +37,7 @@ jobs:
               run: |
                   docker build --platform linux/amd64 \ 
                   -t ${{ secrets.DOCKER_USERNAME }}/logistics-management-frontend:latest \
-                  -f ./frontend/admin-art/nonbuild.Dockerfile ./frontend/admin-art
+                  -f ./frontend/admin-art/nonbuild\.Dockerfile ./frontend/admin-art
 
             - name: Push Docker Image
               run: |
