@@ -15,7 +15,7 @@ import { logger } from '../utils/logger'
 import { errorHandlerMiddleware } from '../middlewares/error.middleware'
 
 const corsOptions = {
-    origin: 'http://8.222.203.222:9095', // Replace with your frontend origin
+    origin: ['http://8.222.203.222:9095', /lm_admin\.finalvk\.com$/], // Replace with your frontend origin
     credentials: true, // Allow credentials
     allowedHeaders: ['Content-Type', 'Authorization'], // Include necessary headers
 }
