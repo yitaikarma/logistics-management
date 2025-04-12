@@ -49,6 +49,7 @@ jobs:
                       docker stop logistics-management-frontend || true
                       docker rm logistics-management-frontend || true
                       docker run -dp ${{ secrets.SERVER_SITE_PORT }}:80 \
+                      -p 80:80 \
                       --name logistics-management-frontend  \
                       ${{ secrets.DOCKER_USERNAME }}/logistics-management-frontend:latest
 
