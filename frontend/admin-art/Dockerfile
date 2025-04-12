@@ -16,7 +16,7 @@ COPY . .
 RUN pnpm build
 
 # 指定 nginx 镜像作为基础镜像（固定到特定 digest）
-FROM nginx:alpine-slim@sha256:b05aceb5ec1844435cae920267ff9949887df5b88f70e11d8b2871651a596612
+FROM nginx:alpine@sha256:4ff102c5d78d254a6f0da062b3cf39eaf07f01eec0927fd21e219d0af8bc0591
 
 # 创建目录并清理默认配置
 RUN mkdir /usr/share/nginx/html/dist && rm -rf /etc/nginx/nginx.conf
