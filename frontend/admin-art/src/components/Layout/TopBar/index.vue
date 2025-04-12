@@ -58,10 +58,7 @@
 
         <!-- 全屏按钮 -->
         <div class="btn-box screen-box" @click="toggleFullScreen">
-          <div
-            class="btn"
-            :class="{ 'full-screen-btn': !isFullscreen, 'exit-full-screen-btn': isFullscreen }"
-          >
+          <div class="btn" :class="{ 'full-screen-btn': !isFullscreen, 'exit-full-screen-btn': isFullscreen }">
             <i class="iconfont-sys">{{ isFullscreen ? '&#xe62d;' : '&#xe8ce;' }}</i>
           </div>
         </div>
@@ -88,10 +85,7 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <div v-for="item in languageOptions" :key="item.value" class="lang-btn-item">
-                  <el-dropdown-item
-                    :command="item.value"
-                    :class="{ 'is-selected': locale === item.value }"
-                  >
+                  <el-dropdown-item :command="item.value" :class="{ 'is-selected': locale === item.value }">
                     <span class="menu-txt">{{ item.label }}</span>
                     <i v-if="locale === item.value" class="iconfont-sys">&#xe621;</i>
                   </el-dropdown-item>
@@ -256,9 +250,7 @@
       case DUAL_MENU:
         return `calc(100% - 80px - ${getMenuOpenWidth})`
       default:
-        return menuOpen.value
-          ? `calc(100% - ${getMenuOpenWidth})`
-          : `calc(100% - ${MenuWidth.CLOSE})`
+        return menuOpen.value ? `calc(100% - ${getMenuOpenWidth})` : `calc(100% - ${MenuWidth.CLOSE})`
     }
   }
 

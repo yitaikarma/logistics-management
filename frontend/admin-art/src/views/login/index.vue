@@ -72,7 +72,9 @@
             </div>
 
             <div class="forget-password">
-              <el-checkbox v-model="formData.rememberPassword">{{ $t('login.rememberPwd') }}</el-checkbox>
+              <el-checkbox v-model="formData.rememberPassword" @change="rememberPassword">{{
+                $t('login.rememberPwd')
+              }}</el-checkbox>
               <router-link to="/forget-password">{{ $t('login.forgetPwd') }}</router-link>
             </div>
 
@@ -113,7 +115,7 @@
   import { getCssVariable } from '@/utils/utils'
   import { LanguageEnum, SystemThemeEnum } from '@/enums/appEnum'
   import { useSettingStore } from '@/store/modules/setting'
-  import type { FormInstance, FormRules } from 'element-plus'
+  import type { FormInstance, FormRules, CheckboxValueType } from 'element-plus'
 
   const { t } = useI18n()
   const userStore = useUserStore()
@@ -144,7 +146,8 @@
   const isDark = computed(() => store.isDark)
 
   onMounted(() => {
-    const login = userStore.getLogin
+    // const login = userStore.getLogin
+    const login = JSON.parse(localStorage.getItem('login') || '{}')
 
     if (login.username) {
       formData.username = login.username
@@ -155,6 +158,15 @@
   })
 
   const onPass = () => {}
+
+  // 记住密码
+  function rememberPassword(rememberPassword: CheckboxValueType) {
+    if (rememberPassword) {
+      localStorage.setItem('login', JSON.stringify({ username: formData.username, password: formData.password }))
+    } else {
+      localStorage.removeItem('login')
+    }
+  }
 
   const handleSubmit = async () => {
     if (!formRef.value) return
@@ -179,6 +191,9 @@
           const res = await AuthService.signin(data)
 
           if (res.success && res.data) {
+            // 记住密码
+            rememberPassword(formData.rememberPassword)
+
             // 设置 token
             userStore.setToken(res.data.token)
 
@@ -190,8 +205,8 @@
 
             // 设置登录状态
             userStore.setLoginStatus(true)
-            // 延时辅助函数
-            await delay(1000)
+            // // 延时辅助函数
+            // await delay(1000)
             // 登录成功提示
             showLoginSuccessNotice()
             // 跳转首页
