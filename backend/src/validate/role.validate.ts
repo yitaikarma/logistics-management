@@ -12,6 +12,7 @@ export const RoleSchema = z
         id: z.number().int(),
         name: z.string().min(2, { message: '名称长度不能小于2位' }).max(20, { message: '名称长度不能大于20位' }),
         value: z.coerce.number().int(),
+        pageAuthString: z.string().nullish(),
         desc: z.string().max(200, { message: '描述长度不能大于200位' }).nullish(),
         status: z.coerce
             .number()
@@ -32,6 +33,7 @@ export const RoleQuerySchema = z
         id: z.number().int(),
         name: z.string().nullish(),
         value: numberFromEmptyString(),
+        pageAuthString: z.string().nullish(),
         desc: z.string().nullish(),
         status: numberFromEmptyString(),
         createdAt: z.date(),

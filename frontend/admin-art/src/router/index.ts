@@ -13,7 +13,7 @@ import { useTheme } from '@/composables/useTheme'
 import { RoutesAlias } from './modules/routesAlias'
 import { setWorktab } from '@/utils/worktab'
 import { registerAsyncRoutes } from './modules/dynamicRoutes'
-import { formatMenuTitle } from '@/utils/menu'
+import { formatMenuTitle, pickMenu } from '@/utils/menu'
 
 /** 顶部进度条配置 */
 NProgress.configure({
@@ -150,6 +150,10 @@ router.beforeEach(async (to, from, next) => {
 
   // 检查登录状态，如果未登录则跳转到登录页
   const userStore = useUserStore()
+  if (to.path === '/login') {
+    isRouteRegistered.value = false
+  }
+
   if (!userStore.isLogin && to.path !== '/login' && !to.meta.noLogin) {
     userStore.logOut()
     return next('/login')
@@ -197,11 +201,14 @@ async function getMenuData(): Promise<void> {
       useUserStore().logOut()
       throw new Error('获取菜单列表失败，请重新登录！')
     }
-
+    const userInfo = useUserStore().getUserInfo
+    const userAuth = userInfo.roleObj?.pageAuthString ? JSON.parse(userInfo.roleObj.pageAuthString) : []
+    const userMenuList = pickMenu(userAuth, menuList)
     // 设置菜单列表
-    useMenuStore().setMenuList(menuList as [])
+    useMenuStore().setCompleteMenuList(menuList as [])
+    useMenuStore().setMenuList(userMenuList as [])
     // 注册异步路由
-    registerAsyncRoutes(router, menuList)
+    registerAsyncRoutes(router, userMenuList)
     // 标记路由已注册
     isRouteRegistered.value = true
     // 关闭加载动画

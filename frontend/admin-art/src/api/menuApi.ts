@@ -7,9 +7,7 @@ import { ElLoading } from 'element-plus'
 // 菜单接口
 export const menuService = {
   // 获取菜单列表，模拟网络请求
-  getMenuList(
-    delay: number = 300
-  ): Promise<{ menuList: MenuListType[]; closeLoading: () => void }> {
+  getMenuList(delay: number = 300): Promise<{ menuList: MenuListType[]; closeLoading: () => void }> {
     // 获取到的菜单数据
     const menuList = asyncRoutes
     // 处理后的菜单数据

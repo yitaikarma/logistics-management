@@ -23,6 +23,8 @@ const select = Prisma.validator<Prisma.UserSelect>()({
     password: false,
     nickname: true,
     role: true,
+    roleId: true,
+    roleObj: true,
     gender: true,
     avatar: true,
     address: true,
@@ -41,6 +43,7 @@ function findParams(params?: UserQuerySchema) {
         phone: { contains: params?.phone || undefined },
         gender: { equals: params?.gender },
         role: { equals: params?.role },
+        roleId: { equals: params?.roleId },
         status: { equals: params?.status },
     } as Prisma.UserWhereInput
 }

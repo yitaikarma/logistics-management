@@ -36,8 +36,9 @@ async function user() {
     const user2 = (i: number): Prisma.UserCreateInput => ({
         email: `admin${i}@test.dev`,
         phone: `1231231230${i}`,
-        username: `不明所以柴可夫斯基${i}`,
-        nickname: `coko${i}`,
+        // username: `不明所以柴可夫斯基${i}`,
+        username: `admin${i}`,
+        nickname: `不明所以柴可夫斯基${i}`,
         password: password,
         role: 100,
         address: '拉尼亚凯亚超星系团室女座超星系团银河系太阳系地球',

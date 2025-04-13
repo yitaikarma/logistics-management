@@ -43,6 +43,8 @@ model User {
   status     Int?        @default(0) @db.UnsignedTinyInt
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+  roleId     Int?        @db.UnsignedInt
+  roleObj    Role?       @relation(fields: [roleId], references: [id])
   warehouses Warehouse[]
   vehicles   Vehicle[]
   orders     Order[]
@@ -55,13 +57,15 @@ model User {
 }
 
 model Role {
-  id        Int      @id @default(autoincrement()) @db.UnsignedInt
-  name      String   @unique @db.VarChar(255)
-  value     Int      @db.UnsignedTinyInt
-  desc      String?  @db.Text
-  status    Int      @default(0) @db.UnsignedTinyInt
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int      @id @default(autoincrement()) @db.UnsignedInt
+  name           String   @unique @db.VarChar(255)
+  value          Int      @db.UnsignedTinyInt
+  pageAuthString String?  @db.Text
+  desc           String?  @db.Text
+  status         Int      @default(0) @db.UnsignedTinyInt
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  User           User[]
 
   @@index([name])
   @@index([value])

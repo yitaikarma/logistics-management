@@ -33,12 +33,7 @@ export const upgradeLogList = ref([
     date: '2025-02-28',
     status: 'complete',
     statusText: '完成',
-    detail: [
-      '新增地图模版',
-      '页面文件命名统一',
-      '国际化文件从.ts改为.json',
-      '左侧菜单一级图标颜色BUG修复'
-    ]
+    detail: ['新增地图模版', '页面文件命名统一', '国际化文件从.ts改为.json', '左侧菜单一级图标颜色BUG修复']
   },
   {
     version: 'v2.2.6',

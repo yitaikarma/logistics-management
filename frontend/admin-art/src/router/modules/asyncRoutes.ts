@@ -1,4 +1,4 @@
-import { upgradeLogList } from '@/mock/upgradeLog'
+// import { upgradeLogList } from '@/mock/upgradeLog'
 import { RoutesAlias } from './routesAlias'
 import { MenuListType } from '@/types/menu'
 
@@ -15,7 +15,7 @@ import { MenuListType } from '@/types/menu'
 export const asyncRoutes: MenuListType[] = [
   // 工作台
   {
-    id: 1,
+    id: 100,
     name: 'Dashboard',
     path: '/dashboard',
     component: RoutesAlias.Home,
@@ -26,7 +26,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 101,
+        id: 10001,
         path: 'console',
         name: 'Console',
         component: RoutesAlias.Dashboard,
@@ -36,7 +36,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 102,
+        id: 10002,
         path: 'analysis',
         name: 'Analysis',
         component: RoutesAlias.Analysis,
@@ -60,7 +60,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 系统管理
   {
-    id: 9,
+    id: 101,
     path: '/system',
     name: 'System',
     component: RoutesAlias.Home,
@@ -71,7 +71,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 901,
+        id: 10101,
         path: 'setting',
         name: 'Setting',
         component: RoutesAlias.Setting,
@@ -81,7 +81,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 902,
+        id: 10102,
         path: 'api',
         name: 'Api',
         component: RoutesAlias.Api,
@@ -91,7 +91,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 903,
+        id: 10103,
         path: 'log',
         name: 'Log',
         component: RoutesAlias.Log,
@@ -104,7 +104,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 用户管理
   {
-    id: 2,
+    id: 102,
     name: 'User',
     path: '/user',
     component: RoutesAlias.Home,
@@ -115,7 +115,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 301,
+        id: 10201,
         path: 'account',
         name: 'Account',
         component: RoutesAlias.Account,
@@ -125,7 +125,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       // {
-      //   id: 302,
+      //   id: 10202,
       //   path: 'department',
       //   name: 'Department',
       //   component: RoutesAlias.Department,
@@ -135,7 +135,7 @@ export const asyncRoutes: MenuListType[] = [
       //   }
       // },
       {
-        id: 303,
+        id: 10203,
         path: 'role',
         name: 'Role',
         component: RoutesAlias.Role,
@@ -160,7 +160,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 商品管理
   {
-    id: 100,
+    id: 200,
     path: '/commodity',
     name: 'Commodity',
     component: RoutesAlias.Home,
@@ -171,7 +171,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10001,
+        id: 20001,
         path: 'list',
         name: 'CommodityList',
         component: RoutesAlias.CommodityList,
@@ -181,7 +181,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10002,
+        id: 20002,
         path: 'category',
         name: 'CommodityCategory',
         component: RoutesAlias.CommodityCategory,
@@ -194,7 +194,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 仓库管理
   {
-    id: 101,
+    id: 201,
     path: '/warehouse',
     name: 'Warehouse',
     component: RoutesAlias.Home,
@@ -205,7 +205,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10101,
+        id: 20101,
         path: 'list',
         name: 'WarehouseList',
         component: RoutesAlias.WarehouseList,
@@ -215,7 +215,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10102,
+        id: 20102,
         path: 'category',
         name: 'WarehouseCategory',
         component: RoutesAlias.WarehouseCategory,
@@ -228,7 +228,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 库存管理
   {
-    id: 102,
+    id: 202,
     path: '/inventory',
     name: 'Inventory',
     component: RoutesAlias.Home,
@@ -239,7 +239,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10201,
+        id: 20201,
         path: 'list',
         name: 'InventoryList',
         component: RoutesAlias.InventoryList,
@@ -249,7 +249,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10202,
+        id: 20202,
         path: 'entryRecord',
         name: 'InventoryEntryRecord',
         component: RoutesAlias.InventoryEntryRecord,
@@ -259,7 +259,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10203,
+        id: 20203,
         path: 'outRecord',
         name: 'InventoryOutRecord',
         component: RoutesAlias.InventoryOutRecord,
@@ -272,7 +272,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 车辆管理
   {
-    id: 102,
+    id: 203,
     path: '/vehicle',
     name: 'Vehicle',
     component: RoutesAlias.Home,
@@ -283,7 +283,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10201,
+        id: 20301,
         path: 'list',
         name: 'VehicleList',
         component: RoutesAlias.VehicleList,
@@ -293,7 +293,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10202,
+        id: 20302,
         path: 'category',
         name: 'VehicleCategory',
         component: RoutesAlias.VehicleCategory,
@@ -306,7 +306,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 订单管理
   {
-    id: 104,
+    id: 204,
     path: '/order',
     name: 'Order',
     component: RoutesAlias.Home,
@@ -317,7 +317,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10401,
+        id: 20401,
         path: 'application',
         name: 'OrderApplication',
         component: RoutesAlias.OrderApplication,
@@ -327,7 +327,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10402,
+        id: 20402,
         path: 'list',
         name: 'OrderList',
         component: RoutesAlias.OrderList,
@@ -337,7 +337,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10403,
+        id: 20403,
         path: 'category',
         name: 'OrderCategory',
         component: RoutesAlias.OrderCategory,
@@ -350,7 +350,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 订单管理
   {
-    id: 105,
+    id: 205,
     path: '/review',
     name: 'Review',
     component: RoutesAlias.Home,
@@ -361,7 +361,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10501,
+        id: 20501,
         path: 'orderList',
         name: 'ReviewOrderList',
         component: RoutesAlias.ReviewOrderList,
@@ -371,7 +371,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10504,
+        id: 20504,
         path: 'category',
         name: 'ReviewCategory',
         component: RoutesAlias.ReviewCategory,
@@ -384,7 +384,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 任务管理
   {
-    id: 106,
+    id: 206,
     path: '/task',
     name: 'task',
     component: RoutesAlias.Home,
@@ -395,7 +395,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10601,
+        id: 20601,
         path: 'list',
         name: 'TaskList',
         component: RoutesAlias.TaskList,
@@ -405,7 +405,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10602,
+        id: 20602,
         path: 'release',
         name: 'TaskRelease',
         component: RoutesAlias.TaskRelease,
@@ -415,7 +415,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10603,
+        id: 20603,
         path: 'records',
         name: 'TaskRecords',
         component: RoutesAlias.TaskRecords,
@@ -425,7 +425,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10604,
+        id: 20604,
         path: 'category',
         name: 'TaskCategory',
         component: RoutesAlias.TaskCategory,
@@ -438,7 +438,7 @@ export const asyncRoutes: MenuListType[] = [
   },
   // 配送管理
   {
-    id: 107,
+    id: 207,
     path: '/distribution',
     name: 'distribution',
     component: RoutesAlias.Home,
@@ -449,7 +449,7 @@ export const asyncRoutes: MenuListType[] = [
     },
     children: [
       {
-        id: 10701,
+        id: 20701,
         path: 'list',
         name: 'DistributionList',
         component: RoutesAlias.DistributionList,
@@ -459,7 +459,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10702,
+        id: 20702,
         path: 'records',
         name: 'DistributionRecords',
         component: RoutesAlias.DistributionRecords,
@@ -469,7 +469,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10703,
+        id: 20703,
         path: 'signedList',
         name: 'DistributionSignedList',
         component: RoutesAlias.DistributionSignedList,
@@ -479,7 +479,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10704,
+        id: 20704,
         path: 'exceptionRecords',
         name: 'DistributionExceptionRecords',
         component: RoutesAlias.DistributionExceptionRecords,
@@ -489,7 +489,7 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 10705,
+        id: 20705,
         path: 'category',
         name: 'DistributionCategory',
         component: RoutesAlias.DistributionCategory,
@@ -499,626 +499,626 @@ export const asyncRoutes: MenuListType[] = [
         }
       }
     ]
-  },
-
-  {
-    id: 5,
-    path: '/widgets',
-    name: 'Widgets',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.widgets.title',
-      icon: '&#xe81a;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 503,
-        path: 'icon-list',
-        name: 'IconList',
-        component: RoutesAlias.IconList,
-        meta: {
-          title: 'menus.widgets.iconList',
-          keepAlive: true
-        }
-      },
-      {
-        id: 504,
-        path: 'icon-selector',
-        name: 'IconSelector',
-        component: RoutesAlias.IconSelector,
-        meta: {
-          title: 'menus.widgets.iconSelector',
-          keepAlive: true
-        }
-      },
-      {
-        id: 505,
-        path: 'image-crop',
-        name: 'ImageCrop',
-        component: RoutesAlias.ImageCrop,
-        meta: {
-          title: 'menus.widgets.imageCrop',
-          keepAlive: true
-        }
-      },
-      {
-        id: 506,
-        path: 'excel',
-        name: 'Excel',
-        component: RoutesAlias.Excel,
-        meta: {
-          title: 'menus.widgets.excel',
-          keepAlive: true
-        }
-      },
-      {
-        id: 507,
-        path: 'video',
-        name: 'Video',
-        component: RoutesAlias.Video,
-        meta: {
-          title: 'menus.widgets.video',
-          keepAlive: true
-        }
-      },
-      {
-        id: 508,
-        path: 'count-to',
-        name: 'CountTo',
-        component: RoutesAlias.CountTo,
-        meta: {
-          title: 'menus.widgets.countTo',
-          keepAlive: false
-        }
-      },
-      {
-        id: 509,
-        path: 'wang-editor',
-        name: 'WangEditor',
-        component: RoutesAlias.WangEditor,
-        meta: {
-          title: 'menus.widgets.wangEditor',
-          keepAlive: true
-        }
-      },
-      {
-        id: 510,
-        path: 'watermark',
-        name: 'Watermark',
-        component: RoutesAlias.Watermark,
-        meta: {
-          title: 'menus.widgets.watermark',
-          keepAlive: true
-        }
-      },
-      {
-        id: 511,
-        path: 'context-menu',
-        name: 'ContextMenu',
-        component: RoutesAlias.ContextMenu,
-        meta: {
-          title: 'menus.widgets.contextMenu',
-          keepAlive: true
-        }
-      },
-      {
-        id: 512,
-        path: 'qrcode',
-        name: 'Qrcode',
-        component: RoutesAlias.Qrcode,
-        meta: {
-          title: 'menus.widgets.qrcode',
-          keepAlive: true
-        }
-      },
-      {
-        id: 513,
-        path: 'drag',
-        name: 'Drag',
-        component: RoutesAlias.Drag,
-        meta: {
-          title: 'menus.widgets.drag',
-          keepAlive: true
-        }
-      },
-      {
-        id: 514,
-        path: 'text-scroll',
-        name: 'TextScroll',
-        component: RoutesAlias.TextScroll,
-        meta: {
-          title: 'menus.widgets.textScroll',
-          keepAlive: true
-        }
-      },
-      {
-        id: 515,
-        path: 'fireworks',
-        name: 'Fireworks',
-        component: RoutesAlias.Fireworks,
-        meta: {
-          title: 'menus.widgets.fireworks',
-          keepAlive: true,
-          showTextBadge: 'Hot'
-        }
-      },
-      {
-        id: 516,
-        path: '/outside/iframe/elementui',
-        name: 'ElementUI',
-        component: '',
-        meta: {
-          title: 'menus.widgets.elementUI',
-          keepAlive: false,
-          link: 'https://element-plus.org/zh-CN/component/overview.html',
-          isIframe: true,
-          showBadge: true
-        }
-      }
-    ]
-  },
-  {
-    id: 126,
-    path: '/template',
-    name: 'Template',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.template.title',
-      icon: '&#xe860;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 12602,
-        path: 'cards',
-        name: 'Cards',
-        component: RoutesAlias.Cards,
-        meta: {
-          title: 'menus.template.cards',
-          keepAlive: false
-        }
-      },
-      {
-        id: 12603,
-        path: 'banners',
-        name: 'Banners',
-        component: RoutesAlias.Banners,
-        meta: {
-          title: 'menus.template.banners',
-          keepAlive: false
-        }
-      },
-      {
-        id: 12604,
-        path: 'charts',
-        name: 'Charts',
-        component: RoutesAlias.Charts,
-        meta: {
-          title: 'menus.template.charts',
-          keepAlive: false
-        }
-      },
-      {
-        id: 12609,
-        path: 'map',
-        name: 'Map',
-        component: RoutesAlias.Map,
-        meta: {
-          title: 'menus.template.map',
-          keepAlive: true,
-          showTextBadge: 'new'
-        }
-      },
-      {
-        id: 12601,
-        path: 'chat',
-        name: 'Chat',
-        component: RoutesAlias.Chat,
-        meta: {
-          title: 'menus.template.chat',
-          keepAlive: true
-        }
-      },
-      {
-        id: 12605,
-        path: 'calendar',
-        name: 'Calendar',
-        component: RoutesAlias.Calendar,
-        meta: {
-          title: 'menus.template.calendar',
-          keepAlive: true
-        }
-      },
-      {
-        id: 12622,
-        path: 'pricing',
-        name: 'Pricing',
-        component: RoutesAlias.Pricing,
-        meta: {
-          title: 'menus.template.pricing',
-          keepAlive: true,
-          isHideTab: true
-        }
-      }
-    ]
-  },
-  {
-    id: 4,
-    path: '/article',
-    name: 'Article',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.article.title',
-      icon: '&#xe7ae;',
-      keepAlive: true
-    },
-    children: [
-      {
-        id: 202,
-        path: 'article-list',
-        name: 'ArticleList',
-        component: RoutesAlias.ArticleList,
-        meta: {
-          title: 'menus.article.articleList',
-          keepAlive: true,
-          authList: [
-            {
-              id: 2021,
-              title: '新增',
-              auth_mark: 'add'
-            },
-            {
-              id: 2022,
-              title: '编辑',
-              auth_mark: 'edit'
-            }
-          ]
-        }
-      },
-
-      {
-        id: 204,
-        path: 'detail',
-        name: 'ArticleDetail',
-        component: RoutesAlias.ArticleDetail,
-        meta: {
-          title: 'menus.article.articleDetail',
-          isHide: true,
-          keepAlive: true
-        }
-      },
-      {
-        id: 205,
-        path: 'comment',
-        name: 'Comment',
-        component: RoutesAlias.Comment,
-        meta: {
-          title: 'menus.article.comment',
-          keepAlive: true
-        }
-      },
-      {
-        id: 201,
-        path: 'article-publish',
-        name: 'ArticlePublish',
-        component: RoutesAlias.ArticlePublish,
-        meta: {
-          title: 'menus.article.articlePublish',
-          keepAlive: true,
-          authList: [
-            {
-              id: 2010,
-              title: '发布',
-              auth_mark: 'article/article-publish/add'
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    id: 3,
-    path: '/menu',
-    name: 'Menu',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.menu.title',
-      icon: '&#xe8a4;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 401,
-        path: 'menu',
-        name: 'Menus',
-        component: RoutesAlias.Menu,
-        meta: {
-          title: 'menus.menu.menu',
-          icon: '&#xe8a4;',
-          keepAlive: true,
-          authList: [
-            {
-              id: 4011,
-              title: '新增',
-              auth_mark: 'add'
-            },
-            {
-              id: 4012,
-              title: '编辑',
-              auth_mark: 'edit'
-            },
-            {
-              id: 4013,
-              title: '删除',
-              auth_mark: 'delete'
-            }
-          ]
-        }
-      },
-      {
-        id: 411,
-        path: 'permission',
-        name: 'Permission',
-        component: RoutesAlias.Permission,
-        meta: {
-          title: 'menus.menu.permission',
-          icon: '&#xe831;',
-          showTextBadge: 'new',
-          keepAlive: true,
-          authList: [
-            {
-              id: 4111,
-              title: '新增',
-              auth_mark: 'add'
-            },
-            {
-              id: 4112,
-              title: '编辑',
-              auth_mark: 'edit'
-            },
-            {
-              id: 4113,
-              title: '删除',
-              auth_mark: 'delete'
-            }
-          ]
-        }
-      },
-      {
-        id: 402,
-        path: 'nested',
-        name: 'Nested',
-        component: '',
-        meta: {
-          title: 'menus.menu.nested',
-          icon: '&#xe676;',
-          keepAlive: true
-        },
-        children: [
-          {
-            id: 40201,
-            path: 'menu1',
-            name: 'NestedMenu1',
-            component: RoutesAlias.NestedMenu1,
-            meta: {
-              title: 'menus.menu.menu1',
-              icon: '&#xe676;',
-              keepAlive: true
-            }
-          },
-          {
-            id: 40202,
-            path: 'menu2',
-            name: 'NestedMenu2',
-            component: '',
-            meta: {
-              title: 'menus.menu.menu2',
-              icon: '&#xe676;',
-              keepAlive: true
-            },
-            children: [
-              {
-                id: 4020201,
-                path: 'menu2-1',
-                name: 'NestedMenu2-1',
-                component: RoutesAlias.NestedMenu21,
-                meta: {
-                  title: 'menus.menu.menu21',
-                  icon: '&#xe676;',
-                  keepAlive: true
-                }
-              }
-            ]
-          },
-          {
-            id: 40203,
-            path: 'menu3',
-            name: 'NestedMenu3',
-            component: '',
-            meta: {
-              title: 'menus.menu.menu3',
-              icon: '&#xe676;',
-              keepAlive: true
-            },
-            children: [
-              {
-                id: 4020301,
-                path: 'menu3-1',
-                name: 'NestedMenu3-1',
-                component: RoutesAlias.NestedMenu31,
-                meta: {
-                  title: 'menus.menu.menu31',
-                  icon: '&#xe676;',
-                  keepAlive: true
-                }
-              },
-              {
-                id: 4020302,
-                path: 'menu3-2',
-                name: 'NestedMenu3-2',
-                component: '',
-                meta: {
-                  title: 'menus.menu.menu32',
-                  icon: '&#xe676;',
-                  keepAlive: true
-                },
-                children: [
-                  {
-                    id: 402030201,
-                    path: 'menu3-2-1',
-                    name: 'NestedMenu3-2-1',
-                    component: RoutesAlias.NestedMenu321,
-                    meta: {
-                      title: 'menus.menu.menu321',
-                      icon: '&#xe676;',
-                      keepAlive: true
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 18,
-    path: '/result',
-    name: 'Result',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.result.title',
-      icon: '&#xe715;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 401,
-        path: 'success',
-        name: 'Success',
-        component: RoutesAlias.Success,
-        meta: {
-          title: 'menus.result.success',
-          keepAlive: true
-        }
-      },
-      {
-        id: 402,
-        path: 'fail',
-        name: 'Fail',
-        component: RoutesAlias.Fail,
-        meta: {
-          title: 'menus.result.fail',
-          keepAlive: true
-        }
-      }
-    ]
-  },
-  {
-    id: 8,
-    path: '/exception',
-    name: 'Exception',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.exception.title',
-      icon: '&#xe820;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 801,
-        path: '403',
-        name: '403',
-        component: RoutesAlias.Exception403,
-        meta: {
-          title: 'menus.exception.notFound',
-          keepAlive: true
-        }
-      },
-      {
-        id: 802,
-        path: '404',
-        name: '404',
-        component: RoutesAlias.Exception404,
-        meta: {
-          title: 'menus.exception.notFoundEn',
-          keepAlive: true
-        }
-      },
-      {
-        id: 803,
-        path: '500',
-        name: '500',
-        component: RoutesAlias.Exception500,
-        meta: {
-          title: 'menus.exception.serverError',
-          keepAlive: true
-        }
-      }
-    ]
-  },
-
-  {
-    id: 10,
-    path: '/safeguard',
-    name: 'Safeguard',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.safeguard.title',
-      icon: '&#xe816;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 1010,
-        path: 'server',
-        name: 'Server',
-        component: RoutesAlias.Server,
-        meta: {
-          title: 'menus.safeguard.server',
-          keepAlive: true
-        }
-      }
-    ]
-  },
-  {
-    id: 12,
-    name: '',
-    path: '',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.help.title',
-      icon: '&#xe719;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 1101,
-        path: '',
-        name: 'Document',
-        meta: {
-          title: 'menus.help.document',
-          link: 'https://www.lingchen.kim/art-design-pro/docs/',
-          isIframe: false,
-          keepAlive: false
-        }
-      }
-    ]
-  },
-  // 一级菜单
-  {
-    id: 11912,
-    name: 'ChangeLog',
-    path: '/log/changeLog',
-    component: '/log/ChangeLog',
-    meta: {
-      title: 'menus.plan.log',
-      showTextBadge: `${upgradeLogList.value[0].version}`,
-      icon: '&#xe712;',
-      keepAlive: false,
-      isInMainContainer: true
-    }
   }
+
+  // {
+  //   id: 5,
+  //   path: '/widgets',
+  //   name: 'Widgets',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.widgets.title',
+  //     icon: '&#xe81a;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 503,
+  //       path: 'icon-list',
+  //       name: 'IconList',
+  //       component: RoutesAlias.IconList,
+  //       meta: {
+  //         title: 'menus.widgets.iconList',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 504,
+  //       path: 'icon-selector',
+  //       name: 'IconSelector',
+  //       component: RoutesAlias.IconSelector,
+  //       meta: {
+  //         title: 'menus.widgets.iconSelector',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 505,
+  //       path: 'image-crop',
+  //       name: 'ImageCrop',
+  //       component: RoutesAlias.ImageCrop,
+  //       meta: {
+  //         title: 'menus.widgets.imageCrop',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 506,
+  //       path: 'excel',
+  //       name: 'Excel',
+  //       component: RoutesAlias.Excel,
+  //       meta: {
+  //         title: 'menus.widgets.excel',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 507,
+  //       path: 'video',
+  //       name: 'Video',
+  //       component: RoutesAlias.Video,
+  //       meta: {
+  //         title: 'menus.widgets.video',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 508,
+  //       path: 'count-to',
+  //       name: 'CountTo',
+  //       component: RoutesAlias.CountTo,
+  //       meta: {
+  //         title: 'menus.widgets.countTo',
+  //         keepAlive: false
+  //       }
+  //     },
+  //     {
+  //       id: 509,
+  //       path: 'wang-editor',
+  //       name: 'WangEditor',
+  //       component: RoutesAlias.WangEditor,
+  //       meta: {
+  //         title: 'menus.widgets.wangEditor',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 510,
+  //       path: 'watermark',
+  //       name: 'Watermark',
+  //       component: RoutesAlias.Watermark,
+  //       meta: {
+  //         title: 'menus.widgets.watermark',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 511,
+  //       path: 'context-menu',
+  //       name: 'ContextMenu',
+  //       component: RoutesAlias.ContextMenu,
+  //       meta: {
+  //         title: 'menus.widgets.contextMenu',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 512,
+  //       path: 'qrcode',
+  //       name: 'Qrcode',
+  //       component: RoutesAlias.Qrcode,
+  //       meta: {
+  //         title: 'menus.widgets.qrcode',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 513,
+  //       path: 'drag',
+  //       name: 'Drag',
+  //       component: RoutesAlias.Drag,
+  //       meta: {
+  //         title: 'menus.widgets.drag',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 514,
+  //       path: 'text-scroll',
+  //       name: 'TextScroll',
+  //       component: RoutesAlias.TextScroll,
+  //       meta: {
+  //         title: 'menus.widgets.textScroll',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 515,
+  //       path: 'fireworks',
+  //       name: 'Fireworks',
+  //       component: RoutesAlias.Fireworks,
+  //       meta: {
+  //         title: 'menus.widgets.fireworks',
+  //         keepAlive: true,
+  //         showTextBadge: 'Hot'
+  //       }
+  //     },
+  //     {
+  //       id: 516,
+  //       path: '/outside/iframe/elementui',
+  //       name: 'ElementUI',
+  //       component: '',
+  //       meta: {
+  //         title: 'menus.widgets.elementUI',
+  //         keepAlive: false,
+  //         link: 'https://element-plus.org/zh-CN/component/overview.html',
+  //         isIframe: true,
+  //         showBadge: true
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 126,
+  //   path: '/template',
+  //   name: 'Template',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.template.title',
+  //     icon: '&#xe860;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 12602,
+  //       path: 'cards',
+  //       name: 'Cards',
+  //       component: RoutesAlias.Cards,
+  //       meta: {
+  //         title: 'menus.template.cards',
+  //         keepAlive: false
+  //       }
+  //     },
+  //     {
+  //       id: 12603,
+  //       path: 'banners',
+  //       name: 'Banners',
+  //       component: RoutesAlias.Banners,
+  //       meta: {
+  //         title: 'menus.template.banners',
+  //         keepAlive: false
+  //       }
+  //     },
+  //     {
+  //       id: 12604,
+  //       path: 'charts',
+  //       name: 'Charts',
+  //       component: RoutesAlias.Charts,
+  //       meta: {
+  //         title: 'menus.template.charts',
+  //         keepAlive: false
+  //       }
+  //     },
+  //     {
+  //       id: 12609,
+  //       path: 'map',
+  //       name: 'Map',
+  //       component: RoutesAlias.Map,
+  //       meta: {
+  //         title: 'menus.template.map',
+  //         keepAlive: true,
+  //         showTextBadge: 'new'
+  //       }
+  //     },
+  //     {
+  //       id: 12601,
+  //       path: 'chat',
+  //       name: 'Chat',
+  //       component: RoutesAlias.Chat,
+  //       meta: {
+  //         title: 'menus.template.chat',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 12605,
+  //       path: 'calendar',
+  //       name: 'Calendar',
+  //       component: RoutesAlias.Calendar,
+  //       meta: {
+  //         title: 'menus.template.calendar',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 12622,
+  //       path: 'pricing',
+  //       name: 'Pricing',
+  //       component: RoutesAlias.Pricing,
+  //       meta: {
+  //         title: 'menus.template.pricing',
+  //         keepAlive: true,
+  //         isHideTab: true
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 4,
+  //   path: '/article',
+  //   name: 'Article',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.article.title',
+  //     icon: '&#xe7ae;',
+  //     keepAlive: true
+  //   },
+  //   children: [
+  //     {
+  //       id: 202,
+  //       path: 'article-list',
+  //       name: 'ArticleList',
+  //       component: RoutesAlias.ArticleList,
+  //       meta: {
+  //         title: 'menus.article.articleList',
+  //         keepAlive: true,
+  //         authList: [
+  //           {
+  //             id: 2021,
+  //             title: '新增',
+  //             auth_mark: 'add'
+  //           },
+  //           {
+  //             id: 2022,
+  //             title: '编辑',
+  //             auth_mark: 'edit'
+  //           }
+  //         ]
+  //       }
+  //     },
+
+  //     {
+  //       id: 204,
+  //       path: 'detail',
+  //       name: 'ArticleDetail',
+  //       component: RoutesAlias.ArticleDetail,
+  //       meta: {
+  //         title: 'menus.article.articleDetail',
+  //         isHide: true,
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 205,
+  //       path: 'comment',
+  //       name: 'Comment',
+  //       component: RoutesAlias.Comment,
+  //       meta: {
+  //         title: 'menus.article.comment',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 201,
+  //       path: 'article-publish',
+  //       name: 'ArticlePublish',
+  //       component: RoutesAlias.ArticlePublish,
+  //       meta: {
+  //         title: 'menus.article.articlePublish',
+  //         keepAlive: true,
+  //         authList: [
+  //           {
+  //             id: 2010,
+  //             title: '发布',
+  //             auth_mark: 'article/article-publish/add'
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 3,
+  //   path: '/menu',
+  //   name: 'Menu',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.menu.title',
+  //     icon: '&#xe8a4;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 401,
+  //       path: 'menu',
+  //       name: 'Menus',
+  //       component: RoutesAlias.Menu,
+  //       meta: {
+  //         title: 'menus.menu.menu',
+  //         icon: '&#xe8a4;',
+  //         keepAlive: true,
+  //         authList: [
+  //           {
+  //             id: 4011,
+  //             title: '新增',
+  //             auth_mark: 'add'
+  //           },
+  //           {
+  //             id: 4012,
+  //             title: '编辑',
+  //             auth_mark: 'edit'
+  //           },
+  //           {
+  //             id: 4013,
+  //             title: '删除',
+  //             auth_mark: 'delete'
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       id: 411,
+  //       path: 'permission',
+  //       name: 'Permission',
+  //       component: RoutesAlias.Permission,
+  //       meta: {
+  //         title: 'menus.menu.permission',
+  //         icon: '&#xe831;',
+  //         showTextBadge: 'new',
+  //         keepAlive: true,
+  //         authList: [
+  //           {
+  //             id: 4111,
+  //             title: '新增',
+  //             auth_mark: 'add'
+  //           },
+  //           {
+  //             id: 4112,
+  //             title: '编辑',
+  //             auth_mark: 'edit'
+  //           },
+  //           {
+  //             id: 4113,
+  //             title: '删除',
+  //             auth_mark: 'delete'
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     {
+  //       id: 402,
+  //       path: 'nested',
+  //       name: 'Nested',
+  //       component: '',
+  //       meta: {
+  //         title: 'menus.menu.nested',
+  //         icon: '&#xe676;',
+  //         keepAlive: true
+  //       },
+  //       children: [
+  //         {
+  //           id: 40201,
+  //           path: 'menu1',
+  //           name: 'NestedMenu1',
+  //           component: RoutesAlias.NestedMenu1,
+  //           meta: {
+  //             title: 'menus.menu.menu1',
+  //             icon: '&#xe676;',
+  //             keepAlive: true
+  //           }
+  //         },
+  //         {
+  //           id: 40202,
+  //           path: 'menu2',
+  //           name: 'NestedMenu2',
+  //           component: '',
+  //           meta: {
+  //             title: 'menus.menu.menu2',
+  //             icon: '&#xe676;',
+  //             keepAlive: true
+  //           },
+  //           children: [
+  //             {
+  //               id: 4020201,
+  //               path: 'menu2-1',
+  //               name: 'NestedMenu2-1',
+  //               component: RoutesAlias.NestedMenu21,
+  //               meta: {
+  //                 title: 'menus.menu.menu21',
+  //                 icon: '&#xe676;',
+  //                 keepAlive: true
+  //               }
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           id: 40203,
+  //           path: 'menu3',
+  //           name: 'NestedMenu3',
+  //           component: '',
+  //           meta: {
+  //             title: 'menus.menu.menu3',
+  //             icon: '&#xe676;',
+  //             keepAlive: true
+  //           },
+  //           children: [
+  //             {
+  //               id: 4020301,
+  //               path: 'menu3-1',
+  //               name: 'NestedMenu3-1',
+  //               component: RoutesAlias.NestedMenu31,
+  //               meta: {
+  //                 title: 'menus.menu.menu31',
+  //                 icon: '&#xe676;',
+  //                 keepAlive: true
+  //               }
+  //             },
+  //             {
+  //               id: 4020302,
+  //               path: 'menu3-2',
+  //               name: 'NestedMenu3-2',
+  //               component: '',
+  //               meta: {
+  //                 title: 'menus.menu.menu32',
+  //                 icon: '&#xe676;',
+  //                 keepAlive: true
+  //               },
+  //               children: [
+  //                 {
+  //                   id: 402030201,
+  //                   path: 'menu3-2-1',
+  //                   name: 'NestedMenu3-2-1',
+  //                   component: RoutesAlias.NestedMenu321,
+  //                   meta: {
+  //                     title: 'menus.menu.menu321',
+  //                     icon: '&#xe676;',
+  //                     keepAlive: true
+  //                   }
+  //                 }
+  //               ]
+  //             }
+  //           ]
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 18,
+  //   path: '/result',
+  //   name: 'Result',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.result.title',
+  //     icon: '&#xe715;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 401,
+  //       path: 'success',
+  //       name: 'Success',
+  //       component: RoutesAlias.Success,
+  //       meta: {
+  //         title: 'menus.result.success',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 402,
+  //       path: 'fail',
+  //       name: 'Fail',
+  //       component: RoutesAlias.Fail,
+  //       meta: {
+  //         title: 'menus.result.fail',
+  //         keepAlive: true
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 8,
+  //   path: '/exception',
+  //   name: 'Exception',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.exception.title',
+  //     icon: '&#xe820;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 801,
+  //       path: '403',
+  //       name: '403',
+  //       component: RoutesAlias.Exception403,
+  //       meta: {
+  //         title: 'menus.exception.notFound',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 802,
+  //       path: '404',
+  //       name: '404',
+  //       component: RoutesAlias.Exception404,
+  //       meta: {
+  //         title: 'menus.exception.notFoundEn',
+  //         keepAlive: true
+  //       }
+  //     },
+  //     {
+  //       id: 803,
+  //       path: '500',
+  //       name: '500',
+  //       component: RoutesAlias.Exception500,
+  //       meta: {
+  //         title: 'menus.exception.serverError',
+  //         keepAlive: true
+  //       }
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   id: 10,
+  //   path: '/safeguard',
+  //   name: 'Safeguard',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.safeguard.title',
+  //     icon: '&#xe816;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 1010,
+  //       path: 'server',
+  //       name: 'Server',
+  //       component: RoutesAlias.Server,
+  //       meta: {
+  //         title: 'menus.safeguard.server',
+  //         keepAlive: true
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 12,
+  //   name: '',
+  //   path: '',
+  //   component: RoutesAlias.Home,
+  //   meta: {
+  //     title: 'menus.help.title',
+  //     icon: '&#xe719;',
+  //     keepAlive: false
+  //   },
+  //   children: [
+  //     {
+  //       id: 1101,
+  //       path: '',
+  //       name: 'Document',
+  //       meta: {
+  //         title: 'menus.help.document',
+  //         link: 'https://www.lingchen.kim/art-design-pro/docs/',
+  //         isIframe: false,
+  //         keepAlive: false
+  //       }
+  //     }
+  //   ]
+  // },
+  // // 一级菜单
+  // {
+  //   id: 11912,
+  //   name: 'ChangeLog',
+  //   path: '/log/changeLog',
+  //   component: '/log/ChangeLog',
+  //   meta: {
+  //     title: 'menus.plan.log',
+  //     showTextBadge: `${upgradeLogList.value[0].version}`,
+  //     icon: '&#xe712;',
+  //     keepAlive: false,
+  //     isInMainContainer: true
+  //   }
+  // }
 ]

@@ -1,5 +1,6 @@
 import request from '@/utils/http'
 import { BaseResult, PaginationResult } from '@/types/axios'
+import { RoleData } from '../role/role'
 
 /** 用户响应数据类型 */
 export interface UserData {
@@ -8,6 +9,8 @@ export interface UserData {
   username: string
   email: string
   role: number
+  roleId: number
+  roleObj: RoleData
   gender: number
   phone?: string
   avatar?: string

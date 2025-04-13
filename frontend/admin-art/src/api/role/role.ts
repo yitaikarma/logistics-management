@@ -6,6 +6,7 @@ export interface RoleData {
   id: number
   name: string
   value: number
+  pageAuthString: string
   status: number
   desc: string
   createAt: string

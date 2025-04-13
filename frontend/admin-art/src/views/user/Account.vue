@@ -91,7 +91,10 @@
           </el-select>
         </el-form-item>
         <el-form-item label="权限" prop="role">
-          <el-select v-model="formData.role">
+          <el-select
+            v-model="formData.role"
+            @change="(val) => (formData.roleId = roleOptions.find((item) => item.value === val)!.value)"
+          >
             <el-option v-for="item in roleOptions" :key="item.value" :label="item.name" :value="item.value" />
           </el-select>
         </el-form-item>
@@ -165,7 +168,13 @@
     try {
       const res = await RoleService.getList()
       if (res.success) {
-        roleOptions.value = res.data
+        roleOptions.value = res.data.map((item) => {
+          return {
+            ...item,
+            value: item.id,
+            name: item.name
+          }
+        })
       } else {
         ElMessage.error(res.message)
       }
@@ -237,6 +246,7 @@
     email: '',
     gender: undefined,
     role: undefined,
+    roleId: undefined as number | undefined,
     password: '' as string | undefined,
     status: undefined
   }
@@ -277,6 +287,7 @@
       formData.value.phone = row.phone
       formData.value.gender = row.gender
       formData.value.role = row.role
+      formData.value.roleId = row.roleId
     }
   }
 

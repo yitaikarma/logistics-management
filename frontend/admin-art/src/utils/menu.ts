@@ -24,10 +24,30 @@ export const processRoute = (route: MenuListType, parentPath = ''): MenuListType
     path: currentPath,
     component: route.component,
     meta: route.meta ?? {}, // 使用空值合并运算符
-    children: Array.isArray(route.children)
-      ? route.children.map((child) => processRoute(child, currentPath))
-      : []
+    children: Array.isArray(route.children) ? route.children.map((child) => processRoute(child, currentPath)) : []
   }
+}
+
+/**
+ * 返回ID列表的菜单项
+ * @param checkedKeys 选中的菜单项 ID 列表
+ * @param menuList 菜单列表
+ * @returns 处理后的菜单列表
+ */
+export function pickMenu(checkedKeys: number[], menuList: MenuListType[]): MenuListType[] {
+  const result: MenuListType[] = []
+  checkedKeys.forEach((item) => {
+    const menu = menuList.find((menu) => menu.id === item)
+    if (menu) result.push(menu)
+  })
+  result.forEach((item) => {
+    if (item.children) {
+      item.children = item.children.filter((child) => {
+        return checkedKeys.includes(child.id)
+      })
+    }
+  })
+  return result
 }
 
 /**

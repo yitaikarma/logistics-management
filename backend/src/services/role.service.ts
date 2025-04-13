@@ -18,6 +18,7 @@ const select = Prisma.validator<Prisma.RoleSelect>()({
     id: true,
     name: true,
     value: true,
+    pageAuthString: true,
     desc: true,
     status: true,
     createdAt: true,
