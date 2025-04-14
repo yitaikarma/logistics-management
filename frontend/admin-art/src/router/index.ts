@@ -206,9 +206,11 @@ async function getMenuData(): Promise<void> {
     const userMenuList = pickMenu(userAuth, menuList)
     // 设置菜单列表
     useMenuStore().setCompleteMenuList(menuList as [])
-    useMenuStore().setMenuList(userMenuList as [])
+
+    const finalMenuList = userMenuList.length ? userMenuList : menuList
+    useMenuStore().setMenuList(finalMenuList as [])
     // 注册异步路由
-    registerAsyncRoutes(router, userMenuList)
+    registerAsyncRoutes(router, finalMenuList)
     // 标记路由已注册
     isRouteRegistered.value = true
     // 关闭加载动画

@@ -340,9 +340,11 @@
   }
 
   function updatePageRouter(checkedKeys: number[]) {
-    const userMenuList = pickMenu(checkedKeys, toRaw(menuList.value))
+    const _menuList = toRaw(menuList.value)
+    const userMenuList = pickMenu(checkedKeys, _menuList)
     // 设置菜单列表
-    useMenuStore().setMenuList(userMenuList as [])
+    const finalMenuList = userMenuList?.length ? userMenuList : _menuList
+    useMenuStore().setMenuList(finalMenuList as [])
     // 注册异步路由
     registerAsyncRoutes(router, userMenuList)
   }
