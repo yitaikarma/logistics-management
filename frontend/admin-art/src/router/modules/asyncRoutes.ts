@@ -25,16 +25,16 @@ export const asyncRoutes: MenuListType[] = [
       keepAlive: false
     },
     children: [
-      {
-        id: 10001,
-        path: 'console',
-        name: 'Console',
-        component: RoutesAlias.Dashboard,
-        meta: {
-          title: 'menus.dashboard.console',
-          keepAlive: true
-        }
-      },
+      // {
+      //   id: 10001,
+      //   path: 'console',
+      //   name: 'Console',
+      //   component: RoutesAlias.Dashboard,
+      //   meta: {
+      //     title: 'menus.dashboard.console',
+      //     keepAlive: true
+      //   }
+      // },
       {
         id: 10002,
         path: 'analysis',
@@ -80,16 +80,16 @@ export const asyncRoutes: MenuListType[] = [
           keepAlive: true
         }
       },
-      {
-        id: 10102,
-        path: 'api',
-        name: 'Api',
-        component: RoutesAlias.Api,
-        meta: {
-          title: 'menus.system.api',
-          keepAlive: true
-        }
-      },
+      // {
+      //   id: 10102,
+      //   path: 'api',
+      //   name: 'Api',
+      //   component: RoutesAlias.Api,
+      //   meta: {
+      //     title: 'menus.system.api',
+      //     keepAlive: true
+      //   }
+      // },
       {
         id: 10103,
         path: 'log',

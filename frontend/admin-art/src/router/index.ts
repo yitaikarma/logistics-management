@@ -30,7 +30,7 @@ export type AppRouteRecordRaw = RouteRecordRaw & {
 }
 
 /** 首页路径常量 */
-export const HOME_PAGE = '/dashboard/console'
+export const HOME_PAGE = '/dashboard/analysis'
 
 /** 静态路由配置 */
 const staticRoutes: AppRouteRecordRaw[] = [
