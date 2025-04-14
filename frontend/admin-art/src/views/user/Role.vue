@@ -14,8 +14,6 @@
     <!-- 表格 -->
     <art-table v-bind="tableData" selection @current-change="changePage" @size-change="changePageSizes">
       <template #default>
-        <el-table-column label="角色名称" prop="name" min-width="120" />
-        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="状态" prop="status" #default="scope" min-width="120">
           <!-- @vue-expect-error ts -->
           <el-tag :type="statusMap[scope.row.status].type">
@@ -23,6 +21,8 @@
             {{ statusMap[scope.row.status].text }}
           </el-tag>
         </el-table-column>
+        <el-table-column label="角色名称" prop="name" min-width="120" />
+        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="创建时间" prop="createdAt" min-width="120"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100px">
           <template #default="scope">
@@ -62,32 +62,41 @@
       </template>
     </el-dialog>
 
-    <el-dialog v-model="permissionDialog" title="菜单权限" width="30%">
+    <el-dialog v-model="permissionDialog" title="菜单权限" width="500">
       <div :style="{ maxHeight: '500px', overflowY: 'scroll' }">
         <el-tree
+          ref="treeRef"
           :data="menuList"
           show-checkbox
+          default-expand-all
           node-key="id"
-          :default-expanded-keys="[1, 2, 3, 4, 5, 6, 7, 8]"
-          :default-checked-keys="[1, 2, 3]"
+          :default-expanded-keys="defaultExpandedKeys"
+          :default-checked-keys="defaultCheckedKeys"
           :props="defaultProps"
         />
       </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="cancelPermission">取消</el-button>
+          <el-button type="primary" @click="handlePermissionSubmit">保存</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { FormInstance, FormRules } from 'element-plus'
+  import type { FormInstance, FormRules, TreeKey } from 'element-plus'
   import type { PaginationData } from '@/types/axios'
   import type { RoleData } from '@/api'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import { ButtonMoreItem } from '@/components/Form/ButtonMore.vue'
   import { useMenuStore } from '@/store/modules/menu'
   import { RoleService } from '@/api'
-  import { formatMenuTitle } from '@/utils/menu'
-
-  const menuList = computed(() => useMenuStore().getMenuList)
+  import { formatMenuTitle, pickMenu } from '@/utils/menu'
+  import { registerAsyncRoutes } from '@/router/modules/dynamicRoutes'
+  import { router } from '@/router'
+  import { useUserStore } from '@/store/modules/user'
 
   const tableData = ref<PaginationData<RoleData[]>>({
     records: [],
@@ -95,18 +104,11 @@
     currentPage: 1,
     pageSize: 10
   })
-  const rowId = ref<number>()
 
   const statusMap = {
     0: { text: '禁用', value: 0, type: 'info' },
     1: { text: '开启', value: 1, type: 'success' }
   }
-
-  const moreBtnList = ref<ButtonMoreItem[]>([
-    { key: 'permission', label: '菜单权限' },
-    { key: 'edit', label: '编辑角色' },
-    { key: 'delete', label: '删除角色' }
-  ])
 
   onMounted(getListData)
 
@@ -137,6 +139,28 @@
     getListData()
   }
 
+  const moreBtnList = ref<ButtonMoreItem[]>([
+    { key: 'permission', label: '菜单权限' },
+    { key: 'edit', label: '编辑角色' },
+    { key: 'delete', label: '删除角色' }
+  ])
+  const rowId = ref<number>()
+  const rowData = ref<RoleData>()
+
+  // 列表行点击事件
+  function buttonMoreClick(item: ButtonMoreItem, row: any) {
+    rowId.value = row.id
+    rowData.value = row
+    if (item.key === 'permission') {
+      showPermissionDialog()
+    } else if (item.key === 'edit') {
+      showDialog('edit', row)
+    } else if (item.key === 'delete') {
+      del()
+    }
+  }
+
+  /**************** 对话框 **************/
   const dialogType = ref('add')
   const dialogVisible = ref(false)
   const permissionDialog = ref(false)
@@ -167,38 +191,17 @@
   const searchForm = ref({ ...searchDefaultData })
   const formData = ref({ ...formDefaultData })
 
-  function buttonMoreClick(item: ButtonMoreItem, row: any) {
-    if (item.key === 'permission') {
-      showPermissionDialog()
-    } else if (item.key === 'edit') {
-      showDialog('edit', row)
-    } else if (item.key === 'delete') {
-      del()
-    }
-  }
-
-  // 显示权限对话框
-  function showPermissionDialog() {
-    permissionDialog.value = true
-  }
-
   // 显示表单
   function showDialog(type: string, row?: any) {
     dialogVisible.value = true
     dialogType.value = type
 
     if (type === 'edit' && row) {
-      rowId.value = row.id
       formData.value.name = row.name
       formData.value.value = row.value
       formData.value.desc = row.desc
       formData.value.status = row.status
     }
-  }
-
-  const defaultProps = {
-    children: 'children',
-    label: (data: any) => formatMenuTitle(data.meta?.title) || ''
   }
 
   // 搜索
@@ -278,6 +281,70 @@
     } catch {
       ElMessage.error('执行错误')
     }
+  }
+
+  const treeRef = templateRef('treeRef')
+  const menuList = computed(() => useMenuStore().getCompleteMenuList)
+  const defaultProps = {
+    children: 'children',
+    label: (data: any) => formatMenuTitle(data.meta?.title) || ''
+  }
+  const defaultCheckedKeys = ref<TreeKey[]>([9, 901, 902, 903])
+  const defaultExpandedKeys = ref<TreeKey[]>([1, 2, 3, 100])
+
+  // 显示权限对话框
+  function showPermissionDialog() {
+    defaultCheckedKeys.value = rowData.value?.pageAuthString ? JSON.parse(rowData.value.pageAuthString) : []
+    treeRef.value?.setCheckedKeys(defaultCheckedKeys.value)
+    defaultExpandedKeys.value = defaultCheckedKeys.value
+    permissionDialog.value = true
+  }
+
+  // 取消权限
+  function cancelPermission() {
+    permissionDialog.value = false
+  }
+
+  // 提交权限
+  async function handlePermissionSubmit() {
+    if (!rowId.value) {
+      ElMessage.error('执行错误，用户ID获取错误')
+      return
+    }
+    if (!treeRef.value) {
+      ElMessage.error('执行错误，树形控件获取错误')
+      return
+    }
+
+    const checkedNodes = treeRef.value.getCheckedNodes(false, true)
+    const checkedKeys = toRaw(checkedNodes).map((item) => item.id)
+    console.log(checkedKeys)
+    console.log(treeRef.value.getCheckedNodes(false, true))
+
+    console.log(pickMenu(checkedKeys, toRaw(menuList.value)))
+
+    const res = await RoleService.update(rowId.value, {
+      pageAuthString: JSON.stringify(checkedKeys)
+    })
+    if (res.success) {
+      ElMessage.success('设置成功')
+      permissionDialog.value = false
+      if (useUserStore().getUserInfo.roleId === rowId.value) {
+        // 更新路由
+        updatePageRouter(checkedKeys)
+      }
+      getListData()
+    } else {
+      ElMessage.error(res.message)
+    }
+  }
+
+  function updatePageRouter(checkedKeys: number[]) {
+    const userMenuList = pickMenu(checkedKeys, toRaw(menuList.value))
+    // 设置菜单列表
+    useMenuStore().setMenuList(userMenuList as [])
+    // 注册异步路由
+    registerAsyncRoutes(router, userMenuList)
   }
 </script>
 

@@ -2,6 +2,7 @@ import axios, { InternalAxiosRequestConfig, AxiosRequestConfig, AxiosResponse } 
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/store/modules/user'
 import EmojiText from '../emojo'
+import { router } from '@/router'
 
 const baseURL = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_URL
 
@@ -52,6 +53,12 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error) => {
+    if (error.status === 401) {
+      useUserStore().logOut() // 清除用户信息
+      ElMessage.error('登录已过期，请重新登录！') // 显示错误消息
+      router.push('/login') // 跳转到登录页面
+    }
+
     if (axios.isCancel(error)) {
       console.log('repeated request: ' + error.message)
     } else {

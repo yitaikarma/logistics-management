@@ -21,6 +21,7 @@ export const UserSchema = z
             .refine(value => [0, 1, 2].includes(value), { message: '性别值不正确' }),
         avatar: z.string().url().or(z.literal('')).nullish(),
         role: z.coerce.number().int(),
+        roleId: z.coerce.number().int(),
         address: z.string().min(2, { message: '地址长度不能小于2位' }).max(100, { message: '地址长度不能大于100位' }).nullish(),
         desc: z.string().max(200, { message: '描述长度不能大于200位' }).nullish(),
         status: z.coerce
@@ -49,6 +50,7 @@ export const UserQuerySchema = z
         gender: numberFromEmptyString(),
         avatar: z.string().url().nullish(),
         role: numberFromEmptyString(),
+        roleId: numberFromEmptyString(),
         address: z.string().nullish(),
         desc: z.string().nullish(),
         status: numberFromEmptyString(),

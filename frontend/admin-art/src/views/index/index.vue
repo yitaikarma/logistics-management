@@ -19,11 +19,7 @@
       <!-- 节日文本滚动 -->
       <festival-text-scroll></festival-text-scroll>
 
-      <router-view
-        v-if="isRefresh && isOnline"
-        v-slot="{ Component, route }"
-        :style="{ minHeight }"
-      >
+      <router-view v-if="isRefresh && isOnline" v-slot="{ Component, route }" :style="{ minHeight }">
         <!-- 路由信息，方便开发者调试 -->
         <div v-if="isOpenRouteInfo === 'true'">
           {{ route.meta }}
@@ -75,9 +71,7 @@
   const menuStore = useMenuStore()
   const worktabStore = useWorktabStore()
   // 是否显示左侧菜单
-  const showLeftMenu = computed(
-    () => menuType.value === MenuTypeEnum.LEFT || menuType.value === MenuTypeEnum.TOP_LEFT
-  )
+  const showLeftMenu = computed(() => menuType.value === MenuTypeEnum.LEFT || menuType.value === MenuTypeEnum.TOP_LEFT)
   // 菜单是否打开
   const menuOpen = computed(() => settingStore.menuOpen)
   // 是否显示工作标签
@@ -111,7 +105,7 @@
   // 根据是否显示工作标签来设置最小高度
   const minHeight = computed(() => `calc(100vh - ${showWorkTab.value ? 120 : 75}px)`)
   const paddingTop = computed(() => {
-    return showWorkTab.value ? '106px' : '60px'
+    return showWorkTab.value ? '105px' : '60px'
   })
 
   // 是否刷新页面的状态

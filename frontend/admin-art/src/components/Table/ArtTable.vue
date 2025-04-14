@@ -189,7 +189,7 @@
     :deep(.el-table) {
       th.el-table__cell {
         font-weight: 600;
-        background-color: transparent;
+        // background-color: transparent;
       }
 
       td.el-table__cell,

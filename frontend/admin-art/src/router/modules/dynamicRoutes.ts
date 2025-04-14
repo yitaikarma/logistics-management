@@ -85,22 +85,14 @@ function convertRouteComponent(route: MenuListType, iframeRoutes: MenuListType[]
 }
 
 // 处理 iframe 类型路由
-function handleIframeRoute(
-  converted: ConvertedRoute,
-  route: MenuListType,
-  iframeRoutes: MenuListType[]
-): void {
+function handleIframeRoute(converted: ConvertedRoute, route: MenuListType, iframeRoutes: MenuListType[]): void {
   converted.path = `/outside/iframe/${route.name}`
   converted.component = () => import('@/views/outside/Iframe.vue')
   iframeRoutes.push(route)
 }
 
 // 处理一级级菜单路由
-function handleLayoutRoute(
-  converted: ConvertedRoute,
-  route: MenuListType,
-  component: string | undefined
-): void {
+function handleLayoutRoute(converted: ConvertedRoute, route: MenuListType, component: string | undefined): void {
   converted.component = () => import('@/views/index/index.vue')
   converted.path = `/${(route.path?.split('/')[1] || '').trim()}`
   converted.name = ''
@@ -120,8 +112,7 @@ function handleLayoutRoute(
 function handleNormalRoute(converted: any, component: string | undefined, routeName: string): void {
   if (component) {
     converted.component = component
-      ? RoutesAlias[component as keyof typeof RoutesAlias] ||
-        loadComponent(component as string, routeName)
+      ? RoutesAlias[component as keyof typeof RoutesAlias] || loadComponent(component as string, routeName)
       : undefined
   }
 }
