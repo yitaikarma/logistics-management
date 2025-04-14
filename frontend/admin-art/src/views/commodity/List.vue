@@ -33,6 +33,9 @@
       @size-change="changePageSizes"
     >
       <template #default>
+        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[4].show">
+          <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
+        </el-table-column>
         <el-table-column label="商品名" prop="name" min-width="120" v-if="columns[0].show" />
         <el-table-column
           label="分类"
@@ -46,9 +49,6 @@
         </el-table-column>
         <el-table-column label="价格(元)" prop="price" sortable min-width="120" v-if="columns[2].show" />
         <el-table-column label="描述" prop="desc" min-width="180" v-if="columns[3].show" />
-        <el-table-column label="状态" prop="status" sortable #default="scope" min-width="100" v-if="columns[4].show">
-          <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
-        </el-table-column>
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[5].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
           <button-table type="edit" @click="showDialog('edit', scope.row)" />

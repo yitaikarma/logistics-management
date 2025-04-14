@@ -14,8 +14,6 @@
     <!-- 表格 -->
     <art-table v-bind="tableData" selection @current-change="changePage" @size-change="changePageSizes">
       <template #default>
-        <el-table-column label="角色名称" prop="name" min-width="120" />
-        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="状态" prop="status" #default="scope" min-width="120">
           <!-- @vue-expect-error ts -->
           <el-tag :type="statusMap[scope.row.status].type">
@@ -23,6 +21,8 @@
             {{ statusMap[scope.row.status].text }}
           </el-tag>
         </el-table-column>
+        <el-table-column label="角色名称" prop="name" min-width="120" />
+        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="创建时间" prop="createdAt" min-width="120"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100px">
           <template #default="scope">

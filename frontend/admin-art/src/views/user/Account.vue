@@ -30,6 +30,13 @@
     <!-- 表格 -->
     <art-table v-bind="tableData" selection @current-change="changePage" @size-change="changePageSizes">
       <template #default>
+        <el-table-column label="状态" prop="status" sortable min-width="100" v-if="columns[4].show">
+          <template #default="scope">
+            <el-tag :type="statusTypeMap[scope.row.status]">
+              {{ statusMap[scope.row.status] }}
+            </el-tag>
+          </template>
+        </el-table-column>
         <el-table-column label="用户名" prop="avatar" #default="scope" width="300px" v-if="columns[0].show">
           <div class="user" style="display: flex; align-items: center">
             <img class="avatar" :src="scope.row.avatar" />
@@ -48,13 +55,7 @@
             <el-tag>{{ roleMap[scope.row.role] }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="状态" prop="status" sortable min-width="100" v-if="columns[4].show">
-          <template #default="scope">
-            <el-tag :type="statusTypeMap[scope.row.status]">
-              {{ statusMap[scope.row.status] }}
-            </el-tag>
-          </template>
-        </el-table-column>
+
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[5].show" />
         <el-table-column fixed="right" label="操作" width="150px">
           <template #default="scope">

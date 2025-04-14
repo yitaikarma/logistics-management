@@ -15,11 +15,11 @@
     <!-- 表格 -->
     <art-table v-bind="tableData" selection @current-change="changePage" @size-change="changePageSizes">
       <template #default>
-        <el-table-column label="车辆分类名" prop="name" min-width="120" />
-        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="状态" prop="status" min-width="120" #default="scope">
           <el-tag :type="statusMap[scope.row.status].type"> {{ statusMap[scope.row.status].name }} </el-tag>
         </el-table-column>
+        <el-table-column label="车辆分类名" prop="name" min-width="120" />
+        <el-table-column label="描述" prop="desc" min-width="120" />
         <el-table-column label="创建时间" prop="createdAt" min-width="120"></el-table-column>
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
           <button-table type="edit" @click="showDialog('edit', scope.row)" />
