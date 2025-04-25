@@ -190,6 +190,7 @@
             return { name: item.name, value: item.id }
           })
           .reverse()
+        formData.value.categoryId = categoryOptions.value[0].value
       }
     } catch {
       // 错误已在axios拦截器处理
@@ -231,7 +232,7 @@
     toAddress: '',
     desc: '',
     status: 1,
-    categoryId: undefined,
+    categoryId: undefined as number | undefined,
     userId: undefined as number | undefined,
     inventoryId: undefined as number | undefined
   }
