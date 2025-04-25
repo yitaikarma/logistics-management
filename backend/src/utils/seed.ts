@@ -8,22 +8,26 @@ async function role() {
         { name: '管理员', value: 100, desc: '拥有所有权限', status: 1 },
         { name: '服务人员', value: 10, desc: '拥有部分权限', status: 1 },
         { name: '客户', value: 0, desc: '普通客户', status: 1 },
-        { name: '用户', value: 0, desc: '其他用户', status: 1 },
+        { name: '其他', value: 0, desc: '其他用户', status: 1 },
     ]
     await prisma.role.createMany({ data: roles })
 }
 
 async function user() {
     const password = bcrypt.hashSync('123123', 10)
-    const user: Prisma.UserCreateInput = {
+
+    const role = await prisma.role.findFirst({ where: { name: '管理员' } })
+
+    const user: Prisma.UserUncheckedCreateInput = {
         email: `admin@test.dev`,
         phone: `12312312300`,
         username: `admin`,
         nickname: `coko`,
         password: password,
-        role: 100,
+        // role: 100,
+        roleId: role?.id,
         address: '拉尼亚凯亚超星系团室女座超星系团银河系太阳系地球',
-        desc: '你归我管！',
+        desc: '这里是正在反转的小陀螺',
         gender: 1,
         status: 2,
     }
@@ -33,26 +37,26 @@ async function user() {
         create: user,
     })
 
-    const user2 = (i: number): Prisma.UserCreateInput => ({
-        email: `admin${i}@test.dev`,
-        phone: `1231231230${i}`,
-        // username: `不明所以柴可夫斯基${i}`,
-        username: `admin${i}`,
-        nickname: `不明所以柴可夫斯基${i}`,
-        password: password,
-        role: 100,
-        address: '拉尼亚凯亚超星系团室女座超星系团银河系太阳系地球',
-        desc: '这里是正在反转的小陀螺',
-        status: 2,
-    })
+    // const user2 = (i: number): Prisma.UserCreateInput => ({
+    //     email: `admin${i}@test.dev`,
+    //     phone: `1231231230${i}`,
+    //     // username: `不明所以柴可夫斯基${i}`,
+    //     username: `admin${i}`,
+    //     nickname: `不明所以柴可夫斯基${i}`,
+    //     password: password,
+    //     role: 100,
+    //     address: '拉尼亚凯亚超星系团室女座超星系团银河系太阳系地球',
+    //     desc: '这里是正在反转的小陀螺',
+    //     status: 2,
+    // })
 
-    for (let i = 1; i <= 5; i++) {
-        await prisma.user.upsert({
-            where: { username: `admin${i}` },
-            update: user2(i),
-            create: user2(i),
-        })
-    }
+    // for (let i = 1; i <= 5; i++) {
+    //     await prisma.user.upsert({
+    //         where: { username: `admin${i}` },
+    //         update: user2(i),
+    //         create: user2(i),
+    //     })
+    // }
 }
 
 async function commodity() {

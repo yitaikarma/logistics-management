@@ -14,6 +14,7 @@ CREATE TABLE `User` (
     `status` TINYINT UNSIGNED NULL DEFAULT 0,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
+    `roleId` INTEGER UNSIGNED NULL,
 
     UNIQUE INDEX `User_username_key`(`username`),
     INDEX `User_email_idx`(`email`),
@@ -345,6 +346,9 @@ CREATE TABLE `DistributionCategory` (
     INDEX `DistributionCategory_name_idx`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `User` ADD CONSTRAINT `User_roleId_fkey` FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Commodity` ADD CONSTRAINT `Commodity_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `CommodityCategory`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
