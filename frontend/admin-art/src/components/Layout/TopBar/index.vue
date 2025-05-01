@@ -26,7 +26,7 @@
           </div>
         </div>
         <!-- 快速入口 -->
-        <fast-enter v-if="width >= 1200" />
+        <!-- <fast-enter v-if="width >= 1200" /> -->
         <!-- 面包屑 -->
         <breadcrumb
           v-if="(showCrumbs && isLeftMenu) || (showCrumbs && isDualMenu)"
@@ -63,19 +63,19 @@
           </div>
         </div>
         <!-- 通知 -->
-        <div class="btn-box notice-btn" @click="visibleNotice">
+        <!-- <div class="btn-box notice-btn" @click="visibleNotice">
           <div class="btn notice-button">
             <i class="iconfont-sys notice-btn">&#xe6c2;</i>
             <span class="count notice-btn"></span>
           </div>
-        </div>
+        </div> -->
         <!-- 聊天 -->
-        <div class="btn-box chat-btn" @click="openChat">
+        <!-- <div class="btn-box chat-btn" @click="openChat">
           <div class="btn chat-button">
             <i class="iconfont-sys">&#xe89a;</i>
             <span class="dot"></span>
           </div>
-        </div>
+        </div> -->
         <!-- 语言 -->
         <div class="btn-box" v-if="showLanguage">
           <el-dropdown @command="changeLanguage" popper-class="langDropDownStyle">
@@ -147,14 +147,14 @@
                     <i class="menu-icon iconfont-sys">&#xe734;</i>
                     <span class="menu-txt">{{ $t('topBar.user.userCenter') }}</span>
                   </li>
-                  <li @click="toDocs()">
+                  <!-- <li @click="toDocs()">
                     <i class="menu-icon iconfont-sys" style="font-size: 15px">&#xe828;</i>
                     <span class="menu-txt">{{ $t('topBar.user.docs') }}</span>
                   </li>
                   <li @click="toGithub()">
                     <i class="menu-icon iconfont-sys">&#xe8d6;</i>
                     <span class="menu-txt">{{ $t('topBar.user.github') }}</span>
-                  </li>
+                  </li> -->
                   <li @click="lockScreen()">
                     <i class="menu-icon iconfont-sys">&#xe817;</i>
                     <span class="menu-txt">{{ $t('topBar.user.lockScreen') }}</span>
