@@ -33,11 +33,11 @@
   })
 
   const chartData = [
-    { value: 1048, name: 'Beijing', itemStyle: { color: 'rgba(99, 102, 241, 0.9)' } },
-    { value: 735, name: 'Shanghai', itemStyle: { color: 'rgba(134, 239, 172, 0.9)' } },
-    { value: 580, name: 'Guangzhou', itemStyle: { color: 'rgba(253, 224, 71, 0.9)' } },
-    { value: 484, name: 'Shenzhen', itemStyle: { color: 'rgba(248, 113, 113, 0.9)' } },
-    { value: 300, name: 'Chengdu', itemStyle: { color: 'rgba(125, 211, 252, 0.9)' } }
+    { value: 148, name: '北京', itemStyle: { color: 'rgba(99, 102, 241, 0.9)' } },
+    { value: 35, name: '上海', itemStyle: { color: 'rgba(134, 239, 172, 0.9)' } },
+    { value: 80, name: '广州', itemStyle: { color: 'rgba(253, 224, 71, 0.9)' } },
+    { value: 44, name: '深圳', itemStyle: { color: 'rgba(248, 113, 113, 0.9)' } },
+    { value: 30, name: '成都', itemStyle: { color: 'rgba(125, 211, 252, 0.9)' } }
   ]
 
   const initChart = () => {
@@ -47,7 +47,7 @@
       },
       series: [
         {
-          name: 'Sales Mapping',
+          name: '订单分布',
           type: 'pie',
           radius: ['40%', '60%'],
           avoidLabelOverlap: false,

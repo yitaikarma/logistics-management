@@ -50,10 +50,7 @@
       containLabel: true
     },
     legend: {
-      data: [
-        t('analysis.totalRevenue.legend.onlineSales'),
-        t('analysis.totalRevenue.legend.offlineSales')
-      ],
+      data: [t('analysis.totalRevenue.legend.onlineSales'), t('analysis.totalRevenue.legend.offlineSales')],
       bottom: 0,
       icon: 'circle',
       itemWidth: 10,
@@ -93,7 +90,7 @@
       {
         name: t('analysis.totalRevenue.legend.onlineSales'),
         type: 'bar',
-        data: [12, 13, 5, 15, 10, 15, 18],
+        data: [2400, 4300, 500, 0, 0, 0, 0],
         barWidth: '15',
         itemStyle: {
           color: '#0095FF',
@@ -103,7 +100,7 @@
       {
         name: t('analysis.totalRevenue.legend.offlineSales'),
         type: 'bar',
-        data: [10, 11, 20, 5, 11, 13, 10],
+        data: [0, 2300, 500, 0, 0, 0, 0],
         barWidth: '15',
         itemStyle: {
           color: '#00E096',

@@ -97,7 +97,7 @@
         {
           name: 'Reality Sales',
           type: 'bar',
-          data: [8000, 7000, 6000, 8500, 9000, 10000, 9500],
+          data: [8000, 7000, 6000, 8500, 900, 0, 0],
           barWidth: '15',
           itemStyle: {
             borderRadius: [4, 4, 0, 0],
