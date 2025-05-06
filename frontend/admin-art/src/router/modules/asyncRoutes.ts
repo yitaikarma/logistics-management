@@ -44,18 +44,18 @@ export const asyncRoutes: MenuListType[] = [
           title: 'menus.dashboard.analysis',
           keepAlive: true
         }
-      },
-      {
-        id: 103,
-        path: 'ecommerce',
-        name: 'Ecommerce',
-        component: RoutesAlias.Ecommerce,
-        meta: {
-          title: 'menus.dashboard.ecommerce',
-          keepAlive: true,
-          showTextBadge: 'new'
-        }
       }
+      // {
+      //   id: 103,
+      //   path: 'ecommerce',
+      //   name: 'Ecommerce',
+      //   component: RoutesAlias.Ecommerce,
+      //   meta: {
+      //     title: 'menus.dashboard.ecommerce',
+      //     keepAlive: true,
+      //     showTextBadge: 'new'
+      //   }
+      // }
     ]
   },
   // 系统管理
@@ -70,16 +70,16 @@ export const asyncRoutes: MenuListType[] = [
       keepAlive: false
     },
     children: [
-      {
-        id: 10101,
-        path: 'setting',
-        name: 'Setting',
-        component: RoutesAlias.Setting,
-        meta: {
-          title: 'menus.system.setting',
-          keepAlive: true
-        }
-      },
+      // {
+      //   id: 10101,
+      //   path: 'setting',
+      //   name: 'Setting',
+      //   component: RoutesAlias.Setting,
+      //   meta: {
+      //     title: 'menus.system.setting',
+      //     keepAlive: true
+      //   }
+      // },
       // {
       //   id: 10102,
       //   path: 'api',
@@ -226,6 +226,40 @@ export const asyncRoutes: MenuListType[] = [
       }
     ]
   },
+  // 车辆管理
+  {
+    id: 203,
+    path: '/vehicle',
+    name: 'Vehicle',
+    component: RoutesAlias.Home,
+    meta: {
+      title: 'menus.vehicle.title',
+      icon: '&#xe7fa;',
+      keepAlive: false
+    },
+    children: [
+      {
+        id: 20301,
+        path: 'list',
+        name: 'VehicleList',
+        component: RoutesAlias.VehicleList,
+        meta: {
+          title: 'menus.vehicle.list',
+          keepAlive: true
+        }
+      },
+      {
+        id: 20302,
+        path: 'category',
+        name: 'VehicleCategory',
+        component: RoutesAlias.VehicleCategory,
+        meta: {
+          title: 'menus.vehicle.category',
+          keepAlive: true
+        }
+      }
+    ]
+  },
   // 库存管理
   {
     id: 202,
@@ -270,40 +304,6 @@ export const asyncRoutes: MenuListType[] = [
       }
     ]
   },
-  // 车辆管理
-  {
-    id: 203,
-    path: '/vehicle',
-    name: 'Vehicle',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.vehicle.title',
-      icon: '&#xe7fa;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 20301,
-        path: 'list',
-        name: 'VehicleList',
-        component: RoutesAlias.VehicleList,
-        meta: {
-          title: 'menus.vehicle.list',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20302,
-        path: 'category',
-        name: 'VehicleCategory',
-        component: RoutesAlias.VehicleCategory,
-        meta: {
-          title: 'menus.vehicle.category',
-          keepAlive: true
-        }
-      }
-    ]
-  },
   // 订单管理
   {
     id: 204,
@@ -328,6 +328,16 @@ export const asyncRoutes: MenuListType[] = [
       },
       {
         id: 20402,
+        path: 'reviewList',
+        name: 'OrderReviewList',
+        component: RoutesAlias.OrderReviewList,
+        meta: {
+          title: 'menus.order.reviewList',
+          keepAlive: true
+        }
+      },
+      {
+        id: 20403,
         path: 'list',
         name: 'OrderList',
         component: RoutesAlias.OrderList,
@@ -337,46 +347,12 @@ export const asyncRoutes: MenuListType[] = [
         }
       },
       {
-        id: 20403,
+        id: 20404,
         path: 'category',
         name: 'OrderCategory',
         component: RoutesAlias.OrderCategory,
         meta: {
           title: 'menus.order.category',
-          keepAlive: true
-        }
-      }
-    ]
-  },
-  // 订单管理
-  {
-    id: 205,
-    path: '/review',
-    name: 'Review',
-    component: RoutesAlias.Home,
-    meta: {
-      title: 'menus.review.title',
-      icon: '&#xe708;',
-      keepAlive: false
-    },
-    children: [
-      {
-        id: 20501,
-        path: 'orderList',
-        name: 'ReviewOrderList',
-        component: RoutesAlias.ReviewOrderList,
-        meta: {
-          title: 'menus.review.orderList',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20504,
-        path: 'category',
-        name: 'ReviewCategory',
-        component: RoutesAlias.ReviewCategory,
-        meta: {
-          title: 'menus.review.category',
           keepAlive: true
         }
       }
@@ -401,36 +377,6 @@ export const asyncRoutes: MenuListType[] = [
         component: RoutesAlias.TaskList,
         meta: {
           title: 'menus.task.list',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20602,
-        path: 'release',
-        name: 'TaskRelease',
-        component: RoutesAlias.TaskRelease,
-        meta: {
-          title: 'menus.task.release',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20603,
-        path: 'records',
-        name: 'TaskRecords',
-        component: RoutesAlias.TaskRecords,
-        meta: {
-          title: 'menus.task.records',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20604,
-        path: 'category',
-        name: 'TaskCategory',
-        component: RoutesAlias.TaskCategory,
-        meta: {
-          title: 'menus.task.category',
           keepAlive: true
         }
       }
@@ -460,11 +406,11 @@ export const asyncRoutes: MenuListType[] = [
       },
       {
         id: 20702,
-        path: 'records',
-        name: 'DistributionRecords',
-        component: RoutesAlias.DistributionRecords,
+        path: 'inTransitList',
+        name: 'DistributionInTransitList',
+        component: RoutesAlias.DistributionInTransitList,
         meta: {
-          title: 'menus.distribution.records',
+          title: 'menus.distribution.inTransitList',
           keepAlive: true
         }
       },
@@ -485,16 +431,6 @@ export const asyncRoutes: MenuListType[] = [
         component: RoutesAlias.DistributionExceptionRecords,
         meta: {
           title: 'menus.distribution.exceptionRecords',
-          keepAlive: true
-        }
-      },
-      {
-        id: 20705,
-        path: 'category',
-        name: 'DistributionCategory',
-        component: RoutesAlias.DistributionCategory,
-        meta: {
-          title: 'menus.distribution.category',
           keepAlive: true
         }
       }

@@ -112,7 +112,7 @@
 
   onMounted(getListData)
 
-  // 获取列表数据
+  /** 获取角色数据 */
   async function getListData() {
     try {
       const { currentPage, pageSize } = tableData.value
@@ -259,7 +259,7 @@
     })
   }
 
-  // 删除数据
+  /** 删除角色数据 */
   async function del() {
     try {
       await ElMessageBox.confirm('确定删除该角色吗？', '注销用户', {
@@ -305,7 +305,7 @@
     permissionDialog.value = false
   }
 
-  // 提交权限
+  /** 添加和编辑角色 */
   async function handlePermissionSubmit() {
     if (!rowId.value) {
       ElMessage.error('执行错误，用户ID获取错误')
@@ -339,6 +339,7 @@
     }
   }
 
+  /** 同步更新路由 */
   function updatePageRouter(checkedKeys: number[]) {
     const _menuList = toRaw(menuList.value)
     const userMenuList = pickMenu(checkedKeys, _menuList)

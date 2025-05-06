@@ -321,15 +321,15 @@ CREATE TABLE `TaskCategory` (
 -- CreateTable
 CREATE TABLE `Distribution` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NOT NULL,
     `desc` TEXT NULL,
+    `startTime` DATETIME(3) NULL,
+    `endTime` DATETIME(3) NULL,
     `status` TINYINT UNSIGNED NOT NULL DEFAULT 0,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
-    `categoryId` INTEGER UNSIGNED NULL,
+    `orderId` INTEGER UNSIGNED NOT NULL,
 
-    UNIQUE INDEX `Distribution_name_key`(`name`),
-    INDEX `Distribution_name_idx`(`name`),
+    UNIQUE INDEX `Distribution_orderId_key`(`orderId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -399,4 +399,4 @@ ALTER TABLE `Task` ADD CONSTRAINT `Task_userId_fkey` FOREIGN KEY (`userId`) REFE
 ALTER TABLE `Task` ADD CONSTRAINT `Task_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `TaskCategory`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Distribution` ADD CONSTRAINT `Distribution_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `DistributionCategory`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `Distribution` ADD CONSTRAINT `Distribution_orderId_fkey` FOREIGN KEY (`orderId`) REFERENCES `Order`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

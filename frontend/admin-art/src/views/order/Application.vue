@@ -9,10 +9,53 @@
           </el-radio-group>
         </el-form-item>
 
+        <el-divider content-position="left">收货人</el-divider>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="姓名" prop="receiver">
+              <el-input v-model="formData.receiver" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="手机号" prop="phone">
+              <el-input v-model="formData.phone" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-divider content-position="left">收货地址</el-divider>
+        <el-row :gutter="20">
+          <el-col :span="10">
+            <el-form-item label="地址" prop="toProvince">
+              <el-select v-model="formData.toProvince" @change="resetSelect(true)">
+                <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label-width="0" prop="toCity">
+              <el-select v-model="formData.toCity" @change="resetSelect()">
+                <el-option v-for="item in toCityOptions" :key="item.value" :label="item.name" :value="item.name" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label-width="0" prop="toDistrict">
+              <el-select v-model="formData.toDistrict">
+                <el-option v-for="item in toDistrictOptions" :key="item.value" :label="item.name" :value="item.name" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <el-form-item label="详细地址" prop="toAddress">
+          <el-input v-model="formData.toAddress" />
+        </el-form-item>
+
+        <el-divider content-position="left">商品</el-divider>
         <el-row :gutter="20">
           <el-col :span="13">
             <el-form-item label="商品" prop="inventoryId">
-              <el-select v-model="formData.inventoryId">
+              <el-select v-model="formData.inventoryId" @change="handleSelectCommodity">
                 <template #label="{ label, value }">
                   <span style="margin-right: 6px">{{ label }}</span>
                   <span style="color: var(--el-text-color-secondary); font-size: 11px">
@@ -42,46 +85,36 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-divider content-position="left">收货人</el-divider>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="姓名" prop="receiver">
-              <el-input v-model="formData.receiver" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="手机号" prop="phone">
-              <el-input v-model="formData.phone" />
-            </el-form-item>
-          </el-col>
-        </el-row>
+
+        <el-divider content-position="left">发货地址</el-divider>
         <el-row :gutter="20">
           <el-col :span="10">
-            <el-form-item label="地址" prop="toProvince">
-              <el-select v-model="formData.toProvince" @change="resetSelect(true)">
+            <el-form-item label="地址" prop="fromProvince">
+              <el-select disabled v-model="formData.fromProvince" @change="resetSelect(true)">
                 <el-option v-for="item in provinceOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
-            <el-form-item label-width="0" prop="toCity">
-              <el-select v-model="formData.toCity" @change="resetSelect()">
+            <el-form-item label-width="0" prop="fromCity">
+              <el-select disabled v-model="formData.fromCity" @change="resetSelect()">
                 <el-option v-for="item in toCityOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
-            <el-form-item label-width="0" prop="toDistrict">
-              <el-select v-model="formData.toDistrict">
+            <el-form-item label-width="0" prop="fromDistrict">
+              <el-select disabled v-model="formData.fromDistrict">
                 <el-option v-for="item in toDistrictOptions" :key="item.value" :label="item.name" :value="item.name" />
               </el-select>
             </el-form-item>
           </el-col>
         </el-row>
 
-        <el-form-item label="详细地址" prop="toAddress">
-          <el-input v-model="formData.toAddress" />
+        <el-form-item label="详细地址" prop="fromAddress">
+          <el-input disabled v-model="formData.fromAddress" />
         </el-form-item>
+
         <el-form-item label="描述" prop="desc">
           <el-input v-model="formData.desc" type="textarea" />
         </el-form-item>
@@ -138,6 +171,7 @@
 
   onMounted(() => {
     initOptionData()
+    mittBus.on('initData:commodity', getCommodityListData)
   })
 
   function initOptionData() {
@@ -146,6 +180,64 @@
     getCommodityListData()
     getInventoryCommoditiesAndWarehousesData()
     getPCAData()
+
+    getCoordinates('中国北京市朝阳区')
+  }
+
+  /** 获取地点坐标 */
+  async function getCoordinates(address: string) {
+    const apiKey = '4321fd5bbd6c20b5784b377897f67ee8'
+    const url = `https://restapi.amap.com/v3/geocode/geo?key=${apiKey}&address=${encodeURIComponent(address)}`
+
+    try {
+      const response = await fetch(url)
+      const data = await response.json()
+      console.log('data', data)
+
+      if (data.status === '1' && data.geocodes.length > 0) {
+        const [lng, lat] = data.geocodes[0].location.split(',')
+        console.log('经纬度:', lat, lng)
+
+        return { lat: parseFloat(lat), lng: parseFloat(lng) }
+      }
+      return null
+    } catch (error) {
+      console.error('地理编码失败:', error)
+      return null
+    }
+  }
+
+  // 获取最近的仓库
+  async function getNearestWarehouse(targetAddress: string, warehouses: InventoryData['inventoryExtensions']) {
+    const _warehouses = warehouses.map((item) => {
+      return {
+        ...item,
+        address: item.warehouse.province + item.warehouse.city + item.warehouse.district + item.warehouse.address
+      }
+    })
+
+    const targetCoordinates = await getCoordinates(targetAddress)
+    let nearestWarehouse: InventoryData['inventoryExtensions'][number] | null = null
+
+    for await (const item of _warehouses) {
+      const warehouseCoordinates = await getCoordinates(item.address)
+      if (targetCoordinates && warehouseCoordinates) {
+        const distance = Math.sqrt(
+          Math.pow(targetCoordinates.lat - warehouseCoordinates.lat, 2) +
+            Math.pow(targetCoordinates.lng - warehouseCoordinates.lng, 2)
+        )
+
+        // @ts-expect-error 123
+        item.distance = distance
+        // @ts-expect-error 123
+        if (!nearestWarehouse || distance < nearestWarehouse.distance) {
+          // @ts-expect-error 123
+          nearestWarehouse = item
+        }
+      }
+    }
+
+    return nearestWarehouse
   }
 
   // 省市区数据
@@ -230,11 +322,16 @@
     toCity: '',
     toDistrict: '',
     toAddress: '',
+    fromProvince: '',
+    fromCity: '',
+    fromDistrict: '',
+    fromAddress: '',
     desc: '',
     status: 1,
     categoryId: undefined as number | undefined,
     userId: undefined as number | undefined,
-    inventoryId: undefined as number | undefined
+    inventoryId: undefined as number | undefined,
+    warehouseId: undefined as number | undefined
   }
   const formData = ref({ ...formDefaultData })
 
@@ -256,16 +353,46 @@
   watch(
     () => formData.value.inventoryId,
     () => {
-      const commodityInventory = inventoryData.value.find((item) => item.id === formData.value.inventoryId)
-      if (commodityInventory) {
-        totalPlaceholder.value = commodityInventory.inventoryExtensions
-          .reduce((prev, cur) => {
-            return cur.total > prev ? cur.total : prev
-          }, 0)
-          .toString()
+      if (!formData.value.inventoryId) {
+        totalPlaceholder.value = '0'
       }
     }
   )
+
+  // 选择商品
+  async function handleSelectCommodity() {
+    const toAddress =
+      formData.value.toProvince + formData.value.toCity + formData.value.toDistrict + formData.value.toAddress
+    if (!toAddress) {
+      ElMessage.error('请先填写收货地址')
+      formData.value.inventoryId = undefined
+      return
+    }
+
+    const commodityInventory = inventoryData.value.find((item) => item.id === formData.value.inventoryId)
+
+    if (commodityInventory) {
+      const warehouses = commodityInventory.inventoryExtensions
+      // 获取距离最近的仓库
+      const nearestWarehouse = await getNearestWarehouse(toAddress, warehouses)
+
+      // 同步设置发货地址
+      syncFromAddress(nearestWarehouse)
+
+      // 同步设置库存数量提示
+      totalPlaceholder.value = nearestWarehouse?.total.toString() ?? '0'
+    }
+  }
+
+  function syncFromAddress(warehouse: InventoryData['inventoryExtensions'][number] | null) {
+    if (warehouse) {
+      formData.value.warehouseId = warehouse.warehouse.id
+      formData.value.fromProvince = warehouse.warehouse.province
+      formData.value.fromCity = warehouse.warehouse.city
+      formData.value.fromDistrict = warehouse.warehouse.district
+      formData.value.fromAddress = warehouse.warehouse.address
+    }
+  }
 
   // 跳转到列表页
   function toListPage() {
@@ -285,6 +412,7 @@
   function resetForm() {
     formRef.value?.resetFields()
     formData.value = { ...formDefaultData }
+    formData.value.categoryId = categoryOptions.value[0].value
   }
 
   // 提交请求

@@ -148,6 +148,7 @@
     agreement: [{ required: true, message: t('register.agreement[0]'), trigger: 'change' }]
   })
 
+  /** 注册 */
   async function register() {
     if (!formRef.value) return
 

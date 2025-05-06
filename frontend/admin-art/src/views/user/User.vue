@@ -50,26 +50,14 @@
         <div class="info box-style">
           <h1 class="title">基本设置</h1>
 
-          <el-form
-            :model="form"
-            class="form"
-            ref="ruleFormRef"
-            :rules="rules"
-            label-width="86px"
-            label-position="top"
-          >
+          <el-form :model="form" class="form" ref="ruleFormRef" :rules="rules" label-width="86px" label-position="top">
             <el-row>
               <el-form-item label="姓名" prop="username">
                 <el-input v-model="form.username" :disabled="!isEdit" />
               </el-form-item>
               <el-form-item label="性别" prop="gender" class="right-input">
                 <el-select v-model="form.gender" placeholder="Select" :disabled="!isEdit">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
+                  <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-row>
@@ -97,13 +85,7 @@
             </el-form-item>
 
             <div class="el-form-item-right">
-              <el-button
-                v-show="isEdit"
-                type="default"
-                style="width: 90px"
-                v-ripple
-                @click="cancelEdit()"
-              >
+              <el-button v-show="isEdit" type="default" style="width: 90px" v-ripple @click="cancelEdit()">
                 取消
               </el-button>
               <el-button type="primary" style="width: 90px" v-ripple @click="edit">
@@ -130,13 +112,7 @@
             </el-form-item>
 
             <div class="el-form-item-right">
-              <el-button
-                v-show="isEditPwd"
-                type="default"
-                style="width: 90px"
-                v-ripple
-                @click="cancelEdit(true)"
-              >
+              <el-button v-show="isEditPwd" type="default" style="width: 90px" v-ripple @click="cancelEdit(true)">
                 取消
               </el-button>
               <el-button type="primary" style="width: 90px" v-ripple @click="editPwd">
@@ -268,6 +244,7 @@
     }
   }
 
+  //
   const handleSubmitEdit = async () => {
     if (!ruleFormRef.value) return
 

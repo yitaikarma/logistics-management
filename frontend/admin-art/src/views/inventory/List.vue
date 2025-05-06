@@ -307,7 +307,7 @@
     formData.value.warehouseId = undefined
   }
 
-  // 重置表单
+  /** 重置表单 */
   function resetForm(isSearch?: boolean) {
     if (isSearch) {
       searchFormRef.value?.resetFields()
@@ -325,7 +325,7 @@
     resetForm()
   }
 
-  // 提交请求
+  /** 提交出入库 */
   async function submitRequest() {
     if (!formRef.value) return
 
@@ -340,12 +340,12 @@
         // 更新记录页数据
         if (dialogType.value === 'entry') {
           console.log('入库')
-
           mittBus.emit('initData:EntryRecord', true)
         } else {
           console.log('出库')
           mittBus.emit('initData:OutRecord', true)
         }
+        mittBus.emit('initData:commodity', true)
       }
     } catch {
       // 错误已在axios拦截器处理

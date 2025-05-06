@@ -42,13 +42,13 @@
     <setting></setting>
 
     <!-- 聊天组件 -->
-    <chat></chat>
+    <!-- <chat></chat> -->
 
     <!-- 烟花组件 -->
-    <fireworks></fireworks>
+    <!-- <fireworks></fireworks> -->
 
     <!-- 水印组件 -->
-    <Watermark :visible="watermarkVisible"></Watermark>
+    <!-- <Watermark :visible="watermarkVisible"></Watermark> -->
   </div>
 </template>
 

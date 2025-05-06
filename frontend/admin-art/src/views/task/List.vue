@@ -99,7 +99,13 @@
         <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[5].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="180">
-          <button-table type="edit" icon="&#xe621;" @click="showDialog('accept', scope.row)" />
+          <button-table
+            v-show="scope.row.status === 2"
+            type="edit"
+            icon=" "
+            text="领取任务"
+            @click="showDialog('accept', scope.row)"
+          />
           <button-table type="edit" icon=" " text="详情" @click="showDialog('detail', scope.row)" />
         </el-table-column>
       </template>
@@ -240,14 +246,13 @@
         <el-form-item label="描述" prop="desc">
           <el-input v-model="formData.desc" type="textarea" disabled />
         </el-form-item>
-        <el-form-item label="状态">
-          <el-switch v-model="formData.status" :active-value="1" :inactive-value="0" disabled />
-        </el-form-item>
       </el-form>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="cancelForm">取消</el-button>
-          <el-button type="primary" :loading="formLoading" @click="handleSubmit">领取任务</el-button>
+          <el-button @click="cancelForm">关闭</el-button>
+          <el-button v-show="formData.status === 2" type="primary" :loading="formLoading" @click="accept(4)">
+            领取任务
+          </el-button>
         </div>
       </template>
     </el-dialog>
@@ -263,9 +268,6 @@
   import { FormInstance } from 'element-plus'
   import { ElMessage } from 'element-plus'
   import EmojiText from '@/utils/emojo'
-  import { useUserStore } from '@/store/modules/user'
-
-  const userStore = useUserStore()
 
   //-------- 表格逻辑 --------//
   const tableData = ref<PaginationData<OrderData[]>>({
@@ -559,9 +561,10 @@
       formData.value.userId = row.userId
       formData.value.inventoryId = row.inventoryId
       formData.value.warehouseId = row.warehouseId
+      formRef.value?.resetFields()
+    } else {
+      accept(row.status)
     }
-
-    accept()
   }
 
   // 搜索
@@ -587,48 +590,13 @@
     resetForm()
   }
 
-  // 提交请求
-  async function submitRequest(status = 2) {
-    if (!formRef.value) return
-
-    formLoading.value = true
-    try {
-      let res
-      formData.value.userId = userStore.getUserInfo.id
-      formData.value.status = status
-
-      if (!rowId.value) {
-        ElMessage.error(`${EmojiText[400]} 执行错误，任务ID不存在`)
-        return
-      }
-      res = await OrderService.update(rowId.value, formData.value)
-
-      if (res.success) {
-        ElMessage.success('领取成功')
-        dialogVisible.value = false
-        resetForm()
-        getListData()
-      }
-    } catch {
-      // 错误已在axios拦截器处理
-    } finally {
-      formLoading.value = false
-    }
-  }
-
-  // 提交表单
-  async function handleSubmit() {
-    if (!formRef.value) return
-
-    await formRef.value.validate(async (valid) => {
-      if (valid) submitRequest()
-    })
-  }
-
   // 领取任务
-  async function accept(status = 4) {
+  async function accept(status: number) {
+    if (status !== 2) {
+      return
+    }
     try {
-      await ElMessageBox.confirm('确定要领取该任务吗？', '移除任务', {
+      await ElMessageBox.confirm('确定要领取该任务吗？', '领取任务', {
         type: 'error',
         confirmButtonText: '确定',
         cancelButtonText: '取消'
@@ -642,7 +610,7 @@
           ElMessage.error(`${EmojiText[400]} 执行错误，任务ID不存在`)
           return
         }
-        res = await OrderService.update(rowId.value, { status })
+        res = await OrderService.update(rowId.value, { status: 4 })
 
         if (res.success) {
           ElMessage.success('领取成功')

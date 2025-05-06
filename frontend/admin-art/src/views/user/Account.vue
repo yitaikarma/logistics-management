@@ -164,7 +164,7 @@
     columns.values = list
   }
 
-  // 获取列表数据
+  /** 获取权限数据 */
   async function getRoleList() {
     try {
       const res = await RoleService.getList()
@@ -183,7 +183,7 @@
       ElMessage.error('执行错误')
     }
   }
-  // 获取列表数据
+  /** 获取用户数据 */
   async function getListData() {
     try {
       const { currentPage, pageSize } = tableData.value
@@ -198,7 +198,7 @@
     }
   }
 
-  // 删除数据
+  /** 删除用户数据 */
   async function deleteUser() {
     try {
       await ElMessageBox.confirm('确定要注销该用户吗？', '注销用户', {
@@ -316,7 +316,7 @@
     resetForm()
   }
 
-  // 提交表单
+  /** 添加和编辑用户数据 */
   async function handleSubmit() {
     if (!formRef.value) return
 

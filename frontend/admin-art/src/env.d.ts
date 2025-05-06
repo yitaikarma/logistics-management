@@ -36,6 +36,12 @@ declare module 'qrcode.vue' {
   export default QrcodeVue
 }
 
+interface Window {
+  _AMapSecurityConfig: {
+    securityJsCode: string
+  }
+}
+
 // 环境变量提示
 // interface ImportMetaEnv {
 //   VITE_BASE_API_URL: string
