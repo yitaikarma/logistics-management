@@ -231,7 +231,6 @@
         item.distance = distance
         // @ts-expect-error 123
         if (!nearestWarehouse || distance < nearestWarehouse.distance) {
-          // @ts-expect-error 123
           nearestWarehouse = item
         }
       }

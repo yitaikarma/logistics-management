@@ -15,9 +15,7 @@
     <art-table v-bind="tableData" selection @current-change="changePage" @size-change="changePageSizes">
       <template #default>
         <el-table-column label="状态" prop="status" #default="scope" min-width="120">
-          <!-- @vue-expect-error ts -->
           <el-tag :type="statusMap[scope.row.status].type">
-            <!-- @vue-expect-error ts -->
             {{ statusMap[scope.row.status].text }}
           </el-tag>
         </el-table-column>
