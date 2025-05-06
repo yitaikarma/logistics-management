@@ -1,0 +1,289 @@
+  /** 登录 */
+  const handleSubmit = async () => {
+    if (!formRef.value) return
+
+    await formRef.value.validate(async (valid) => {
+      if (valid) {
+        if (!isPassing.value) {
+          isClickPass.value = true
+          return
+        }
+
+        loading.value = true
+
+        const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+        try {
+          const data = {
+            username: formData.username,
+            password: formData.password
+          }
+          const res = await AuthService.signin(data)
+
+          if (res.success && res.data) {
+            rememberPassword(formData.rememberPassword)
+
+            userStore.setToken(res.data.token)
+
+            const userRes = await UserService.get(res.data.user.id)
+            if (userRes.success) {
+              userStore.setUserInfo(userRes.data)
+            }
+
+            userStore.setLoginStatus(true)
+            showLoginSuccessNotice()
+            router.push(HOME_PAGE)
+          } else {
+            ElMessage.error(res.message)
+          }
+        } finally {
+          await delay(1000)
+          loading.value = false
+        }
+      }
+    })
+  }
+
+  /** 注册 */
+  async function register() {
+    if (!formRef.value) return
+
+    try {
+      await formRef.value.validate()
+      loading.value = true
+
+      const data: SignupBody = {
+        username: formData.username,
+        password: formData.password
+      }
+
+      const res = await AuthService.signup(data)
+      if (res.success) {
+        ElMessage.success(t('register.success'))
+        userStore.setLogin({ username: formData.username, password: formData.password })
+        router.push('/login')
+      }
+    } catch (error) {
+      console.log('验证失败', error)
+    } finally {
+      loading.value = false
+    }
+  }
+
+  /** 获取用户数据 */
+  async function getListData() {
+    try {
+      const { currentPage, pageSize } = tableData.value
+      const res = await UserService.getPage({ currentPage, pageSize, ...searchForm.value })
+      if (res.success) {
+        tableData.value = res.data
+      } else {
+        ElMessage.error(res.message)
+      }
+    } catch {
+      ElMessage.error('执行错误')
+    }
+  }
+
+  /** 删除用户数据 */
+  async function deleteUser() {
+    try {
+      await ElMessageBox.confirm('确定要注销该用户吗？', '注销用户', {
+        type: 'error',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      })
+      if (!rowId.value) {
+        ElMessage.error('执行错误，用户ID获取错误')
+      } else {
+        const res = await UserService.delete(rowId.value)
+        if (!res.success) {
+          ElMessage.error(res.message)
+        } else {
+          getListData()
+          ElMessage.success('注销成功')
+        }
+      }
+    } catch {
+      ElMessage.error('执行错误')
+    }
+  }
+
+  /** 添加和编辑用户数据 */
+  async function handleSubmit() {
+    if (!formRef.value) return
+
+    await formRef.value.validate(async (valid) => {
+      if (valid) {
+        try {
+          let res
+          if (dialogType.value === 'add') {
+            res = await UserService.add(formData.value)
+          } else {
+            if (!rowId.value) {
+              ElMessage.error('执行错误，用户ID不存在')
+              return
+            }
+            delete formData.value.password
+            res = await UserService.update(rowId.value, formData.value)
+          }
+
+          if (!res.success) {
+            ElMessage.error(res.message)
+          } else {
+            ElMessage.success(dialogType.value === 'add' ? '添加成功' : '更新成功')
+            dialogVisible.value = false
+            resetForm()
+            getListData()
+          }
+        } catch {
+          ElMessage.error('执行错误')
+        }
+      }
+    })
+  }
+
+  /** 获取角色数据 */
+  async function getListData() {
+    try {
+      const { currentPage, pageSize } = tableData.value
+      const res = await RoleService.getPage({ currentPage, pageSize, ...searchForm.value })
+      if (res.success) {
+        tableData.value = res.data
+      } else {
+        ElMessage.error(res.message)
+      }
+    } catch {
+      ElMessage.error('执行错误')
+    }
+  }
+
+  /** 删除角色数据 */
+  async function del() {
+    try {
+      await ElMessageBox.confirm('确定删除该角色吗？', '注销用户', {
+        type: 'error',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      })
+      if (!rowId.value) {
+        ElMessage.error('执行错误，用户ID获取错误')
+      } else {
+        const res = await RoleService.delete(rowId.value)
+        if (!res.success) {
+          ElMessage.error(res.message)
+        } else {
+          getListData()
+          ElMessage.success('注销成功')
+        }
+      }
+    } catch {
+      ElMessage.error('执行错误')
+    }
+  }
+
+  /** 添加和编辑角色 */
+  async function handlePermissionSubmit() {
+    if (!rowId.value) {
+      ElMessage.error('执行错误，用户ID获取错误')
+      return
+    }
+    if (!treeRef.value) {
+      ElMessage.error('执行错误，树形控件获取错误')
+      return
+    }
+
+    const checkedNodes = treeRef.value.getCheckedNodes(false, true)
+    const checkedKeys = toRaw(checkedNodes).map((item) => item.id)
+    console.log(checkedKeys)
+    console.log(treeRef.value.getCheckedNodes(false, true))
+
+    console.log(pickMenu(checkedKeys, toRaw(menuList.value)))
+
+    const res = await RoleService.update(rowId.value, {
+      pageAuthString: JSON.stringify(checkedKeys)
+    })
+    if (res.success) {
+      ElMessage.success('设置成功')
+      permissionDialog.value = false
+      if (useUserStore().getUserInfo.roleId === rowId.value) {
+        updatePageRouter(checkedKeys)
+      }
+      getListData()
+    } else {
+      ElMessage.error(res.message)
+    }
+  }
+
+  /** 同步更新路由 */
+  function updatePageRouter(checkedKeys: number[]) {
+    const _menuList = toRaw(menuList.value)
+    const userMenuList = pickMenu(checkedKeys, _menuList)
+    const finalMenuList = userMenuList?.length ? userMenuList : _menuList
+    useMenuStore().setMenuList(finalMenuList as [])
+    registerAsyncRoutes(router, userMenuList)
+  }
+
+  /** 提交出入库 */
+  async function submitRequest() {
+    if (!formRef.value) return
+
+    formLoading.value = true
+    try {
+      let res = await InventoryService.add(formData.value)
+      if (res.success) {
+        ElMessage.success(dialogType.value === 'entry' ? '入库成功' : '出库成功')
+        dialogVisible.value = false
+        resetForm()
+        getListData()
+        // 更新记录页数据
+        if (dialogType.value === 'entry') {
+          console.log('入库')
+          mittBus.emit('initData:EntryRecord', true)
+        } else {
+          console.log('出库')
+          mittBus.emit('initData:OutRecord', true)
+        }
+        mittBus.emit('initData:commodity', true)
+      }
+    } catch {
+      // 错误已在axios拦截器处理
+    } finally {
+      formLoading.value = false
+    }
+  }
+  
+  /** 重置表单 */
+  function resetForm(isSearch?: boolean) {
+    if (isSearch) {
+      searchFormRef.value?.resetFields()
+      searchForm.value = { ...searchDefaultData }
+      getListData()
+    } else {
+      formRef.value?.resetFields()
+      formData.value = { ...formDefaultData }
+    }
+  }
+  
+  /** 获取2个地点距离 */
+  async function getCoordinates(address: string) {
+    const apiKey = '4321fd5bbd6c20b5784b377897f67ee8'
+    const url = `https://restapi.amap.com/v3/geocode/geo?key=${apiKey}&address=${encodeURIComponent(address)}`
+
+    try {
+      const response = await fetch(url)
+      const data = await response.json()
+      console.log('data', data)
+
+      if (data.status === '1' && data.geocodes.length > 0) {
+        const [lng, lat] = data.geocodes[0].location.split(',')
+        console.log('经纬度:', lat, lng)
+
+        return { lat: parseFloat(lat), lng: parseFloat(lng) }
+      }
+      return null
+    } catch (error) {
+      console.error('地理编码失败:', error)
+      return null
+    }
+  }
