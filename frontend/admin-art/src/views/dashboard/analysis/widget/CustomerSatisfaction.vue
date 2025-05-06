@@ -90,7 +90,7 @@
             name: t('analysis.customerSatisfaction.legend.lastMonth'),
             type: 'line',
             smooth: true,
-            data: [1800, 2800, 1800, 2300, 2600, 2500, 3500],
+            data: [0, 0, 0, 0, 0, 0, 0],
             areaStyle: {
               opacity: 0.8,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -111,7 +111,7 @@
             name: t('analysis.customerSatisfaction.legend.thisMonth'),
             type: 'line',
             smooth: true,
-            data: [4800, 3500, 4300, 3700, 4500, 3500, 5500],
+            data: [0, 0, 0, 23, 2, 12, 35],
             areaStyle: {
               opacity: 0.8,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

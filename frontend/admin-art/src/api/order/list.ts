@@ -26,7 +26,7 @@ export interface OrderData {
   categoryId: number
   category: Pick<OrderCategoryData, 'id' | 'name'>
   userId: number
-  user: Pick<UserData, 'id' | 'username'>
+  user: Pick<UserData, 'id' | 'username' | 'phone'>
   commodityId: number
   commodity: Pick<CommodityData, 'id' | 'name'>
   inventoryId: number

@@ -11,6 +11,7 @@
     "lib": ["esnext", "dom"],
     "types": ["vite/client", "node", "element-plus/global"],
     "skipLibCheck": true, // 针对element-plus的打包校验
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

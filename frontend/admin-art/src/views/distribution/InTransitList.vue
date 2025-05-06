@@ -13,7 +13,6 @@
           <el-row :gutter="20">
             <form-input label="任务ID" prop="id" v-model="searchForm.id" />
             <form-select label="商品" prop="inventoryId" v-model="searchForm.inventoryId" :options="commodityOptions" />
-            <form-select label="状态" prop="status" v-model="searchForm.status" :options="statusOptions" />
           </el-row>
         </el-form>
       </template>
@@ -118,21 +117,7 @@
         </el-table-column>
         <el-table-column label="备注" prop="desc" min-width="120" v-if="columns[5].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
-        <el-table-column fixed="right" label="操作" #default="scope" width="280">
-          <button-table
-            v-show="scope.row.status === 1"
-            type="edit"
-            icon=" "
-            text="开始配送"
-            @click="showDialog('accept', scope.row)"
-          />
-          <button-table
-            v-show="scope.row.status === 2"
-            type="edit"
-            icon=" "
-            text="确认送达"
-            @click="showDialog('completed', scope.row)"
-          />
+        <el-table-column fixed="right" label="操作" #default="scope" width="180">
           <button-table
             v-show="scope.row.status === 2"
             type="edit"
@@ -146,7 +131,7 @@
     </art-table>
 
     <!-- 表单 -->
-    <el-dialog v-model="dialogVisible" :title="dialogType === 'detail' ? '任务详情' : '配送路线'" min-width="700px">
+    <el-dialog v-model="dialogVisible" :title="'任务详情'" width="700px">
       <template v-if="dialogType === 'detail'">
         <el-descriptions
           class="margin-top"
@@ -221,8 +206,6 @@
   import { UserService, OrderCategoryService, CommodityService, DistributionService } from '@/api'
   import { PaginationData } from '@/types/axios'
   import { FormInstance } from 'element-plus'
-  import { ElMessage } from 'element-plus'
-  import EmojiText from '@/utils/emojo'
   import AMap from './AMap.vue'
 
   //-------- 表格逻辑 --------//
@@ -244,7 +227,6 @@
     4: { name: '已签收', value: 4, type: 'success' },
     5: { name: '异常', value: 5, type: 'warning' }
   }
-  const statusOptions = Object.values(statusMap)
 
   const columns = reactive([
     { name: '任务ID', show: true },
@@ -325,7 +307,7 @@
   async function getListData() {
     try {
       const { currentPage, pageSize } = tableData.value
-      const res = await DistributionService.getPage({ currentPage, pageSize, ...searchForm.value })
+      const res = await DistributionService.getPage({ currentPage, pageSize, status: 2, ...searchForm.value })
       if (res.success) {
         tableData.value = res.data
       }
@@ -355,14 +337,12 @@
   const searchFormRef = ref<FormInstance>()
   const dialogType = ref('accept')
   const dialogVisible = ref(false)
-  const formLoading = ref(false)
 
   const rowId = ref<number | undefined>()
 
   const searchDefaultData = {
     id: undefined,
-    inventoryId: undefined,
-    status: undefined
+    inventoryId: undefined
   }
 
   const searchForm = ref({ ...searchDefaultData })
@@ -389,13 +369,9 @@
       dialogVisible.value = true
       initOptionData()
       formData.value = row
-    } else if (type === 'accept' && row) {
-      accept(row.status)
-    } else if (type === 'progress' && row) {
+    } else {
       dialogVisible.value = true
       formData.value = row
-    } else if (type === 'completed' && row) {
-      completed(row.status)
     }
   }
 
@@ -416,80 +392,6 @@
   // 取消表单
   function cancelForm() {
     dialogVisible.value = false
-  }
-
-  // 开始配送请求
-  async function accept(status: number) {
-    if (status !== 1) {
-      return
-    }
-    try {
-      await ElMessageBox.confirm('确定要开始该任务吗？', '开始配送', {
-        type: 'error',
-        confirmButtonText: '确定',
-        cancelButtonText: '取消'
-      })
-
-      formLoading.value = true
-      try {
-        let res
-
-        if (!rowId.value) {
-          ElMessage.error(`${EmojiText[400]} 执行错误，任务ID不存在`)
-          return
-        }
-        res = await DistributionService.update(rowId.value, { status: 2 })
-
-        if (res.success) {
-          ElMessage.success('任务已开始')
-          dialogVisible.value = false
-          getListData()
-        }
-      } catch {
-        // 错误已在axios拦截器处理
-      } finally {
-        formLoading.value = false
-      }
-    } catch {
-      ElMessage.info(`已取消`)
-    }
-  }
-
-  // 已送达请求
-  async function completed(status: number) {
-    if (status !== 2) {
-      return
-    }
-    try {
-      await ElMessageBox.confirm('确定已送达该任务？', '已送达', {
-        type: 'error',
-        confirmButtonText: '确定',
-        cancelButtonText: '取消'
-      })
-
-      formLoading.value = true
-      try {
-        let res
-
-        if (!rowId.value) {
-          ElMessage.error(`${EmojiText[400]} 执行错误，配送ID不存在`)
-          return
-        }
-        res = await DistributionService.update(rowId.value, { status: 3 })
-
-        if (res.success) {
-          ElMessage.success('任务已送达')
-          dialogVisible.value = false
-          getListData()
-        }
-      } catch {
-        // 错误已在axios拦截器处理
-      } finally {
-        formLoading.value = false
-      }
-    } catch {
-      ElMessage.info(`已取消`)
-    }
   }
 </script>
 

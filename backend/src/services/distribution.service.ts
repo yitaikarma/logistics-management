@@ -16,22 +16,36 @@ import { DistributionQuerySchema } from 'src/validate/distribution.validate'
 /** 过滤 */
 const select = Prisma.validator<Prisma.DistributionSelect>()({
     id: true,
-    name: true,
     desc: true,
+    startTime: true,
+    endTime: true,
     status: true,
     createdAt: true,
     updatedAt: true,
-    categoryId: true,
-    category: { select: { id: true, name: true } },
+    orderId: true,
+    order: {
+        include: {
+            inventory: {
+                include: {
+                    commodity: true,
+                    inventoryExtensions: {
+                        include: {
+                            warehouse: true,
+                        },
+                    },
+                },
+            },
+            user: true,
+            category: { select: { id: true, name: true } },
+        },
+    },
 })
 
 /** 查询参数 */
 function findParams(params?: DistributionQuerySchema) {
     return {
-        name: { contains: params?.name || undefined },
         desc: { contains: params?.desc || undefined },
         status: { equals: params?.status },
-        categoryId: { equals: params?.categoryId },
     } as Prisma.DistributionWhereInput
 }
 
@@ -50,17 +64,28 @@ export class DistributionService {
     private prisma = prismaService.prisma
 
     // 获取配送分页列表
-    async findPageAll(params?: DistributionQuerySchema) {
+    async findPageAll(params?: DistributionQuerySchema, type: 'default' | 'completed' = 'default') {
         let { currentPage, pageSize } = params ?? {}
         currentPage ??= 1
         pageSize ??= 10
         const skip = (currentPage - 1) * pageSize
 
+        let where: Prisma.DistributionWhereInput
+        if (type === 'completed') {
+            where = {
+                OR: [{ status: 3 }, { status: 4 }],
+            }
+        } else {
+            where = {
+                ...findParams(params),
+            }
+        }
+
         const condition: Prisma.DistributionFindManyArgs = {
             skip,
             take: pageSize,
             select,
-            where: findParams(params),
+            where,
             orderBy: { createdAt: 'desc' },
         }
 

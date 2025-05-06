@@ -100,8 +100,8 @@
         <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[4].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
-          <button-table type="edit" @click="showDialog('edit', scope.row)" />
-          <button-table type="delete" @click="del" />
+          <button-table :disabled="scope.row.status !== 1" type="edit" @click="showDialog('edit', scope.row)" />
+          <button-table :disabled="scope.row.status !== 1" type="delete" @click="del(scope.row)" />
         </el-table-column>
       </template>
     </art-table>
@@ -354,7 +354,10 @@
   }
 
   // 删除数据
-  async function del() {
+  async function del(row) {
+    if (row.status !== 1) {
+      return
+    }
     try {
       await ElMessageBox.confirm('确定要移除该订单吗？', '移除订单', {
         type: 'error',
@@ -486,6 +489,9 @@
 
   // 显示表单
   function showDialog(type: string, row?: any) {
+    if (row.status !== 1) {
+      return
+    }
     dialogVisible.value = true
     dialogType.value = type
 

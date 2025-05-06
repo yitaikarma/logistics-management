@@ -1,6 +1,6 @@
 import request from '@/utils/http'
 import { BaseResult, PaginationResult } from '@/types/axios'
-import { DistributionCategoryData } from './category'
+import { OrderData } from '../order/list'
 
 /** 配送响应数据类型 */
 export interface DistributionData {
@@ -9,8 +9,8 @@ export interface DistributionData {
   status: number
   createAt: string
   updateAt: string
-  categoryId: number
-  category: Pick<DistributionCategoryData, 'id' | 'name'>
+  orderId: number
+  order: OrderData
 }
 
 type DistributionPageParams = DistributionParams & Partial<{ currentPage: number; pageSize: number }>
@@ -21,6 +21,11 @@ export class DistributionService {
   /** 获取配送分页列表 */
   static getPage(params?: DistributionPageParams) {
     return request.get<PaginationResult<DistributionData[]>>({ url: '/distributions/page', params })
+  }
+
+  /** 获取配送分页列表 */
+  static getPageCompleted(params?: DistributionPageParams) {
+    return request.get<PaginationResult<DistributionData[]>>({ url: '/distributions/page/completed', params })
   }
 
   /** 获取配送列表 */

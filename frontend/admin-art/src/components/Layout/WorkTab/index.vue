@@ -1,11 +1,7 @@
 <template>
   <div class="worktab">
     <div class="scroll-view" ref="scrollRef">
-      <ul
-        class="tabs"
-        ref="tabsRef"
-        :style="{ transform: `translateX(${translateX}px)`, transition: `${transition}` }"
-      >
+      <ul class="tabs" ref="tabsRef" :style="{ transform: `translateX(${translateX}px)`, transition: `${transition}` }">
         <li
           class="art-custom-card"
           v-for="(item, index) in list"
@@ -31,18 +27,10 @@
         </el-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item
-              :icon="ArrowLeft"
-              command="left"
-              :disabled="activeTabIndex === 0 || activeTabIndex === 1"
-            >
+            <el-dropdown-item :icon="ArrowLeft" command="left" :disabled="activeTabIndex === 0 || activeTabIndex === 1">
               <span>{{ $t('worktab.btn[0]') }}</span>
             </el-dropdown-item>
-            <el-dropdown-item
-              :icon="ArrowRight"
-              command="right"
-              :disabled="activeTabIndex === list.length - 1"
-            >
+            <el-dropdown-item :icon="ArrowRight" command="right" :disabled="activeTabIndex === list.length - 1">
               <span>{{ $t('worktab.btn[1]') }}</span>
             </el-dropdown-item>
             <el-dropdown-item
@@ -140,8 +128,7 @@
   })
 
   // 获取当前标签页索引和元素
-  const getCurTabEl = () =>
-    document.getElementById(`scroll-li-${activeTabIndex.value}`) as HTMLElement
+  const getCurTabEl = () => document.getElementById(`scroll-li-${activeTabIndex.value}`) as HTMLElement
 
   // 设置过渡动画
   const setTransition = () => {
@@ -301,8 +288,7 @@
 
             const xMin = scrollRef.value.offsetWidth - tabsRef.value.offsetWidth
             // 使用 deltaX 来处理水平滚动，使用 deltaY 来处理垂直滚动
-            const delta =
-              Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY
+            const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY
             translateX.value = Math.min(Math.max(translateX.value - delta, xMin), xMax)
           }
         },

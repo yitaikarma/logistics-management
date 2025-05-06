@@ -28,6 +28,7 @@
     // },
 
     "cSpell.words": [
+        "amap",
         "appleboy",
         "autoincrement",
         "axios",
@@ -37,6 +38,7 @@
         "esbuild",
         "finalvk",
         "iconfont",
+        "jsapi",
         "localtime",
         "loginway",
         "qrcode",
@@ -48,6 +50,18 @@
     ],
     "cSpell.enabledFileTypes": {
         "nginx": false
-    }
+    },
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "pnpm-lock.yaml",
+        "yarn.lock",
+        "package.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        ".vscode-insiders"
+    ]
     // "oxc.enable": true
 }

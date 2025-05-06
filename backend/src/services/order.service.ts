@@ -9,6 +9,8 @@
 import { Order, Prisma } from '@prisma.client'
 import { PrismaClientKnownRequestError } from '@prisma.client/runtime/library'
 import { prismaService } from './prisma.service'
+import { DistributionService } from './distribution.service'
+import { InventoryService } from './inventory.service'
 import { AppError, ErrorCode, NotFoundError } from '../utils/errors'
 import { ResponseUtil } from '../utils/response'
 import { OrderQuerySchema } from 'src/validate/order.validate'
@@ -85,6 +87,8 @@ async function findTarget(model: typeof prismaService.prisma.order, condition: a
 
 export class OrderService {
     private prisma = prismaService.prisma
+    private distributionService = new DistributionService()
+    private inventoryService = new InventoryService()
 
     // 获取订单分页列表
     async findPageAll(params?: OrderQuerySchema) {
@@ -133,6 +137,17 @@ export class OrderService {
     async create(data: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>) {
         try {
             const result = await this.prisma.order.create({ select, data })
+            const inventory = await this.inventoryService.findById(data.inventoryId!)
+
+            // 创建库存
+            await this.inventoryService.create({
+                type: 2,
+                total: data.total,
+                commodityId: inventory.data.commodityId,
+                warehouseId: data.warehouseId!,
+                desc: `客户下单${data.desc && '：'}${data.desc ?? null}`,
+                status: 1,
+            })
             return ResponseUtil.success(result, '创建订单成功', 201)
         } catch (error) {
             // 特定错误处理，如邮箱唯一性冲突
@@ -153,6 +168,17 @@ export class OrderService {
                 select,
                 data,
             })
+
+            if (data.status === 4) {
+                // 订单状态为已领取，创建配送
+                await this.distributionService.create({
+                    desc: data.desc ?? null,
+                    startTime: null,
+                    endTime: null,
+                    status: 1,
+                    orderId: id,
+                })
+            }
 
             return ResponseUtil.success(result, '更新订单成功')
         } catch (error) {

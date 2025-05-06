@@ -14,15 +14,10 @@
           <div :class="['sales-card art-custom-card']">
             <i class="iconfont-sys" :class="item.class" v-html="item.iconfont"></i>
             <h2>
-              <CountTo
-                class="number box-title"
-                :endVal="item.value"
-                :duration="1000"
-                separator=""
-              ></CountTo>
+              <CountTo class="number box-title" :endVal="item.value" :duration="1000" separator=""></CountTo>
             </h2>
             <p>{{ item.label }}</p>
-            <small>{{ item.change }} {{ t('analysis.todaySales.fromYesterday') }}</small>
+            <small>+{{ item.change }}% {{ t('analysis.todaySales.fromYesterday') }}</small>
           </div>
         </el-col>
       </el-row>
@@ -40,29 +35,29 @@
   const salesData = ref([
     {
       label: t('analysis.todaySales.cards.totalSales.label'),
-      value: 999,
-      change: t('analysis.todaySales.cards.totalSales.change'),
+      value: 4453,
+      change: 78,
       iconfont: '&#xe7d9',
       class: 'bg-primary'
     },
     {
       label: t('analysis.todaySales.cards.totalOrder.label'),
-      value: 300,
-      change: t('analysis.todaySales.cards.totalOrder.change'),
+      value: 14,
+      change: 81,
       iconfont: '&#xe70f',
       class: 'bg-success'
     },
     {
       label: t('analysis.todaySales.cards.productSold.label'),
-      value: 56,
-      change: t('analysis.todaySales.cards.productSold.change'),
+      value: 6,
+      change: 69,
       iconfont: '&#xe712',
       class: 'bg-warning'
     },
     {
       label: t('analysis.todaySales.cards.newCustomers.label'),
-      value: 68,
-      change: t('analysis.todaySales.cards.newCustomers.change'),
+      value: 0,
+      change: 0,
       iconfont: '&#xe77f',
       class: 'bg-error'
     }

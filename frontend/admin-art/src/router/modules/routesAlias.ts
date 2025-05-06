@@ -22,21 +22,15 @@ export enum RoutesAlias {
   VehicleCategory = '/vehicle/Category', // 车辆分类
 
   OrderApplication = '/order/Application', // 订单申请
+  OrderReviewList = '/order/ReviewList', // 审核列表
   OrderList = '/order/List', // 订单列表
-  OrderCategory = '/order/Category', //
+  OrderCategory = '/order/Category', // 订单分类
 
-  ReviewOrderList = '/review/OrderList', // 审核订单列表
-  ReviewCategory = '/review/Category', // 审核分类
-
-  TaskRelease = '/task/Release', // 任务发布
   TaskList = '/task/List', // 任务列表
-  TaskCategory = '/task/Category', // 任务分类
-  TaskRecords = '/task/Records', // 任务记录
 
   DistributionList = '/distribution/List', // 配送列表
-  DistributionCategory = '/distribution/Category', // 仪表盘分类
+  DistributionInTransitList = '/distribution/InTransitList', // 正在配送
   DistributionSignedList = '/distribution/SignedList', // 配送签收列表
-  DistributionRecords = '/distribution/Records', // 配送记录
   DistributionExceptionRecords = '/distribution/ExceptionRecords', // 配送异常记录
 
   Success = '/result/Success', // 成功

@@ -72,10 +72,10 @@
             </div>
 
             <div class="forget-password">
-              <el-checkbox v-model="formData.rememberPassword" @change="rememberPassword">{{
-                $t('login.rememberPwd')
-              }}</el-checkbox>
-              <router-link to="/forget-password">{{ $t('login.forgetPwd') }}</router-link>
+              <el-checkbox v-model="formData.rememberPassword" @change="rememberPassword">
+                {{ $t('login.rememberPwd') }}
+              </el-checkbox>
+              <!-- <router-link to="/forget-password">{{ $t('login.forgetPwd') }}</router-link> -->
             </div>
 
             <div style="margin-top: 30px">
@@ -168,6 +168,7 @@
     }
   }
 
+  /** 登录 */
   const handleSubmit = async () => {
     if (!formRef.value) return
 

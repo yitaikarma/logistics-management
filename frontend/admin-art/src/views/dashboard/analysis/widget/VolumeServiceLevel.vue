@@ -35,12 +35,12 @@
 
   // 模拟数据
   const chartData = [
-    { volume: 800, services: 400 },
-    { volume: 1000, services: 600 },
-    { volume: 750, services: 300 },
-    { volume: 600, services: 250 },
-    { volume: 450, services: 200 },
-    { volume: 500, services: 300 }
+    { volume: 21, services: 4 },
+    { volume: 36, services: 0 },
+    { volume: 7, services: 0 },
+    { volume: 2, services: 0 },
+    { volume: 4, services: 0 },
+    { volume: 10, services: 0 }
   ]
 
   // 将图表选项提取为一个计算属性
@@ -52,10 +52,7 @@
       }
     },
     legend: {
-      data: [
-        t('analysis.volumeServiceLevel.legend.volume'),
-        t('analysis.volumeServiceLevel.legend.services')
-      ],
+      data: [t('analysis.volumeServiceLevel.legend.volume'), t('analysis.volumeServiceLevel.legend.services')],
       bottom: 20,
       itemWidth: 10,
       itemHeight: 10,

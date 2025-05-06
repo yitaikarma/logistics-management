@@ -9,10 +9,10 @@
     <img class="left-bg" src="@imgs/login/lf_bg.png" />
     <img class="left-img" src="@imgs/login/lf_icon2.png" />
 
-    <div class="text-wrap">
+    <!-- <div class="text-wrap">
       <h1> {{ $t('login.leftView.title') }} </h1>
       <p> {{ $t('login.leftView.subTitle') }} </p>
-    </div>
+    </div> -->
   </div>
 </template>
 

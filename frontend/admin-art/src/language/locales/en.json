@@ -370,28 +370,20 @@
     "order": {
       "title": "Order Management",
       "application": "Order Application",
+      "reviewList": "Review List",
       "list": "Order List",
       "category": "Order Category"
     },
-    "review": {
-      "title": "Review Management",
-      "orderList": "Order Review List",
-      "category": "Review Category"
-    },
     "task": {
       "title": "Task Management",
-      "release": "Task Release",
-      "list": "Task List",
-      "records": "Task Records",
-      "category": "Task Category"
+      "list": "Task List"
     },
     "distribution": {
       "title": "Distribution Management",
       "list": "Distribution List",
-      "records": "Distribution Records",
+      "inTransitList": "In Transit List",
       "signedList": "Signed List",
-      "exceptionRecords": "Exception Records",
-      "category": "Distribution Category"
+      "exceptionRecords": "Exception Records"
     },
 
     "widgets": {

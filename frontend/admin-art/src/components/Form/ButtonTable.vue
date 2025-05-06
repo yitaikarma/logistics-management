@@ -1,6 +1,6 @@
 <!-- 表格按钮，支持文字和图标 -->
 <template>
-  <div :class="['btn-text', buttonColor]" @click="handleClick">
+  <div :class="['btn-text', buttonColor, { disabled: props.disabled }]" @click="handleClick">
     <i v-if="iconContent" class="iconfont-sys" v-html="iconContent" :style="iconStyle"></i>
     <span v-if="props.text">{{ props.text }}</span>
   </div>
@@ -18,6 +18,7 @@
       iconClass?: BgColorEnum // 自定义按钮背景色、文字颜色
       iconColor?: string // 外部传入的图标文字颜色
       iconBgColor?: string // 外部传入的图标背景色
+      disabled?: boolean // 是否禁用
     }>(),
     {}
   )
@@ -41,6 +42,9 @@
 
   // 计算按钮的背景色：优先使用外部传入的 iconClass，否则根据 type 选默认颜色
   const buttonColor = computed(() => {
+    if (props.disabled) {
+      return ''
+    }
     return props.iconClass || defaultButtons.find((btn) => btn.type === props.type)?.color || ''
   })
 
@@ -71,7 +75,13 @@
     background-color: rgba(var(--art-gray-200-rgb), 0.7);
     border-radius: 6px;
 
-    &:hover {
+    &.disabled {
+      cursor: not-allowed;
+      color: #6666;
+      background-color: rgba(var(--art-gray-200-rgb), 0.7);
+    }
+
+    &:not(.disabled):hover {
       color: var(--main-color);
       background-color: rgba(var(--art-gray-300-rgb), 0.5);
     }

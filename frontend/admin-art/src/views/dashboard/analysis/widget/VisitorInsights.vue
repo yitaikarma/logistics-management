@@ -47,10 +47,7 @@
         containLabel: true
       },
       legend: {
-        data: [
-          t('analysis.visitorInsights.legend.loyalCustomers'),
-          t('analysis.visitorInsights.legend.newCustomers')
-        ],
+        data: [t('analysis.visitorInsights.legend.loyalCustomers'), t('analysis.visitorInsights.legend.newCustomers')],
         bottom: 0,
         left: 'center',
         itemWidth: 14,
@@ -90,7 +87,7 @@
           type: 'line',
           smooth: true,
           symbol: 'none',
-          data: [260, 200, 150, 130, 180, 270, 340, 380, 300, 220, 170, 130],
+          data: [0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
           lineStyle: {
             color: '#2B8DFA',
             width: 3
@@ -104,7 +101,7 @@
           type: 'line',
           smooth: true,
           symbol: 'none',
-          data: [280, 350, 300, 250, 230, 210, 240, 280, 320, 350, 300, 200],
+          data: [0, 0, 14, 23, 4, 0, 0, 0, 0, 0, 0, 0],
           lineStyle: {
             color: '#18C653',
             width: 3

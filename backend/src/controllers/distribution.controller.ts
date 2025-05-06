@@ -29,6 +29,12 @@ export class DistributionController {
         return await this.distributionService.findPageAll(query)
     }
 
+    @Get('/page/completed')
+    @UseMiddleware(validateQuery(DistributionQuerySchema))
+    async getPageAllDistributionsCompleted(@Query() query?: DistributionQuerySchema) {
+        return await this.distributionService.findPageAll(query, 'completed')
+    }
+
     @Get()
     @UseMiddleware(validateQuery(DistributionQuerySchema))
     async getAllDistributions(@Query() query?: DistributionQuerySchema) {

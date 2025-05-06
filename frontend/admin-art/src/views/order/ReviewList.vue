@@ -101,7 +101,13 @@
         <el-table-column label="描述" prop="desc" min-width="120" v-if="columns[5].show" />
         <el-table-column label="创建日期" prop="createdAt" sortable min-width="120" v-if="columns[6].show" />
         <el-table-column fixed="right" label="操作" #default="scope" width="150px">
-          <button-table type="edit" icon="&#xe836;" @click="showDialog('edit', scope.row)" />
+          <button-table
+            :disabled="scope.row.status !== 1"
+            type="edit"
+            icon=" "
+            :text="scope.row.status === 1 ? '审核' : '已审核'"
+            @click="showDialog('edit', scope.row)"
+          />
         </el-table-column>
       </template>
     </art-table>
@@ -246,9 +252,9 @@
         <el-form-item label="描述" prop="desc">
           <el-input v-model="formData.desc" type="textarea" disabled />
         </el-form-item>
-        <el-form-item label="状态">
+        <!-- <el-form-item label="状态">
           <el-switch v-model="formData.status" :active-value="1" :inactive-value="0" disabled />
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <template #footer>
         <div class="dialog-footer">
@@ -290,7 +296,8 @@
   const statusMap: Record<number, { name: string; value: number; type: 'success' | 'info' }> = {
     1: { name: '待审核', value: 1, type: 'info' },
     2: { name: '通过', value: 2, type: 'success' },
-    3: { name: '未通过', value: 3, type: 'info' }
+    3: { name: '未通过', value: 3, type: 'info' },
+    4: { name: '通过', value: 4, type: 'success' }
   }
   const statusOptions = Object.values(statusMap)
 
@@ -545,6 +552,9 @@
 
   // 显示表单
   function showDialog(type: string, row?: any) {
+    if (row.status !== 1) {
+      return
+    }
     dialogVisible.value = true
     dialogType.value = type
 
@@ -640,7 +650,7 @@
   // 审核不通过数据
   async function del() {
     try {
-      await ElMessageBox.confirm('确定要移除该订单吗？', '移除订单', {
+      await ElMessageBox.confirm('确定拒绝该订单吗？', '拒绝订单', {
         type: 'error',
         confirmButtonText: '确定',
         cancelButtonText: '取消'

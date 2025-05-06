@@ -282,6 +282,7 @@ model Order {
   user         User?          @relation(fields: [userId], references: [id])
   categoryId   Int?           @db.UnsignedInt
   category     OrderCategory? @relation(fields: [categoryId], references: [id])
+  distribution Distribution?
 
   @@index([userId])
 }
@@ -330,26 +331,24 @@ model TaskCategory {
 }
 
 model Distribution {
-  id         Int                   @id @default(autoincrement()) @db.UnsignedInt
-  name       String                @unique @db.VarChar(255)
-  desc       String?               @db.Text
-  status     Int                   @default(0) @db.UnsignedTinyInt
-  createdAt  DateTime              @default(now())
-  updatedAt  DateTime              @updatedAt
-  categoryId Int?                  @db.UnsignedInt
-  category   DistributionCategory? @relation(fields: [categoryId], references: [id])
-
-  @@index([name])
+  id        Int       @id @default(autoincrement()) @db.UnsignedInt
+  desc      String?   @db.Text
+  startTime DateTime?
+  endTime   DateTime?
+  status    Int       @default(0) @db.UnsignedTinyInt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  orderId   Int       @unique @db.UnsignedInt
+  order     Order     @relation(fields: [orderId], references: [id])
 }
 
 model DistributionCategory {
-  id            Int            @id @default(autoincrement()) @db.UnsignedInt
-  name          String         @unique @db.VarChar(255)
-  desc          String?        @db.Text
-  status        Int            @default(0) @db.UnsignedTinyInt
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  distributions Distribution[]
+  id        Int      @id @default(autoincrement()) @db.UnsignedInt
+  name      String   @unique @db.VarChar(255)
+  desc      String?  @db.Text
+  status    Int      @default(0) @db.UnsignedTinyInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([name])
 }
