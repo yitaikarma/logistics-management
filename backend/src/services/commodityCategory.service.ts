@@ -68,8 +68,6 @@ export class CommodityCategoryService {
 
     // 获取商品分类列表
     async findAll(params?: CommodityCategoryQuerySchema) {
-        console.log('params', findParams(params))
-
         const condition: Prisma.CommodityCategoryFindManyArgs = {
             select,
             where: findParams(params),

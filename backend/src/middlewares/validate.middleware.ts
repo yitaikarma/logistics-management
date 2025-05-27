@@ -15,7 +15,7 @@ export function validateBody(schema: z.ZodType<any, any>) {
         try {
             req.body = schema
                 .refine(data => {
-                    console.log('body', data)
+                    // console.log('body', data)
                     return data
                 })
                 .parse(req.body)
@@ -38,7 +38,7 @@ export function validateQuery(schema: z.ZodType<any, any>) {
         try {
             req.query = schema
                 .refine(data => {
-                    console.log('query', data)
+                    // console.log('query', data)
                     return data
                 })
                 .parse(req.query)

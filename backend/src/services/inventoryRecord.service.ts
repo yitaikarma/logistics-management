@@ -75,7 +75,6 @@ export class InventoryRecordService {
 
     // 获取库存记录列表
     async findAll(params?: InventoryRecordQuerySchema) {
-        console.log('params', findParams(params))
         const condition: Prisma.InventoryRecordFindManyArgs = {
             select,
             where: findParams(params),

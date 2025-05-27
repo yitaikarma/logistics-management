@@ -69,8 +69,6 @@ export class UserService {
         pageSize ??= 10
         const skip = (currentPage - 1) * pageSize
 
-        console.log('params', params, findParams(params))
-
         const condition: Prisma.UserFindManyArgs = {
             skip,
             take: pageSize,

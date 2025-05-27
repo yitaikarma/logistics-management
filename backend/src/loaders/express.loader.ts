@@ -45,7 +45,7 @@ export function expressLoader(): Application {
 
     // 404路由处理
     app.use((req: Request, res: Response) => {
-        console.log(req)
+        // console.log(req)
 
         ResponseUtil.error(res, 404, '未找到路由')
     })
